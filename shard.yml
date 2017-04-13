@@ -1,0 +1,9 @@
+name: icu
+version: 0.1.0
+
+authors:
+  - Luc Sarzyniec <luc.sarzyniec@xilopix.com>
+
+crystal: 0.21.0
+
+license: GPLv3
