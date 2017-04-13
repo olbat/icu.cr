@@ -2,6 +2,8 @@
 
 TODO: Write a description here
 
+__WIP__: very first stage of development, not to be used
+
 ## Installation
 
 Add this to your application's `shard.yml`:
