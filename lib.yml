@@ -1,0 +1,160 @@
+---
+name: LibICU
+ldflags: "-licuio -licui18n -liculx -licule -licuuc -licudata"
+packages: "icu-uc icu-i18n icu-io icu-lx icu-le"
+destdir: src/lib_icu/
+rename:
+  rules:
+    "*":
+    - pattern: _\d+$
+      replacement: ""
+# Note: this list has been extracted extracted from unicode/docmain.h
+definitions:
+  lib_icu:
+    description: |-
+      Basic Types and Constants
+      Unicode Character, Properties and Names
+    includes:
+    - unicode/utypes.h
+    - unicode/uchar.h
+    - unicode/uformattable.h
+    prefixes:
+    - u_
+    - ufmt_
+  ustring:
+    description: Strings and Character Iteration
+    includes:
+    - unicode/ustring.h
+    - unicode/uiter.h
+    prefixes:
+    - u_str
+    - u_mem
+    - u_iter
+  uset:
+    description: Sets of Unicode Code Points and Strings
+    includes: [ unicode/uset.h ]
+    prefixes: [ uset_ ]
+  ucnv:
+    description: Codepage Conversion
+    includes:
+    - unicode/ucnv.h
+    - unicode/ucnvsel.h
+    prefixes:
+    - ucnv_
+    - ucnvsel_
+  uloc:
+    description: Locales
+    includes:
+    - unicode/uloc.h
+    - unicode/ulocdata.h
+    prefixes:
+    - uloc_
+    - ulocdata_
+  ures:
+    description: Resource Bundles
+    includes: [ unicode/ures.h ]
+    prefixes: [ ures_ ]
+  unorm2:
+    description: Normalization
+    includes: [ unicode/unorm2.h ]
+    prefixes: [ unorm2_ ]
+  ucal:
+    description: Calendars
+    includes: [ unicode/ucal.h ]
+    prefixes: [ ucal_ ]
+  udat:
+    description: Date and Time Formatting
+    includes:
+    - unicode/udat.h
+    - unicode/udatpg.h
+    - unicode/udateintervalformat.h
+    prefixes:
+    - udat_
+    - udatpg_
+    - udtitvfmt_
+  unum:
+    description: Number Formatting/Spellout
+    includes: [ unicode/unum.h ]
+    prefixes: [ unum_ ]
+  utrans:
+    description: Text Transformation (Transliteration)
+    includes: [ unicode/utrans.h ]
+    prefixes: [ utrans_ ]
+  ubidi:
+    description: Bidirectional Algorithm
+    includes: [ unicode/ubidi.h ]
+    prefixes: [ ubidi_ ]
+  ucol:
+    description: Collation
+    includes: [ unicode/ucol.h ]
+    prefixes: [ ucol_ ]
+  usearch:
+    description: String Searching
+    includes: [ unicode/usearch.h ]
+    prefixes: [ usearch_ ]
+  ubrk:
+    description: Text Boundary Analysis (Break Iteration)
+    includes: [ unicode/ubrk.h ]
+    prefixes: [ ubrk_ ]
+  uregex:
+    description: Regular Expressions
+    includes: [ unicode/uregex.h ]
+    prefixes: [ uregex_ ]
+  usprep:
+    description: StringPrep
+    includes: [ unicode/usprep.h ]
+    prefixes: [ usprep_ ]
+  uidna:
+    description: International Domain Names in Applications
+    includes: [ unicode/uidna.h ]
+    prefixes: [ uidna_ ]
+  uspoof:
+    description: Identifier Spoofing & Confusability
+    includes: [ unicode/uspoof.h ]
+    prefixes: [ uspoof_ ]
+  utmscale:
+    description: Universal Time Scale
+    includes: [ unicode/utmscale.h ]
+    prefixes: [ utmscale_ ]
+  ucsdet:
+    description: Charset detection
+    includes: [ unicode/ucsdet.h ]
+    prefixes: [ ucsdet_ ]
+  ucurr:
+    description: Encapsulates information about a currency
+    includes: [ unicode/ucurr.h ]
+    prefixes: [ ucurr_ ]
+  udata:
+    description: Data loading interface
+    includes: [ unicode/udata.h ]
+    prefixes: [ udata_ ]
+  upluralrules:
+    description: Plural rules
+    includes: [ unicode/upluralrules.h ]
+    prefixes: [ uplrules_ ]
+  uregion:
+    description: Territory containment and mapping
+    includes: [ unicode/uregion.h ]
+    prefixes: [ uregion_ ]
+  uenum:
+    description: String Enumeration
+    includes: [ unicode/uenum.h ]
+    prefixes: [ uenum_ ]
+
+## Disabled because some functions uses the va_list type from stdargs.h
+## (see https://github.com/crystal-lang/crystal_lib/issues/41)
+##
+## TODO: find a way to handle va_list parameters properly
+#
+#  ustdio:
+#    description: ICU I/O
+#    includes: [ unicode/ustdio.h ]
+#    prefixes: [ u_ ]
+#  umsg:
+#    description: Message Formatting
+#    includes: [ unicode/umsg.h ]
+#    prefixes: [ umsg_ ]
+#  utrace:
+#    description: ICU tracing/logging
+#    includes: [ unicode/utrace.h ]
+#    prefixes: [ utrace_ ]
