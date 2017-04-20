@@ -6,4 +6,10 @@ authors:
 
 crystal: 0.21.0
 
+description: |
+  A binding to the ICU library
+
+libraries:
+  libicu: "~> 52.0" # FIXME: see https://github.com/olbat/icu.cr/issues/1
+
 license: GPLv3
