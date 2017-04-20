@@ -22,6 +22,7 @@ class ICU::CharsetDetector
   end
 
   @csdet : LibICU::UCharsetDetector
+  @@detectable_charsets : Array(String)?
 
   def initialize
     ustatus = uninitialized LibICU::UErrorCode
@@ -57,5 +58,19 @@ class ICU::CharsetDetector
     Slice(LibICU::UCharsetMatch).new(ucsmatchs, num).map do |ucsmatch|
       CharsetMatch.new(ucsmatch.not_nil!)
     end
+  end
+
+  def detectable_charsets : Array(String)
+    unless @@detectable_charsets
+      uenum = LibICU.ucsdet_get_all_detectable_charsets(@csdet, out ustatus)
+      ICU.check_error!(ustatus)
+      @@detectable_charsets = UEnum.new(uenum).to_a
+      LibICU.uenum_close(uenum)
+    end
+    @@detectable_charsets.not_nil!
+  end
+
+  def self.detectable_charsets : Array(String)
+    @@detectable_charsets ||= new.detectable_charsets
   end
 end
