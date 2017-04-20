@@ -1,4 +1,4 @@
-# ICU
+# Crystal ICU [![Build Status](https://secure.travis-ci.org/olbat/icu.cr.png?branch=master)](https://travis-ci.org/olbat/icu.cr)
 
 TODO: Write a description here
 
