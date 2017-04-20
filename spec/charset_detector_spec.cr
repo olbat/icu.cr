@@ -34,4 +34,15 @@ describe "ICU::CharsetDetector" do
       cms.size.should be > 1
     end
   end
+
+  describe "detectable_charsets" do
+    it "returns the list of detectable charsets" do
+      dcs1 = ICU::CharsetDetector.new.detectable_charsets
+      dcs1.size.should be > 1
+
+      dcs2 = ICU::CharsetDetector.detectable_charsets
+      dcs2.size.should be > 1
+      dcs2.should eq(dcs1)
+    end
+  end
 end
