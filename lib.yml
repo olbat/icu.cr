@@ -18,6 +18,7 @@ definitions:
     - unicode/utypes.h
     - unicode/uchar.h
     - unicode/uformattable.h
+    - unicode/putil.h
     prefixes:
     - u_
     - ufmt_

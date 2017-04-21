@@ -415,6 +415,7 @@ lib LibICU
   fun u_char_mirror = u_charMirror_52(c : UChar32) : UChar32
   fun u_char_name = u_charName_52(code : UChar32, name_choice : UCharNameChoice, buffer : LibC::Char*, buffer_length : Int32T, p_error_code : UErrorCode*) : Int32T
   fun u_char_type = u_charType_52(c : UChar32) : Int8T
+  fun u_chars_to_u_chars = u_charsToUChars_52(cs : LibC::Char*, us : UChar*, length : Int32T)
   fun u_digit = u_digit_52(ch : UChar32, radix : Int8T) : Int32T
   fun u_enum_char_names = u_enumCharNames_52(start : UChar32, limit : UChar32, fn : (Void*, UChar32, UCharNameChoice, LibC::Char*, Int32T -> UBool), context : Void*, name_choice : UCharNameChoice, p_error_code : UErrorCode*)
   fun u_enum_char_types = u_enumCharTypes_52(enum_range : (Void*, UChar32, UChar32, UCharCategory -> UBool), context : Void*)
@@ -423,6 +424,7 @@ lib LibICU
   fun u_for_digit = u_forDigit_52(digit : Int32T, radix : Int8T) : UChar32
   fun u_get_bidi_paired_bracket = u_getBidiPairedBracket_52(c : UChar32) : UChar32
   fun u_get_combining_class = u_getCombiningClass_52(c : UChar32) : Uint8T
+  fun u_get_data_directory = u_getDataDirectory_52 : LibC::Char*
   fun u_get_fc_nfkc_closure = u_getFC_NFKC_Closure_52(c : UChar32, dest : UChar*, dest_capacity : Int32T, p_error_code : UErrorCode*) : Int32T
   fun u_get_int_property_max_value = u_getIntPropertyMaxValue_52(which : UProperty) : Int32T
   fun u_get_int_property_min_value = u_getIntPropertyMinValue_52(which : UProperty) : Int32T
@@ -464,9 +466,11 @@ lib LibICU
   fun u_istitle = u_istitle_52(c : UChar32) : UBool
   fun u_isupper = u_isupper_52(c : UChar32) : UBool
   fun u_isxdigit = u_isxdigit_52(c : UChar32) : UBool
+  fun u_set_data_directory = u_setDataDirectory_52(directory : LibC::Char*)
   fun u_tolower = u_tolower_52(c : UChar32) : UChar32
   fun u_totitle = u_totitle_52(c : UChar32) : UChar32
   fun u_toupper = u_toupper_52(c : UChar32) : UChar32
+  fun u_u_chars_to_chars = u_UCharsToChars_52(us : UChar*, cs : LibC::Char*, length : Int32T)
   fun u_version_from_string = u_versionFromString_52(version_array : UVersionInfo, version_string : LibC::Char*)
   fun u_version_from_u_string = u_versionFromUString_52(version_array : UVersionInfo, version_string : UChar*)
   fun u_version_to_string = u_versionToString_52(version_array : UVersionInfo, version_string : LibC::Char*)
