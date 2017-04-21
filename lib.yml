@@ -31,6 +31,10 @@ definitions:
     - u_str
     - u_mem
     - u_iter
+  utext:
+    description: Abstract Unicode Text API
+    includes: [ unicode/utext.h ]
+    prefixes: [ utext_ ]
   uset:
     description: Sets of Unicode Code Points and Strings
     includes: [ unicode/uset.h ]
