@@ -573,6 +573,7 @@ lib LibICU
 end
 
 require "./ustring.cr"
+require "./utext.cr"
 require "./uset.cr"
 require "./ucnv.cr"
 require "./uloc.cr"
