@@ -7,11 +7,7 @@ class ICU::Currencies
     Deprecated    = 4,
     NonDeprecated = 8
   end
-
-  enum NameStyle
-    Symbol = LibICU::UCurrNameStyle::UcurrSymbolName
-    Long   = LibICU::UCurrNameStyle::UcurrLongName
-  end
+  alias NameStyle = LibICU::UCurrNameStyle
 
   def self.currency(locale : String) : String
     buff = Slice(LibICU::UChar).new(4)
