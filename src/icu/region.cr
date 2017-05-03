@@ -1,7 +1,20 @@
 class ICU::Region
+  alias Type = LibICU::URegionType
+
   @uregion : LibICU::URegion
   @code : String?
   @numeric_code : Int32?
+  @type : Type?
+  @@regions = {} of Type => Array(String)
+
+  def self.regions(type : Type = Type::UrgnWorld)
+    ustatus = uninitialized LibICU::UErrorCode
+    uenum = LibICU.uregion_get_available(type, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+    regions = UEnum.new(uenum).to_a
+    LibICU.uenum_close(uenum)
+    @@regions[type] ||= regions
+  end
 
   def initialize(code : String)
     ustatus = uninitialized LibICU::UErrorCode
@@ -24,6 +37,10 @@ class ICU::Region
 
   def numeric_code : Int32
     @numeric_code ||= LibICU.uregion_get_numeric_code(@uregion)
+  end
+
+  def type : Type
+    @type ||= LibICU.uregion_get_type(@uregion).as(Type)
   end
 
   def ==(other : typeof(self))
