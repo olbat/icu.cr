@@ -1,5 +1,6 @@
-@[Link(ldflags: "`command -v pkg-config > /dev/null && pkg-config --libs icu-uc icu-i18n icu-io icu-lx icu-le || printf %s '-licuio -licui18n -liculx -licule -licuuc -licudata'`")]
+@[Link(ldflags: "`command -v pkg-config > /dev/null && pkg-config --libs icu-uc icu-i18n icu-io 2> /dev/null|| printf %s '-licuio -licui18n -licuuc -licudata'`")]
 lib LibICU
+  {% begin %}
   enum UDateTimeScale
     UdtsJavaTime             =  0
     UdtsUnixTime             =  1
@@ -27,7 +28,8 @@ lib LibICU
     UtsvMaxRoundValue          = 10
     UtsvMaxScaleValue          = 11
   end
-  fun utmscale_from_int64 = utmscale_fromInt64_52(other_time : Int64T, time_scale : UDateTimeScale, status : UErrorCode*) : Int64T
-  fun utmscale_get_time_scale_value = utmscale_getTimeScaleValue_52(time_scale : UDateTimeScale, value : UTimeScaleValue, status : UErrorCode*) : Int64T
-  fun utmscale_to_int64 = utmscale_toInt64_52(universal_time : Int64T, time_scale : UDateTimeScale, status : UErrorCode*) : Int64T
+  fun utmscale_from_int64 = utmscale_fromInt64{{SYMS_SUFFIX.id}}(other_time : Int64T, time_scale : UDateTimeScale, status : UErrorCode*) : Int64T
+  fun utmscale_get_time_scale_value = utmscale_getTimeScaleValue{{SYMS_SUFFIX.id}}(time_scale : UDateTimeScale, value : UTimeScaleValue, status : UErrorCode*) : Int64T
+  fun utmscale_to_int64 = utmscale_toInt64{{SYMS_SUFFIX.id}}(universal_time : Int64T, time_scale : UDateTimeScale, status : UErrorCode*) : Int64T
+  {% end %}
 end

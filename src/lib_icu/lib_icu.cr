@@ -1,5 +1,11 @@
-@[Link(ldflags: "`command -v pkg-config > /dev/null && pkg-config --libs icu-uc icu-i18n icu-io icu-lx icu-le || printf %s '-licuio -licui18n -liculx -licule -licuuc -licudata'`")]
+@[Link(ldflags: "`command -v pkg-config > /dev/null && pkg-config --libs icu-uc icu-i18n icu-io 2> /dev/null|| printf %s '-licuio -licui18n -licuuc -licudata'`")]
 lib LibICU
+  {% begin %}
+  VERSION={{ run("../icu_info.cr", "--sem-version").strip.stringify }}
+  SYMS_SUFFIX={{ run("../icu_info.cr", "--so-symbols-suffix").strip.stringify }}
+  {% end %}
+
+  {% begin %}
   alias Int32T = LibC::Int
   alias Int64T = LibC::Long
   alias Int8T = LibC::Char
@@ -408,85 +414,85 @@ lib LibICU
     ULongPropertyName        = 1
     UPropertyNameChoiceCount = 2
   end
-  fun u_char_age = u_charAge_52(c : UChar32, version_array : UVersionInfo)
-  fun u_char_digit_value = u_charDigitValue_52(c : UChar32) : Int32T
-  fun u_char_direction = u_charDirection_52(c : UChar32) : UCharDirection
-  fun u_char_from_name = u_charFromName_52(name_choice : UCharNameChoice, name : LibC::Char*, p_error_code : UErrorCode*) : UChar32
-  fun u_char_mirror = u_charMirror_52(c : UChar32) : UChar32
-  fun u_char_name = u_charName_52(code : UChar32, name_choice : UCharNameChoice, buffer : LibC::Char*, buffer_length : Int32T, p_error_code : UErrorCode*) : Int32T
-  fun u_char_type = u_charType_52(c : UChar32) : Int8T
-  fun u_chars_to_u_chars = u_charsToUChars_52(cs : LibC::Char*, us : UChar*, length : Int32T)
-  fun u_digit = u_digit_52(ch : UChar32, radix : Int8T) : Int32T
-  fun u_enum_char_names = u_enumCharNames_52(start : UChar32, limit : UChar32, fn : (Void*, UChar32, UCharNameChoice, LibC::Char*, Int32T -> UBool), context : Void*, name_choice : UCharNameChoice, p_error_code : UErrorCode*)
-  fun u_enum_char_types = u_enumCharTypes_52(enum_range : (Void*, UChar32, UChar32, UCharCategory -> UBool), context : Void*)
-  fun u_error_name = u_errorName_52(code : UErrorCode) : LibC::Char*
-  fun u_fold_case = u_foldCase_52(c : UChar32, options : Uint32T) : UChar32
-  fun u_for_digit = u_forDigit_52(digit : Int32T, radix : Int8T) : UChar32
-  fun u_get_bidi_paired_bracket = u_getBidiPairedBracket_52(c : UChar32) : UChar32
-  fun u_get_combining_class = u_getCombiningClass_52(c : UChar32) : Uint8T
-  fun u_get_data_directory = u_getDataDirectory_52 : LibC::Char*
-  fun u_get_fc_nfkc_closure = u_getFC_NFKC_Closure_52(c : UChar32, dest : UChar*, dest_capacity : Int32T, p_error_code : UErrorCode*) : Int32T
-  fun u_get_int_property_max_value = u_getIntPropertyMaxValue_52(which : UProperty) : Int32T
-  fun u_get_int_property_min_value = u_getIntPropertyMinValue_52(which : UProperty) : Int32T
-  fun u_get_int_property_value = u_getIntPropertyValue_52(c : UChar32, which : UProperty) : Int32T
-  fun u_get_iso_comment = u_getISOComment_52(c : UChar32, dest : LibC::Char*, dest_capacity : Int32T, p_error_code : UErrorCode*) : Int32T
-  fun u_get_numeric_value = u_getNumericValue_52(c : UChar32) : LibC::Double
-  fun u_get_property_enum = u_getPropertyEnum_52(alias : LibC::Char*) : UProperty
-  fun u_get_property_name = u_getPropertyName_52(property : UProperty, name_choice : UPropertyNameChoice) : LibC::Char*
-  fun u_get_property_value_enum = u_getPropertyValueEnum_52(property : UProperty, alias : LibC::Char*) : Int32T
-  fun u_get_property_value_name = u_getPropertyValueName_52(property : UProperty, value : Int32T, name_choice : UPropertyNameChoice) : LibC::Char*
-  fun u_get_unicode_version = u_getUnicodeVersion_52(version_array : UVersionInfo)
-  fun u_get_version = u_getVersion_52(version_array : UVersionInfo)
-  fun u_has_binary_property = u_hasBinaryProperty_52(c : UChar32, which : UProperty) : UBool
-  fun u_is_id_ignorable = u_isIDIgnorable_52(c : UChar32) : UBool
-  fun u_is_id_part = u_isIDPart_52(c : UChar32) : UBool
-  fun u_is_id_start = u_isIDStart_52(c : UChar32) : UBool
-  fun u_is_iso_control = u_isISOControl_52(c : UChar32) : UBool
-  fun u_is_java_id_part = u_isJavaIDPart_52(c : UChar32) : UBool
-  fun u_is_java_id_start = u_isJavaIDStart_52(c : UChar32) : UBool
-  fun u_is_java_space_char = u_isJavaSpaceChar_52(c : UChar32) : UBool
-  fun u_is_mirrored = u_isMirrored_52(c : UChar32) : UBool
-  fun u_is_u_alphabetic = u_isUAlphabetic_52(c : UChar32) : UBool
-  fun u_is_u_lowercase = u_isULowercase_52(c : UChar32) : UBool
-  fun u_is_u_uppercase = u_isUUppercase_52(c : UChar32) : UBool
-  fun u_is_u_white_space = u_isUWhiteSpace_52(c : UChar32) : UBool
-  fun u_is_whitespace = u_isWhitespace_52(c : UChar32) : UBool
-  fun u_isalnum = u_isalnum_52(c : UChar32) : UBool
-  fun u_isalpha = u_isalpha_52(c : UChar32) : UBool
-  fun u_isbase = u_isbase_52(c : UChar32) : UBool
-  fun u_isblank = u_isblank_52(c : UChar32) : UBool
-  fun u_iscntrl = u_iscntrl_52(c : UChar32) : UBool
-  fun u_isdefined = u_isdefined_52(c : UChar32) : UBool
-  fun u_isdigit = u_isdigit_52(c : UChar32) : UBool
-  fun u_isgraph = u_isgraph_52(c : UChar32) : UBool
-  fun u_islower = u_islower_52(c : UChar32) : UBool
-  fun u_isprint = u_isprint_52(c : UChar32) : UBool
-  fun u_ispunct = u_ispunct_52(c : UChar32) : UBool
-  fun u_isspace = u_isspace_52(c : UChar32) : UBool
-  fun u_istitle = u_istitle_52(c : UChar32) : UBool
-  fun u_isupper = u_isupper_52(c : UChar32) : UBool
-  fun u_isxdigit = u_isxdigit_52(c : UChar32) : UBool
-  fun u_set_data_directory = u_setDataDirectory_52(directory : LibC::Char*)
-  fun u_tolower = u_tolower_52(c : UChar32) : UChar32
-  fun u_totitle = u_totitle_52(c : UChar32) : UChar32
-  fun u_toupper = u_toupper_52(c : UChar32) : UChar32
-  fun u_u_chars_to_chars = u_UCharsToChars_52(us : UChar*, cs : LibC::Char*, length : Int32T)
-  fun u_version_from_string = u_versionFromString_52(version_array : UVersionInfo, version_string : LibC::Char*)
-  fun u_version_from_u_string = u_versionFromUString_52(version_array : UVersionInfo, version_string : UChar*)
-  fun u_version_to_string = u_versionToString_52(version_array : UVersionInfo, version_string : LibC::Char*)
-  fun ufmt_close = ufmt_close_52(fmt : UFormattable*)
-  fun ufmt_get_array_item_by_index = ufmt_getArrayItemByIndex_52(fmt : UFormattable*, n : Int32T, status : UErrorCode*) : UFormattable*
-  fun ufmt_get_array_length = ufmt_getArrayLength_52(fmt : UFormattable*, status : UErrorCode*) : Int32T
-  fun ufmt_get_date = ufmt_getDate_52(fmt : UFormattable*, status : UErrorCode*) : UDate
-  fun ufmt_get_dec_num_chars = ufmt_getDecNumChars_52(fmt : UFormattable*, len : Int32T*, status : UErrorCode*) : LibC::Char*
-  fun ufmt_get_double = ufmt_getDouble_52(fmt : UFormattable*, status : UErrorCode*) : LibC::Double
-  fun ufmt_get_int64 = ufmt_getInt64_52(fmt : UFormattable*, status : UErrorCode*) : Int64T
-  fun ufmt_get_long = ufmt_getLong_52(fmt : UFormattable*, status : UErrorCode*) : Int32T
-  fun ufmt_get_object = ufmt_getObject_52(fmt : UFormattable*, status : UErrorCode*) : Void*
-  fun ufmt_get_type = ufmt_getType_52(fmt : UFormattable*, status : UErrorCode*) : UFormattableType
-  fun ufmt_get_u_chars = ufmt_getUChars_52(fmt : UFormattable*, len : Int32T*, status : UErrorCode*) : UChar*
-  fun ufmt_is_numeric = ufmt_isNumeric_52(fmt : UFormattable*) : UBool
-  fun ufmt_open = ufmt_open_52(status : UErrorCode*) : UFormattable*
+  fun u_char_age = u_charAge{{SYMS_SUFFIX.id}}(c : UChar32, version_array : UVersionInfo)
+  fun u_char_digit_value = u_charDigitValue{{SYMS_SUFFIX.id}}(c : UChar32) : Int32T
+  fun u_char_direction = u_charDirection{{SYMS_SUFFIX.id}}(c : UChar32) : UCharDirection
+  fun u_char_from_name = u_charFromName{{SYMS_SUFFIX.id}}(name_choice : UCharNameChoice, name : LibC::Char*, p_error_code : UErrorCode*) : UChar32
+  fun u_char_mirror = u_charMirror{{SYMS_SUFFIX.id}}(c : UChar32) : UChar32
+  fun u_char_name = u_charName{{SYMS_SUFFIX.id}}(code : UChar32, name_choice : UCharNameChoice, buffer : LibC::Char*, buffer_length : Int32T, p_error_code : UErrorCode*) : Int32T
+  fun u_char_type = u_charType{{SYMS_SUFFIX.id}}(c : UChar32) : Int8T
+  fun u_chars_to_u_chars = u_charsToUChars{{SYMS_SUFFIX.id}}(cs : LibC::Char*, us : UChar*, length : Int32T)
+  fun u_digit = u_digit{{SYMS_SUFFIX.id}}(ch : UChar32, radix : Int8T) : Int32T
+  fun u_enum_char_names = u_enumCharNames{{SYMS_SUFFIX.id}}(start : UChar32, limit : UChar32, fn : (Void*, UChar32, UCharNameChoice, LibC::Char*, Int32T -> UBool), context : Void*, name_choice : UCharNameChoice, p_error_code : UErrorCode*)
+  fun u_enum_char_types = u_enumCharTypes{{SYMS_SUFFIX.id}}(enum_range : (Void*, UChar32, UChar32, UCharCategory -> UBool), context : Void*)
+  fun u_error_name = u_errorName{{SYMS_SUFFIX.id}}(code : UErrorCode) : LibC::Char*
+  fun u_fold_case = u_foldCase{{SYMS_SUFFIX.id}}(c : UChar32, options : Uint32T) : UChar32
+  fun u_for_digit = u_forDigit{{SYMS_SUFFIX.id}}(digit : Int32T, radix : Int8T) : UChar32
+  fun u_get_bidi_paired_bracket = u_getBidiPairedBracket{{SYMS_SUFFIX.id}}(c : UChar32) : UChar32
+  fun u_get_combining_class = u_getCombiningClass{{SYMS_SUFFIX.id}}(c : UChar32) : Uint8T
+  fun u_get_data_directory = u_getDataDirectory{{SYMS_SUFFIX.id}} : LibC::Char*
+  fun u_get_fc_nfkc_closure = u_getFC_NFKC_Closure{{SYMS_SUFFIX.id}}(c : UChar32, dest : UChar*, dest_capacity : Int32T, p_error_code : UErrorCode*) : Int32T
+  fun u_get_int_property_max_value = u_getIntPropertyMaxValue{{SYMS_SUFFIX.id}}(which : UProperty) : Int32T
+  fun u_get_int_property_min_value = u_getIntPropertyMinValue{{SYMS_SUFFIX.id}}(which : UProperty) : Int32T
+  fun u_get_int_property_value = u_getIntPropertyValue{{SYMS_SUFFIX.id}}(c : UChar32, which : UProperty) : Int32T
+  fun u_get_iso_comment = u_getISOComment{{SYMS_SUFFIX.id}}(c : UChar32, dest : LibC::Char*, dest_capacity : Int32T, p_error_code : UErrorCode*) : Int32T
+  fun u_get_numeric_value = u_getNumericValue{{SYMS_SUFFIX.id}}(c : UChar32) : LibC::Double
+  fun u_get_property_enum = u_getPropertyEnum{{SYMS_SUFFIX.id}}(alias : LibC::Char*) : UProperty
+  fun u_get_property_name = u_getPropertyName{{SYMS_SUFFIX.id}}(property : UProperty, name_choice : UPropertyNameChoice) : LibC::Char*
+  fun u_get_property_value_enum = u_getPropertyValueEnum{{SYMS_SUFFIX.id}}(property : UProperty, alias : LibC::Char*) : Int32T
+  fun u_get_property_value_name = u_getPropertyValueName{{SYMS_SUFFIX.id}}(property : UProperty, value : Int32T, name_choice : UPropertyNameChoice) : LibC::Char*
+  fun u_get_unicode_version = u_getUnicodeVersion{{SYMS_SUFFIX.id}}(version_array : UVersionInfo)
+  fun u_get_version = u_getVersion{{SYMS_SUFFIX.id}}(version_array : UVersionInfo)
+  fun u_has_binary_property = u_hasBinaryProperty{{SYMS_SUFFIX.id}}(c : UChar32, which : UProperty) : UBool
+  fun u_is_id_ignorable = u_isIDIgnorable{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_id_part = u_isIDPart{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_id_start = u_isIDStart{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_iso_control = u_isISOControl{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_java_id_part = u_isJavaIDPart{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_java_id_start = u_isJavaIDStart{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_java_space_char = u_isJavaSpaceChar{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_mirrored = u_isMirrored{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_u_alphabetic = u_isUAlphabetic{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_u_lowercase = u_isULowercase{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_u_uppercase = u_isUUppercase{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_u_white_space = u_isUWhiteSpace{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_is_whitespace = u_isWhitespace{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isalnum = u_isalnum{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isalpha = u_isalpha{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isbase = u_isbase{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isblank = u_isblank{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_iscntrl = u_iscntrl{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isdefined = u_isdefined{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isdigit = u_isdigit{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isgraph = u_isgraph{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_islower = u_islower{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isprint = u_isprint{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_ispunct = u_ispunct{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isspace = u_isspace{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_istitle = u_istitle{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isupper = u_isupper{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_isxdigit = u_isxdigit{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
+  fun u_set_data_directory = u_setDataDirectory{{SYMS_SUFFIX.id}}(directory : LibC::Char*)
+  fun u_tolower = u_tolower{{SYMS_SUFFIX.id}}(c : UChar32) : UChar32
+  fun u_totitle = u_totitle{{SYMS_SUFFIX.id}}(c : UChar32) : UChar32
+  fun u_toupper = u_toupper{{SYMS_SUFFIX.id}}(c : UChar32) : UChar32
+  fun u_u_chars_to_chars = u_UCharsToChars{{SYMS_SUFFIX.id}}(us : UChar*, cs : LibC::Char*, length : Int32T)
+  fun u_version_from_string = u_versionFromString{{SYMS_SUFFIX.id}}(version_array : UVersionInfo, version_string : LibC::Char*)
+  fun u_version_from_u_string = u_versionFromUString{{SYMS_SUFFIX.id}}(version_array : UVersionInfo, version_string : UChar*)
+  fun u_version_to_string = u_versionToString{{SYMS_SUFFIX.id}}(version_array : UVersionInfo, version_string : LibC::Char*)
+  fun ufmt_close = ufmt_close{{SYMS_SUFFIX.id}}(fmt : UFormattable*)
+  fun ufmt_get_array_item_by_index = ufmt_getArrayItemByIndex{{SYMS_SUFFIX.id}}(fmt : UFormattable*, n : Int32T, status : UErrorCode*) : UFormattable*
+  fun ufmt_get_array_length = ufmt_getArrayLength{{SYMS_SUFFIX.id}}(fmt : UFormattable*, status : UErrorCode*) : Int32T
+  fun ufmt_get_date = ufmt_getDate{{SYMS_SUFFIX.id}}(fmt : UFormattable*, status : UErrorCode*) : UDate
+  fun ufmt_get_dec_num_chars = ufmt_getDecNumChars{{SYMS_SUFFIX.id}}(fmt : UFormattable*, len : Int32T*, status : UErrorCode*) : LibC::Char*
+  fun ufmt_get_double = ufmt_getDouble{{SYMS_SUFFIX.id}}(fmt : UFormattable*, status : UErrorCode*) : LibC::Double
+  fun ufmt_get_int64 = ufmt_getInt64{{SYMS_SUFFIX.id}}(fmt : UFormattable*, status : UErrorCode*) : Int64T
+  fun ufmt_get_long = ufmt_getLong{{SYMS_SUFFIX.id}}(fmt : UFormattable*, status : UErrorCode*) : Int32T
+  fun ufmt_get_object = ufmt_getObject{{SYMS_SUFFIX.id}}(fmt : UFormattable*, status : UErrorCode*) : Void*
+  fun ufmt_get_type = ufmt_getType{{SYMS_SUFFIX.id}}(fmt : UFormattable*, status : UErrorCode*) : UFormattableType
+  fun ufmt_get_u_chars = ufmt_getUChars{{SYMS_SUFFIX.id}}(fmt : UFormattable*, len : Int32T*, status : UErrorCode*) : UChar*
+  fun ufmt_is_numeric = ufmt_isNumeric{{SYMS_SUFFIX.id}}(fmt : UFormattable*) : UBool
+  fun ufmt_open = ufmt_open{{SYMS_SUFFIX.id}}(status : UErrorCode*) : UFormattable*
 
   struct UCharIterator
     context : Void*
@@ -570,6 +576,7 @@ lib LibICU
   type UCollator = Void*
   type UEnumeration = Void*
   type USet = Void*
+  {% end %}
 end
 
 require "./ustring.cr"

@@ -1,5 +1,6 @@
-@[Link(ldflags: "`command -v pkg-config > /dev/null && pkg-config --libs icu-uc icu-i18n icu-io icu-lx icu-le || printf %s '-licuio -licui18n -liculx -licule -licuuc -licudata'`")]
+@[Link(ldflags: "`command -v pkg-config > /dev/null && pkg-config --libs icu-uc icu-i18n icu-io 2> /dev/null|| printf %s '-licuio -licui18n -licuuc -licudata'`")]
 lib LibICU
+  {% begin %}
   enum UDataFileAccess
     UdataFilesFirst      = 0
     UdataDefaultAccess   = 0
@@ -8,14 +9,14 @@ lib LibICU
     UdataNoFiles         = 3
     UdataFileAccessCount = 4
   end
-  fun udata_close = udata_close_52(p_data : UDataMemory)
-  fun udata_get_info = udata_getInfo_52(p_data : UDataMemory, p_info : UDataInfo*)
-  fun udata_get_memory = udata_getMemory_52(p_data : UDataMemory) : Void*
-  fun udata_open = udata_open_52(path : LibC::Char*, type : LibC::Char*, name : LibC::Char*, p_error_code : UErrorCode*) : UDataMemory
-  fun udata_open_choice = udata_openChoice_52(path : LibC::Char*, type : LibC::Char*, name : LibC::Char*, is_acceptable : (Void*, LibC::Char*, LibC::Char*, UDataInfo* -> UBool), context : Void*, p_error_code : UErrorCode*) : UDataMemory
-  fun udata_set_app_data = udata_setAppData_52(package_name : LibC::Char*, data : Void*, err : UErrorCode*)
-  fun udata_set_common_data = udata_setCommonData_52(data : Void*, err : UErrorCode*)
-  fun udata_set_file_access = udata_setFileAccess_52(access : UDataFileAccess, status : UErrorCode*)
+  fun udata_close = udata_close{{SYMS_SUFFIX.id}}(p_data : UDataMemory)
+  fun udata_get_info = udata_getInfo{{SYMS_SUFFIX.id}}(p_data : UDataMemory, p_info : UDataInfo*)
+  fun udata_get_memory = udata_getMemory{{SYMS_SUFFIX.id}}(p_data : UDataMemory) : Void*
+  fun udata_open = udata_open{{SYMS_SUFFIX.id}}(path : LibC::Char*, type : LibC::Char*, name : LibC::Char*, p_error_code : UErrorCode*) : UDataMemory
+  fun udata_open_choice = udata_openChoice{{SYMS_SUFFIX.id}}(path : LibC::Char*, type : LibC::Char*, name : LibC::Char*, is_acceptable : (Void*, LibC::Char*, LibC::Char*, UDataInfo* -> UBool), context : Void*, p_error_code : UErrorCode*) : UDataMemory
+  fun udata_set_app_data = udata_setAppData{{SYMS_SUFFIX.id}}(package_name : LibC::Char*, data : Void*, err : UErrorCode*)
+  fun udata_set_common_data = udata_setCommonData{{SYMS_SUFFIX.id}}(data : Void*, err : UErrorCode*)
+  fun udata_set_file_access = udata_setFileAccess{{SYMS_SUFFIX.id}}(access : UDataFileAccess, status : UErrorCode*)
 
   struct UDataInfo
     size : Uint16T
@@ -30,4 +31,5 @@ lib LibICU
   end
 
   type UDataMemory = Void*
+  {% end %}
 end
