@@ -1,12 +1,59 @@
 ---
 language: crystal
-dist: trusty
 sudo: required
 
-before_install:
-- sudo apt-get -qq update
-- sudo apt-get install -y pkg-config libicu52
+matrix:
+  include:
+  # Linux
+  - os: linux
+    dist: precise
+  - os: linux
+    dist: trusty
+  - os: linux
+    dist: xenial
+  - os: linux
+    dist: trusty
+    env: GENERATE_LIB=1 # regenerate the binding
+  # OSX
+  - os: osx
+    osx_image: xcode8.3
+  - os: osx
+    osx_image: xcode8.3
+    env: GENERATE_LIB=1 # regenerate the binding
+
+before_install: |
+  case $TRAVIS_OS_NAME in
+  linux)
+    sudo apt-get -qq update
+    if [[ -n $GENERATE_LIB ]]; then
+      sudo apt-get install -y llvm-3.5-dev libclang-3.5-dev
+    fi
+    sudo apt-get install -y libicu-dev
+    ;;
+  osx)
+    brew update
+
+    # FIXME: ugly fix for the CI's image, crystal-lang should not be reinstalled
+    rm -f /usr/local/bin/shards
+    brew install crystal-lang
+
+    if [[ -n $GENERATE_LIB ]]; then
+      # install LLVM and Clang 3.7
+      brew install llvm@3.7
+      # FIXME: ugly fix since the libclang.dylib is not symlinked correctly
+      brew list --verbose llvm@3.7 | grep "\.dylib$" | xargs -n1 -I{} ln -sf {} $(brew --prefix)/lib
+    fi
+
+    brew install icu4c
+    brew link --force icu4c
+    ;;
+  *)
+    exit 1;;
+  esac
+
+before_script:
+- "[ -z $GENERATE_LIB ] || make"
 
 script:
-- crystal tool format --check
+- crystal tool format --check src spec
 - crystal spec
