@@ -1,3 +1,4 @@
+{% if compare_versions(LibICU::VERSION, "52.0.0") >= 0 %}
 class ICU::Region
   @uregion : LibICU::URegion
   @code : String?
@@ -47,3 +48,4 @@ class ICU::Region
     regions.map { |r| self.class.new(r) }
   end
 end
+{% end %}

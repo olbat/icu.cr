@@ -1,5 +1,6 @@
 require "./spec_helper"
 
+{% if compare_versions(LibICU::VERSION, "52.0.0") >= 0 %}
 describe "ICU::Region" do
   describe "initialize" do
     it "creates a new region from a code" do
@@ -57,3 +58,4 @@ describe "ICU::Region" do
     end
   end
 end
+{% end %}

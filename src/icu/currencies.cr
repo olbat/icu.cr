@@ -16,9 +16,11 @@ class ICU::Currencies
     ICU.uchars_to_string(buff, len)
   end
 
+  {% if compare_versions(LibICU::VERSION, "49.0.0") >= 0 %}
   def self.numeric_code(currency : String) : Int32
     num = LibICU.ucurr_get_numeric_code(ICU.string_to_uchars(currency))
     raise ICU::Error.new(%(Unknown currency "#{currency}")) if num == 0
     num
   end
+  {% end %}
 end

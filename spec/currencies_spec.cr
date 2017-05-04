@@ -13,6 +13,7 @@ describe "ICU::Currencies" do
     end
   end
 
+  {% if compare_versions(LibICU::VERSION, "49.0.0") >= 0 %}
   describe "numeric_code" do
     it "returns the code associated to a currency" do
       ICU::Currencies.numeric_code("EUR").should eq(978)
@@ -24,4 +25,5 @@ describe "ICU::Currencies" do
       end
     end
   end
+  {% end %}
 end
