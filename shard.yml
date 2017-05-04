@@ -10,6 +10,11 @@ description: |
   A binding to the ICU library
 
 libraries:
-  libicu: "~> 52.0" # FIXME: see https://github.com/olbat/icu.cr/issues/1
+  libicu: ">= 4.8"
+
+development_dependencies:
+  libgen:
+    github: olbat/libgen
+    #version: ~> 0.1
 
 license: GPLv3
