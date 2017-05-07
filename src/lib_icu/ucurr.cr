@@ -3,8 +3,8 @@ lib LibICU
   {% begin %}
   alias UCurrRegistryKey = Void*
   enum UCurrNameStyle
-    UcurrSymbolName = 0
-    UcurrLongName   = 1
+    SymbolName = 0
+    LongName   = 1
   end
   fun ucurr_count_currencies = ucurr_countCurrencies{{SYMS_SUFFIX.id}}(locale : LibC::Char*, date : UDate, ec : UErrorCode*) : Int32T
   fun ucurr_for_locale = ucurr_forLocale{{SYMS_SUFFIX.id}}(locale : LibC::Char*, buff : UChar*, buff_capacity : Int32T, ec : UErrorCode*) : Int32T

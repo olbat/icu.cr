@@ -6,7 +6,14 @@ destdir: src/lib_icu/
 rename:
   rules:
     "*":
-    - pattern: _\d+$
+    # Remove the suffix added to functions in some distributions of the lib
+    # (see https://github.com/olbat/icu.cr/issues/1)
+    - pattern: (_\d+)+$
+      replacement: ""
+    Arg:
+    # Remove type name prefix in enum definitions
+    # (UrgnTerritory of the URegionType enum becomes Territory)
+    - pattern: ^U[a-z]+
       replacement: ""
 # Note: this list has been extracted extracted from unicode/docmain.h
 definitions:

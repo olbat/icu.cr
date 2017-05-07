@@ -3,20 +3,20 @@ lib LibICU
   {% begin %}
   alias UBiDiLevel = Uint8T
   enum UBiDiDirection
-    UbidiLtr     = 0
-    UbidiRtl     = 1
-    UbidiMixed   = 2
-    UbidiNeutral = 3
+    Ltr     = 0
+    Rtl     = 1
+    Mixed   = 2
+    Neutral = 3
   end
   enum UBiDiReorderingMode
-    UbidiReorderDefault                  = 0
-    UbidiReorderNumbersSpecial           = 1
-    UbidiReorderGroupNumbersWithR        = 2
-    UbidiReorderRunsOnly                 = 3
-    UbidiReorderInverseNumbersAsL        = 4
-    UbidiReorderInverseLikeDirect        = 5
-    UbidiReorderInverseForNumbersSpecial = 6
-    UbidiReorderCount                    = 7
+    ReorderDefault                  = 0
+    ReorderNumbersSpecial           = 1
+    ReorderGroupNumbersWithR        = 2
+    ReorderRunsOnly                 = 3
+    ReorderInverseNumbersAsL        = 4
+    ReorderInverseLikeDirect        = 5
+    ReorderInverseForNumbersSpecial = 6
+    ReorderCount                    = 7
   end
   fun ubidi_close = ubidi_close{{SYMS_SUFFIX.id}}(p_bi_di : UBiDi)
   fun ubidi_count_paragraphs = ubidi_countParagraphs{{SYMS_SUFFIX.id}}(p_bi_di : UBiDi) : Int32T
