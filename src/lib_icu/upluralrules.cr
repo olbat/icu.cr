@@ -2,9 +2,9 @@
 lib LibICU
   {% begin %}
   enum UPluralType
-    UpluralTypeCardinal = 0
-    UpluralTypeOrdinal  = 1
-    UpluralTypeCount    = 2
+    TypeCardinal = 0
+    TypeOrdinal  = 1
+    TypeCount    = 2
   end
   fun uplrules_close = uplrules_close{{SYMS_SUFFIX.id}}(uplrules : UPluralRules)
   fun uplrules_open = uplrules_open{{SYMS_SUFFIX.id}}(locale : LibC::Char*, status : UErrorCode*) : UPluralRules

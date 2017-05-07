@@ -2,14 +2,14 @@
 lib LibICU
   {% begin %}
   enum URegionType
-    UrgnUnknown      = 0
-    UrgnTerritory    = 1
-    UrgnWorld        = 2
-    UrgnContinent    = 3
-    UrgnSubcontinent = 4
-    UrgnGrouping     = 5
-    UrgnDeprecated   = 6
-    UrgnLimit        = 7
+    Unknown      = 0
+    Territory    = 1
+    World        = 2
+    Continent    = 3
+    Subcontinent = 4
+    Grouping     = 5
+    Deprecated   = 6
+    Limit        = 7
   end
   fun uregion_are_equal = uregion_areEqual{{SYMS_SUFFIX.id}}(uregion : URegion, other_region : URegion) : UBool
   fun uregion_contains = uregion_contains{{SYMS_SUFFIX.id}}(uregion : URegion, other_region : URegion) : UBool

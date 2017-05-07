@@ -3,49 +3,49 @@ lib LibICU
   {% begin %}
   alias UCollationStrength = UColAttributeValue
   enum UColAttribute
-    UcolFrenchCollation        = 0
-    UcolAlternateHandling      = 1
-    UcolCaseFirst              = 2
-    UcolCaseLevel              = 3
-    UcolNormalizationMode      = 4
-    UcolDecompositionMode      = 4
-    UcolStrength               = 5
-    UcolHiraganaQuaternaryMode = 6
-    UcolNumericCollation       = 7
-    UcolAttributeCount         = 8
+    FrenchCollation        = 0
+    AlternateHandling      = 1
+    CaseFirst              = 2
+    CaseLevel              = 3
+    NormalizationMode      = 4
+    DecompositionMode      = 4
+    Strength               = 5
+    HiraganaQuaternaryMode = 6
+    NumericCollation       = 7
+    AttributeCount         = 8
   end
   enum UColAttributeValue
-    UcolDefault             = -1
-    UcolPrimary             =  0
-    UcolSecondary           =  1
-    UcolTertiary            =  2
-    UcolDefaultStrength     =  2
-    UcolCeStrengthLimit     =  3
-    UcolQuaternary          =  3
-    UcolIdentical           = 15
-    UcolStrengthLimit       = 16
-    UcolOff                 = 16
-    UcolOn                  = 17
-    UcolShifted             = 20
-    UcolNonIgnorable        = 21
-    UcolLowerFirst          = 24
-    UcolUpperFirst          = 25
-    UcolAttributeValueCount = 26
+    Default             = -1
+    Primary             =  0
+    Secondary           =  1
+    Tertiary            =  2
+    DefaultStrength     =  2
+    CeStrengthLimit     =  3
+    Quaternary          =  3
+    Identical           = 15
+    StrengthLimit       = 16
+    Off                 = 16
+    On                  = 17
+    Shifted             = 20
+    NonIgnorable        = 21
+    LowerFirst          = 24
+    UpperFirst          = 25
+    AttributeValueCount = 26
   end
   enum UColBoundMode
-    UcolBoundLower      = 0
-    UcolBoundUpper      = 1
-    UcolBoundUpperLong  = 2
-    UcolBoundValueCount = 3
+    BoundLower      = 0
+    BoundUpper      = 1
+    BoundUpperLong  = 2
+    BoundValueCount = 3
   end
   enum UColRuleOption
-    UcolTailoringOnly = 0
-    UcolFullRules     = 1
+    TailoringOnly = 0
+    FullRules     = 1
   end
   enum UCollationResult
-    UcolEqual   =  0
-    UcolGreater =  1
-    UcolLess    = -1
+    Equal   =  0
+    Greater =  1
+    Less    = -1
   end
   fun ucol_clone_binary = ucol_cloneBinary{{SYMS_SUFFIX.id}}(coll : UCollator, buffer : Uint8T*, capacity : Int32T, status : UErrorCode*) : Int32T
   fun ucol_close = ucol_close{{SYMS_SUFFIX.id}}(coll : UCollator)

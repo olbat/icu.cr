@@ -2,35 +2,35 @@
 lib LibICU
   {% begin %}
   enum UAcceptResult
-    UlocAcceptFailed   = 0
-    UlocAcceptValid    = 1
-    UlocAcceptFallback = 2
+    AcceptFailed   = 0
+    AcceptValid    = 1
+    AcceptFallback = 2
   end
   enum ULayoutType
-    UlocLayoutLtr     = 0
-    UlocLayoutRtl     = 1
-    UlocLayoutTtb     = 2
-    UlocLayoutBtt     = 3
-    UlocLayoutUnknown = 4
+    LayoutLtr     = 0
+    LayoutRtl     = 1
+    LayoutTtb     = 2
+    LayoutBtt     = 3
+    LayoutUnknown = 4
   end
   enum ULocaleDataDelimiterType
-    UlocdataQuotationStart    = 0
-    UlocdataQuotationEnd      = 1
-    UlocdataAltQuotationStart = 2
-    UlocdataAltQuotationEnd   = 3
-    UlocdataDelimiterCount    = 4
+    QuotationStart    = 0
+    QuotationEnd      = 1
+    AltQuotationStart = 2
+    AltQuotationEnd   = 3
+    DelimiterCount    = 4
   end
   enum ULocaleDataExemplarSetType
-    UlocdataEsStandard    = 0
-    UlocdataEsAuxiliary   = 1
-    UlocdataEsIndex       = 2
-    UlocdataEsPunctuation = 3
-    UlocdataEsCount       = 4
+    EsStandard    = 0
+    EsAuxiliary   = 1
+    EsIndex       = 2
+    EsPunctuation = 3
+    EsCount       = 4
   end
   enum UMeasurementSystem
-    UmsSi    = 0
-    UmsUs    = 1
-    UmsLimit = 2
+    Si    = 0
+    Us    = 1
+    Limit = 2
   end
   fun uloc_accept_language = uloc_acceptLanguage{{SYMS_SUFFIX.id}}(result : LibC::Char*, result_available : Int32T, out_result : UAcceptResult*, accept_list : LibC::Char**, accept_list_count : Int32T, available_locales : UEnumeration, status : UErrorCode*) : Int32T
   fun uloc_accept_language_from_http = uloc_acceptLanguageFromHTTP{{SYMS_SUFFIX.id}}(result : LibC::Char*, result_available : Int32T, out_result : UAcceptResult*, http_accept_language : LibC::Char*, available_locales : UEnumeration, status : UErrorCode*) : Int32T

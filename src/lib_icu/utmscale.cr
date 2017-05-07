@@ -2,31 +2,31 @@
 lib LibICU
   {% begin %}
   enum UDateTimeScale
-    UdtsJavaTime             =  0
-    UdtsUnixTime             =  1
-    UdtsIcU4cTime            =  2
-    UdtsWindowsFileTime      =  3
-    UdtsDotnetDateTime       =  4
-    UdtsMacOldTime           =  5
-    UdtsMacTime              =  6
-    UdtsExcelTime            =  7
-    UdtsDB2Time              =  8
-    UdtsUnixMicrosecondsTime =  9
-    UdtsMaxScale             = 10
+    JavaTime             =  0
+    UnixTime             =  1
+    IcU4cTime            =  2
+    WindowsFileTime      =  3
+    DotnetDateTime       =  4
+    MacOldTime           =  5
+    MacTime              =  6
+    ExcelTime            =  7
+    DB2Time              =  8
+    UnixMicrosecondsTime =  9
+    MaxScale             = 10
   end
   enum UTimeScaleValue
-    UtsvUnitsValue             =  0
-    UtsvEpochOffsetValue       =  1
-    UtsvFromMinValue           =  2
-    UtsvFromMaxValue           =  3
-    UtsvToMinValue             =  4
-    UtsvToMaxValue             =  5
-    UtsvEpochOffsetPlus1Value  =  6
-    UtsvEpochOffsetMinus1Value =  7
-    UtsvUnitsRoundValue        =  8
-    UtsvMinRoundValue          =  9
-    UtsvMaxRoundValue          = 10
-    UtsvMaxScaleValue          = 11
+    UnitsValue             =  0
+    EpochOffsetValue       =  1
+    FromMinValue           =  2
+    FromMaxValue           =  3
+    ToMinValue             =  4
+    ToMaxValue             =  5
+    EpochOffsetPlus1Value  =  6
+    EpochOffsetMinus1Value =  7
+    UnitsRoundValue        =  8
+    MinRoundValue          =  9
+    MaxRoundValue          = 10
+    MaxScaleValue          = 11
   end
   fun utmscale_from_int64 = utmscale_fromInt64{{SYMS_SUFFIX.id}}(other_time : Int64T, time_scale : UDateTimeScale, status : UErrorCode*) : Int64T
   fun utmscale_get_time_scale_value = utmscale_getTimeScaleValue{{SYMS_SUFFIX.id}}(time_scale : UDateTimeScale, value : UTimeScaleValue, status : UErrorCode*) : Int64T

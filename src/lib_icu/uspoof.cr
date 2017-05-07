@@ -2,11 +2,11 @@
 lib LibICU
   {% begin %}
   enum URestrictionLevel
-    UspoofAscii                 =  268435456
-    UspoofHighlyRestrictive     =  536870912
-    UspoofModeratelyRestrictive =  805306368
-    UspoofMinimallyRestrictive  = 1073741824
-    UspoofUnrestrictive         = 1342177280
+    Ascii                 =  268435456
+    HighlyRestrictive     =  536870912
+    ModeratelyRestrictive =  805306368
+    MinimallyRestrictive  = 1073741824
+    Unrestrictive         = 1342177280
   end
   fun uspoof_are_confusable = uspoof_areConfusable{{SYMS_SUFFIX.id}}(sc : USpoofChecker, id1 : UChar*, length1 : Int32T, id2 : UChar*, length2 : Int32T, status : UErrorCode*) : Int32T
   fun uspoof_are_confusable_ut_f8 = uspoof_areConfusableUTF8{{SYMS_SUFFIX.id}}(sc : USpoofChecker, id1 : LibC::Char*, length1 : Int32T, id2 : LibC::Char*, length2 : Int32T, status : UErrorCode*) : Int32T

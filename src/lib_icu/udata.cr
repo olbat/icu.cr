@@ -2,12 +2,12 @@
 lib LibICU
   {% begin %}
   enum UDataFileAccess
-    UdataFilesFirst      = 0
-    UdataDefaultAccess   = 0
-    UdataOnlyPackages    = 1
-    UdataPackagesFirst   = 2
-    UdataNoFiles         = 3
-    UdataFileAccessCount = 4
+    FilesFirst      = 0
+    DefaultAccess   = 0
+    OnlyPackages    = 1
+    PackagesFirst   = 2
+    NoFiles         = 3
+    FileAccessCount = 4
   end
   fun udata_close = udata_close{{SYMS_SUFFIX.id}}(p_data : UDataMemory)
   fun udata_get_info = udata_getInfo{{SYMS_SUFFIX.id}}(p_data : UDataMemory, p_info : UDataInfo*)

@@ -2,12 +2,12 @@
 lib LibICU
   {% begin %}
   enum UBreakIteratorType
-    UbrkCharacter = 0
-    UbrkWord      = 1
-    UbrkLine      = 2
-    UbrkSentence  = 3
-    UbrkTitle     = 4
-    UbrkCount     = 5
+    Character = 0
+    Word      = 1
+    Line      = 2
+    Sentence  = 3
+    Title     = 4
+    Count     = 5
   end
   fun ubrk_close = ubrk_close{{SYMS_SUFFIX.id}}(bi : UBreakIterator)
   fun ubrk_count_available = ubrk_countAvailable{{SYMS_SUFFIX.id}} : Int32T

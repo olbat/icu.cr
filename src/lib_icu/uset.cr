@@ -2,10 +2,10 @@
 lib LibICU
   {% begin %}
   enum USetSpanCondition
-    UsetSpanNotContained   = 0
-    UsetSpanContained      = 1
-    UsetSpanSimple         = 2
-    UsetSpanConditionCount = 3
+    SpanNotContained   = 0
+    SpanContained      = 1
+    SpanSimple         = 2
+    SpanConditionCount = 3
   end
   fun uset_add = uset_add{{SYMS_SUFFIX.id}}(set : USet, c : UChar32)
   fun uset_add_all = uset_addAll{{SYMS_SUFFIX.id}}(set : USet, additional_set : USet)
