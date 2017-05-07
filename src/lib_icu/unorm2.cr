@@ -2,15 +2,15 @@
 lib LibICU
   {% begin %}
   enum UNormalization2mode
-    UnorM2Compose           = 0
-    UnorM2Decompose         = 1
-    UnorM2Fcd               = 2
-    UnorM2ComposeContiguous = 3
+    M2Compose           = 0
+    M2Decompose         = 1
+    M2Fcd               = 2
+    M2ComposeContiguous = 3
   end
   enum UNormalizationCheckResult
-    UnormNo    = 0
-    UnormYes   = 1
-    UnormMaybe = 2
+    No    = 0
+    Yes   = 1
+    Maybe = 2
   end
   fun unorm2_append = unorm2_append{{SYMS_SUFFIX.id}}(norm2 : UNormalizer2, first : UChar*, first_length : Int32T, first_capacity : Int32T, second : UChar*, second_length : Int32T, p_error_code : UErrorCode*) : Int32T
   fun unorm2_close = unorm2_close{{SYMS_SUFFIX.id}}(norm2 : UNormalizer2)

@@ -2,19 +2,19 @@
 lib LibICU
   {% begin %}
   enum USearchAttribute
-    UsearchOverlap           = 0
-    UsearchCanonicalMatch    = 1
-    UsearchElementComparison = 2
-    UsearchAttributeCount    = 3
+    Overlap           = 0
+    CanonicalMatch    = 1
+    ElementComparison = 2
+    AttributeCount    = 3
   end
   enum USearchAttributeValue
-    UsearchDefault                     = -1
-    UsearchOff                         =  0
-    UsearchOn                          =  1
-    UsearchStandardElementComparison   =  2
-    UsearchPatternBaseWeightIsWildcard =  3
-    UsearchAnyBaseWeightIsWildcard     =  4
-    UsearchAttributeValueCount         =  5
+    Default                     = -1
+    Off                         =  0
+    On                          =  1
+    StandardElementComparison   =  2
+    PatternBaseWeightIsWildcard =  3
+    AnyBaseWeightIsWildcard     =  4
+    AttributeValueCount         =  5
   end
   fun usearch_close = usearch_close{{SYMS_SUFFIX.id}}(searchiter : UStringSearch)
   fun usearch_first = usearch_first{{SYMS_SUFFIX.id}}(strsrch : UStringSearch, status : UErrorCode*) : Int32T

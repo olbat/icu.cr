@@ -4,8 +4,8 @@ lib LibICU
   alias UReplaceable = Void*
   alias UTransliterator = Void*
   enum UTransDirection
-    UtransForward = 0
-    UtransReverse = 1
+    Forward = 0
+    Reverse = 1
   end
   fun utrans_clone = utrans_clone{{SYMS_SUFFIX.id}}(trans : UTransliterator*, status : UErrorCode*) : UTransliterator*
   fun utrans_close = utrans_close{{SYMS_SUFFIX.id}}(trans : UTransliterator*)

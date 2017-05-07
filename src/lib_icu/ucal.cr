@@ -2,56 +2,56 @@
 lib LibICU
   {% begin %}
   enum UCalendarAttribute
-    UcalLenient                = 0
-    UcalFirstDayOfWeek         = 1
-    UcalMinimalDaysInFirstWeek = 2
-    UcalRepeatedWallTime       = 3
-    UcalSkippedWallTime        = 4
+    Lenient                = 0
+    FirstDayOfWeek         = 1
+    MinimalDaysInFirstWeek = 2
+    RepeatedWallTime       = 3
+    SkippedWallTime        = 4
   end
   enum UCalendarDaysOfWeek
-    UcalSunday    = 1
-    UcalMonday    = 2
-    UcalTuesday   = 3
-    UcalWednesday = 4
-    UcalThursday  = 5
-    UcalFriday    = 6
-    UcalSaturday  = 7
+    Sunday    = 1
+    Monday    = 2
+    Tuesday   = 3
+    Wednesday = 4
+    Thursday  = 5
+    Friday    = 6
+    Saturday  = 7
   end
   enum UCalendarDisplayNameType
-    UcalStandard      = 0
-    UcalShortStandard = 1
-    UcalDst           = 2
-    UcalShortDst      = 3
+    Standard      = 0
+    ShortStandard = 1
+    Dst           = 2
+    ShortDst      = 3
   end
   enum UCalendarLimitType
-    UcalMinimum         = 0
-    UcalMaximum         = 1
-    UcalGreatestMinimum = 2
-    UcalLeastMaximum    = 3
-    UcalActualMinimum   = 4
-    UcalActualMaximum   = 5
+    Minimum         = 0
+    Maximum         = 1
+    GreatestMinimum = 2
+    LeastMaximum    = 3
+    ActualMinimum   = 4
+    ActualMaximum   = 5
   end
   enum UCalendarType
-    UcalTraditional = 0
-    UcalDefault     = 0
-    UcalGregorian   = 1
+    Traditional = 0
+    Default     = 0
+    Gregorian   = 1
   end
   enum UCalendarWeekdayType
-    UcalWeekday      = 0
-    UcalWeekend      = 1
-    UcalWeekendOnset = 2
-    UcalWeekendCease = 3
+    Weekday      = 0
+    Weekend      = 1
+    WeekendOnset = 2
+    WeekendCease = 3
   end
   enum USystemTimeZoneType
-    UcalZoneTypeAny               = 0
-    UcalZoneTypeCanonical         = 1
-    UcalZoneTypeCanonicalLocation = 2
+    ZoneTypeAny               = 0
+    ZoneTypeCanonical         = 1
+    ZoneTypeCanonicalLocation = 2
   end
   enum UTimeZoneTransitionType
-    UcalTzTransitionNext              = 0
-    UcalTzTransitionNextInclusive     = 1
-    UcalTzTransitionPrevious          = 2
-    UcalTzTransitionPreviousInclusive = 3
+    TzTransitionNext              = 0
+    TzTransitionNextInclusive     = 1
+    TzTransitionPrevious          = 2
+    TzTransitionPreviousInclusive = 3
   end
   fun ucal_add = ucal_add{{SYMS_SUFFIX.id}}(cal : UCalendar*, field : UCalendarDateFields, amount : Int32T, status : UErrorCode*)
   fun ucal_clear = ucal_clear{{SYMS_SUFFIX.id}}(calendar : UCalendar*)

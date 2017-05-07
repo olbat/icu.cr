@@ -2,24 +2,24 @@
 lib LibICU
   {% begin %}
   enum UResType
-    UresNone      = -1
-    UresString    =  0
-    UresBinary    =  1
-    UresTable     =  2
-    UresAlias     =  3
-    UresInt       =  7
-    UresArray     =  8
-    UresIntVector = 14
-    ResNone       = -1
-    ResString     =  0
-    ResBinary     =  1
-    ResTable      =  2
-    ResAlias      =  3
-    ResInt        =  7
-    ResArray      =  8
-    ResIntVector  = 14
-    ResReserved   = 15
-    UresLimit     = 16
+    None         = -1
+    String       =  0
+    Binary       =  1
+    Table        =  2
+    Alias        =  3
+    Int          =  7
+    Array        =  8
+    IntVector    = 14
+    ResNone      = -1
+    ResString    =  0
+    ResBinary    =  1
+    ResTable     =  2
+    ResAlias     =  3
+    ResInt       =  7
+    ResArray     =  8
+    ResIntVector = 14
+    ResReserved  = 15
+    Limit        = 16
   end
   fun ures_close = ures_close{{SYMS_SUFFIX.id}}(resource_bundle : UResourceBundle)
   fun ures_count_array_items = ures_countArrayItems{{SYMS_SUFFIX.id}}(resource_bundle : UResourceBundle, resource_key : LibC::Char*, err : UErrorCode*) : Int32T
