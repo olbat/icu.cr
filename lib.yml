@@ -1,4 +1,4 @@
----
+--- # libgen config file, see https://github.com/olbat/libgen
 name: LibICU
 ldflags: "-licuio -licui18n -licuuc -licudata"
 packages: "icu-uc icu-i18n icu-io"
