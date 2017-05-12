@@ -1,7 +1,7 @@
 CRBIN=crystal
 LGBIN=lib/libgen/bin/libgen
 LGCONF=lib.yml
-GENSRC=src/lib_generator.cr
+GENSRC=src/lib_transformer.cr
 
 generate_lib: $(LGBIN) $(LGCONF)
 	rm -rf src/lib_icu
