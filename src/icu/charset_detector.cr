@@ -6,16 +6,17 @@ class ICU::CharsetDetector
     getter confidence : Int32
 
     def initialize(csmatch : LibICU::UCharsetMatch)
-      ustatus = uninitialized LibICU::UErrorCode
-
+      ustatus = LibICU::UErrorCode::UZeroError
       name = LibICU.ucsdet_get_name(csmatch, pointerof(ustatus))
       ICU.check_error!(ustatus)
       @name = String.new(name)
 
+      ustatus = LibICU::UErrorCode::UZeroError
       language = LibICU.ucsdet_get_language(csmatch, pointerof(ustatus))
       ICU.check_error!(ustatus)
       @language = String.new(language)
 
+      ustatus = LibICU::UErrorCode::UZeroError
       @confidence = LibICU.ucsdet_get_confidence(csmatch, pointerof(ustatus))
       ICU.check_error!(ustatus)
     end
@@ -25,7 +26,7 @@ class ICU::CharsetDetector
   @@detectable_charsets : Array(String)?
 
   def initialize
-    ustatus = uninitialized LibICU::UErrorCode
+    ustatus = LibICU::UErrorCode::UZeroError
     @csdet = LibICU.ucsdet_open(pointerof(ustatus))
     ICU.check_error!(ustatus)
   end
@@ -35,11 +36,11 @@ class ICU::CharsetDetector
   end
 
   def detect(text : String) : CharsetMatch
-    ustatus = uninitialized LibICU::UErrorCode
-
+    ustatus = LibICU::UErrorCode::UZeroError
     LibICU.ucsdet_set_text(@csdet, text, text.size, pointerof(ustatus))
     ICU.check_error!(ustatus)
 
+    ustatus = LibICU::UErrorCode::UZeroError
     ucsmatch = LibICU.ucsdet_detect(@csdet, pointerof(ustatus))
     ICU.check_error!(ustatus)
 
@@ -47,11 +48,11 @@ class ICU::CharsetDetector
   end
 
   def detect_all(text : String) : Array(CharsetMatch)
-    ustatus = uninitialized LibICU::UErrorCode
-
+    ustatus = LibICU::UErrorCode::UZeroError
     LibICU.ucsdet_set_text(@csdet, text, text.size, pointerof(ustatus))
     ICU.check_error!(ustatus)
 
+    ustatus = LibICU::UErrorCode::UZeroError
     ucsmatchs = LibICU.ucsdet_detect_all(@csdet, out num, pointerof(ustatus))
     ICU.check_error!(ustatus)
 
@@ -62,7 +63,8 @@ class ICU::CharsetDetector
 
   def detectable_charsets : Array(String)
     unless @@detectable_charsets
-      uenum = LibICU.ucsdet_get_all_detectable_charsets(@csdet, out ustatus)
+      ustatus = LibICU::UErrorCode::UZeroError
+      uenum = LibICU.ucsdet_get_all_detectable_charsets(@csdet, pointerof(ustatus))
       ICU.check_error!(ustatus)
       @@detectable_charsets = UEnum.new(uenum).to_a
       LibICU.uenum_close(uenum)
