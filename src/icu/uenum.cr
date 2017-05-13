@@ -5,12 +5,14 @@ class ICU::UEnum
   @free = true
 
   def initialize(@uenum : LibICU::UEnumeration)
+    @ustatus = uninitialized LibICU::UErrorCode
     @free = false
   end
 
   def initialize(elements : Array(String))
-    @uenum = LibICU.uenum_open_char_strings_enumeration(elements.map(&.to_unsafe), elements.size, out ustatus)
-    ICU.check_error!(ustatus)
+    @ustatus = uninitialized LibICU::UErrorCode
+    @uenum = LibICU.uenum_open_char_strings_enumeration(elements.map(&.to_unsafe), elements.size, pointerof(@ustatus))
+    ICU.check_error!(@ustatus)
   end
 
   def finalize
@@ -18,17 +20,17 @@ class ICU::UEnum
   end
 
   def each
-    ustatus = uninitialized LibICU::UErrorCode
+    @ustatus = uninitialized LibICU::UErrorCode
 
-    LibICU.uenum_reset(@uenum, pointerof(ustatus))
-    ICU.check_error!(ustatus)
+    LibICU.uenum_reset(@uenum, pointerof(@ustatus))
+    ICU.check_error!(@ustatus)
 
-    count = LibICU.uenum_count(@uenum, pointerof(ustatus))
-    ICU.check_error!(ustatus)
+    count = LibICU.uenum_count(@uenum, pointerof(@ustatus))
+    ICU.check_error!(@ustatus)
 
     count.times do
-      elem = LibICU.uenum_next(@uenum, out size, pointerof(ustatus))
-      ICU.check_error!(ustatus)
+      elem = LibICU.uenum_next(@uenum, out size, pointerof(@ustatus))
+      ICU.check_error!(@ustatus)
       yield String.new(elem, size)
     end
   end
