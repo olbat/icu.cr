@@ -5,19 +5,18 @@ class ICU::Region
   @numeric_code : Int32?
 
   def initialize(code : String)
-    @ustatus = LibICU::UErrorCode::UZeroError
-    @uregion = LibICU.uregion_get_region_from_code(code, pointerof(@ustatus))
-    ICU.check_error!(@ustatus)
+    ustatus = LibICU::UErrorCode::UZeroError
+    @uregion = LibICU.uregion_get_region_from_code(code, pointerof(ustatus))
+    ICU.check_error!(ustatus)
   end
 
   def initialize(code : Int32)
-    @ustatus = LibICU::UErrorCode::UZeroError
-    @uregion = LibICU.uregion_get_region_from_numeric_code(code, pointerof(@ustatus))
-    ICU.check_error!(@ustatus)
+    ustatus = LibICU::UErrorCode::UZeroError
+    @uregion = LibICU.uregion_get_region_from_numeric_code(code, pointerof(ustatus))
+    ICU.check_error!(ustatus)
   end
 
   def initialize(@uregion : LibICU::URegion)
-    @ustatus = LibICU::UErrorCode::UZeroError
   end
 
   def code : String
@@ -41,9 +40,9 @@ class ICU::Region
   end
 
   def contained_regions : Array(Region)
-    @ustatus = LibICU::UErrorCode::UZeroError
-    uenum = LibICU.uregion_get_contained_regions(@uregion, pointerof(@ustatus))
-    ICU.check_error!(@ustatus)
+    ustatus = LibICU::UErrorCode::UZeroError
+    uenum = LibICU.uregion_get_contained_regions(@uregion, pointerof(ustatus))
+    ICU.check_error!(ustatus)
     regions = UEnum.new(uenum).to_a
     LibICU.uenum_close(uenum)
     regions.map { |r| self.class.new(r) }
