@@ -13,6 +13,7 @@ class ICU::Currencies
 
   def self.currency(locale : String) : String
     buff = Slice(LibICU::UChar).new(4)
+    @@ustatus = uninitialized LibICU::UErrorCode
     len = LibICU.ucurr_for_locale(locale, buff, buff.size, pointerof(@@ustatus))
     ICU.check_error!(@@ustatus)
     ICU.uchars_to_string(buff, len)
