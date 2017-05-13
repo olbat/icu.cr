@@ -14,7 +14,7 @@ SOFILE   = "libicuuc.so"
 def icu_version : String
   version = nil
   if system("command -v icuinfo > /dev/null")
-    icuinfo = `icuinfo -v 2>/dev/null`
+    icuinfo = `icuinfo -v`
     begin
       doc = XML.parse(icuinfo)
       if params = doc.first_element_child
