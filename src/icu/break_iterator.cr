@@ -54,14 +54,17 @@ class ICU::BreakIterator
     self
   end
 
-  def each
+  def each_slice
     unsafe_text = @text.to_unsafe
     low = LibICU.ubrk_first(@ubrk)
     while (high = LibICU.ubrk_next(@ubrk)) != DONE
-      s = String.new(unsafe_text + low, high - low)
-      yield s
+      yield(Bytes.new(unsafe_text + low, high - low))
       low = high
     end
     self
+  end
+
+  def each
+    each_slice { |slice| yield String.new(slice) }
   end
 end
