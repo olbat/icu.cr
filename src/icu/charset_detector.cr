@@ -26,13 +26,21 @@ class ICU::CharsetDetector
   @@detectable_charsets : Array(String)?
 
   def initialize
+    @finalized = false
     ustatus = LibICU::UErrorCode::UZeroError
     @csdet = LibICU.ucsdet_open(pointerof(ustatus))
-    ICU.check_error!(ustatus)
+    ICU.check_error!(ustatus) { free }
   end
 
   def finalize
-    @csdet.try { |csdet| LibICU.ucsdet_close(csdet) }
+    free
+  end
+
+  def free
+    unless @finalized
+      @finalized = true
+      @csdet.try { |csdet| LibICU.ucsdet_close(csdet) }
+    end
   end
 
   def detect(text : String) : CharsetMatch

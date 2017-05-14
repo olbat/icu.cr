@@ -4,8 +4,13 @@ require "./icu/*"
 module ICU
   def self.check_error!(ustatus : LibICU::UErrorCode)
     if ustatus > LibICU::UErrorCode::UZeroError
+      yield
       raise Error.new(String.new(LibICU.u_error_name(ustatus)))
     end
+  end
+
+  def self.check_error!(ustatus : LibICU::UErrorCode)
+    check_error!(ustatus) { }
   end
 
   def self.uchars_to_string(ustr : Pointer(LibICU::UChar), len) : String

@@ -2,20 +2,26 @@
 class ICU::UEnum
   include Enumerable(String)
 
-  @free = true
-
   def initialize(@uenum : LibICU::UEnumeration)
-    @free = false
+    @finalized = true
   end
 
   def initialize(elements : Array(String))
+    @finalized = false
     ustatus = LibICU::UErrorCode::UZeroError
     @uenum = LibICU.uenum_open_char_strings_enumeration(elements.map(&.to_unsafe), elements.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
+    ICU.check_error!(ustatus) { free }
   end
 
   def finalize
-    LibICU.uenum_close(@uenum) if @free
+    free
+  end
+
+  def free
+    unless @finalized
+      @finalized = true
+      LibICU.uenum_close(@uenum)
+    end
   end
 
   def each
