@@ -30,7 +30,8 @@ lib LibICU
   enum UMeasurementSystem
     Si    = 0
     Us    = 1
-    Limit = 2
+    Uk    = 2
+    Limit = 3
   end
   fun uloc_accept_language = uloc_acceptLanguage{{SYMS_SUFFIX.id}}(result : LibC::Char*, result_available : Int32T, out_result : UAcceptResult*, accept_list : LibC::Char**, accept_list_count : Int32T, available_locales : UEnumeration, status : UErrorCode*) : Int32T
   fun uloc_accept_language_from_http = uloc_acceptLanguageFromHTTP{{SYMS_SUFFIX.id}}(result : LibC::Char*, result_available : Int32T, out_result : UAcceptResult*, http_accept_language : LibC::Char*, available_locales : UEnumeration, status : UErrorCode*) : Int32T
@@ -63,11 +64,16 @@ lib LibICU
   fun uloc_get_parent = uloc_getParent{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, parent : LibC::Char*, parent_capacity : Int32T, err : UErrorCode*) : Int32T
   fun uloc_get_script = uloc_getScript{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, script : LibC::Char*, script_capacity : Int32T, err : UErrorCode*) : Int32T
   fun uloc_get_variant = uloc_getVariant{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, variant : LibC::Char*, variant_capacity : Int32T, err : UErrorCode*) : Int32T
+  fun uloc_is_right_to_left = uloc_isRightToLeft{{SYMS_SUFFIX.id}}(locale : LibC::Char*) : UBool
   fun uloc_minimize_subtags = uloc_minimizeSubtags{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, minimized_locale_id : LibC::Char*, minimized_locale_id_capacity : Int32T, err : UErrorCode*) : Int32T
   fun uloc_open_keywords = uloc_openKeywords{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, status : UErrorCode*) : UEnumeration
   fun uloc_set_default = uloc_setDefault{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, status : UErrorCode*)
   fun uloc_set_keyword_value = uloc_setKeywordValue{{SYMS_SUFFIX.id}}(keyword_name : LibC::Char*, keyword_value : LibC::Char*, buffer : LibC::Char*, buffer_capacity : Int32T, status : UErrorCode*) : Int32T
   fun uloc_to_language_tag = uloc_toLanguageTag{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, langtag : LibC::Char*, langtag_capacity : Int32T, strict : UBool, err : UErrorCode*) : Int32T
+  fun uloc_to_legacy_key = uloc_toLegacyKey{{SYMS_SUFFIX.id}}(keyword : LibC::Char*) : LibC::Char*
+  fun uloc_to_legacy_type = uloc_toLegacyType{{SYMS_SUFFIX.id}}(keyword : LibC::Char*, value : LibC::Char*) : LibC::Char*
+  fun uloc_to_unicode_locale_key = uloc_toUnicodeLocaleKey{{SYMS_SUFFIX.id}}(keyword : LibC::Char*) : LibC::Char*
+  fun uloc_to_unicode_locale_type = uloc_toUnicodeLocaleType{{SYMS_SUFFIX.id}}(keyword : LibC::Char*, value : LibC::Char*) : LibC::Char*
   fun ulocdata_close = ulocdata_close{{SYMS_SUFFIX.id}}(uld : ULocaleData)
   fun ulocdata_get_cldr_version = ulocdata_getCLDRVersion{{SYMS_SUFFIX.id}}(version_array : UVersionInfo, status : UErrorCode*)
   fun ulocdata_get_delimiter = ulocdata_getDelimiter{{SYMS_SUFFIX.id}}(uld : ULocaleData, type : ULocaleDataDelimiterType, result : UChar*, result_length : Int32T, status : UErrorCode*) : Int32T
