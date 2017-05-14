@@ -38,6 +38,18 @@ lib LibICU
     BoundUpperLong  = 2
     BoundValueCount = 3
   end
+  enum UColReorderCode
+    ReorderCodeDefault     =   -1
+    ReorderCodeNone        =  103
+    ReorderCodeOthers      =  103
+    ReorderCodeSpace       = 4096
+    ReorderCodeFirst       = 4096
+    ReorderCodePunctuation = 4097
+    ReorderCodeSymbol      = 4098
+    ReorderCodeCurrency    = 4099
+    ReorderCodeDigit       = 4100
+    ReorderCodeLimit       = 4101
+  end
   enum UColRuleOption
     TailoringOnly = 0
     FullRules     = 1
@@ -51,10 +63,7 @@ lib LibICU
   fun ucol_close = ucol_close{{SYMS_SUFFIX.id}}(coll : UCollator)
   fun ucol_count_available = ucol_countAvailable{{SYMS_SUFFIX.id}} : Int32T
   fun ucol_equal = ucol_equal{{SYMS_SUFFIX.id}}(coll : UCollator, source : UChar*, source_length : Int32T, target : UChar*, target_length : Int32T) : UBool
-  fun ucol_equals = ucol_equals{{SYMS_SUFFIX.id}}(source : UCollator, target : UCollator) : UBool
-  fun ucol_forget_uca = ucol_forgetUCA{{SYMS_SUFFIX.id}}
   fun ucol_get_attribute = ucol_getAttribute{{SYMS_SUFFIX.id}}(coll : UCollator, attr : UColAttribute, status : UErrorCode*) : UColAttributeValue
-  fun ucol_get_attribute_or_default = ucol_getAttributeOrDefault{{SYMS_SUFFIX.id}}(coll : UCollator, attr : UColAttribute, status : UErrorCode*) : UColAttributeValue
   fun ucol_get_available = ucol_getAvailable{{SYMS_SUFFIX.id}}(locale_index : Int32T) : LibC::Char*
   fun ucol_get_bound = ucol_getBound{{SYMS_SUFFIX.id}}(source : Uint8T*, source_length : Int32T, bound_type : UColBoundMode, no_of_levels : Uint32T, result : Uint8T*, result_length : Int32T, status : UErrorCode*) : Int32T
   fun ucol_get_contractions = ucol_getContractions{{SYMS_SUFFIX.id}}(coll : UCollator, conts : USet, status : UErrorCode*) : Int32T
@@ -67,6 +76,7 @@ lib LibICU
   fun ucol_get_keywords = ucol_getKeywords{{SYMS_SUFFIX.id}}(status : UErrorCode*) : UEnumeration
   fun ucol_get_locale = ucol_getLocale{{SYMS_SUFFIX.id}}(coll : UCollator, type : ULocDataLocaleType, status : UErrorCode*) : LibC::Char*
   fun ucol_get_locale_by_type = ucol_getLocaleByType{{SYMS_SUFFIX.id}}(coll : UCollator, type : ULocDataLocaleType, status : UErrorCode*) : LibC::Char*
+  fun ucol_get_max_variable = ucol_getMaxVariable{{SYMS_SUFFIX.id}}(coll : UCollator) : UColReorderCode
   fun ucol_get_reorder_codes = ucol_getReorderCodes{{SYMS_SUFFIX.id}}(coll : UCollator, dest : Int32T*, dest_capacity : Int32T, p_error_code : UErrorCode*) : Int32T
   fun ucol_get_rules = ucol_getRules{{SYMS_SUFFIX.id}}(coll : UCollator, length : Int32T*) : UChar*
   fun ucol_get_rules_ex = ucol_getRulesEx{{SYMS_SUFFIX.id}}(coll : UCollator, delta : UColRuleOption, buffer : UChar*, buffer_len : Int32T) : Int32T
@@ -92,6 +102,7 @@ lib LibICU
   fun ucol_restore_variable_top = ucol_restoreVariableTop{{SYMS_SUFFIX.id}}(coll : UCollator, var_top : Uint32T, status : UErrorCode*)
   fun ucol_safe_clone = ucol_safeClone{{SYMS_SUFFIX.id}}(coll : UCollator, stack_buffer : Void*, p_buffer_size : Int32T*, status : UErrorCode*) : UCollator
   fun ucol_set_attribute = ucol_setAttribute{{SYMS_SUFFIX.id}}(coll : UCollator, attr : UColAttribute, value : UColAttributeValue, status : UErrorCode*)
+  fun ucol_set_max_variable = ucol_setMaxVariable{{SYMS_SUFFIX.id}}(coll : UCollator, group : UColReorderCode, p_error_code : UErrorCode*)
   fun ucol_set_reorder_codes = ucol_setReorderCodes{{SYMS_SUFFIX.id}}(coll : UCollator, reorder_codes : Int32T*, reorder_codes_length : Int32T, p_error_code : UErrorCode*)
   fun ucol_set_strength = ucol_setStrength{{SYMS_SUFFIX.id}}(coll : UCollator, strength : UCollationStrength)
   fun ucol_set_variable_top = ucol_setVariableTop{{SYMS_SUFFIX.id}}(coll : UCollator, var_top : UChar*, len : Int32T, status : UErrorCode*) : Uint32T

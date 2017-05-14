@@ -24,28 +24,35 @@ lib LibICU
     LenientParse                  =   19
     ParseAllInput                 =   20
     Scale                         =   21
-    NumericAttributeCount         =   22
+    MinimumGroupingDigits         =   22
+    CurrencyUsage                 =   23
     MaxNonbooleanAttribute        = 4095
     FormatFailIfMoreThanMaxDigits = 4096
     ParseNoExponent               = 4097
-    LimitBooleanAttribute         = 4098
+    ParseDecimalMarkRequired      = 4098
+    LimitBooleanAttribute         = 4099
   end
   enum UNumberFormatStyle
-    PatternDecimal   =  0
-    Decimal          =  1
-    Currency         =  2
-    Percent          =  3
-    Scientific       =  4
-    Spellout         =  5
-    Ordinal          =  6
-    Duration         =  7
-    NumberingSystem  =  8
-    PatternRulebased =  9
-    CurrencyIso      = 10
-    CurrencyPlural   = 11
-    FormatStyleCount = 12
-    Default          =  1
-    Ignore           =  0
+    PatternDecimal      =  0
+    Decimal             =  1
+    Currency            =  2
+    Percent             =  3
+    Scientific          =  4
+    Spellout            =  5
+    Ordinal             =  6
+    Duration            =  7
+    NumberingSystem     =  8
+    PatternRulebased    =  9
+    CurrencyIso         = 10
+    CurrencyPlural      = 11
+    CurrencyAccounting  = 12
+    CashCurrency        = 13
+    DecimalCompactShort = 14
+    DecimalCompactLong  = 15
+    CurrencyStandard    = 16
+    FormatStyleCount    = 17
+    Default             =  1
+    Ignore              =  0
   end
   enum UNumberFormatSymbol
     DecimalSeparatorSymbol          =  0
@@ -75,7 +82,8 @@ lib LibICU
     SevenDigitSymbol                = 24
     EightDigitSymbol                = 25
     NineDigitSymbol                 = 26
-    FormatSymbolCount               = 27
+    ExponentMultiplicationSymbol    = 27
+    FormatSymbolCount               = 28
   end
   enum UNumberFormatTextAttribute
     PositivePrefix   = 0
@@ -99,6 +107,7 @@ lib LibICU
   fun unum_format_u_formattable = unum_formatUFormattable{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, number : UFormattable*, result : UChar*, result_length : Int32T, pos : UFieldPosition*, status : UErrorCode*) : Int32T
   fun unum_get_attribute = unum_getAttribute{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, attr : UNumberFormatAttribute) : Int32T
   fun unum_get_available = unum_getAvailable{{SYMS_SUFFIX.id}}(locale_index : Int32T) : LibC::Char*
+  fun unum_get_context = unum_getContext{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, type : UDisplayContextType, status : UErrorCode*) : UDisplayContext
   fun unum_get_double_attribute = unum_getDoubleAttribute{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, attr : UNumberFormatAttribute) : LibC::Double
   fun unum_get_locale_by_type = unum_getLocaleByType{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, type : ULocDataLocaleType, status : UErrorCode*) : LibC::Char*
   fun unum_get_symbol = unum_getSymbol{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, symbol : UNumberFormatSymbol, buffer : UChar*, size : Int32T, status : UErrorCode*) : Int32T
@@ -111,6 +120,7 @@ lib LibICU
   fun unum_parse_int64 = unum_parseInt64{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, text : UChar*, text_length : Int32T, parse_pos : Int32T*, status : UErrorCode*) : Int64T
   fun unum_parse_to_u_formattable = unum_parseToUFormattable{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, result : UFormattable*, text : UChar*, text_length : Int32T, parse_pos : Int32T*, status : UErrorCode*) : UFormattable*
   fun unum_set_attribute = unum_setAttribute{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, attr : UNumberFormatAttribute, new_value : Int32T)
+  fun unum_set_context = unum_setContext{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, value : UDisplayContext, status : UErrorCode*)
   fun unum_set_double_attribute = unum_setDoubleAttribute{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, attr : UNumberFormatAttribute, new_value : LibC::Double)
   fun unum_set_symbol = unum_setSymbol{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, symbol : UNumberFormatSymbol, value : UChar*, length : Int32T, status : UErrorCode*)
   fun unum_set_text_attribute = unum_setTextAttribute{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, tag : UNumberFormatTextAttribute, new_value : UChar*, new_value_length : Int32T, status : UErrorCode*)
