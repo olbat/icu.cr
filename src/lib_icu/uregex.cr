@@ -21,8 +21,9 @@ lib LibICU
   fun uregex_get_u_text = uregex_getUText{{SYMS_SUFFIX.id}}(regexp : URegularExpression, dest : UText*, status : UErrorCode*) : UText*
   fun uregex_group = uregex_group{{SYMS_SUFFIX.id}}(regexp : URegularExpression, group_num : Int32T, dest : UChar*, dest_capacity : Int32T, status : UErrorCode*) : Int32T
   fun uregex_group_count = uregex_groupCount{{SYMS_SUFFIX.id}}(regexp : URegularExpression, status : UErrorCode*) : Int32T
+  fun uregex_group_number_from_c_name = uregex_groupNumberFromCName{{SYMS_SUFFIX.id}}(regexp : URegularExpression, group_name : LibC::Char*, name_length : Int32T, status : UErrorCode*) : Int32T
+  fun uregex_group_number_from_name = uregex_groupNumberFromName{{SYMS_SUFFIX.id}}(regexp : URegularExpression, group_name : UChar*, name_length : Int32T, status : UErrorCode*) : Int32T
   fun uregex_group_u_text = uregex_groupUText{{SYMS_SUFFIX.id}}(regexp : URegularExpression, group_num : Int32T, dest : UText*, group_length : Int64T*, status : UErrorCode*) : UText*
-  fun uregex_group_u_text_deep = uregex_groupUTextDeep{{SYMS_SUFFIX.id}}(regexp : URegularExpression, group_num : Int32T, dest : UText*, status : UErrorCode*) : UText*
   fun uregex_has_anchoring_bounds = uregex_hasAnchoringBounds{{SYMS_SUFFIX.id}}(regexp : URegularExpression, status : UErrorCode*) : UBool
   fun uregex_has_transparent_bounds = uregex_hasTransparentBounds{{SYMS_SUFFIX.id}}(regexp : URegularExpression, status : UErrorCode*) : UBool
   fun uregex_hit_end = uregex_hitEnd{{SYMS_SUFFIX.id}}(regexp : URegularExpression, status : UErrorCode*) : UBool
