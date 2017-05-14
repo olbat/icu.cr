@@ -36,7 +36,7 @@ describe "ICU::Region" do
 
   describe "contains?" do
     it "returns true when a region contains another" do
-      ICU::Region.new("EU").contains?(ICU::Region.new("PL")).should be_true
+      ICU::Region.new("001").contains?(ICU::Region.new("AS")).should be_true
     end
 
     it "returns false when a region doesn't contain another" do
