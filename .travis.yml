@@ -3,8 +3,6 @@ language: crystal
 sudo: required
 
 matrix:
-  allow_failures: # FIXME: temporary fix, see https://github.com/olbat/icu.cr/issues/2
-  - os: osx
   include:
   # Linux
   - os: linux
