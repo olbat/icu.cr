@@ -39,9 +39,9 @@ lib LibICU
   fun ures_get_string_by_key = ures_getStringByKey{{SYMS_SUFFIX.id}}(res_b : UResourceBundle, key : LibC::Char*, len : Int32T*, status : UErrorCode*) : UChar*
   fun ures_get_type = ures_getType{{SYMS_SUFFIX.id}}(resource_bundle : UResourceBundle) : UResType
   fun ures_get_u_int = ures_getUInt{{SYMS_SUFFIX.id}}(resource_bundle : UResourceBundle, status : UErrorCode*) : Uint32T
-  fun ures_get_ut_f8string = ures_getUTF8String{{SYMS_SUFFIX.id}}(res_b : UResourceBundle, dest : LibC::Char*, length : Int32T*, force_copy : UBool, status : UErrorCode*) : LibC::Char*
-  fun ures_get_ut_f8string_by_index = ures_getUTF8StringByIndex{{SYMS_SUFFIX.id}}(res_b : UResourceBundle, string_index : Int32T, dest : LibC::Char*, p_length : Int32T*, force_copy : UBool, status : UErrorCode*) : LibC::Char*
-  fun ures_get_ut_f8string_by_key = ures_getUTF8StringByKey{{SYMS_SUFFIX.id}}(res_b : UResourceBundle, key : LibC::Char*, dest : LibC::Char*, p_length : Int32T*, force_copy : UBool, status : UErrorCode*) : LibC::Char*
+  fun ures_get_utf8_string = ures_getUTF8String{{SYMS_SUFFIX.id}}(res_b : UResourceBundle, dest : LibC::Char*, length : Int32T*, force_copy : UBool, status : UErrorCode*) : LibC::Char*
+  fun ures_get_utf8_string_by_index = ures_getUTF8StringByIndex{{SYMS_SUFFIX.id}}(res_b : UResourceBundle, string_index : Int32T, dest : LibC::Char*, p_length : Int32T*, force_copy : UBool, status : UErrorCode*) : LibC::Char*
+  fun ures_get_utf8_string_by_key = ures_getUTF8StringByKey{{SYMS_SUFFIX.id}}(res_b : UResourceBundle, key : LibC::Char*, dest : LibC::Char*, p_length : Int32T*, force_copy : UBool, status : UErrorCode*) : LibC::Char*
   fun ures_get_version = ures_getVersion{{SYMS_SUFFIX.id}}(res_b : UResourceBundle, version_info : UVersionInfo)
   fun ures_get_version_number = ures_getVersionNumber{{SYMS_SUFFIX.id}}(resource_bundle : UResourceBundle) : LibC::Char*
   fun ures_has_next = ures_hasNext{{SYMS_SUFFIX.id}}(resource_bundle : UResourceBundle) : UBool
