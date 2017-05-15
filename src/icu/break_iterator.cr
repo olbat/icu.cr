@@ -4,7 +4,7 @@ class ICU::BreakIterator
   DONE = -1
 
   @ubrk : LibICU::UBreakIterator
-  @utext : LibICU::UText*
+  @chars : Array(UInt16)
 
   LOCALES = begin
     locales = (0...LibICU.ubrk_count_available).map do |i|
@@ -24,12 +24,10 @@ class ICU::BreakIterator
     @ubrk = LibICU.ubrk_open(break_type, locale, nil, 0, pointerof(ustatus))
     ICU.check_error!(ustatus) { free }
 
-    ustatus = LibICU::UErrorCode::UZeroError
-    @utext = LibICU.utext_open_ut_f8(nil, @text.to_unsafe, @text.bytesize, pointerof(ustatus))
-    ICU.check_error!(ustatus) { free }
+    @chars = text.chars.map { |c| c.ord.to_u16 }
 
     ustatus = LibICU::UErrorCode::UZeroError
-    LibICU.ubrk_set_u_text(@ubrk, @utext, pointerof(ustatus))
+    LibICU.ubrk_set_text(@ubrk, @chars.to_unsafe, @chars.size, pointerof(ustatus))
     ICU.check_error!(ustatus) { free }
   end
 
@@ -37,7 +35,6 @@ class ICU::BreakIterator
     unless @finalized
       @finalized = true
       LibICU.ubrk_close(@ubrk) unless @ubrk.null?
-      LibICU.utext_close(@utext) unless @utext.null?
     end
   end
 
@@ -54,17 +51,14 @@ class ICU::BreakIterator
     self
   end
 
-  def each_slice
+  def each
     unsafe_text = @text.to_unsafe
     low = LibICU.ubrk_first(@ubrk)
     while (high = LibICU.ubrk_next(@ubrk)) != DONE
-      yield(Bytes.new(unsafe_text + low, high - low))
+      s = String.build { |io| (low...high).each { |i| io << @chars[i].chr } }
+      yield(s)
       low = high
     end
     self
-  end
-
-  def each
-    each_slice { |slice| yield String.new(slice) }
   end
 end
