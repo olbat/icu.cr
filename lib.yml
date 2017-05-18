@@ -10,6 +10,9 @@ rename:
     # (see https://github.com/olbat/icu.cr/issues/1)
     - pattern: (_\d+)+$
       replacement: ""
+    # Remove the u_ prefix in all generic purposes functions
+    - pattern: ^u_
+      replacement: ""
     # Small hacks since strings such as "UTF8" are transformed to "ut_f8"
     # by Crystal's String#underscore (see https://github.com/crystal-lang/crystal/issues/4278)
     # FIXME: to be remove once the bug is fixed upstream
