@@ -1,10 +1,12 @@
 class ICU::BreakIterator
   include Enumerable(String)
 
+  alias Type = LibICU::UBreakIteratorType
+
   DONE = -1
 
   @ubrk : LibICU::UBreakIterator
-  @chars : Array(UInt16)
+  @uchars : UChars
 
   LOCALES = begin
     locales = (0...LibICU.ubrk_count_available).map do |i|
@@ -13,33 +15,24 @@ class ICU::BreakIterator
     Set(String).new(locales)
   end
 
-  def initialize(@text : String, break_type : LibICU::UBreakIteratorType, locale : String? = nil)
-    @finalized = false
-
+  def initialize(@text : String, break_type : Type, locale : String? = nil)
     if locale
       raise ICU::Error.new("unknown locale #{locale}") unless LOCALES.includes?(locale)
     end
 
     ustatus = LibICU::UErrorCode::UZeroError
     @ubrk = LibICU.ubrk_open(break_type, locale, nil, 0, pointerof(ustatus))
-    ICU.check_error!(ustatus) { free }
+    ICU.check_error!(ustatus)
 
-    @chars = text.chars.map { |c| c.ord.to_u16 }
+    @uchars = @text.to_uchars
 
     ustatus = LibICU::UErrorCode::UZeroError
-    LibICU.ubrk_set_text(@ubrk, @chars.to_unsafe, @chars.size, pointerof(ustatus))
-    ICU.check_error!(ustatus) { free }
-  end
-
-  def free
-    unless @finalized
-      @finalized = true
-      LibICU.ubrk_close(@ubrk) unless @ubrk.null?
-    end
+    LibICU.ubrk_set_text(@ubrk, @uchars, @uchars.size, pointerof(ustatus))
+    ICU.check_error!(ustatus)
   end
 
   def finalize
-    free
+    @ubrk.try { |ubrk| LibICU.ubrk_close(ubrk) }
   end
 
   def each_bound
@@ -52,10 +45,9 @@ class ICU::BreakIterator
   end
 
   def each
-    unsafe_text = @text.to_unsafe
     low = LibICU.ubrk_first(@ubrk)
     while (high = LibICU.ubrk_next(@ubrk)) != DONE
-      s = String.build { |io| (low...high).each { |i| io << @chars[i].chr } }
+      s = String.build { |io| (low...high).each { |i| io << @uchars[i].chr } }
       yield(s)
       low = high
     end
