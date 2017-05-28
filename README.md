@@ -36,7 +36,7 @@ require "icu"
 - [x] [CharsetDetector](src/icu/charset_detector.cr), Charset detection _(ucsdet.h)_
 - [x] [Currencies](src/icu/currencies.cr), Encapsulates information about a currency _(ucurr.h)_
 - [x] [Region](src/icu/region.cr), Territory containment and mapping _(uregion.h)_
-- [ ] `ubrk`, Text Boundary Analysis (Break Iteration) _(ubrk.h)_
+- [x] [BreakIterator](src/icu/break_iterator.cr), Text Boundary Analysis (Break Iteration) _(ubrk.h)_
 - [ ] `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_
 - [ ] `utext`, Abstract Unicode Text API _(utext.h)_
 - [ ] `uset`, Sets of Unicode Code Points and Strings _(uset.h)_
