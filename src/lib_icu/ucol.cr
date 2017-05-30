@@ -108,6 +108,6 @@ lib LibICU
   fun ucol_set_variable_top = ucol_setVariableTop{{SYMS_SUFFIX.id}}(coll : UCollator, var_top : UChar*, len : Int32T, status : UErrorCode*) : Uint32T
   fun ucol_strcoll = ucol_strcoll{{SYMS_SUFFIX.id}}(coll : UCollator, source : UChar*, source_length : Int32T, target : UChar*, target_length : Int32T) : UCollationResult
   fun ucol_strcoll_iter = ucol_strcollIter{{SYMS_SUFFIX.id}}(coll : UCollator, s_iter : UCharIterator*, t_iter : UCharIterator*, status : UErrorCode*) : UCollationResult
-  fun ucol_strcoll_ut_f8 = ucol_strcollUTF8{{SYMS_SUFFIX.id}}(coll : UCollator, source : LibC::Char*, source_length : Int32T, target : LibC::Char*, target_length : Int32T, status : UErrorCode*) : UCollationResult
+  fun ucol_strcoll_utf8 = ucol_strcollUTF8{{SYMS_SUFFIX.id}}(coll : UCollator, source : LibC::Char*, source_length : Int32T, target : LibC::Char*, target_length : Int32T, status : UErrorCode*) : UCollationResult
   {% end %}
 end

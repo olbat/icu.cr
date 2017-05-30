@@ -19,7 +19,7 @@ lib LibICU
   fun utext_next32 = utext_next32{{SYMS_SUFFIX.id}}(ut : UText*) : UChar32
   fun utext_next32from = utext_next32From{{SYMS_SUFFIX.id}}(ut : UText*, native_index : Int64T) : UChar32
   fun utext_open_u_chars = utext_openUChars{{SYMS_SUFFIX.id}}(ut : UText*, s : UChar*, length : Int64T, status : UErrorCode*) : UText*
-  fun utext_open_ut_f8 = utext_openUTF8{{SYMS_SUFFIX.id}}(ut : UText*, s : LibC::Char*, length : Int64T, status : UErrorCode*) : UText*
+  fun utext_open_utf8 = utext_openUTF8{{SYMS_SUFFIX.id}}(ut : UText*, s : LibC::Char*, length : Int64T, status : UErrorCode*) : UText*
   fun utext_previous32 = utext_previous32{{SYMS_SUFFIX.id}}(ut : UText*) : UChar32
   fun utext_previous32from = utext_previous32From{{SYMS_SUFFIX.id}}(ut : UText*, native_index : Int64T) : UChar32
   fun utext_replace = utext_replace{{SYMS_SUFFIX.id}}(ut : UText*, native_start : Int64T, native_limit : Int64T, replacement_text : UChar*, replacement_length : Int32T, status : UErrorCode*) : Int32T

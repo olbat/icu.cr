@@ -122,7 +122,7 @@ lib LibICU
   fun ucnvsel_open = ucnvsel_open{{SYMS_SUFFIX.id}}(converter_list : LibC::Char**, converter_list_size : Int32T, excluded_code_points : USet, which_set : UConverterUnicodeSet, status : UErrorCode*) : UConverterSelector
   fun ucnvsel_open_from_serialized = ucnvsel_openFromSerialized{{SYMS_SUFFIX.id}}(buffer : Void*, length : Int32T, status : UErrorCode*) : UConverterSelector
   fun ucnvsel_select_for_string = ucnvsel_selectForString{{SYMS_SUFFIX.id}}(sel : UConverterSelector, s : UChar*, length : Int32T, status : UErrorCode*) : UEnumeration
-  fun ucnvsel_select_for_ut_f8 = ucnvsel_selectForUTF8{{SYMS_SUFFIX.id}}(sel : UConverterSelector, s : LibC::Char*, length : Int32T, status : UErrorCode*) : UEnumeration
+  fun ucnvsel_select_for_utf8 = ucnvsel_selectForUTF8{{SYMS_SUFFIX.id}}(sel : UConverterSelector, s : LibC::Char*, length : Int32T, status : UErrorCode*) : UEnumeration
   fun ucnvsel_serialize = ucnvsel_serialize{{SYMS_SUFFIX.id}}(sel : UConverterSelector, buffer : Void*, buffer_capacity : Int32T, status : UErrorCode*) : Int32T
 
   struct UConverterFromUnicodeArgs

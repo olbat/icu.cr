@@ -60,8 +60,8 @@ lib LibICU
   fun uset_size = uset_size{{SYMS_SUFFIX.id}}(set : USet) : Int32T
   fun uset_span = uset_span{{SYMS_SUFFIX.id}}(set : USet, s : UChar*, length : Int32T, span_condition : USetSpanCondition) : Int32T
   fun uset_span_back = uset_spanBack{{SYMS_SUFFIX.id}}(set : USet, s : UChar*, length : Int32T, span_condition : USetSpanCondition) : Int32T
-  fun uset_span_back_ut_f8 = uset_spanBackUTF8{{SYMS_SUFFIX.id}}(set : USet, s : LibC::Char*, length : Int32T, span_condition : USetSpanCondition) : Int32T
-  fun uset_span_ut_f8 = uset_spanUTF8{{SYMS_SUFFIX.id}}(set : USet, s : LibC::Char*, length : Int32T, span_condition : USetSpanCondition) : Int32T
+  fun uset_span_back_utf8 = uset_spanBackUTF8{{SYMS_SUFFIX.id}}(set : USet, s : LibC::Char*, length : Int32T, span_condition : USetSpanCondition) : Int32T
+  fun uset_span_utf8 = uset_spanUTF8{{SYMS_SUFFIX.id}}(set : USet, s : LibC::Char*, length : Int32T, span_condition : USetSpanCondition) : Int32T
   fun uset_to_pattern = uset_toPattern{{SYMS_SUFFIX.id}}(set : USet, result : UChar*, result_capacity : Int32T, escape_unprintable : UBool, ec : UErrorCode*) : Int32T
 
   struct USerializedSet

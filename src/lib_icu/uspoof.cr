@@ -11,9 +11,9 @@ lib LibICU
     RestrictionLevelMask    = 2130706432
   end
   fun uspoof_are_confusable = uspoof_areConfusable{{SYMS_SUFFIX.id}}(sc : USpoofChecker, id1 : UChar*, length1 : Int32T, id2 : UChar*, length2 : Int32T, status : UErrorCode*) : Int32T
-  fun uspoof_are_confusable_ut_f8 = uspoof_areConfusableUTF8{{SYMS_SUFFIX.id}}(sc : USpoofChecker, id1 : LibC::Char*, length1 : Int32T, id2 : LibC::Char*, length2 : Int32T, status : UErrorCode*) : Int32T
+  fun uspoof_are_confusable_utf8 = uspoof_areConfusableUTF8{{SYMS_SUFFIX.id}}(sc : USpoofChecker, id1 : LibC::Char*, length1 : Int32T, id2 : LibC::Char*, length2 : Int32T, status : UErrorCode*) : Int32T
   fun uspoof_check = uspoof_check{{SYMS_SUFFIX.id}}(sc : USpoofChecker, id : UChar*, length : Int32T, position : Int32T*, status : UErrorCode*) : Int32T
-  fun uspoof_check_ut_f8 = uspoof_checkUTF8{{SYMS_SUFFIX.id}}(sc : USpoofChecker, id : LibC::Char*, length : Int32T, position : Int32T*, status : UErrorCode*) : Int32T
+  fun uspoof_check_utf8 = uspoof_checkUTF8{{SYMS_SUFFIX.id}}(sc : USpoofChecker, id : LibC::Char*, length : Int32T, position : Int32T*, status : UErrorCode*) : Int32T
   fun uspoof_clone = uspoof_clone{{SYMS_SUFFIX.id}}(sc : USpoofChecker, status : UErrorCode*) : USpoofChecker
   fun uspoof_close = uspoof_close{{SYMS_SUFFIX.id}}(sc : USpoofChecker)
   fun uspoof_get_allowed_chars = uspoof_getAllowedChars{{SYMS_SUFFIX.id}}(sc : USpoofChecker, status : UErrorCode*) : USet
@@ -23,7 +23,7 @@ lib LibICU
   fun uspoof_get_recommended_set = uspoof_getRecommendedSet{{SYMS_SUFFIX.id}}(status : UErrorCode*) : USet
   fun uspoof_get_restriction_level = uspoof_getRestrictionLevel{{SYMS_SUFFIX.id}}(sc : USpoofChecker) : URestrictionLevel
   fun uspoof_get_skeleton = uspoof_getSkeleton{{SYMS_SUFFIX.id}}(sc : USpoofChecker, type : Uint32T, id : UChar*, length : Int32T, dest : UChar*, dest_capacity : Int32T, status : UErrorCode*) : Int32T
-  fun uspoof_get_skeleton_ut_f8 = uspoof_getSkeletonUTF8{{SYMS_SUFFIX.id}}(sc : USpoofChecker, type : Uint32T, id : LibC::Char*, length : Int32T, dest : LibC::Char*, dest_capacity : Int32T, status : UErrorCode*) : Int32T
+  fun uspoof_get_skeleton_utf8 = uspoof_getSkeletonUTF8{{SYMS_SUFFIX.id}}(sc : USpoofChecker, type : Uint32T, id : LibC::Char*, length : Int32T, dest : LibC::Char*, dest_capacity : Int32T, status : UErrorCode*) : Int32T
   fun uspoof_open = uspoof_open{{SYMS_SUFFIX.id}}(status : UErrorCode*) : USpoofChecker
   fun uspoof_open_from_serialized = uspoof_openFromSerialized{{SYMS_SUFFIX.id}}(data : Void*, length : Int32T, p_actual_length : Int32T*, p_error_code : UErrorCode*) : USpoofChecker
   fun uspoof_open_from_source = uspoof_openFromSource{{SYMS_SUFFIX.id}}(confusables : LibC::Char*, confusables_len : Int32T, confusables_whole_script : LibC::Char*, confusables_whole_script_len : Int32T, err_type : Int32T*, pe : UParseError*, status : UErrorCode*) : USpoofChecker

@@ -16,7 +16,7 @@ rename:
     # Small hacks since strings such as "UTF8" are transformed to "ut_f8"
     # by Crystal's String#underscore (see https://github.com/crystal-lang/crystal/issues/4278)
     # FIXME: to be remove once the bug is fixed upstream
-    - pattern: ut_f(\d+)([^a-zA-Z0-9])
+    - pattern: ut_f(\d+)([^a-zA-Z0-9]|$)
       replacement: "utf\\1\\2"
     - pattern: ut_f(\d+)([a-zA-Z])
       replacement: "utf\\1_\\2"
