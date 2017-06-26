@@ -14,8 +14,12 @@ $(LGBIN): lib/libgen
 lib/libgen: shard.yml
 	$(CRBIN) deps install
 
+benchmark:
+	find bench/ -name "*_bench.cr" -exec \
+		sh -c 'echo {} && $(CRBIN) run --release {}' \;
+
 clean:
 	rm -rf lib
 	rm -rf .crystal
 
-.PHONY: clean
+.PHONY: generate_lib benchmark clean

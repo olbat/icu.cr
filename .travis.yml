@@ -57,3 +57,4 @@ before_script:
 script:
 - crystal tool format --check src spec
 - crystal spec
+- make benchmark
