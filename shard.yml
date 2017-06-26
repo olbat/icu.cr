@@ -15,6 +15,6 @@ libraries:
 development_dependencies:
   libgen:
     github: olbat/libgen
-    #version: ~> 0.1
+    version: ~> 0.1
 
 license: GPLv3
