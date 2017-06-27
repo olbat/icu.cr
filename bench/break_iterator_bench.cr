@@ -1,7 +1,7 @@
 require "./bench_helper"
 require "../src/icu"
 
-REPEAT = 10_000
+REPEAT = 40_000
 
 samples = load_data("text_sample.txt")
 
