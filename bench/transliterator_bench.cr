@@ -3,7 +3,7 @@ require "../src/icu"
 
 REPEAT = 10
 
-text = File.read(File.join(__DIR__, "..", "LICENSE"))
+text = load_data("text_sample.txt").join
 transforms = [
   "Any-Hex",
   "Latin-Arabic",
