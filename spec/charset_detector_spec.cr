@@ -9,7 +9,7 @@ describe "ICU::CharsetDetector" do
 
   describe "detect" do
     it "detects encoding" do
-      text = File.read(File.join(__DIR__, "..", "LICENSE"))
+      text = File.read(File.join(DATA_DIR, "text_sample.txt"))
 
       csdet = ICU::CharsetDetector.new
       cm = csdet.detect(text)
@@ -22,7 +22,7 @@ describe "ICU::CharsetDetector" do
 
   describe "detect_all" do
     it "detects encoding" do
-      text = File.read(File.join(__DIR__, "..", "LICENSE"))
+      text = File.read(File.join(DATA_DIR, "text_sample.txt"))
 
       csdet = ICU::CharsetDetector.new
       cms = csdet.detect_all(text)
