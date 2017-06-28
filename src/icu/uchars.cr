@@ -31,9 +31,10 @@ end
 
 class String
   # see http://userguide.icu-project.org/strings
-  def to_uchars
+  def to_uchars(size : Int? = nil)
     i = 0
-    ICU::UChars.new(size()).tap do |uchars|
+    size ||= size()
+    ICU::UChars.new(size).tap do |uchars|
       each_char do |c|
         uchars[i] = c.ord.to_u16
         i += 1
