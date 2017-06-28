@@ -37,6 +37,7 @@ require "icu"
 - [x] [Currencies](src/icu/currencies.cr), Encapsulates information about a currency _(ucurr.h)_
 - [x] [Region](src/icu/region.cr), Territory containment and mapping _(uregion.h)_
 - [x] [BreakIterator](src/icu/break_iterator.cr), Text Boundary Analysis (Break Iteration) _(ubrk.h)_
+- [x] [Transliterator](src/icu/transliterator.cr), Text Transformation (Transliteration) _(utrans.h)_
 - [ ] `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_
 - [ ] `utext`, Abstract Unicode Text API _(utext.h)_
 - [ ] `uset`, Sets of Unicode Code Points and Strings _(uset.h)_
@@ -47,7 +48,6 @@ require "icu"
 - [ ] `ucal`, Calendars _(ucal.h)_
 - [ ] `udat`, Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
 - [ ] `unum`, Number Formatting/Spellout _(unum.h)_
-- [ ] `utrans`, Text Transformation (Transliteration) _(utrans.h)_
 - [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
 - [ ] `ucol`, Collation _(ucol.h)_
 - [ ] `usearch`, String Searching _(usearch.h)_
