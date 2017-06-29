@@ -38,13 +38,13 @@ require "icu"
 - [x] [Region](src/icu/region.cr), Territory containment and mapping _(uregion.h)_
 - [x] [BreakIterator](src/icu/break_iterator.cr), Text Boundary Analysis (Break Iteration) _(ubrk.h)_
 - [x] [Transliterator](src/icu/transliterator.cr), Text Transformation (Transliteration) _(utrans.h)_
+- [x] [Normalizer](src/icu/normalizer.cr), Normalization _(unorm2.h)_
 - [ ] `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_
 - [ ] `utext`, Abstract Unicode Text API _(utext.h)_
 - [ ] `uset`, Sets of Unicode Code Points and Strings _(uset.h)_
 - [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `ures`, Resource Bundles _(ures.h)_
-- [ ] `unorm2`, Normalization _(unorm2.h)_
 - [ ] `ucal`, Calendars _(ucal.h)_
 - [ ] `udat`, Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
 - [ ] `unum`, Number Formatting/Spellout _(unum.h)_
