@@ -32,32 +32,34 @@ require "icu"
 
 
 ## Wrapped components (WIP)
-- [x] [UEnum](src/icu/uenum.cr), String Enumeration _(uenum.h)_
 - [x] [CharsetDetector](src/icu/charset_detector.cr), Charset detection _(ucsdet.h)_
 - [x] [Currencies](src/icu/currencies.cr), Encapsulates information about a currency _(ucurr.h)_
 - [x] [Region](src/icu/region.cr), Territory containment and mapping _(uregion.h)_
 - [x] [BreakIterator](src/icu/break_iterator.cr), Text Boundary Analysis (Break Iteration) _(ubrk.h)_
 - [x] [Transliterator](src/icu/transliterator.cr), Text Transformation (Transliteration) _(utrans.h)_
 - [x] [Normalizer](src/icu/normalizer.cr), Normalization _(unorm2.h)_
+- [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
+- [ ] `unum`, Number Formatting/Spellout _(unum.h)_
+- [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
+- [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
+- [ ] `ucol`, Collation _(ucol.h)_
+- [ ] `ucal`, Calendars _(ucal.h)_
+- [ ] `udat`, Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
+- [ ] `usearch`, String Searching _(usearch.h)_
+- [ ] `uregex`, Regular Expressions _(uregex.h)_
+- [ ] `uidna`, International Domain Names in Applications _(uidna.h)_
+- [ ] `upluralrules`, Plural rules _(upluralrules.h)_
+
+__Internals__
+- [x] [UEnum](src/icu/uenum.cr), String Enumeration _(uenum.h)_
 - [ ] `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_
 - [ ] `utext`, Abstract Unicode Text API _(utext.h)_
 - [ ] `uset`, Sets of Unicode Code Points and Strings _(uset.h)_
-- [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
-- [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `ures`, Resource Bundles _(ures.h)_
-- [ ] `ucal`, Calendars _(ucal.h)_
-- [ ] `udat`, Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
-- [ ] `unum`, Number Formatting/Spellout _(unum.h)_
-- [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
-- [ ] `ucol`, Collation _(ucol.h)_
-- [ ] `usearch`, String Searching _(usearch.h)_
-- [ ] `uregex`, Regular Expressions _(uregex.h)_
 - [ ] `usprep`, StringPrep _(usprep.h)_
-- [ ] `uidna`, International Domain Names in Applications _(uidna.h)_
 - [ ] `uspoof`, Identifier Spoofing & Confusability _(uspoof.h)_
 - [ ] `utmscale`, Universal Time Scale _(utmscale.h)_
 - [ ] `udata`, Data loading interface _(udata.h)_
-- [ ] `upluralrules`, Plural rules _(upluralrules.h)_
 
 
 ## Development
