@@ -14,6 +14,10 @@ matrix:
   - os: linux
     dist: trusty
     env: GENERATE_LIB=1 # regenerate the binding
+
+  # FIXME: temporary allow failures for macOS builds
+  #        (see https://github.com/travis-ci/travis-ci/issues/7894)
+  allow_failures:
   # OSX
   - os: osx
     osx_image: xcode8.3
