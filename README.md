@@ -32,12 +32,12 @@ require "icu"
 
 
 ## Wrapped components (WIP)
-- [x] [CharsetDetector](src/icu/charset_detector.cr), Charset detection _(ucsdet.h)_
-- [x] [Currencies](src/icu/currencies.cr), Encapsulates information about a currency _(ucurr.h)_
-- [x] [Region](src/icu/region.cr), Territory containment and mapping _(uregion.h)_
-- [x] [BreakIterator](src/icu/break_iterator.cr), Text Boundary Analysis (Break Iteration) _(ubrk.h)_
-- [x] [Transliterator](src/icu/transliterator.cr), Text Transformation (Transliteration) _(utrans.h)_
-- [x] [Normalizer](src/icu/normalizer.cr), Normalization _(unorm2.h)_
+- [x] [CharsetDetector](https://olbat.github.io/icu.cr/ICU/CharsetDetector.html), Charset detection _(ucsdet.h)_
+- [x] [Currencies](https://olbat.github.io/icu.cr/ICU/Currencies.html), Encapsulates information about a currency _(ucurr.h)_
+- [x] [Region](https://olbat.github.io/icu.cr/ICU/Region.html), Territory containment and mapping _(uregion.h)_
+- [x] [BreakIterator](https://olbat.github.io/icu.cr/ICU/BreakIterator.html), Text Boundary Analysis (Break Iteration) _(ubrk.h)_
+- [x] [Transliterator](https://olbat.github.io/icu.cr/ICU/Transliterator.html), Text Transformation (Transliteration) _(utrans.h)_
+- [x] [Normalizer](https://olbat.github.io/icu.cr/ICU/Normalizer.html), Normalization _(unorm2.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `unum`, Number Formatting/Spellout _(unum.h)_
 - [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
@@ -51,7 +51,7 @@ require "icu"
 - [ ] `upluralrules`, Plural rules _(upluralrules.h)_
 
 __Internals__
-- [x] [UEnum](src/icu/uenum.cr), String Enumeration _(uenum.h)_
+- [x] [UEnum](https://olbat.github.io/icu.cr/ICU/UEnum.html), String Enumeration _(uenum.h)_
 - [ ] `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_
 - [ ] `utext`, Abstract Unicode Text API _(utext.h)_
 - [ ] `uset`, Sets of Unicode Code Points and Strings _(uset.h)_
