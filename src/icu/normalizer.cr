@@ -4,11 +4,11 @@ class ICU::Normalizer
   alias Type = NamedTuple(name: String, mode: Mode)
 
   TYPES = {
-    NFC:    {name: "nfc", mode: Mode::M2Compose},
-    NFD:    {name: "nfc", mode: Mode::M2Decompose},
-    NFKC:   {name: "nfkc", mode: Mode::M2Compose},
-    NFKD:   {name: "nfkc", mode: Mode::M2Decompose},
-    NFKCCF: {name: "nfkc_cf", mode: Mode::M2Compose},
+    NFC:    {name: "nfc", mode: Mode::Compose},
+    NFD:    {name: "nfc", mode: Mode::Decompose},
+    NFKC:   {name: "nfkc", mode: Mode::Compose},
+    NFKD:   {name: "nfkc", mode: Mode::Decompose},
+    NFKCCF: {name: "nfkc_cf", mode: Mode::Compose},
   }
 
   @unorm : LibICU::UNormalizer2

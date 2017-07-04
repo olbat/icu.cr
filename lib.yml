@@ -20,6 +20,11 @@ rename:
       replacement: "utf\\1\\2"
     - pattern: ut_f(\d+)([a-zA-Z])
       replacement: "utf\\1_\\2"
+    # Fix bad prefix in Unorm2 constants, "M2Compose" becomes "Compose"
+    # (see https://github.com/crystal-lang/crystal/issues/4278)
+    # FIXME: to be remove once the bug is fixed upstream
+    - pattern: ^UnorM2
+      replacement: ""
     Arg:
     # Remove type name prefix in enum definitions
     # (UrgnTerritory of the URegionType enum becomes Territory)

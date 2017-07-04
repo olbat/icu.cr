@@ -2,10 +2,10 @@
 lib LibICU
   {% begin %}
   enum UNormalization2mode
-    M2Compose           = 0
-    M2Decompose         = 1
-    M2Fcd               = 2
-    M2ComposeContiguous = 3
+    Compose           = 0
+    Decompose         = 1
+    Fcd               = 2
+    ComposeContiguous = 3
   end
   enum UNormalizationCheckResult
     No    = 0
