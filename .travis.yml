@@ -62,3 +62,12 @@ script:
 - crystal tool format --check src spec bench
 - crystal spec
 - make benchmark
+- crystal docs
+
+deploy:
+  provider: pages
+  local_dir: doc/
+  github_token: $GITHUB_TOKEN
+  skip_cleanup: true
+  on:
+    branch: gh-pages
