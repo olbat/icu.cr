@@ -16,6 +16,19 @@ describe "ICU::UChars" do
     end
   end
 
+  describe "to_s" do
+    it "creates a String from an UChars specifying it's size" do
+      str = "Σὲ γνωρίζω ἀπὸ τὴν κόψη"
+      str.to_uchars.to_s(8).should eq(str[0..7])
+    end
+  end
+
+  describe "Char#to_uchar" do
+    it "creates an UChar from a Char" do
+      'e'.to_uchar.should eq(101)
+    end
+  end
+
   describe "String#to_uchars" do
     it "creates a valid UChars object from a String" do
       str = "Зарегистрируйтесь сейчас на Десятую Международную Конференцию по"
