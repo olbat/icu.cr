@@ -51,6 +51,7 @@ require "icu"
 - [ ] `upluralrules`, Plural rules _(upluralrules.h)_
 
 __Internals__
+- [x] [UChars](https://olbat.github.io/icu.cr/ICU/UChars.html), UChar conversion routines
 - [x] [UEnum](https://olbat.github.io/icu.cr/ICU/UEnum.html), String Enumeration _(uenum.h)_
 - [ ] `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_
 - [ ] `utext`, Abstract Unicode Text API _(utext.h)_
