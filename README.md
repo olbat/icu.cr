@@ -38,6 +38,7 @@ require "icu"
 - [x] [BreakIterator](https://olbat.github.io/icu.cr/ICU/BreakIterator.html), Text Boundary Analysis (Break Iteration) _(ubrk.h)_
 - [x] [Transliterator](https://olbat.github.io/icu.cr/ICU/Transliterator.html), Text Transformation (Transliteration) _(utrans.h)_
 - [x] [Normalizer](https://olbat.github.io/icu.cr/ICU/Normalizer.html), Normalization _(unorm2.h)_
+- [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `unum`, Number Formatting/Spellout _(unum.h)_
 - [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
@@ -59,7 +60,6 @@ __Internals__
 - [ ] `ures`, Resource Bundles _(ures.h)_
 - [ ] `usprep`, StringPrep _(usprep.h)_
 - [ ] `uspoof`, Identifier Spoofing & Confusability _(uspoof.h)_
-- [ ] `utmscale`, Universal Time Scale _(utmscale.h)_
 - [ ] `udata`, Data loading interface _(udata.h)_
 
 
