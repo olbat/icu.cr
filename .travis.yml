@@ -21,11 +21,7 @@ matrix:
       target_branch: gh-pages
       github_token: $GITHUB_TOKEN
       skip_cleanup: true
-
-  # FIXME: temporary allow failures for macOS builds
-  #        (see https://github.com/travis-ci/travis-ci/issues/7894)
-  allow_failures:
-  # OSX
+  # macOS
   - os: osx
     osx_image: xcode8.3
   - os: osx
