@@ -39,11 +39,11 @@ require "icu"
 - [x] [Transliterator](https://olbat.github.io/icu.cr/ICU/Transliterator.html), Text Transformation (Transliteration) _(utrans.h)_
 - [x] [Normalizer](https://olbat.github.io/icu.cr/ICU/Normalizer.html), Normalization _(unorm2.h)_
 - [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
+- [x] [Collator](https://olbat.github.io/icu.cr/ICU/Collator.html), Collation _(ucol.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `unum`, Number Formatting/Spellout _(unum.h)_
 - [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
 - [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
-- [ ] `ucol`, Collation _(ucol.h)_
 - [ ] `ucal`, Calendars _(ucal.h)_
 - [ ] `udat`, Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
 - [ ] `usearch`, String Searching _(usearch.h)_
