@@ -19,6 +19,21 @@ class ICU::Collator
     Set(String).new(locales)
   end
 
+  KEYWORDS = begin
+    keywords = Hash(String, Set(String)).new
+    ustatus = LibICU::UErrorCode::UZeroError
+    kenum = LibICU.ucol_get_keywords(pointerof(ustatus))
+    ICU.check_error!(ustatus)
+    UEnum.new(kenum).each do |keyword|
+      ustatus = LibICU::UErrorCode::UZeroError
+      venum = LibICU.ucol_get_keyword_values(keyword, pointerof(ustatus))
+      ICU.check_error!(ustatus)
+      keywords[keyword] = Set(String).new(UEnum.new(venum).to_a)
+    end
+    LibICU.uenum_close(kenum)
+    keywords
+  end
+
   @ucol : LibICU::UCollator
   @locale : String?
   @rules : ICU::UChars?
@@ -53,5 +68,65 @@ class ICU::Collator
 
   def equals?(s1 : String, s2 : String) : Bool
     LibICU.ucol_equal(@ucol, s1.to_uchars, s2.size, s2.to_uchars, s2.size) != 0
+  end
+
+  # Get the value of the specified attribute
+  def [](attribute : Attribute) : AttributeValue
+    ustatus = LibICU::UErrorCode::UZeroError
+    ret = LibICU.ucol_get_attribute(@ucol, attribute, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+    ret
+  end
+
+  # Set a value to the specified attribute
+  def []=(attribute : Attribute, value : AttributeValue)
+    ustatus = LibICU::UErrorCode::UZeroError
+    LibICU.ucol_set_attribute(@ucol, attribute, value, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+    self
+  end
+
+  def strength : Strength
+    LibICU.ucol_get_strength(@ucol)
+  end
+
+  def strength=(value : Strength)
+    LibICU.ucol_set_strength(@ucol, value)
+    self
+  end
+
+  def reorder_codes : Array(ReorderCode)
+    ustatus = LibICU::UErrorCode::UZeroError
+    dest = Slice(Int32).new(ReorderCode.names.size) # max size = size of the enum
+    size = LibICU.ucol_get_reorder_codes(@ucol, dest, dest.size, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+
+    if size > 0
+      dest.to_a[0..(size - 1)].map { |c| ReorderCode.new(c) }
+    else
+      [] of ReorderCode
+    end
+  end
+
+  def reorder_codes=(codes : Array(ReorderCode))
+    ustatus = LibICU::UErrorCode::UZeroError
+    codes = codes.map { |c| c.to_i32 }
+    LibICU.ucol_set_reorder_codes(@ucol, codes, codes.size, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+    self
+  end
+
+  def self.functional_equivalent(locale : String, keyword : String = KEYWORDS.keys.first)
+    ustatus = LibICU::UErrorCode::UZeroError
+    available = Bytes.new(1)
+    res = Bytes.new(ICU::Locale::FULLNAME_MAX_SIZE)
+    size = LibICU.ucol_get_functional_equivalent(res, res.size, keyword, locale, available, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+
+    if available
+      String.new(res[0, size])
+    else
+      nil
+    end
   end
 end
