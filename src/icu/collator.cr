@@ -59,6 +59,10 @@ class ICU::Collator
     @ucol.try { |ucol| LibICU.ucol_close(ucol) }
   end
 
+  def to_unsafe
+    @ucol
+  end
+
   def compare(s1 : String, s2 : String) : Int
     ustatus = LibICU::UErrorCode::UZeroError
     ret = LibICU.ucol_strcoll_utf8(@ucol, s1, s2.size, s2, s2.size, pointerof(ustatus))

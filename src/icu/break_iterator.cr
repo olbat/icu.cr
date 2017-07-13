@@ -35,6 +35,10 @@ class ICU::BreakIterator
     @ubrk.try { |ubrk| LibICU.ubrk_close(ubrk) }
   end
 
+  def to_unsafe
+    @ubrk
+  end
+
   def each_bound
     i = LibICU.ubrk_first(@ubrk)
     while i != DONE

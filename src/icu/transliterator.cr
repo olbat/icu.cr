@@ -49,6 +49,10 @@ class ICU::Transliterator
     @utrans.try { |utrans| LibICU.utrans_close(utrans) }
   end
 
+  def to_unsafe
+    @utrans
+  end
+
   def reverse!
     if @id[:to]
       @id = {from: @id[:to].not_nil!, to: @id[:from], variant: @id[:variant]}
