@@ -19,6 +19,10 @@ class ICU::Region
   def initialize(@uregion : LibICU::URegion)
   end
 
+  def to_unsafe
+    @uregion
+  end
+
   def code : String
     @code ||= String.new(LibICU.uregion_get_region_code(@uregion))
   end

@@ -35,6 +35,10 @@ class ICU::CharsetDetector
     @csdet.try { |csdet| LibICU.ucsdet_close(csdet) }
   end
 
+  def to_unsafe
+    @csdet
+  end
+
   def detect(text : String) : CharsetMatch
     ustatus = LibICU::UErrorCode::UZeroError
     LibICU.ucsdet_set_text(@csdet, text, text.size, pointerof(ustatus))
