@@ -6,7 +6,8 @@ class ICU::BreakIterator
   DONE = -1
 
   @ubrk : LibICU::UBreakIterator
-  @uchars : UChars
+  @text : UChars?
+  getter :text
 
   LOCALES = begin
     locales = (0...LibICU.ubrk_count_available).map do |i|
@@ -15,7 +16,7 @@ class ICU::BreakIterator
     Set(String).new(locales)
   end
 
-  def initialize(@text : String, break_type : Type, locale : String? = nil)
+  def initialize(break_type : Type, locale : String? = nil)
     if locale
       raise ICU::Error.new("unknown locale #{locale}") unless LOCALES.includes?(locale)
     end
@@ -23,12 +24,11 @@ class ICU::BreakIterator
     ustatus = LibICU::UErrorCode::UZeroError
     @ubrk = LibICU.ubrk_open(break_type, locale, nil, 0, pointerof(ustatus))
     ICU.check_error!(ustatus)
+  end
 
-    @uchars = @text.to_uchars
-
-    ustatus = LibICU::UErrorCode::UZeroError
-    LibICU.ubrk_set_text(@ubrk, @uchars, @uchars.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
+  def initialize(text : String, break_type : Type, locale : String? = nil)
+    initialize(break_type, locale)
+    self.text = text
   end
 
   def finalize
@@ -37,6 +37,18 @@ class ICU::BreakIterator
 
   def to_unsafe
     @ubrk
+  end
+
+  def text=(text : UChars)
+    ustatus = LibICU::UErrorCode::UZeroError
+    LibICU.ubrk_set_text(@ubrk, text, text.size, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+    @text = text
+    self
+  end
+
+  def text=(text : String)
+    self.text = text.to_uchars
   end
 
   def each_bound
@@ -49,11 +61,14 @@ class ICU::BreakIterator
   end
 
   def each
-    low = LibICU.ubrk_first(@ubrk)
-    while (high = LibICU.ubrk_next(@ubrk)) != DONE
-      s = String.build { |io| (low...high).each { |i| io << @uchars[i].chr } }
-      yield(s)
-      low = high
+    unless (text = @text).nil?
+      # FIXME: not thread-safe since the text can be changed using text=
+      low = LibICU.ubrk_first(@ubrk)
+      while (high = LibICU.ubrk_next(@ubrk)) != DONE
+        s = String.build { |io| (low...high).each { |i| io << text[i].chr } }
+        yield(s)
+        low = high
+      end
     end
     self
   end

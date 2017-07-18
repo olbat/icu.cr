@@ -1,5 +1,6 @@
 # not thread-safe
 class ICU::Currencies
+  # FIXME: should be present in LibICU (not parsed by Libgen)
   enum Type
     All           = Int32::MAX,
     Common        = 1,
