@@ -6,9 +6,9 @@ class ICU::Collator
   alias ReorderCode = LibICU::UColReorderCode
   alias RuleOption = LibICU::UColRuleOption
 
-  ON      = ICU::Collator::AttributeValue::On
-  OFF     = ICU::Collator::AttributeValue::Off
-  DEFAULT = ICU::Collator::AttributeValue::Default
+  ON      = AttributeValue::On
+  OFF     = AttributeValue::Off
+  DEFAULT = AttributeValue::Default
 
   LOCALES = begin
     ustatus = LibICU::UErrorCode::UZeroError
