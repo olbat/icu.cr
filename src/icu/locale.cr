@@ -5,6 +5,7 @@ class ICU::Locale
   SCRIPT_MAX_SIZE              =   6
   KEYWORDS_MAX_SIZE            =  96
   KEYWORDS_AND_VALUES_MAX_SIZE = 100
+  DEFAULT_LOCALE               = ""
 
   class Keyword
     SEPARATOR      = '@'
