@@ -40,7 +40,7 @@ require "icu"
 - [x] [Normalizer](https://olbat.github.io/icu.cr/ICU/Normalizer.html), Normalization _(unorm2.h)_
 - [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
 - [x] [Collator](https://olbat.github.io/icu.cr/ICU/Collator.html), Collation _(ucol.h)_
-- [x] [Search](https://olbat.github.io/icu.cr/ICU/Search.html), String Searching _(usearch.h)_
+- [x] [StringSearch](https://olbat.github.io/icu.cr/ICU/StringSearch.html), String Searching _(usearch.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `unum`, Number Formatting/Spellout _(unum.h)_
 - [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_

@@ -1,4 +1,4 @@
-class ICU::Search
+class ICU::StringSearch
   alias Position = Range(Int32, Int32)
   alias Attribute = LibICU::USearchAttribute
   alias AttributeValue = LibICU::USearchAttributeValue
