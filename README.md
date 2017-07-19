@@ -40,13 +40,13 @@ require "icu"
 - [x] [Normalizer](https://olbat.github.io/icu.cr/ICU/Normalizer.html), Normalization _(unorm2.h)_
 - [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
 - [x] [Collator](https://olbat.github.io/icu.cr/ICU/Collator.html), Collation _(ucol.h)_
+- [x] [Search](https://olbat.github.io/icu.cr/ICU/Search.html), String Searching _(usearch.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `unum`, Number Formatting/Spellout _(unum.h)_
 - [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
 - [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
 - [ ] `ucal`, Calendars _(ucal.h)_
 - [ ] `udat`, Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
-- [ ] `usearch`, String Searching _(usearch.h)_
 - [ ] `uregex`, Regular Expressions _(uregex.h)_
 - [ ] `uidna`, International Domain Names in Applications _(uidna.h)_
 - [ ] `upluralrules`, Plural rules _(upluralrules.h)_
