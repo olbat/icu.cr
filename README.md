@@ -41,6 +41,7 @@ require "icu"
 - [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
 - [x] [Collator](https://olbat.github.io/icu.cr/ICU/Collator.html), Collation _(ucol.h)_
 - [x] [StringSearch](https://olbat.github.io/icu.cr/ICU/StringSearch.html), String Searching _(usearch.h)_
+- [x] [IDNA](https://olbat.github.io/icu.cr/ICU/IDNA.html), International Domain Names in Applications _(uidna.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `unum`, Number Formatting/Spellout _(unum.h)_
 - [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
@@ -48,7 +49,6 @@ require "icu"
 - [ ] `ucal`, Calendars _(ucal.h)_
 - [ ] `udat`, Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
 - [ ] `uregex`, Regular Expressions _(uregex.h)_
-- [ ] `uidna`, International Domain Names in Applications _(uidna.h)_
 - [ ] `upluralrules`, Plural rules _(upluralrules.h)_
 
 __Internals__
