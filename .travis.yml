@@ -40,12 +40,8 @@ before_install: |
   osx)
     brew update
 
-    # FIXME: ugly fix for the CI's image, crystal-lang should not be reinstalled
-    rm -f /usr/local/bin/shards
-    brew install crystal-lang
-
     if [[ -n $GENERATE_LIB ]]; then
-      # install LLVM and Clang 3.7
+      # install LLVM and Clang 3.7 (a libgen dependency)
       brew install llvm@3.7
       # FIXME: ugly fix since the libclang.dylib is not symlinked correctly
       brew list --verbose llvm@3.7 | grep "\.dylib$" | xargs -n1 -I{} ln -sf {} $(brew --prefix)/lib
