@@ -1,4 +1,5 @@
-# not thread-safe
+# See also:
+# - [reference implementation](http://icu-project.org/apiref/icu4c/uenum_8h.html)
 class ICU::UEnum
   include Enumerable(String)
 
@@ -8,6 +9,7 @@ class ICU::UEnum
     @free = false
   end
 
+  # FIXME: not thread-safe
   def initialize(elements : Array(String))
     ustatus = LibICU::UErrorCode::UZeroError
     @uenum = LibICU.uenum_open_char_strings_enumeration(elements.map(&.to_unsafe), elements.size, pointerof(ustatus))

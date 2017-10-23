@@ -1,3 +1,6 @@
+# See also:
+# - [reference implementation](http://icu-project.org/apiref/icu4c/unorm2_8h.html)
+# - [user guide](http://userguide.icu-project.org/transforms/normalization)
 class ICU::Normalizer
   alias Mode = LibICU::UNormalization2mode
   alias CheckResult = LibICU::UNormalizationCheckResult

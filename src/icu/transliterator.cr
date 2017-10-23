@@ -1,3 +1,6 @@
+# See also:
+# - [reference implementation](http://icu-project.org/apiref/icu4c/utrans_8h.html)
+# - [user guide](http://userguide.icu-project.org/transforms/general#TOC-ICU-Transliterators)
 class ICU::Transliterator
   alias ID = NamedTuple(from: String, to: String?, variant: String?)
   IDS = begin

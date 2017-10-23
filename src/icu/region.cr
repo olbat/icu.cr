@@ -1,4 +1,7 @@
 {% if compare_versions(LibICU::VERSION, "52.0.0") >= 0 %}
+# See also:
+# - [reference implementation](http://icu-project.org/apiref/icu4c/uregion_8h.html)
+# - [design doc](http://site.icu-project.org/design/t/territory-region-apis)
 class ICU::Region
   @uregion : LibICU::URegion
   @code : String?

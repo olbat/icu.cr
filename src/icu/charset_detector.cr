@@ -1,4 +1,6 @@
-# not thread-safe
+# See also:
+# - [reference implementation](http://icu-project.org/apiref/icu4c/ucsdet_8h.html)
+# - [user guide](http://userguide.icu-project.org/conversion/detection)
 class ICU::CharsetDetector
   class CharsetMatch
     getter name : String
@@ -39,6 +41,7 @@ class ICU::CharsetDetector
     @csdet
   end
 
+  # FIXME: not thread-safe
   def detect(text : String) : CharsetMatch
     ustatus = LibICU::UErrorCode::UZeroError
     LibICU.ucsdet_set_text(@csdet, text, text.size, pointerof(ustatus))
@@ -51,6 +54,7 @@ class ICU::CharsetDetector
     CharsetMatch.new(ucsmatch.not_nil!)
   end
 
+  # FIXME: not thread-safe
   def detect_all(text : String) : Array(CharsetMatch)
     ustatus = LibICU::UErrorCode::UZeroError
     LibICU.ucsdet_set_text(@csdet, text, text.size, pointerof(ustatus))

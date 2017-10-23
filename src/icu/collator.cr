@@ -1,3 +1,6 @@
+# See also:
+# - [reference implementation](http://icu-project.org/apiref/icu4c/ucol_8h.html)
+# - [user guide](http://userguide.icu-project.org/collation)
 class ICU::Collator
   alias Attribute = LibICU::UColAttribute
   alias AttributeValue = LibICU::UColAttributeValue

@@ -1,4 +1,5 @@
-# not thread-safe
+# See also:
+# - [reference implementation](http://icu-project.org/apiref/icu4c/ucurr_8h.html)
 class ICU::Currencies
   # FIXME: should be present in LibICU (not parsed by Libgen)
   enum Type
@@ -10,6 +11,7 @@ class ICU::Currencies
   end
   alias NameStyle = LibICU::UCurrNameStyle
 
+  # FIXME: not thread-safe
   def self.currency(locale : String) : String
     buff = UChars.new(4)
     ustatus = uninitialized LibICU::UErrorCode

@@ -1,8 +1,8 @@
-# TODO: ugly, find another way to extend the Slice(UInt16) type
-#       (see https://github.com/crystal-lang/crystal/issues/2529)
 module ICU
   alias UChar = UInt16
 
+  # FIXME: ugly, find another way to extend the Slice(UInt16) type
+  #       (see https://github.com/crystal-lang/crystal/issues/2529)
   struct UChars
     # see http://userguide.icu-project.org/dev/codingguidelines#TOC-Primitive-Type
     @slice : Slice(ICU::UChar)

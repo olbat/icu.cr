@@ -1,3 +1,6 @@
+# See also:
+# - [reference implementation](http://icu-project.org/apiref/icu4c/uloc_8h.html)
+# - [user guide](http://userguide.icu-project.org/locale)
 class ICU::Locale
   LANG_MAX_SIZE                =  12
   COUNTRY_MAX_SIZE             =   4
