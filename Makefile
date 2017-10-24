@@ -16,7 +16,7 @@ lib/libgen: shard.yml
 
 benchmark:
 	find bench/ -name "*_bench.cr" -exec \
-		sh -c 'echo {} && $(CRBIN) run --release {}' \;
+		sh -c 'echo {} && $(CRBIN) run --release --no-debug {}' \;
 
 clean:
 	rm -rf lib
