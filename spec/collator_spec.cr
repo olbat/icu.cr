@@ -40,6 +40,7 @@ describe "ICU::Collator" do
     end
   end
 
+  {% if compare_versions(LibICU::VERSION, "50.0.0") >= 0 %}
   describe "compare" do
     it "compares two strings and return their order depending on the locale" do
       col = ICU::Collator.new("en")
@@ -73,6 +74,7 @@ describe "ICU::Collator" do
       col.compare("abd", "abe").should eq(-1)
     end
   end
+  {% end %}
 
   describe "equals?" do
     it "returns true when two strings are equal" do

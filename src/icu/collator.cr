@@ -66,12 +66,14 @@ class ICU::Collator
     @ucol
   end
 
+  {% if compare_versions(LibICU::VERSION, "50.0.0") >= 0 %}
   def compare(s1 : String, s2 : String) : Int
     ustatus = LibICU::UErrorCode::UZeroError
     ret = LibICU.ucol_strcoll_utf8(@ucol, s1, s2.size, s2, s2.size, pointerof(ustatus))
     ICU.check_error!(ustatus)
     ret.to_i
   end
+  {% end %}
 
   def equals?(s1 : String, s2 : String) : Bool
     LibICU.ucol_equal(@ucol, s1.to_uchars, s2.size, s2.to_uchars, s2.size) != 0
