@@ -9,8 +9,9 @@ matrix:
     dist: precise
   - os: linux
     dist: trusty
-  - os: linux
-    dist: xenial
+  # FIXME: no proper Travis CI Xenial image
+  #- os: linux
+  #  dist: xenial
   - os: linux
     dist: trusty
     env: GENERATE_LIB=1 # regenerate the binding
