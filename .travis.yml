@@ -29,12 +29,14 @@ matrix:
     osx_image: xcode8.3
     env: GENERATE_LIB=1 # regenerate the binding
 
-before_install: |
+install: |
   case $TRAVIS_OS_NAME in
   linux)
     sudo apt-get -qq update
     if [[ -n $GENERATE_LIB ]]; then
-      sudo apt-get install -y llvm-3.5-dev libclang-3.5-dev
+      sudo apt-get install -y llvm-3.8-dev libclang-3.8-dev
+      # FIXME: ugly fix since the libclang-3.8-dev package is bugged
+      sudo ln -s $(llvm-config-3.8 --libdir)/libclang.so /usr/lib/
     fi
     sudo apt-get install -y libicu-dev
     ;;
@@ -42,10 +44,10 @@ before_install: |
     brew update
 
     if [[ -n $GENERATE_LIB ]]; then
-      # install LLVM and Clang 3.7 (a libgen dependency)
-      brew install llvm@3.7
+      # install LLVM and Clang 3.8 (a libgen dependency)
+      brew install llvm@3.8
       # FIXME: ugly fix since the libclang.dylib is not symlinked correctly
-      brew list --verbose llvm@3.7 | grep "\.dylib$" | xargs -n1 -I{} ln -sf {} $(brew --prefix)/lib
+      brew list --verbose llvm@3.8 | grep "\.dylib$" | xargs -n1 -I{} ln -sf {} $(brew --prefix)/lib
     fi
 
     brew install icu4c
