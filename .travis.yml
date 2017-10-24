@@ -55,6 +55,7 @@ before_install: |
   esac
 
 before_script:
+- crystal run src/icu_info.cr -- --version # displays the version of ICU
 - "[ -z $GENERATE_LIB ] || make"
 
 script:
