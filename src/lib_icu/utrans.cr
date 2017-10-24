@@ -31,7 +31,7 @@ lib LibICU
   struct UReplaceableCallbacks
     length : (UReplaceable* -> Int32T)
     char_at : (UReplaceable*, Int32T -> UChar)
-    char32at : (UReplaceable*, Int32T -> UChar32)
+    char32_at : (UReplaceable*, Int32T -> UChar32)
     replace : (UReplaceable*, Int32T, Int32T, UChar*, Int32T -> Void)
     extract : (UReplaceable*, Int32T, Int32T, UChar* -> Void)
     copy : (UReplaceable*, Int32T, Int32T, Int32T -> Void)

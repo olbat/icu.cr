@@ -4,13 +4,13 @@ lib LibICU
   enum UDateTimeScale
     JavaTime             =  0
     UnixTime             =  1
-    IcU4cTime            =  2
+    Icu4CTime            =  2
     WindowsFileTime      =  3
     DotnetDateTime       =  4
     MacOldTime           =  5
     MacTime              =  6
     ExcelTime            =  7
-    DB2Time              =  8
+    Db2Time              =  8
     UnixMicrosecondsTime =  9
     MaxScale             = 10
   end

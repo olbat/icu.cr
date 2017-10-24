@@ -25,7 +25,7 @@ lib LibICU
   fun str_from_utf8_lenient = u_strFromUTF8Lenient{{SYMS_SUFFIX.id}}(dest : UChar*, dest_capacity : Int32T, p_dest_length : Int32T*, src : LibC::Char*, src_length : Int32T, p_error_code : UErrorCode*) : UChar*
   fun str_from_utf8_with_sub = u_strFromUTF8WithSub{{SYMS_SUFFIX.id}}(dest : UChar*, dest_capacity : Int32T, p_dest_length : Int32T*, src : LibC::Char*, src_length : Int32T, subchar : UChar32, p_num_substitutions : Int32T*, p_error_code : UErrorCode*) : UChar*
   fun str_from_wcs = u_strFromWCS{{SYMS_SUFFIX.id}}(dest : UChar*, dest_capacity : Int32T, p_dest_length : Int32T*, src : WcharT*, src_length : Int32T, p_error_code : UErrorCode*) : UChar*
-  fun str_has_more_char32than = u_strHasMoreChar32Than{{SYMS_SUFFIX.id}}(s : UChar*, length : Int32T, number : Int32T) : UBool
+  fun str_has_more_char32_than = u_strHasMoreChar32Than{{SYMS_SUFFIX.id}}(s : UChar*, length : Int32T, number : Int32T) : UBool
   fun str_to_java_modified_utf8 = u_strToJavaModifiedUTF8{{SYMS_SUFFIX.id}}(dest : LibC::Char*, dest_capacity : Int32T, p_dest_length : Int32T*, src : UChar*, src_length : Int32T, p_error_code : UErrorCode*) : LibC::Char*
   fun str_to_lower = u_strToLower{{SYMS_SUFFIX.id}}(dest : UChar*, dest_capacity : Int32T, src : UChar*, src_length : Int32T, locale : LibC::Char*, p_error_code : UErrorCode*) : Int32T
   fun str_to_title = u_strToTitle{{SYMS_SUFFIX.id}}(dest : UChar*, dest_capacity : Int32T, src : UChar*, src_length : Int32T, title_iter : UBreakIterator, locale : LibC::Char*, p_error_code : UErrorCode*) : Int32T

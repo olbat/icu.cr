@@ -283,7 +283,7 @@ lib LibICU
     UIdnaErrorStart               = 66560
     UIdnaUnassignedError          = 66561
     UIdnaCheckBidiError           = 66562
-    UIdnaStD3AsciiRulesError      = 66563
+    UIdnaStd3AsciiRulesError      = 66563
     UIdnaAcePrefixError           = 66564
     UIdnaVerificationError        = 66565
     UIdnaLabelTooLongError        = 66566
@@ -305,7 +305,7 @@ lib LibICU
     Long   = 2
     String = 3
     Array  = 4
-    InT64  = 5
+    Int64  = 5
     Object = 6
     Count  = 7
   end

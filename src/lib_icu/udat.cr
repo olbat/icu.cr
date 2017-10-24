@@ -16,8 +16,8 @@ lib LibICU
     YearField                       =  1
     MonthField                      =  2
     DateField                       =  3
-    HourOfDaY1Field                 =  4
-    HourOfDaY0Field                 =  5
+    HourOfDay1Field                 =  4
+    HourOfDay0Field                 =  5
     MinuteField                     =  6
     SecondField                     =  7
     FractionalSecondField           =  8
@@ -27,8 +27,8 @@ lib LibICU
     WeekOfYearField                 = 12
     WeekOfMonthField                = 13
     AmPmField                       = 14
-    HouR1Field                      = 15
-    HouR0Field                      = 16
+    Hour1Field                      = 15
+    Hour0Field                      = 16
     TimezoneField                   = 17
     YearWoyField                    = 18
     DowLocalField                   = 19
@@ -141,7 +141,7 @@ lib LibICU
   fun udat_format_calendar = udat_formatCalendar{{SYMS_SUFFIX.id}}(format : UDateFormat*, calendar : UCalendar*, result : UChar*, capacity : Int32T, position : UFieldPosition*, status : UErrorCode*) : Int32T
   fun udat_format_calendar_for_fields = udat_formatCalendarForFields{{SYMS_SUFFIX.id}}(format : UDateFormat*, calendar : UCalendar*, result : UChar*, capacity : Int32T, fpositer : UFieldPositionIterator, status : UErrorCode*) : Int32T
   fun udat_format_for_fields = udat_formatForFields{{SYMS_SUFFIX.id}}(format : UDateFormat*, date_to_format : UDate, result : UChar*, result_length : Int32T, fpositer : UFieldPositionIterator, status : UErrorCode*) : Int32T
-  fun udat_get2digit_year_start = udat_get2DigitYearStart{{SYMS_SUFFIX.id}}(fmt : UDateFormat*, status : UErrorCode*) : UDate
+  fun udat_get2_digit_year_start = udat_get2DigitYearStart{{SYMS_SUFFIX.id}}(fmt : UDateFormat*, status : UErrorCode*) : UDate
   fun udat_get_available = udat_getAvailable{{SYMS_SUFFIX.id}}(locale_index : Int32T) : LibC::Char*
   fun udat_get_boolean_attribute = udat_getBooleanAttribute{{SYMS_SUFFIX.id}}(fmt : UDateFormat*, attr : UDateFormatBooleanAttribute, status : UErrorCode*) : UBool
   fun udat_get_calendar = udat_getCalendar{{SYMS_SUFFIX.id}}(fmt : UDateFormat*) : UCalendar*
@@ -155,7 +155,7 @@ lib LibICU
   fun udat_parse = udat_parse{{SYMS_SUFFIX.id}}(format : UDateFormat*, text : UChar*, text_length : Int32T, parse_pos : Int32T*, status : UErrorCode*) : UDate
   fun udat_parse_calendar = udat_parseCalendar{{SYMS_SUFFIX.id}}(format : UDateFormat*, calendar : UCalendar*, text : UChar*, text_length : Int32T, parse_pos : Int32T*, status : UErrorCode*)
   fun udat_register_opener = udat_registerOpener{{SYMS_SUFFIX.id}}(opener : UDateFormatOpener, status : UErrorCode*)
-  fun udat_set2digit_year_start = udat_set2DigitYearStart{{SYMS_SUFFIX.id}}(fmt : UDateFormat*, d : UDate, status : UErrorCode*)
+  fun udat_set2_digit_year_start = udat_set2DigitYearStart{{SYMS_SUFFIX.id}}(fmt : UDateFormat*, d : UDate, status : UErrorCode*)
   fun udat_set_boolean_attribute = udat_setBooleanAttribute{{SYMS_SUFFIX.id}}(fmt : UDateFormat*, attr : UDateFormatBooleanAttribute, new_value : UBool, status : UErrorCode*)
   fun udat_set_calendar = udat_setCalendar{{SYMS_SUFFIX.id}}(fmt : UDateFormat*, calendar_to_set : UCalendar*)
   fun udat_set_context = udat_setContext{{SYMS_SUFFIX.id}}(fmt : UDateFormat*, value : UDisplayContext, status : UErrorCode*)

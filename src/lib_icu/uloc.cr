@@ -51,8 +51,8 @@ lib LibICU
   fun uloc_get_display_name = uloc_getDisplayName{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, in_locale_id : LibC::Char*, result : UChar*, max_result_size : Int32T, err : UErrorCode*) : Int32T
   fun uloc_get_display_script = uloc_getDisplayScript{{SYMS_SUFFIX.id}}(locale : LibC::Char*, display_locale : LibC::Char*, script : UChar*, script_capacity : Int32T, status : UErrorCode*) : Int32T
   fun uloc_get_display_variant = uloc_getDisplayVariant{{SYMS_SUFFIX.id}}(locale : LibC::Char*, display_locale : LibC::Char*, variant : UChar*, variant_capacity : Int32T, status : UErrorCode*) : Int32T
-  fun uloc_get_is_o3country = uloc_getISO3Country{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*) : LibC::Char*
-  fun uloc_get_is_o3language = uloc_getISO3Language{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*) : LibC::Char*
+  fun uloc_get_iso3_country = uloc_getISO3Country{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*) : LibC::Char*
+  fun uloc_get_iso3_language = uloc_getISO3Language{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*) : LibC::Char*
   fun uloc_get_iso_countries = uloc_getISOCountries{{SYMS_SUFFIX.id}} : LibC::Char**
   fun uloc_get_iso_languages = uloc_getISOLanguages{{SYMS_SUFFIX.id}} : LibC::Char**
   fun uloc_get_keyword_value = uloc_getKeywordValue{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, keyword_name : LibC::Char*, buffer : LibC::Char*, buffer_capacity : Int32T, status : UErrorCode*) : Int32T

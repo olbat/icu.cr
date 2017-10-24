@@ -90,7 +90,7 @@ lib LibICU
   fun ucol_get_version = ucol_getVersion{{SYMS_SUFFIX.id}}(coll : UCollator, info : UVersionInfo)
   fun ucol_greater = ucol_greater{{SYMS_SUFFIX.id}}(coll : UCollator, source : UChar*, source_length : Int32T, target : UChar*, target_length : Int32T) : UBool
   fun ucol_greater_or_equal = ucol_greaterOrEqual{{SYMS_SUFFIX.id}}(coll : UCollator, source : UChar*, source_length : Int32T, target : UChar*, target_length : Int32T) : UBool
-  fun ucol_merge_sortkeys = ucol_mergeSortkeys{{SYMS_SUFFIX.id}}(src1 : Uint8T*, src1length : Int32T, src2 : Uint8T*, src2length : Int32T, dest : Uint8T*, dest_capacity : Int32T) : Int32T
+  fun ucol_merge_sortkeys = ucol_mergeSortkeys{{SYMS_SUFFIX.id}}(src1 : Uint8T*, src1_length : Int32T, src2 : Uint8T*, src2_length : Int32T, dest : Uint8T*, dest_capacity : Int32T) : Int32T
   fun ucol_next_sort_key_part = ucol_nextSortKeyPart{{SYMS_SUFFIX.id}}(coll : UCollator, iter : UCharIterator*, state : Uint32T[2], dest : Uint8T*, count : Int32T, status : UErrorCode*) : Int32T
   fun ucol_normalize_short_definition_string = ucol_normalizeShortDefinitionString{{SYMS_SUFFIX.id}}(source : LibC::Char*, destination : LibC::Char*, capacity : Int32T, parse_error : UParseError*, status : UErrorCode*) : Int32T
   fun ucol_open = ucol_open{{SYMS_SUFFIX.id}}(loc : LibC::Char*, status : UErrorCode*) : UCollator

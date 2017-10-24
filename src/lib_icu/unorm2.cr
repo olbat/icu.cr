@@ -1,7 +1,7 @@
 @[Link(ldflags: "`command -v pkg-config > /dev/null && pkg-config --libs icu-uc icu-i18n icu-io 2> /dev/null|| printf %s '-licuio -licui18n -licuuc -licudata'`")]
 lib LibICU
   {% begin %}
-  enum UNormalization2mode
+  enum UNormalization2Mode
     Compose           = 0
     Decompose         = 1
     Fcd               = 2
@@ -17,7 +17,7 @@ lib LibICU
   fun unorm2_compose_pair = unorm2_composePair{{SYMS_SUFFIX.id}}(norm2 : UNormalizer2, a : UChar32, b : UChar32) : UChar32
   fun unorm2_get_combining_class = unorm2_getCombiningClass{{SYMS_SUFFIX.id}}(norm2 : UNormalizer2, c : UChar32) : Uint8T
   fun unorm2_get_decomposition = unorm2_getDecomposition{{SYMS_SUFFIX.id}}(norm2 : UNormalizer2, c : UChar32, decomposition : UChar*, capacity : Int32T, p_error_code : UErrorCode*) : Int32T
-  fun unorm2_get_instance = unorm2_getInstance{{SYMS_SUFFIX.id}}(package_name : LibC::Char*, name : LibC::Char*, mode : UNormalization2mode, p_error_code : UErrorCode*) : UNormalizer2
+  fun unorm2_get_instance = unorm2_getInstance{{SYMS_SUFFIX.id}}(package_name : LibC::Char*, name : LibC::Char*, mode : UNormalization2Mode, p_error_code : UErrorCode*) : UNormalizer2
   fun unorm2_get_nfc_instance = unorm2_getNFCInstance{{SYMS_SUFFIX.id}}(p_error_code : UErrorCode*) : UNormalizer2
   fun unorm2_get_nfd_instance = unorm2_getNFDInstance{{SYMS_SUFFIX.id}}(p_error_code : UErrorCode*) : UNormalizer2
   fun unorm2_get_nfkc_casefold_instance = unorm2_getNFKCCasefoldInstance{{SYMS_SUFFIX.id}}(p_error_code : UErrorCode*) : UNormalizer2
