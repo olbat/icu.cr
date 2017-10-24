@@ -28,7 +28,7 @@ rename:
     Arg:
     # Remove type name prefix in enum definitions
     # (UrgnTerritory of the URegionType enum becomes Territory)
-    - pattern: ^U[a-z]+
+    - pattern: ^U[a-z0-9]+
       replacement: ""
 # Note: this list has been extracted extracted from unicode/docmain.h
 definitions:
