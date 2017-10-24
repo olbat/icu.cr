@@ -58,7 +58,6 @@ before_script:
 - "[ -z $GENERATE_LIB ] || make"
 
 script:
-- crystal tool format --check src spec bench
-- crystal spec
-- make benchmark
-- crystal docs
+  crystal tool format --check src spec bench
+  && crystal spec
+  && make benchmark
