@@ -15,19 +15,27 @@ matrix:
   - os: linux
     dist: trusty
     env: GENERATE_LIB=1 # regenerate the binding
-    # publish the documentation on GitHub pages
-    deploy:
-      provider: pages
-      local_dir: doc/
-      target_branch: gh-pages
-      github_token: $GITHUB_TOKEN
-      skip_cleanup: true
+
   # macOS
   - os: osx
     osx_image: xcode8.3
   - os: osx
     osx_image: xcode8.3
     env: GENERATE_LIB=1 # regenerate the binding
+
+  # publish the documentation on GitHub pages
+  - os: linux
+    stage: deploy
+    install:
+    script: crystal docs
+    deploy:
+      provider: pages
+      local_dir: doc/
+      target_branch: gh-pages
+      github_token: $GITHUB_TOKEN
+      skip_cleanup: true
+      on:
+        branch: master
 
 install: |
   case $TRAVIS_OS_NAME in
