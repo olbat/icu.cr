@@ -1,3 +1,5 @@
+# String Enumeration
+#
 # See also:
 # - [reference implementation](http://icu-project.org/apiref/icu4c/uenum_8h.html)
 class ICU::UEnum

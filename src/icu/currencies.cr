@@ -1,3 +1,5 @@
+# Encapsulates information about a currency
+#
 # See also:
 # - [reference implementation](http://icu-project.org/apiref/icu4c/ucurr_8h.html)
 class ICU::Currencies

@@ -1,3 +1,5 @@
+# Charset detection
+#
 # See also:
 # - [reference implementation](http://icu-project.org/apiref/icu4c/ucsdet_8h.html)
 # - [user guide](http://userguide.icu-project.org/conversion/detection)
