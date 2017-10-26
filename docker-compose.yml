@@ -1,0 +1,12 @@
+build:
+  build: .
+  command: make
+  volumes:
+  - .:/src
+
+devel:
+  image: olbat/icu.cr
+  command: make
+  working_dir: /src
+  volumes:
+  - .:/src
