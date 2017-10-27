@@ -1,7 +1,18 @@
+# __Currencies__
+#
 # Encapsulates information about a currency
 #
-# See also:
+# __Usage__
+# ```
+# ICU::Currencies.currency("fr_FR")   # => "EUR"
+# ICU::Currencies.numeric_code("EUR") # => 978
+# ```
+#
+# NOTE: the `numeric_code` method requires ICU >= 49
+#
+# __See also__
 # - [reference implementation](http://icu-project.org/apiref/icu4c/ucurr_8h.html)
+# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/currencies_spec.cr)
 class ICU::Currencies
   # FIXME: should be present in LibICU (not parsed by Libgen)
   enum Type
@@ -13,6 +24,12 @@ class ICU::Currencies
   end
   alias NameStyle = LibICU::UCurrNameStyle
 
+  # Returns the currency for a specified locale
+  #
+  # ```
+  # ICU::Currencies.currency("fr_FR") # => "EUR"
+  # ```
+  #
   # FIXME: not thread-safe
   def self.currency(locale : String) : String
     buff = UChars.new(4)
@@ -23,6 +40,11 @@ class ICU::Currencies
   end
 
   {% if compare_versions(LibICU::VERSION, "49.0.0") >= 0 %}
+  # Returns the code associated to a currency
+  #
+  # ```
+  # ICU::Currencies.numeric_code("EUR") # => 978
+  # ```
   def self.numeric_code(currency : String) : Int32
     num = LibICU.ucurr_get_numeric_code(currency.to_uchars)
     raise ICU::Error.new(%(Unknown currency "#{currency}")) if num == 0
