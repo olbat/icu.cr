@@ -1,8 +1,20 @@
-# Charset detection
+# __Charset detection__
 #
-# See also:
+# This class provides a facility for detecting the
+# charset or encoding of character data in an unknown text format.
+#
+# __Usage__
+# ```
+# csdet = ICU::CharsetDetector.new
+# csm = csdet.detect("Sôme text")
+# csm.name       # => "UTF-8"
+# csm.confidence # => 80
+# ```
+#
+# __See also__
 # - [reference implementation](http://icu-project.org/apiref/icu4c/ucsdet_8h.html)
 # - [user guide](http://userguide.icu-project.org/conversion/detection)
+# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/charset_detector_spec.cr)
 class ICU::CharsetDetector
   class CharsetMatch
     getter name : String
@@ -43,6 +55,20 @@ class ICU::CharsetDetector
     @csdet
   end
 
+  # Return the charset that best matches the supplied input data
+  #
+  # ```
+  # csdet = ICU::CharsetDetector.new
+  #
+  # csm = csdet.detect("Some text")
+  # csm.name       # => "ISO-8859-1"
+  # csm.confidence # => 30
+  #
+  # csm = csdet.detect("Sôme other text")
+  # csm.name       # => "UTF-8"
+  # csm.confidence # => 80
+  # ```
+  #
   # FIXME: not thread-safe
   def detect(text : String) : CharsetMatch
     ustatus = LibICU::UErrorCode::UZeroError
@@ -56,6 +82,19 @@ class ICU::CharsetDetector
     CharsetMatch.new(ucsmatch.not_nil!)
   end
 
+  # Find all charset matches that appear to be consistent with the input.
+  # The results are ordered with the best quality match first.
+  #
+  # ```
+  # csms = csdet.detect_all("Some text")
+  # csdet.detect_all(str).map { |csm| {name: csm.name, confidence: csm.confidence} }
+  # # => [{name: "ISO-8859-1", confidence: 30},
+  # #     {name: "ISO-8859-2", confidence: 30},
+  # #     {name: "UTF-8", confidence: 15},
+  # #     {name: "UTF-16BE", confidence: 10},
+  # #     {name: "UTF-16LE", confidence: 10}]
+  # ```
+  #
   # FIXME: not thread-safe
   def detect_all(text : String) : Array(CharsetMatch)
     ustatus = LibICU::UErrorCode::UZeroError
@@ -71,6 +110,15 @@ class ICU::CharsetDetector
     end
   end
 
+  # Returns the list of detectable charsets
+  #
+  # ```
+  # ICU::CharsetDetector.new.detectable_charsets
+  # # => ["UTF-8",
+  # #     "UTF-16BE",
+  # #     "UTF-16LE",
+  # #     ...]
+  # ```
   def detectable_charsets : Array(String)
     unless @@detectable_charsets
       ustatus = LibICU::UErrorCode::UZeroError
@@ -82,6 +130,9 @@ class ICU::CharsetDetector
     @@detectable_charsets.not_nil!
   end
 
+  # Returns the list of detectable charsets
+  #
+  # (see `ICU::CharsetDetector#detectable_charsets`)
   def self.detectable_charsets : Array(String)
     @@detectable_charsets ||= new.detectable_charsets
   end
