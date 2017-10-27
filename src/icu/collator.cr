@@ -1,8 +1,27 @@
-# Collation
+# __Collation__
 #
-# See also:
+# This class allows to perform locale-sensitive string comparison.
+#
+# Sort ordering may be customized by providing your own set of rules
+# (see [CLDR root sort order](http://userguide.icu-project.org/collation/customization)).
+#
+# __Usage__
+# ```
+# ICU::Collator.new("en").compare("y", "k") # => 1
+# ICU::Collator.new("lt").compare("y", "k") # => -1
+#
+# col = ICU::Collator.new("&c < b < a".to_uchars)
+# col.compare("a", "b") # => 1
+# col.compare("b", "c") # => 1
+# col.compare("d", "e") # => -1
+# ```
+#
+# NOTE: the `compare` method requires ICU >= 50
+#
+# __See also__
 # - [reference implementation](http://icu-project.org/apiref/icu4c/ucol_8h.html)
 # - [user guide](http://userguide.icu-project.org/collation)
+# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/collator_spec.cr)
 class ICU::Collator
   alias Attribute = LibICU::UColAttribute
   alias AttributeValue = LibICU::UColAttributeValue
@@ -69,6 +88,15 @@ class ICU::Collator
   end
 
   {% if compare_versions(LibICU::VERSION, "50.0.0") >= 0 %}
+  # Compares two strings
+  #
+  # ```
+  # ICU::Collator.new("en").compare("y", "k")       # => 1
+  # ICU::Collator.new("lt").compare("y", "k")       # => -1
+  # ICU::Collator.new("fr").compare("côte", "coté") # => -1
+  # ```
+  #
+  # (see `String#compare`)
   def compare(s1 : String, s2 : String) : Int
     ustatus = LibICU::UErrorCode::UZeroError
     ret = LibICU.ucol_strcoll_utf8(@ucol, s1, s2.size, s2, s2.size, pointerof(ustatus))
@@ -77,6 +105,12 @@ class ICU::Collator
   end
   {% end %}
 
+  # Returns `true` if the two strings are equivalent
+  #
+  # ```
+  # col = ICU::Collator.new("&a = b".to_uchars)
+  # col.equals?("a", "b") # => true
+  # ```
   def equals?(s1 : String, s2 : String) : Bool
     LibICU.ucol_equal(@ucol, s1.to_uchars, s2.size, s2.to_uchars, s2.size) != 0
   end
@@ -127,6 +161,11 @@ class ICU::Collator
     self
   end
 
+  # Returns a functional equivalent to a given locale
+  #
+  # ```
+  # ICU::Collator.functional_equivalent("en") # => "root"
+  # ```
   def self.functional_equivalent(locale : String, keyword : String = KEYWORDS.keys.first)
     ustatus = LibICU::UErrorCode::UZeroError
     available = Bytes.new(1)
