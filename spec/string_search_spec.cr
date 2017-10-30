@@ -37,6 +37,8 @@ describe "ICU::StringSearch" do
       search = ICU::StringSearch.new("ab", "xxx abc xxx", col, brk)
       search.should_not be_nil
       search.next.should eq(Iterator::Stop::INSTANCE)
+      search.text = "xxx ab xxx"
+      search.next.should eq(4...6)
     end
   end
 
@@ -132,10 +134,11 @@ describe "ICU::StringSearch" do
 
   describe "collator=" do
     it "set a value to the collator" do
-      search = ICU::StringSearch.new("ab", "abc", ICU::Collator.new)
-      col = ICU::Collator.new
+      search = ICU::StringSearch.new("aa", "ab", ICU::Collator.new)
+      col = ICU::Collator.new("&b = a".to_uchars)
       search.collator = col
       search.collator.should eq(col)
+      search.next.should eq(0...2)
     end
   end
 
