@@ -1,10 +1,22 @@
-# Text Transformation (Transliteration)
+# __Text Transformation__
+# Transliteration
 #
-# See also:
+# __Usage__
+# ```
+# trans = ICU::Transliterator.new({from: "Greek", to: "Latin})
+# trans.transliterate("Αλφαβητικός Κατάλογος") # => "Alphabētikós Katálogos"
+#
+# trans = ICU::Transliterator.new("Katakana-Hiragana")
+# trans.transliterate("ミヤモト ムサシ") # => "みやもと むさし"
+# ```
+#
+# __See also__
 # - [reference implementation](http://icu-project.org/apiref/icu4c/utrans_8h.html)
 # - [user guide](http://userguide.icu-project.org/transforms/general#TOC-ICU-Transliterators)
+# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/transliterator_spec.cr)
 class ICU::Transliterator
   alias ID = NamedTuple(from: String, to: String?, variant: String?)
+  # The list of available transliterators
   IDS = begin
     ids = (0...LibICU.utrans_count_available_i_ds).map do |i|
       buf = Bytes.new(50)
@@ -68,6 +80,12 @@ class ICU::Transliterator
     self
   end
 
+  # Transliterates _text_
+  #
+  # ```
+  # trans = ICU::Transliterator.new({from: "Greek", to: "Latin})
+  # trans.transliterate("Αλφαβητικός Κατάλογος") # => "Alphabētikós Katálogos"
+  # ```
   def transliterate(text : String) : String
     # allocate enough space to handle Unicode hexadecimal notation ("\uFFFF")
     uchars = text.to_uchars(text.size * 6)
