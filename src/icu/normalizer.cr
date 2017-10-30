@@ -1,8 +1,21 @@
-# Normalization
+# __Normalization__
 #
-# See also:
+#  Unicode normalization functionality for standard Unicode normalization.
+#
+# __Usage__
+# ```
+# str = "À"
+# str.bytes # => [65, 204, 128]
+# norm = ICU::NFCNormalizer.new
+# norm.normalized?(str)       # => false
+# norm.normalized_quick?(str) # => Maybe
+# norm.normalize(str).bytes   # => [195, 128]
+# ```
+#
+# __See also__
 # - [reference implementation](http://icu-project.org/apiref/icu4c/unorm2_8h.html)
 # - [user guide](http://userguide.icu-project.org/transforms/normalization)
+# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/normalizer_spec.cr)
 class ICU::Normalizer
   alias Mode = LibICU::UNormalization2Mode
   alias CheckResult = LibICU::UNormalizationCheckResult
@@ -19,6 +32,7 @@ class ICU::Normalizer
   @unorm : LibICU::UNormalizer2
   @type : Type
 
+  # Create a new normalizer that will use the specified [mode](http://www.unicode.org/unicode/reports/tr15/) (NFC, NFD, NFKC, NFKD, NFKCCF)
   def initialize(type : Symbol)
     unless @type = TYPES[type]
       raise ICU::Error.new("unknown type #{type}")
@@ -33,6 +47,13 @@ class ICU::Normalizer
     # nothing since singleton instances retrieved from unorm2_getInstance does not have to be freed
   end
 
+  # Normalize some text
+  #
+  # ```
+  # str = "À"
+  # str.bytes                                   # => [65, 204, 128]
+  # ICU::NFCNormalizer.new.normalize(str).bytes # => [195, 128]
+  # ```
   def normalize(text : String) : String
     # allocate twice the size of the source string to be sure
     src = text.to_uchars
@@ -46,6 +67,13 @@ class ICU::Normalizer
     dest.to_s(size)
   end
 
+  # Tests if the string is normalized
+  #
+  # ```
+  # ICU::NFCNormalizer.new.normalized?("À") # => false
+  # ```
+  #
+  # (see also: `#normalized_quick?`)
   def normalized?(text : String) : Bool
     ustatus = LibICU::UErrorCode::UZeroError
     ret = LibICU.unorm2_is_normalized(@unorm, text.to_uchars, text.size, pointerof(ustatus))
@@ -53,6 +81,11 @@ class ICU::Normalizer
     ret != 0
   end
 
+  # Tests if the string is normalized (faster but less accurate than `#normalized?`
+  #
+  # ```
+  # ICU::NFCNormalizer.new.normalized_quick?("À") # => Maybe
+  # ```
   def normalized_quick?(text : String) : CheckResult
     ustatus = LibICU::UErrorCode::UZeroError
     ret = LibICU.unorm2_quick_check(@unorm, text.to_uchars, text.size, pointerof(ustatus))
@@ -60,10 +93,22 @@ class ICU::Normalizer
     ret.as(CheckResult)
   end
 
+  # Tests if the character is normalization-inert
+  #
+  # ```
+  # norm = ICU::NFCNormalizer.new
+  # norm.inert?("À") # => false
+  # norm.inert?("A") # => true
+  # ```
   def inert?(chr : Char) : Bool
     LibICU.unorm2_is_inert(@unorm, chr.to_uchar) != 0
   end
 
+  # Gets the decomposition mapping of a character
+  #
+  # ```
+  # ICU::NFCNormalizer.new.decomposition("À") # => [65, 204, 128]
+  # ```
   def decomposition(chr : Char) : String
     dec = ICU::UChars.new(8)
 
@@ -75,30 +120,35 @@ class ICU::Normalizer
   end
 end
 
+# NFC Normalizer (see `ICU::Normalizer`)
 class ICU::NFCNormalizer < ICU::Normalizer
   def initialize
     super(:NFC)
   end
 end
 
+# NFD Normalizer (see `ICU::Normalizer`)
 class ICU::NFDNormalizer < ICU::Normalizer
   def initialize
     super(:NFD)
   end
 end
 
+# NFKC Normalizer (see `ICU::Normalizer`)
 class ICU::NFKCNormalizer < ICU::Normalizer
   def initialize
     super(:NFKC)
   end
 end
 
+# NFKD Normalizer (see `ICU::Normalizer`)
 class ICU::NFKDNormalizer < ICU::Normalizer
   def initialize
     super(:NFKD)
   end
 end
 
+# NFKCC Normalizer (see `ICU::Normalizer`)
 class ICU::NFKCCFNormalizer < ICU::Normalizer
   def initialize
     super(:NFKCCF)
