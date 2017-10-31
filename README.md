@@ -33,22 +33,22 @@ require "icu"
 
 ## Wrapped components (WIP)
 - [x] [CharsetDetector](https://olbat.github.io/icu.cr/ICU/CharsetDetector.html), Charset detection _(ucsdet.h)_
-- [x] [Currencies](https://olbat.github.io/icu.cr/ICU/Currencies.html), Encapsulates information about a currency _(ucurr.h)_
-- [x] [Region](https://olbat.github.io/icu.cr/ICU/Region.html), Territory containment and mapping _(uregion.h)_
 - [x] [BreakIterator](https://olbat.github.io/icu.cr/ICU/BreakIterator.html), Text Boundary Analysis (Break Iteration) _(ubrk.h)_
 - [x] [Transliterator](https://olbat.github.io/icu.cr/ICU/Transliterator.html), Text Transformation (Transliteration) _(utrans.h)_
 - [x] [Normalizer](https://olbat.github.io/icu.cr/ICU/Normalizer.html), Normalization _(unorm2.h)_
-- [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
 - [x] [Collator](https://olbat.github.io/icu.cr/ICU/Collator.html), Collation _(ucol.h)_
 - [x] [StringSearch](https://olbat.github.io/icu.cr/ICU/StringSearch.html), String Searching _(usearch.h)_
 - [x] [IDNA](https://olbat.github.io/icu.cr/ICU/IDNA.html), International Domain Names in Applications _(uidna.h)_
+- [x] [Currencies](https://olbat.github.io/icu.cr/ICU/Currencies.html), Encapsulates information about a currency _(ucurr.h)_
+- [x] [Region](https://olbat.github.io/icu.cr/ICU/Region.html), Territory containment and mapping _(uregion.h)_
+- [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
+- [ ] `uregex`, Regular Expressions _(uregex.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `unum`, Number Formatting/Spellout _(unum.h)_
 - [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
 - [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
 - [ ] `ucal`, Calendars _(ucal.h)_
 - [ ] `udat`, Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
-- [ ] `uregex`, Regular Expressions _(uregex.h)_
 - [ ] `upluralrules`, Plural rules _(upluralrules.h)_
 
 __Internals__
