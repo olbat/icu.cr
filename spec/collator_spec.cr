@@ -19,12 +19,22 @@ describe "ICU::Collator" do
       ICU::Collator.new.should_not be_nil
     end
 
-    it "creates a new Collator specifying a locale" do
+    it "creates a new Collator specifying a locale as argument" do
       ICU::Collator.new("en_US").should_not be_nil
     end
 
+    it "creates a new Collator specifying a locale as named argument" do
+      ICU::Collator.new(locale: "en_US").should_not be_nil
+    end
+
     it "creates a new Collator using custom rules" do
-      ICU::Collator.new("&b < a".to_uchars).should_not be_nil
+      ICU::Collator.new(rules: "&b < a").should_not be_nil
+    end
+
+    it "raises an exception if both rules and locale is specified" do
+      expect_raises do
+        ICU::Collator.new(locale: "en", rules: "&a < b")
+      end
     end
 
     it "raises an exception if the given locale does not exist" do
@@ -60,13 +70,13 @@ describe "ICU::Collator" do
       col = ICU::Collator.new("fr")
       col.compare("côte", "coté").should eq(-1)
 
-      col = ICU::Collator.new("es")
+      col = ICU::Collator.new(locale: "es")
       col.compare("ch", "c").should eq(0)
       col.compare("ch", "d").should eq(-1)
     end
 
     it "compares two strings and return their order depending on custom rules" do
-      col = ICU::Collator.new("&c < b < a".to_uchars)
+      col = ICU::Collator.new(rules: "&c < b < a")
       col.compare("a", "b").should eq(1)
       col.compare("b", "c").should eq(1)
       col.compare("d", "e").should eq(-1)
@@ -93,14 +103,14 @@ describe "ICU::Collator" do
   describe "[]" do
     it "returns the value of the specified attribute" do
       nm = ICU::Collator::ON
-      col = ICU::Collator.new("&c < b < a".to_uchars, nm)
+      col = ICU::Collator.new(rules: "&c < b < a", normalization_mode: nm)
       col[ICU::Collator::Attribute::NormalizationMode].should eq(nm)
     end
   end
 
   describe "[]=" do
     it "set a value to the specified attribute" do
-      col = ICU::Collator.new("&c < b < a".to_uchars, ICU::Collator::ON)
+      col = ICU::Collator.new(rules: "&c < b < a", normalization_mode: ICU::Collator::ON)
       nm = ICU::Collator::OFF
       col[ICU::Collator::Attribute::NormalizationMode] = nm
       col[ICU::Collator::Attribute::NormalizationMode].should eq(nm)
@@ -110,7 +120,7 @@ describe "ICU::Collator" do
   describe "strength" do
     it "returns the strength" do
       str = ICU::Collator::Strength::Secondary
-      col = ICU::Collator.new("&c < b < a".to_uchars, strength: str)
+      col = ICU::Collator.new(rules: "&c < b < a", strength: str)
       col.strength.should eq(str)
       col.strength.should eq(col[ICU::Collator::Attribute::Strength])
     end
@@ -118,7 +128,7 @@ describe "ICU::Collator" do
 
   describe "strength=" do
     it "set the strength" do
-      col = ICU::Collator.new("&c < b < a".to_uchars, strength: ICU::Collator::Strength::Tertiary)
+      col = ICU::Collator.new(rules: "&c < b < a", strength: ICU::Collator::Strength::Tertiary)
       str = ICU::Collator::Strength::Secondary
       col.strength = str
       col.strength.should eq(str)
