@@ -10,7 +10,7 @@
 # ICU::Collator.new("en").compare("y", "k") # => 1
 # ICU::Collator.new("lt").compare("y", "k") # => -1
 #
-# col = ICU::Collator.new("&c < b < a".to_uchars)
+# col = ICU::Collator.new(rules: "&c < b < a")
 # col.compare("a", "b") # => 1
 # col.compare("b", "c") # => 1
 # col.compare("d", "e") # => -1
@@ -60,23 +60,45 @@ class ICU::Collator
 
   @ucol : LibICU::UCollator
   @locale : String?
-  @rules : ICU::UChars?
+  @rules : String?
   getter :locale, :rules
 
-  def initialize(@locale : String = "")
-    if !locale.empty? && !LOCALES.includes?(locale) && !LOCALES.includes?(locale.split('_').first)
-      raise ICU::Error.new("unknown locale #{locale}")
-    end
-
-    ustatus = LibICU::UErrorCode::UZeroError
-    @ucol = LibICU.ucol_open(locale, pointerof(ustatus))
-    ICU.check_error!(ustatus)
+  # Initialize a new Collator with the default locale
+  #
+  # Same as `ICU::Collator.new(locale: "")`.
+  def initialize
   end
 
-  def initialize(@rules : UChars, normalization_mode : AttributeValue = DEFAULT, strength : Strength = AttributeValue::DefaultStrength)
-    ustatus = LibICU::UErrorCode::UZeroError
-    @ucol = LibICU.ucol_open_rules(rules, rules.size, normalization_mode, strength, nil, pointerof(ustatus))
-    ICU.check_error!(ustatus)
+  # Initialize a new Collator specifying a locale or a set of rules.
+  # If none of them is specified it will be initialized with the default locale.
+  #
+  # ```
+  # ICU::Collator.new
+  # ICU::Collator.new("pt")
+  # ICU::Collator.new(locale: "lt")
+  # ICU::Collator.new(rules: "&c < b < a")
+  # ```
+  def initialize(@locale : String? = nil, @rules : String? = nil, normalization_mode : AttributeValue = DEFAULT, strength : Strength = AttributeValue::DefaultStrength)
+    if rules && locale
+      raise ICU::Error.new("rules and locale cannot be used together")
+    elsif rules
+      rules = rules.to_uchars
+      ustatus = LibICU::UErrorCode::UZeroError
+      @ucol = LibICU.ucol_open_rules(rules, rules.size, normalization_mode, strength, nil, pointerof(ustatus))
+      ICU.check_error!(ustatus)
+    elsif locale
+      if !locale.empty? && !LOCALES.includes?(locale) && !LOCALES.includes?(locale.split('_').first)
+        raise ICU::Error.new("unknown locale #{locale}")
+      end
+
+      ustatus = LibICU::UErrorCode::UZeroError
+      @ucol = LibICU.ucol_open(locale, pointerof(ustatus))
+      ICU.check_error!(ustatus)
+    else
+      ustatus = LibICU::UErrorCode::UZeroError
+      @ucol = LibICU.ucol_open((@locale = ""), pointerof(ustatus))
+      ICU.check_error!(ustatus)
+    end
   end
 
   def finalize
@@ -108,11 +130,13 @@ class ICU::Collator
   # Returns `true` if the two strings are equivalent
   #
   # ```
-  # col = ICU::Collator.new("&a = b".to_uchars)
+  # col = ICU::Collator.new(rules: "&a = b")
   # col.equals?("a", "b") # => true
   # ```
   def equals?(s1 : String, s2 : String) : Bool
-    LibICU.ucol_equal(@ucol, s1.to_uchars, s2.size, s2.to_uchars, s2.size) != 0
+    s1 = s1.to_uchars
+    s2 = s2.to_uchars
+    LibICU.ucol_equal(@ucol, s1, s1.size, s2, s2.size) != 0
   end
 
   # Get the value of the specified attribute

@@ -135,7 +135,7 @@ describe "ICU::StringSearch" do
   describe "collator=" do
     it "set a value to the collator" do
       search = ICU::StringSearch.new("aa", "ab", ICU::Collator.new)
-      col = ICU::Collator.new("&b = a".to_uchars)
+      col = ICU::Collator.new(rules: "&b = a")
       search.collator = col
       search.collator.should eq(col)
       search.next.should eq(0...2)
