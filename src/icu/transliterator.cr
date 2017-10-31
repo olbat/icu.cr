@@ -3,7 +3,7 @@
 #
 # __Usage__
 # ```
-# trans = ICU::Transliterator.new({from: "Greek", to: "Latin})
+# trans = ICU::Transliterator.new({from: "Greek", to: "Latin"})
 # trans.transliterate("Αλφαβητικός Κατάλογος") # => "Alphabētikós Katálogos"
 #
 # trans = ICU::Transliterator.new("Katakana-Hiragana")
