@@ -15,7 +15,7 @@ describe "ICU::BreakIterator" do
     end
 
     it "raises an exception if the given locale does not exist" do
-      expect_raises do
+      expect_raises(ICU::Error) do
         ICU::BreakIterator.new("bla haha", ICU::BreakIterator::Type::Word, "_")
       end
     end

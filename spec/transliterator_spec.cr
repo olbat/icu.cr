@@ -36,13 +36,13 @@ describe "ICU::Transliterator" do
     end
 
     it "raises an exception if the built-in ID does not exist" do
-      expect_raises do
+      expect_raises(ICU::Error) do
         ICU::Transliterator.new("Nothing")
       end
     end
 
     it "raises an exception if the custom rule is not valid" do
-      expect_raises do
+      expect_raises(ICU::Error) do
         ICU::Transliterator.new(id: "InvalidRule", rules: "a")
       end
     end
