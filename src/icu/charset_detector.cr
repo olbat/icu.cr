@@ -107,7 +107,7 @@ class ICU::CharsetDetector
 
     Slice(LibICU::UCharsetMatch).new(ucsmatchs, num).map do |ucsmatch|
       CharsetMatch.new(ucsmatch.not_nil!)
-    end
+    end.to_a
   end
 
   # Returns the list of detectable charsets

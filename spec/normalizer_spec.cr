@@ -15,7 +15,7 @@ describe "ICU::Normalizer" do
     end
 
     it "raises an exception if the given type does not exist" do
-      expect_raises do
+      expect_raises(ICU::Error) do
         ICU::Normalizer.new(:_)
       end
     end

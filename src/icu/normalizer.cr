@@ -34,7 +34,9 @@ class ICU::Normalizer
 
   # Create a new normalizer that will use the specified [mode](http://www.unicode.org/unicode/reports/tr15/) (NFC, NFD, NFKC, NFKD, NFKCCF)
   def initialize(type : Symbol)
-    unless @type = TYPES[type]
+    if t = TYPES[type]?
+      @type = t
+    else
       raise ICU::Error.new("unknown type #{type}")
     end
 

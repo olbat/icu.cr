@@ -32,13 +32,13 @@ describe "ICU::Collator" do
     end
 
     it "raises an exception if both rules and locale is specified" do
-      expect_raises do
+      expect_raises(ICU::Error) do
         ICU::Collator.new(locale: "en", rules: "&a < b")
       end
     end
 
     it "raises an exception if the given locale does not exist" do
-      expect_raises do
+      expect_raises(ICU::Error) do
         ICU::Collator.new("not_a_locale")
       end
     end
