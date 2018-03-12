@@ -76,10 +76,10 @@ install: |
     brew update
 
     if [[ -n $GENERATE_LIB ]]; then
-      # install LLVM and Clang 3.8 (a libgen dependency)
-      brew install llvm@3.8
+      # install LLVM and Clang 4 (a libgen dependency)
+      brew install llvm@4
       # FIXME: ugly fix since the libclang.dylib is not symlinked correctly
-      brew list --verbose llvm@3.8 | grep "\.dylib$" | xargs -n1 -I{} ln -sf {} $(brew --prefix)/lib
+      brew list --verbose llvm@4 | grep "\.dylib$" | xargs -n1 -I{} ln -sf {} $(brew --prefix)/lib
     fi
 
     brew install icu4c
