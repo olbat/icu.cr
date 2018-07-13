@@ -36,11 +36,11 @@ class ICU::Region
     @numeric_code ||= LibICU.uregion_get_numeric_code(@uregion)
   end
 
-  def ==(other : typeof(self))
+  def ==(other : Region)
     LibICU.uregion_are_equal(@uregion, other.@uregion) != 0
   end
 
-  def contains?(other : typeof(self))
+  def contains?(other : Region)
     LibICU.uregion_contains(@uregion, other.@uregion) != 0
   end
 
