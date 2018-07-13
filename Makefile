@@ -1,4 +1,5 @@
 CRBIN=crystal
+SRBIN=shards
 LGBIN=lib/libgen/bin/libgen
 LGCONF=lib.yml
 GENSRC=src/lib_transformer.cr
@@ -9,10 +10,10 @@ generate_lib: $(LGBIN) $(LGCONF)
 	$(CRBIN) run $(GENSRC)
 
 $(LGBIN): lib/libgen
-	cd lib/libgen && $(CRBIN) deps build
+	cd lib/libgen && $(SRBIN) install
 
 lib/libgen: shard.yml
-	$(CRBIN) deps install
+	$(SRBIN) install
 
 benchmark:
 	find bench/ -name "*_bench.cr" -exec \
