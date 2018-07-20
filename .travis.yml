@@ -78,8 +78,10 @@ install: |
     if [[ -n $GENERATE_LIB ]]; then
       # install LLVM and Clang 4 (a libgen dependency)
       brew install llvm@4
-      # FIXME: ugly fix since the libclang.dylib is not symlinked correctly
-      brew list --verbose llvm@4 | grep "\.dylib$" | xargs -n1 -I{} ln -sf {} $(brew --prefix)/lib
+      brew link --force --overwrite llvm@4
+      # FIXME: the "libclang.dylib" shared object is manually added to the ld
+      #        library path since the llvm the formula don't do it properly
+      find $(brew --prefix llvm@4)/lib -type f -name "libclang.dylib" -exec ln -sf {} $(brew --prefix)/lib \; -quit
     fi
 
     brew install icu4c
