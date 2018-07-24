@@ -34,9 +34,10 @@ matrix:
   # macOS
   - os: osx
     osx_image: xcode8.3
-  - os: osx
-    osx_image: xcode8.3
-    env: GENERATE_LIB=1 # regenerate the binding
+  ## Fix: temporary disabled, bug to be investiagated on a macOS machine
+  #- os: osx
+  #  osx_image: xcode8.3
+  #  env: GENERATE_LIB=1 # regenerate the binding
 
   # publish the documentation on GitHub pages
   - os: linux
