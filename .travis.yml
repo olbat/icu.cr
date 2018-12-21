@@ -87,7 +87,8 @@ install: |
       find $(brew --prefix llvm@4)/lib -type f -name "libclang.dylib" -exec ln -sf {} $(brew --prefix)/lib \; -quit
     fi
 
-    brew install icu4c
+    # install or upgrade icu4c
+    brew ls --versions icu4c && brew upgrade icu4c || brew install icu4c
     brew link --force icu4c
     ;;
   *)
