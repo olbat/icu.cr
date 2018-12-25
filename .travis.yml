@@ -89,7 +89,11 @@ install: |
 
     # install or upgrade icu4c
     brew ls --versions icu4c && brew upgrade icu4c || brew install icu4c
+
+    # make sure icu executables are added to the PATH
     brew link --force icu4c
+    PATH="$(brew --prefix icu4c)/bin:$PATH"
+
     ;;
   *)
     exit 1;;
