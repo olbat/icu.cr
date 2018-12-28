@@ -90,9 +90,11 @@ install: |
     # install or upgrade icu4c
     brew ls --versions icu4c && brew upgrade icu4c || brew install icu4c
 
-    # make sure icu executables are added to the PATH
-    brew link --force icu4c
-    PATH="$(brew --prefix icu4c)/bin:$PATH"
+    # make sure that ICU executables are added to the PATH
+    # and that the shared objects files can be found by the linker
+    export PATH="$(brew --prefix icu4c)/bin:$PATH"
+    export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix icu4c)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+    export PKG_CONFIG_PATH="$(brew --prefix icu4c)/lib/pkgconfig:$PKG_CONFIG_PATH"
 
     ;;
   *)
