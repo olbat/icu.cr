@@ -64,6 +64,7 @@ matrix:
 
 install: |
   set -e
+  set -x
 
   case $TRAVIS_OS_NAME in
   linux)
@@ -100,6 +101,8 @@ install: |
   *)
     exit 1;;
   esac
+
+  set +x
 
 before_script:
 - crystal run src/icu_info.cr -- --version # displays the version of ICU
