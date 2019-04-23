@@ -16,10 +16,10 @@
 class ICU::Currencies
   # FIXME: should be present in LibICU (not parsed by Libgen)
   enum Type
-    All           = Int32::MAX,
-    Common        = 1,
-    Uncommon      = 2,
-    Deprecated    = 4,
+    All           = Int32::MAX
+    Common        = 1
+    Uncommon      = 2
+    Deprecated    = 4
     NonDeprecated = 8
   end
   alias NameStyle = LibICU::UCurrNameStyle
