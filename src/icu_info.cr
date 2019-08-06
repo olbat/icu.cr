@@ -4,11 +4,11 @@ require "c/dlfcn"
 PKGNAME  = "icu-uc"
 TESTFUNC = "u_init"
 {% if flag?(:darwin) %}
-SOFILE   = "libicuuc.dylib"
+  SOFILE = "libicuuc.dylib"
 {% elsif flag?(:windows) %}
-SOFILE   = "libicuuc.dll"
+  SOFILE = "libicuuc.dll"
 {% else %}
-SOFILE   = "libicuuc.so"
+  SOFILE = "libicuuc.so"
 {% end %}
 
 def icu_version : String
@@ -36,7 +36,7 @@ def icu_version : String
   else
     STDERR.puts %(WARNING: cannot find the "icuinfo" tool in PATH)
     {% if flag?(:darwin) %}
-    STDERR.puts %(\t(on OSX, please check that you've run "brew link icu4c"))
+      STDERR.puts %(\t(on OSX, please check that you've run "brew link icu4c"))
     {% end %}
   end
 
