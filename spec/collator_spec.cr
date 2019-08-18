@@ -51,39 +51,39 @@ describe "ICU::Collator" do
   end
 
   {% if compare_versions(LibICU::VERSION, "50.0.0") >= 0 %}
-  describe "compare" do
-    it "compares two strings and return their order depending on the locale" do
-      col = ICU::Collator.new("en")
-      col.compare("abc", "abd").should eq(-1)
-      col.compare("abc", "abc").should eq(0)
-      col.compare("abd", "abc").should eq(1)
+    describe "compare" do
+      it "compares two strings and return their order depending on the locale" do
+        col = ICU::Collator.new("en")
+        col.compare("abc", "abd").should eq(-1)
+        col.compare("abc", "abc").should eq(0)
+        col.compare("abd", "abc").should eq(1)
 
-      # examples from http://userguide.icu-project.org/collation
-      col.compare("y", "i").should eq(1)
-      col.compare("y", "k").should eq(1)
-      col.compare("c", "ch").should eq(-1)
+        # examples from http://userguide.icu-project.org/collation
+        col.compare("y", "i").should eq(1)
+        col.compare("y", "k").should eq(1)
+        col.compare("c", "ch").should eq(-1)
 
-      col = ICU::Collator.new("lt")
-      col.compare("y", "i").should eq(1)
-      col.compare("y", "k").should eq(-1)
+        col = ICU::Collator.new("lt")
+        col.compare("y", "i").should eq(1)
+        col.compare("y", "k").should eq(-1)
 
-      col = ICU::Collator.new("fr")
-      col.compare("côte", "coté").should eq(-1)
+        col = ICU::Collator.new("fr")
+        col.compare("côte", "coté").should eq(-1)
 
-      col = ICU::Collator.new(locale: "es")
-      col.compare("ch", "c").should eq(0)
-      col.compare("ch", "d").should eq(-1)
+        col = ICU::Collator.new(locale: "es")
+        col.compare("ch", "c").should eq(0)
+        col.compare("ch", "d").should eq(-1)
+      end
+
+      it "compares two strings and return their order depending on custom rules" do
+        col = ICU::Collator.new(rules: "&c < b < a")
+        col.compare("a", "b").should eq(1)
+        col.compare("b", "c").should eq(1)
+        col.compare("d", "e").should eq(-1)
+        col.compare("abb", "abc").should eq(1)
+        col.compare("abd", "abe").should eq(-1)
+      end
     end
-
-    it "compares two strings and return their order depending on custom rules" do
-      col = ICU::Collator.new(rules: "&c < b < a")
-      col.compare("a", "b").should eq(1)
-      col.compare("b", "c").should eq(1)
-      col.compare("d", "e").should eq(-1)
-      col.compare("abb", "abc").should eq(1)
-      col.compare("abd", "abe").should eq(-1)
-    end
-  end
   {% end %}
 
   describe "equals?" do

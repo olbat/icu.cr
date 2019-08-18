@@ -14,16 +14,16 @@ describe "ICU::Currencies" do
   end
 
   {% if compare_versions(LibICU::VERSION, "49.0.0") >= 0 %}
-  describe "numeric_code" do
-    it "returns the code associated to a currency" do
-      ICU::Currencies.numeric_code("EUR").should eq(978)
-    end
+    describe "numeric_code" do
+      it "returns the code associated to a currency" do
+        ICU::Currencies.numeric_code("EUR").should eq(978)
+      end
 
-    it "raises if the currency is unknown" do
-      expect_raises(ICU::Error) do
-        ICU::Currencies.numeric_code("_unknown_")
+      it "raises if the currency is unknown" do
+        expect_raises(ICU::Error) do
+          ICU::Currencies.numeric_code("_unknown_")
+        end
       end
     end
-  end
   {% end %}
 end

@@ -40,15 +40,15 @@ class ICU::Currencies
   end
 
   {% if compare_versions(LibICU::VERSION, "49.0.0") >= 0 %}
-  # Returns the code associated to a currency
-  #
-  # ```
-  # ICU::Currencies.numeric_code("EUR") # => 978
-  # ```
-  def self.numeric_code(currency : String) : Int32
-    num = LibICU.ucurr_get_numeric_code(currency.to_uchars)
-    raise ICU::Error.new(%(Unknown currency "#{currency}")) if num == 0
-    num
-  end
+    # Returns the code associated to a currency
+    #
+    # ```
+    # ICU::Currencies.numeric_code("EUR") # => 978
+    # ```
+    def self.numeric_code(currency : String) : Int32
+      num = LibICU.ucurr_get_numeric_code(currency.to_uchars)
+      raise ICU::Error.new(%(Unknown currency "#{currency}")) if num == 0
+      num
+    end
   {% end %}
 end

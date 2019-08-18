@@ -110,21 +110,21 @@ class ICU::Collator
   end
 
   {% if compare_versions(LibICU::VERSION, "50.0.0") >= 0 %}
-  # Compares two strings
-  #
-  # ```
-  # ICU::Collator.new("en").compare("y", "k")       # => 1
-  # ICU::Collator.new("lt").compare("y", "k")       # => -1
-  # ICU::Collator.new("fr").compare("côte", "coté") # => -1
-  # ```
-  #
-  # (see `String#compare`)
-  def compare(s1 : String, s2 : String) : Int
-    ustatus = LibICU::UErrorCode::UZeroError
-    ret = LibICU.ucol_strcoll_utf8(@ucol, s1, s2.size, s2, s2.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    ret.to_i
-  end
+    # Compares two strings
+    #
+    # ```
+    # ICU::Collator.new("en").compare("y", "k")       # => 1
+    # ICU::Collator.new("lt").compare("y", "k")       # => -1
+    # ICU::Collator.new("fr").compare("côte", "coté") # => -1
+    # ```
+    #
+    # (see `String#compare`)
+    def compare(s1 : String, s2 : String) : Int
+      ustatus = LibICU::UErrorCode::UZeroError
+      ret = LibICU.ucol_strcoll_utf8(@ucol, s1, s2.size, s2, s2.size, pointerof(ustatus))
+      ICU.check_error!(ustatus)
+      ret.to_i
+    end
   {% end %}
 
   # Returns `true` if the two strings are equivalent
