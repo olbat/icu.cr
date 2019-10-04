@@ -13,20 +13,16 @@ matrix:
   #- os: linux
   #  dist: xenial
 
-  - services:
-    - docker
-    # install docker-compose (from https://docs.travis-ci.com/user/docker/)
-    env:
-      DOCKER_COMPOSE_VERSION: 1.11.2
+  - os: linux
+    dist: bionic
     install:
-    - sudo rm /usr/local/bin/docker-compose
-    - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-    - chmod +x docker-compose
-    - sudo mv docker-compose /usr/local/bin
     before_script:
+    env: GENERATE_LIB=1 # regenerate the binding
     script:
+    - docker-compose build devel
     - docker-compose run --rm -u $UID devel sh -c
-      "make
+      "make clean
+      && make
       && crystal tool format --check src spec bench
       && crystal spec
       && make benchmark"
