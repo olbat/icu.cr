@@ -33,7 +33,7 @@ class ICU::Currencies
   # FIXME: not thread-safe
   def self.currency(locale : String) : String
     buff = UChars.new(4)
-    ustatus = uninitialized LibICU::UErrorCode
+    ustatus = LibICU::UErrorCode::UZeroError
     len = LibICU.ucurr_for_locale(locale, buff, buff.size, pointerof(ustatus))
     ICU.check_error!(ustatus)
     buff.to_s(len)
