@@ -25,12 +25,16 @@ matrix:
       && make benchmark"
 
   # macOS
-  - os: osx
-    osx_image: xcode11.2
-  ## Fix: temporary disabled, bug to be investiagated on a macOS machine
-  - os: osx
-    osx_image: xcode11.2
-    env: GENERATE_LIB=1 # regenerate the binding
+  # FIXME: builds on macOS are disabled because it's not possible to use
+  #        "brew link" with the icu4c formula anymore which makes compilation
+  #        fail for some reason (Crystal macro run doesnt seems to take in
+  #        account compiler env. var. correctly).
+  #        The library is not yet compatible with ICU version shipped with macOS.
+  #- os: osx
+  #  osx_image: xcode11.2
+  #- os: osx
+  #  osx_image: xcode11.2
+  #  env: GENERATE_LIB=1 # regenerate the binding
 
   # publish the documentation on GitHub pages
   - os: linux
@@ -83,12 +87,17 @@ install: |
 
     # install or upgrade icu4c
     brew ls --versions icu4c && brew upgrade icu4c || brew install icu4c
+    ICU_VERSION=$(brew ls --versions icu4c | tail -1 | awk '{print $2}')
+    ICU_CELLAR_DIR=$(brew --cellar icu4c)/$ICU_VERSION
+    # since version 1.9.0, "brew link" does not work for software
+    # already provided by macOS anymore
+    brew switch icu4c $ICU_VERSION
 
     # make sure that ICU executables are added to the PATH
     # and that the shared objects files can be found by the linker
-    export PATH="$(brew --prefix icu4c)/bin:$PATH"
-    export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix icu4c)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
-    export PKG_CONFIG_PATH="$(brew --prefix icu4c)/lib/pkgconfig:$PKG_CONFIG_PATH"
+    export PATH="$ICU_CELLAR_DIR/bin:$PATH"
+    export DYLD_FALLBACK_LIBRARY_PATH="$ICU_CELLAR_DIR/lib:$DYLD_FALLBACK_LIBRARY_PATH"
+    export PKG_CONFIG_PATH="$ICU_CELLAR_DIR/lib/pkgconfig:$PKG_CONFIG_PATH"
 
     ;;
   *)
