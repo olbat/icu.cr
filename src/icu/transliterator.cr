@@ -36,7 +36,7 @@ class ICU::Transliterator
   end
 
   @id : ID
-  @utrans : Pointer(LibICU::UTransliterator)?
+  @utrans : Pointer(LibICU::UTransliterator)
 
   def initialize(@id : ID)
     raise ICU::Error.new("unknown ID #{@id}") unless IDS.includes?(@id)
