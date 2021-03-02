@@ -2,7 +2,7 @@ FROM crystallang/crystal
 MAINTAINER devel@olbat.net
 
 RUN apt-get update \
-&& apt-get install -y make libicu-dev llvm-10-dev libclang-10-dev libpcre3 \
+&& apt-get install -y make libicu-dev llvm-8-dev libclang-8-dev libpcre3 \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
