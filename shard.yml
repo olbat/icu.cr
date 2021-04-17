@@ -2,9 +2,9 @@ name: icu
 version: 0.1.0
 
 authors:
-  - Luc Sarzyniec <luc.sarzyniec@xilopix.com>
+  - Luc Sarzyniec <devel@olbat.net>
 
-crystal: 0.23.0
+crystal: ">= 0.23.0"
 
 description: |
   A binding to the ICU library
@@ -15,6 +15,6 @@ libraries:
 development_dependencies:
   libgen:
     github: olbat/libgen
-    version: ~> 0.2.10
+    version: ~> 0.2.11
 
 license: GPLv3
