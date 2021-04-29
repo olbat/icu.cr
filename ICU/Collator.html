@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="HEAD">
+<meta name="crystal_docs.project_name" content="icu">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="icu">
+  <title>ICU::Collator - icu HEAD</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          icu
+        </a>
+      </h1>
+
+      <span class="project-version">
+        HEAD
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="icu/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/Char" data-name="char">
+      <a href="../Char.html">Char</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="icu/ICU" data-name="icu">
+      <a href="../ICU.html">ICU</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="icu/ICU/BreakIterator" data-name="icu::breakiterator">
+      <a href="../ICU/BreakIterator.html">BreakIterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/BreakIterator/Type" data-name="icu::breakiterator::type">
+      <a href="../ICU/BreakIterator/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/CharsetDetector" data-name="icu::charsetdetector">
+      <a href="../ICU/CharsetDetector.html">CharsetDetector</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/CharsetDetector/CharsetMatch" data-name="icu::charsetdetector::charsetmatch">
+      <a href="../ICU/CharsetDetector/CharsetMatch.html">CharsetMatch</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="icu/ICU/Collator" data-name="icu::collator">
+      <a href="../ICU/Collator.html">Collator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Collator/Attribute" data-name="icu::collator::attribute">
+      <a href="../ICU/Collator/Attribute.html">Attribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/AttributeValue" data-name="icu::collator::attributevalue">
+      <a href="../ICU/Collator/AttributeValue.html">AttributeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/BoundMode" data-name="icu::collator::boundmode">
+      <a href="../ICU/Collator/BoundMode.html">BoundMode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/ReorderCode" data-name="icu::collator::reordercode">
+      <a href="../ICU/Collator/ReorderCode.html">ReorderCode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/RuleOption" data-name="icu::collator::ruleoption">
+      <a href="../ICU/Collator/RuleOption.html">RuleOption</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/Strength" data-name="icu::collator::strength">
+      <a href="../ICU/Collator/Strength.html">Strength</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Currencies" data-name="icu::currencies">
+      <a href="../ICU/Currencies.html">Currencies</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Currencies/NameStyle" data-name="icu::currencies::namestyle">
+      <a href="../ICU/Currencies/NameStyle.html">NameStyle</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Currencies/Type" data-name="icu::currencies::type">
+      <a href="../ICU/Currencies/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Error" data-name="icu::error">
+      <a href="../ICU/Error.html">Error</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/IDNA" data-name="icu::idna">
+      <a href="../ICU/IDNA.html">IDNA</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/IDNA/Option" data-name="icu::idna::option">
+      <a href="../ICU/IDNA/Option.html">Option</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Locale" data-name="icu::locale">
+      <a href="../ICU/Locale.html">Locale</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Locale/Keyword" data-name="icu::locale::keyword">
+      <a href="../ICU/Locale/Keyword.html">Keyword</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFCNormalizer" data-name="icu::nfcnormalizer">
+      <a href="../ICU/NFCNormalizer.html">NFCNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFDNormalizer" data-name="icu::nfdnormalizer">
+      <a href="../ICU/NFDNormalizer.html">NFDNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFKCCFNormalizer" data-name="icu::nfkccfnormalizer">
+      <a href="../ICU/NFKCCFNormalizer.html">NFKCCFNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFKCNormalizer" data-name="icu::nfkcnormalizer">
+      <a href="../ICU/NFKCNormalizer.html">NFKCNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFKDNormalizer" data-name="icu::nfkdnormalizer">
+      <a href="../ICU/NFKDNormalizer.html">NFKDNormalizer</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Normalizer" data-name="icu::normalizer">
+      <a href="../ICU/Normalizer.html">Normalizer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/CheckResult" data-name="icu::normalizer::checkresult">
+      <a href="../ICU/Normalizer/CheckResult.html">CheckResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/Mode" data-name="icu::normalizer::mode">
+      <a href="../ICU/Normalizer/Mode.html">Mode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/Type" data-name="icu::normalizer::type">
+      <a href="../ICU/Normalizer/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Region" data-name="icu::region">
+      <a href="../ICU/Region.html">Region</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/StringSearch" data-name="icu::stringsearch">
+      <a href="../ICU/StringSearch.html">StringSearch</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/Attribute" data-name="icu::stringsearch::attribute">
+      <a href="../ICU/StringSearch/Attribute.html">Attribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/AttributeValue" data-name="icu::stringsearch::attributevalue">
+      <a href="../ICU/StringSearch/AttributeValue.html">AttributeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/Position" data-name="icu::stringsearch::position">
+      <a href="../ICU/StringSearch/Position.html">Position</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Transliterator" data-name="icu::transliterator">
+      <a href="../ICU/Transliterator.html">Transliterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Transliterator/ID" data-name="icu::transliterator::id">
+      <a href="../ICU/Transliterator/ID.html">ID</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UChar" data-name="icu::uchar">
+      <a href="../ICU/UChar.html">UChar</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UChars" data-name="icu::uchars">
+      <a href="../ICU/UChars.html">UChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UEnum" data-name="icu::uenum">
+      <a href="../ICU/UEnum.html">UEnum</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/UniversalTimeScale" data-name="icu::universaltimescale">
+      <a href="../ICU/UniversalTimeScale.html">UniversalTimeScale</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/DateTimeScale" data-name="icu::universaltimescale::datetimescale">
+      <a href="../ICU/UniversalTimeScale/DateTimeScale.html">DateTimeScale</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/TimeScaleValues" data-name="icu::universaltimescale::timescalevalues">
+      <a href="../ICU/UniversalTimeScale/TimeScaleValues.html">TimeScaleValues</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/UniversalTime" data-name="icu::universaltimescale::universaltime">
+      <a href="../ICU/UniversalTimeScale/UniversalTime.html">UniversalTime</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/String" data-name="string">
+      <a href="../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> ICU::Collator
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../ICU/Collator.html">ICU::Collator</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p><strong>Collation</strong></p>
+
+<p>This class allows to perform locale-sensitive string comparison.</p>
+
+<p>Sort ordering may be customized by providing your own set of rules
+(see <a href="http://userguide.icu-project.org/collation/customization">CLDR root sort order</a>).</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(<span class="s">&quot;en&quot;</span>).compare(<span class="s">&quot;y&quot;</span>, <span class="s">&quot;k&quot;</span>) <span class="c"># =&gt; 1</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(<span class="s">&quot;lt&quot;</span>).compare(<span class="s">&quot;y&quot;</span>, <span class="s">&quot;k&quot;</span>) <span class="c"># =&gt; -1</span>
+
+col <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(rules: <span class="s">&quot;&amp;c &lt; b &lt; a&quot;</span>)
+col.compare(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;</span>) <span class="c"># =&gt; 1</span>
+col.compare(<span class="s">&quot;b&quot;</span>, <span class="s">&quot;c&quot;</span>) <span class="c"># =&gt; 1</span>
+col.compare(<span class="s">&quot;d&quot;</span>, <span class="s">&quot;e&quot;</span>) <span class="c"># =&gt; -1</span></code></pre>
+
+<p><span class="flag purple">NOTE</span>  the <code><a href="../ICU/Collator.html#compare(s1:String,s2:String):Int-instance-method">#compare</a></code> method requires ICU >= 50</p>
+
+<p><strong>See also</strong></p>
+
+<ul><li><a href="http://icu-project.org/apiref/icu4c/ucol_8h.html">reference implementation</a></li><li><a href="http://userguide.icu-project.org/collation">user guide</a></li><li><a href="https://github.com/olbat/icu.cr/blob/master/spec/collator_spec.cr">unit tests</a></li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L25" target="_blank">
+        icu/collator.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="DEFAULT">
+        <strong>DEFAULT</strong> = <code><span class="t">AttributeValue</span><span class="t">::</span><span class="t">Default</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="KEYWORDS">
+        <strong>KEYWORDS</strong> = <code><span class="k">begin</span>
+  keywords <span class="o">=</span> <span class="t">Hash</span>(<span class="t">String</span>, <span class="t">Set</span>(<span class="t">String</span>)).<span class="k">new</span>
+  ustatus <span class="o">=</span> <span class="t">LibICU</span><span class="t">::</span><span class="t">UErrorCode</span><span class="t">::</span><span class="t">UZeroError</span>
+  kenum <span class="o">=</span> <span class="t">LibICU</span>.ucol_get_keywords(<span class="k">pointerof</span>(ustatus))
+  <span class="t">ICU</span>.check_error!(ustatus)
+  (<span class="t">UEnum</span>.<span class="k">new</span>(kenum)).each <span class="k">do</span> <span class="o">|</span>keyword<span class="o">|</span>
+    ustatus <span class="o">=</span> <span class="t">LibICU</span><span class="t">::</span><span class="t">UErrorCode</span><span class="t">::</span><span class="t">UZeroError</span>
+    venum <span class="o">=</span> <span class="t">LibICU</span>.ucol_get_keyword_values(keyword, <span class="k">pointerof</span>(ustatus))
+    <span class="t">ICU</span>.check_error!(ustatus)
+    keywords[keyword] <span class="o">=</span> <span class="t">Set</span>(<span class="t">String</span>).<span class="k">new</span>((<span class="t">UEnum</span>.<span class="k">new</span>(venum)).to_a)
+  <span class="k">end</span>
+  <span class="t">LibICU</span>.uenum_close(kenum)
+  keywords
+<span class="k">end</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="LOCALES">
+        <strong>LOCALES</strong> = <code><span class="k">begin</span>
+  ustatus <span class="o">=</span> <span class="t">LibICU</span><span class="t">::</span><span class="t">UErrorCode</span><span class="t">::</span><span class="t">UZeroError</span>
+  uenum <span class="o">=</span> <span class="t">LibICU</span>.ucol_open_available_locales(<span class="k">pointerof</span>(ustatus))
+  <span class="t">ICU</span>.check_error!(ustatus)
+  locales <span class="o">=</span> (<span class="t">UEnum</span>.<span class="k">new</span>(uenum)).to_a
+  <span class="t">LibICU</span>.uenum_close(uenum)
+  <span class="t">Set</span>(<span class="t">String</span>).<span class="k">new</span>(locales)
+<span class="k">end</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="OFF">
+        <strong>OFF</strong> = <code><span class="t">AttributeValue</span><span class="t">::</span><span class="t">Off</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ON">
+        <strong>ON</strong> = <code><span class="t">AttributeValue</span><span class="t">::</span><span class="t">On</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(locale:String?=nil,rules:String?=nil,normalization_mode:AttributeValue=DEFAULT,strength:Strength=AttributeValue::DefaultStrength)-class-method" class="signature"><strong>.new</strong>(locale : String? = <span class="n">nil</span>, rules : String? = <span class="n">nil</span>, normalization_mode : AttributeValue = <span class="t">DEFAULT</span>, strength : Strength = <span class="t">AttributeValue</span><span class="t">::</span><span class="t">DefaultStrength</span>)</a>
+        
+          <div class="summary"><p>Initialize a new Collator specifying a locale or a set of rules.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#functional_equivalent(locale:String,keyword:String=KEYWORDS.keys.first)-class-method" class="signature"><strong>.functional_equivalent</strong>(locale : String, keyword : String = <span class="t">KEYWORDS</span>.keys.first)</a>
+        
+          <div class="summary"><p>Returns a functional equivalent to a given locale</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#[](attribute:Attribute):AttributeValue-instance-method" class="signature"><strong>#[]</strong>(attribute : Attribute) : AttributeValue</a>
+        
+          <div class="summary"><p>Get the value of the specified attribute</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#[]=(attribute:Attribute,value:AttributeValue)-instance-method" class="signature"><strong>#[]=</strong>(attribute : Attribute, value : AttributeValue)</a>
+        
+          <div class="summary"><p>Set a value to the specified attribute</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#compare(s1:String,s2:String):Int-instance-method" class="signature"><strong>#compare</strong>(s1 : String, s2 : String) : Int</a>
+        
+          <div class="summary"><p>Compares two strings</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#equals?(s1:String,s2:String):Bool-instance-method" class="signature"><strong>#equals?</strong>(s1 : String, s2 : String) : Bool</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the two strings are equivalent</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#finalize-instance-method" class="signature"><strong>#finalize</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#locale:String?-instance-method" class="signature"><strong>#locale</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reorder_codes:Array(ReorderCode)-instance-method" class="signature"><strong>#reorder_codes</strong> : Array(ReorderCode)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reorder_codes=(codes:Array(ReorderCode))-instance-method" class="signature"><strong>#reorder_codes=</strong>(codes : Array(ReorderCode))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rules:String?-instance-method" class="signature"><strong>#rules</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#strength:Strength-instance-method" class="signature"><strong>#strength</strong> : Strength</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#strength=(value:Strength)-instance-method" class="signature"><strong>#strength=</strong>(value : Strength)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_unsafe:LibICU::UCollator-instance-method" class="signature"><strong>#to_unsafe</strong> : LibICU::UCollator</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(locale:String?=nil,rules:String?=nil,normalization_mode:AttributeValue=DEFAULT,strength:Strength=AttributeValue::DefaultStrength)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(locale : <a href="../String.html">String</a>? = <span class="n">nil</span>, rules : <a href="../String.html">String</a>? = <span class="n">nil</span>, normalization_mode : <a href="../ICU/Collator/AttributeValue.html">AttributeValue</a> = <span class="t">DEFAULT</span>, strength : <a href="../ICU/Collator/Strength.html">Strength</a> = <span class="t">AttributeValue</span><span class="t">::</span><span class="t">DefaultStrength</span>)
+
+        <a class="method-permalink" href="#new(locale:String?=nil,rules:String?=nil,normalization_mode:AttributeValue=DEFAULT,strength:Strength=AttributeValue::DefaultStrength)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Initialize a new Collator specifying a locale or a set of rules.
+If none of them is specified it will be initialized with the default locale.</p>
+
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(<span class="s">&quot;pt&quot;</span>)
+<span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(locale: <span class="s">&quot;lt&quot;</span>)
+<span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(rules: <span class="s">&quot;&amp;c &lt; b &lt; a&quot;</span>)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L81" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="functional_equivalent(locale:String,keyword:String=KEYWORDS.keys.first)-class-method">
+      <div class="signature">
+        
+        def self.<strong>functional_equivalent</strong>(locale : <a href="../String.html">String</a>, keyword : <a href="../String.html">String</a> = <span class="t">KEYWORDS</span>.keys.first)
+
+        <a class="method-permalink" href="#functional_equivalent(locale:String,keyword:String=KEYWORDS.keys.first)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a functional equivalent to a given locale</p>
+
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.functional_equivalent(<span class="s">&quot;en&quot;</span>) <span class="c"># =&gt; &quot;root&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L193" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="[](attribute:Attribute):AttributeValue-instance-method">
+      <div class="signature">
+        
+        def <strong>[]</strong>(attribute : <a href="../ICU/Collator/Attribute.html">Attribute</a>) : <a href="../ICU/Collator/AttributeValue.html">AttributeValue</a>
+
+        <a class="method-permalink" href="#[](attribute:Attribute):AttributeValue-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get the value of the specified attribute</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L143" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]=(attribute:Attribute,value:AttributeValue)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]=</strong>(attribute : <a href="../ICU/Collator/Attribute.html">Attribute</a>, value : <a href="../ICU/Collator/AttributeValue.html">AttributeValue</a>)
+
+        <a class="method-permalink" href="#[]=(attribute:Attribute,value:AttributeValue)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set a value to the specified attribute</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L151" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="compare(s1:String,s2:String):Int-instance-method">
+      <div class="signature">
+        
+        def <strong>compare</strong>(s1 : <a href="../String.html">String</a>, s2 : <a href="../String.html">String</a>) : Int
+
+        <a class="method-permalink" href="#compare(s1:String,s2:String):Int-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Compares two strings</p>
+
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(<span class="s">&quot;en&quot;</span>).compare(<span class="s">&quot;y&quot;</span>, <span class="s">&quot;k&quot;</span>)       <span class="c"># =&gt; 1</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(<span class="s">&quot;lt&quot;</span>).compare(<span class="s">&quot;y&quot;</span>, <span class="s">&quot;k&quot;</span>)       <span class="c"># =&gt; -1</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(<span class="s">&quot;fr&quot;</span>).compare(<span class="s">&quot;côte&quot;</span>, <span class="s">&quot;coté&quot;</span>) <span class="c"># =&gt; -1</span></code></pre>
+
+<p>(see <code>String#compare</code>)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L112" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="equals?(s1:String,s2:String):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>equals?</strong>(s1 : <a href="../String.html">String</a>, s2 : <a href="../String.html">String</a>) : Bool
+
+        <a class="method-permalink" href="#equals?(s1:String,s2:String):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the two strings are equivalent</p>
+
+<pre><code class="language-crystal">col <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(rules: <span class="s">&quot;&amp;a = b&quot;</span>)
+col.equals?(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;</span>) <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L136" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="finalize-instance-method">
+      <div class="signature">
+        
+        def <strong>finalize</strong>
+
+        <a class="method-permalink" href="#finalize-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L104" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="locale:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>locale</strong> : <a href="../String.html">String</a>?
+
+        <a class="method-permalink" href="#locale:String?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L64" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reorder_codes:Array(ReorderCode)-instance-method">
+      <div class="signature">
+        
+        def <strong>reorder_codes</strong> : Array(<a href="../ICU/Collator/ReorderCode.html">ReorderCode</a>)
+
+        <a class="method-permalink" href="#reorder_codes:Array(ReorderCode)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L167" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reorder_codes=(codes:Array(ReorderCode))-instance-method">
+      <div class="signature">
+        
+        def <strong>reorder_codes=</strong>(codes : Array(<a href="../ICU/Collator/ReorderCode.html">ReorderCode</a>))
+
+        <a class="method-permalink" href="#reorder_codes=(codes:Array(ReorderCode))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L180" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rules:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>rules</strong> : <a href="../String.html">String</a>?
+
+        <a class="method-permalink" href="#rules:String?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L64" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="strength:Strength-instance-method">
+      <div class="signature">
+        
+        def <strong>strength</strong> : <a href="../ICU/Collator/Strength.html">Strength</a>
+
+        <a class="method-permalink" href="#strength:Strength-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L158" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="strength=(value:Strength)-instance-method">
+      <div class="signature">
+        
+        def <strong>strength=</strong>(value : <a href="../ICU/Collator/Strength.html">Strength</a>)
+
+        <a class="method-permalink" href="#strength=(value:Strength)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L162" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_unsafe:LibICU::UCollator-instance-method">
+      <div class="signature">
+        
+        def <strong>to_unsafe</strong> : LibICU::UCollator
+
+        <a class="method-permalink" href="#to_unsafe:LibICU::UCollator-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/collator.cr#L108" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

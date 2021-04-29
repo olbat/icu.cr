@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="HEAD">
+<meta name="crystal_docs.project_name" content="icu">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="icu">
+  <title>ICU::StringSearch - icu HEAD</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          icu
+        </a>
+      </h1>
+
+      <span class="project-version">
+        HEAD
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="icu/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/Char" data-name="char">
+      <a href="../Char.html">Char</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="icu/ICU" data-name="icu">
+      <a href="../ICU.html">ICU</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="icu/ICU/BreakIterator" data-name="icu::breakiterator">
+      <a href="../ICU/BreakIterator.html">BreakIterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/BreakIterator/Type" data-name="icu::breakiterator::type">
+      <a href="../ICU/BreakIterator/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/CharsetDetector" data-name="icu::charsetdetector">
+      <a href="../ICU/CharsetDetector.html">CharsetDetector</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/CharsetDetector/CharsetMatch" data-name="icu::charsetdetector::charsetmatch">
+      <a href="../ICU/CharsetDetector/CharsetMatch.html">CharsetMatch</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Collator" data-name="icu::collator">
+      <a href="../ICU/Collator.html">Collator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Collator/Attribute" data-name="icu::collator::attribute">
+      <a href="../ICU/Collator/Attribute.html">Attribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/AttributeValue" data-name="icu::collator::attributevalue">
+      <a href="../ICU/Collator/AttributeValue.html">AttributeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/BoundMode" data-name="icu::collator::boundmode">
+      <a href="../ICU/Collator/BoundMode.html">BoundMode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/ReorderCode" data-name="icu::collator::reordercode">
+      <a href="../ICU/Collator/ReorderCode.html">ReorderCode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/RuleOption" data-name="icu::collator::ruleoption">
+      <a href="../ICU/Collator/RuleOption.html">RuleOption</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/Strength" data-name="icu::collator::strength">
+      <a href="../ICU/Collator/Strength.html">Strength</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Currencies" data-name="icu::currencies">
+      <a href="../ICU/Currencies.html">Currencies</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Currencies/NameStyle" data-name="icu::currencies::namestyle">
+      <a href="../ICU/Currencies/NameStyle.html">NameStyle</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Currencies/Type" data-name="icu::currencies::type">
+      <a href="../ICU/Currencies/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Error" data-name="icu::error">
+      <a href="../ICU/Error.html">Error</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/IDNA" data-name="icu::idna">
+      <a href="../ICU/IDNA.html">IDNA</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/IDNA/Option" data-name="icu::idna::option">
+      <a href="../ICU/IDNA/Option.html">Option</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Locale" data-name="icu::locale">
+      <a href="../ICU/Locale.html">Locale</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Locale/Keyword" data-name="icu::locale::keyword">
+      <a href="../ICU/Locale/Keyword.html">Keyword</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFCNormalizer" data-name="icu::nfcnormalizer">
+      <a href="../ICU/NFCNormalizer.html">NFCNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFDNormalizer" data-name="icu::nfdnormalizer">
+      <a href="../ICU/NFDNormalizer.html">NFDNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFKCCFNormalizer" data-name="icu::nfkccfnormalizer">
+      <a href="../ICU/NFKCCFNormalizer.html">NFKCCFNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFKCNormalizer" data-name="icu::nfkcnormalizer">
+      <a href="../ICU/NFKCNormalizer.html">NFKCNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFKDNormalizer" data-name="icu::nfkdnormalizer">
+      <a href="../ICU/NFKDNormalizer.html">NFKDNormalizer</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Normalizer" data-name="icu::normalizer">
+      <a href="../ICU/Normalizer.html">Normalizer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/CheckResult" data-name="icu::normalizer::checkresult">
+      <a href="../ICU/Normalizer/CheckResult.html">CheckResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/Mode" data-name="icu::normalizer::mode">
+      <a href="../ICU/Normalizer/Mode.html">Mode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/Type" data-name="icu::normalizer::type">
+      <a href="../ICU/Normalizer/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Region" data-name="icu::region">
+      <a href="../ICU/Region.html">Region</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="icu/ICU/StringSearch" data-name="icu::stringsearch">
+      <a href="../ICU/StringSearch.html">StringSearch</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/Attribute" data-name="icu::stringsearch::attribute">
+      <a href="../ICU/StringSearch/Attribute.html">Attribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/AttributeValue" data-name="icu::stringsearch::attributevalue">
+      <a href="../ICU/StringSearch/AttributeValue.html">AttributeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/Position" data-name="icu::stringsearch::position">
+      <a href="../ICU/StringSearch/Position.html">Position</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Transliterator" data-name="icu::transliterator">
+      <a href="../ICU/Transliterator.html">Transliterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Transliterator/ID" data-name="icu::transliterator::id">
+      <a href="../ICU/Transliterator/ID.html">ID</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UChar" data-name="icu::uchar">
+      <a href="../ICU/UChar.html">UChar</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UChars" data-name="icu::uchars">
+      <a href="../ICU/UChars.html">UChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UEnum" data-name="icu::uenum">
+      <a href="../ICU/UEnum.html">UEnum</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/UniversalTimeScale" data-name="icu::universaltimescale">
+      <a href="../ICU/UniversalTimeScale.html">UniversalTimeScale</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/DateTimeScale" data-name="icu::universaltimescale::datetimescale">
+      <a href="../ICU/UniversalTimeScale/DateTimeScale.html">DateTimeScale</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/TimeScaleValues" data-name="icu::universaltimescale::timescalevalues">
+      <a href="../ICU/UniversalTimeScale/TimeScaleValues.html">TimeScaleValues</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/UniversalTime" data-name="icu::universaltimescale::universaltime">
+      <a href="../ICU/UniversalTimeScale/UniversalTime.html">UniversalTime</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/String" data-name="string">
+      <a href="../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> ICU::StringSearch
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../ICU/StringSearch.html">ICU::StringSearch</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p><strong>String Searching</strong></p>
+
+<p>Provides language-sensitive text searching.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code class="language-crystal">col <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(<span class="s">&quot;de_DE&quot;</span>)
+col.strength <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span><span class="t">::</span><span class="t">Strength</span><span class="t">::</span><span class="t">Primary</span>
+search <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span>.<span class="k">new</span>(<span class="s">&quot;ß&quot;</span>, <span class="s">&quot;...SS...&quot;</span>, col)
+search.<span class="k">next</span> <span class="c"># =&gt; 3...5</span></code></pre>
+
+<p><strong>See also</strong></p>
+
+<ul><li><a href="http://icu-project.org/apiref/icu4c/usearch_8h.html">reference implementation</a></li><li><a href="http://userguide.icu-project.org/collation/icu-string-search-service">user guide</a></li><li><a href="https://github.com/olbat/icu.cr/blob/master/spec/string_search_spec.cr">unit tests</a></li></ul>
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">Iterator(Range(Int32, Int32))</li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L17" target="_blank">
+        icu/string_search.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="DEFAULT">
+        <strong>DEFAULT</strong> = <code><span class="t">AttributeValue</span><span class="t">::</span><span class="t">Default</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="DONE">
+        <strong>DONE</strong> = <code><span class="n">-1</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="OFF">
+        <strong>OFF</strong> = <code><span class="t">AttributeValue</span><span class="t">::</span><span class="t">Off</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ON">
+        <strong>ON</strong> = <code><span class="t">AttributeValue</span><span class="t">::</span><span class="t">On</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(pattern:String,text:String,locale:String=Locale::DEFAULT_LOCALE,break_iterator:BreakIterator?=nil)-class-method" class="signature"><strong>.new</strong>(pattern : String, text : String, locale : String = <span class="t">Locale</span><span class="t">::</span><span class="t">DEFAULT_LOCALE</span>, break_iterator : BreakIterator? = <span class="n">nil</span>)</a>
+        
+          <div class="summary"><p>Creates a search iterator specifying a locale language rule set</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(pattern:String,text:String,collator:Collator,break_iterator:BreakIterator?=nil)-class-method" class="signature"><strong>.new</strong>(pattern : String, text : String, collator : Collator, break_iterator : BreakIterator? = <span class="n">nil</span>)</a>
+        
+          <div class="summary"><p>Creates a search iterator specifying a collator language rule set</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#[](attribute:Attribute):AttributeValue-instance-method" class="signature"><strong>#[]</strong>(attribute : Attribute) : AttributeValue</a>
+        
+          <div class="summary"><p>Get the value of the specified attribute</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#[]=(attribute:Attribute,value:AttributeValue)-instance-method" class="signature"><strong>#[]=</strong>(attribute : Attribute, value : AttributeValue)</a>
+        
+          <div class="summary"><p>Set a value to the specified attribute</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#break_iterator:ICU::BreakIterator?-instance-method" class="signature"><strong>#break_iterator</strong> : ICU::BreakIterator?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#break_iterator=(break_iterator:BreakIterator)-instance-method" class="signature"><strong>#break_iterator=</strong>(break_iterator : BreakIterator)</a>
+        
+          <div class="summary"><p>Set the BreakIterator that will be used to restrict the points at which matches are detected</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#collator:ICU::Collator?-instance-method" class="signature"><strong>#collator</strong> : ICU::Collator?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#collator=(collator:Collator)-instance-method" class="signature"><strong>#collator=</strong>(collator : Collator)</a>
+        
+          <div class="summary"><p>Sets the collator used for the language rules</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#first:Position?-instance-method" class="signature"><strong>#first</strong> : Position?</a>
+        
+          <div class="summary"><p>Returns the first index at which the string text matches the search pattern</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#following(position:Int):Position?-instance-method" class="signature"><strong>#following</strong>(position : Int) : Position?</a>
+        
+          <div class="summary"><p>Returns the first index greater or equal than <em>position</em> at which the string text matches the search pattern</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#last:Position?-instance-method" class="signature"><strong>#last</strong> : Position?</a>
+        
+          <div class="summary"><p>Returns the last index in the target text at which it matches the search pattern</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#next-instance-method" class="signature"><strong>#next</strong></a>
+        
+          <div class="summary"><p>Returns the index of the next point at which the string text matches the search pattern, starting from the current position.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#offset:Int32-instance-method" class="signature"><strong>#offset</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the last index in the text at which it matches the search pattern</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#offset=(offset:Int32)-instance-method" class="signature"><strong>#offset=</strong>(offset : Int32)</a>
+        
+          <div class="summary"><p>Sets the current position in the text string which the next search will start from</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pattern:String-instance-method" class="signature"><strong>#pattern</strong> : String</a>
+        
+          <div class="summary"><p>Returns the value of the search pattern</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pattern=(pattern:String)-instance-method" class="signature"><strong>#pattern=</strong>(pattern : String)</a>
+        
+          <div class="summary"><p>Sets the pattern used for matching</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#preceding(position:Int):Position?-instance-method" class="signature"><strong>#preceding</strong>(position : Int) : Position?</a>
+        
+          <div class="summary"><p>Returns the first index less than <em>position</em> at which the string text matches the search pattern</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#previous-instance-method" class="signature"><strong>#previous</strong></a>
+        
+          <div class="summary"><p>Returns the index of the previous point at which the string text matches the search pattern, starting at the current position.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reset-instance-method" class="signature"><strong>#reset</strong></a>
+        
+          <div class="summary"><p>Resets the position of the cursor</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#rewind-instance-method" class="signature"><strong>#rewind</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#text:String-instance-method" class="signature"><strong>#text</strong> : String</a>
+        
+          <div class="summary"><p>Return the text to be searched</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#text=(text:String)-instance-method" class="signature"><strong>#text=</strong>(text : String)</a>
+        
+          <div class="summary"><p>Set the string text to be searched</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(pattern:String,text:String,locale:String=Locale::DEFAULT_LOCALE,break_iterator:BreakIterator?=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pattern : <a href="../String.html">String</a>, text : <a href="../String.html">String</a>, locale : <a href="../String.html">String</a> = <span class="t">Locale</span><span class="t">::</span><span class="t">DEFAULT_LOCALE</span>, break_iterator : <a href="../ICU/BreakIterator.html">BreakIterator</a>? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new(pattern:String,text:String,locale:String=Locale::DEFAULT_LOCALE,break_iterator:BreakIterator?=nil)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a search iterator specifying a locale language rule set</p>
+
+<p>See also: <code><a href="../ICU/StringSearch.html#break_iterator=(break_iterator:BreakIterator)-instance-method">#break_iterator=</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L38" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(pattern:String,text:String,collator:Collator,break_iterator:BreakIterator?=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pattern : <a href="../String.html">String</a>, text : <a href="../String.html">String</a>, collator : <a href="../ICU/Collator.html">Collator</a>, break_iterator : <a href="../ICU/BreakIterator.html">BreakIterator</a>? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new(pattern:String,text:String,collator:Collator,break_iterator:BreakIterator?=nil)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a search iterator specifying a collator language rule set</p>
+
+<p>See also: <code><a href="../ICU/StringSearch.html#collator=(collator:Collator)-instance-method">#collator=</a></code>, <code><a href="../ICU/StringSearch.html#break_iterator=(break_iterator:BreakIterator)-instance-method">#break_iterator=</a></code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L50" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="[](attribute:Attribute):AttributeValue-instance-method">
+      <div class="signature">
+        
+        def <strong>[]</strong>(attribute : <a href="../ICU/StringSearch/Attribute.html">Attribute</a>) : <a href="../ICU/StringSearch/AttributeValue.html">AttributeValue</a>
+
+        <a class="method-permalink" href="#[](attribute:Attribute):AttributeValue-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Get the value of the specified attribute</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L60" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]=(attribute:Attribute,value:AttributeValue)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]=</strong>(attribute : <a href="../ICU/StringSearch/Attribute.html">Attribute</a>, value : <a href="../ICU/StringSearch/AttributeValue.html">AttributeValue</a>)
+
+        <a class="method-permalink" href="#[]=(attribute:Attribute,value:AttributeValue)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set a value to the specified attribute</p>
+
+<pre><code class="language-crystal">search <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span>.<span class="k">new</span>(<span class="s">&quot;bb&quot;</span>, <span class="s">&quot;abbbc&quot;</span>)
+search[<span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span><span class="t">::</span><span class="t">Attribute</span><span class="t">::</span><span class="t">Overlap</span>] <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span><span class="t">::</span><span class="t">OFF</span>
+search.to_a <span class="c"># =&gt; [(1...3)]</span>
+search.rewind
+search[<span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span><span class="t">::</span><span class="t">Attribute</span><span class="t">::</span><span class="t">Overlap</span>] <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span><span class="t">::</span><span class="t">ON</span>
+search.to_a <span class="c"># =&gt; [(1...3), (2...4)]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L74" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="break_iterator:ICU::BreakIterator?-instance-method">
+      <div class="signature">
+        
+        def <strong>break_iterator</strong> : <a href="../ICU/BreakIterator.html">ICU::BreakIterator</a>?
+
+        <a class="method-permalink" href="#break_iterator:ICU::BreakIterator?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="break_iterator=(break_iterator:BreakIterator)-instance-method">
+      <div class="signature">
+        
+        def <strong>break_iterator=</strong>(break_iterator : <a href="../ICU/BreakIterator.html">BreakIterator</a>)
+
+        <a class="method-permalink" href="#break_iterator=(break_iterator:BreakIterator)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set the BreakIterator that will be used to restrict the points at which
+matches are detected</p>
+
+<pre><code class="language-crystal">search <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span>.<span class="k">new</span>(<span class="s">&quot;ab&quot;</span>, <span class="s">&quot;... abc ...&quot;</span>)
+search.break_iterator <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.<span class="k">new</span>(<span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Word</span>)
+search.<span class="k">next</span> <span class="c"># =&gt; Iterator::Stop::INSTANCE</span>
+search.pattern <span class="o">=</span> <span class="s">&quot;abc&quot;</span>
+search.reset
+search.<span class="k">next</span> <span class="c"># =&gt; 4...6</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L158" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="collator:ICU::Collator?-instance-method">
+      <div class="signature">
+        
+        def <strong>collator</strong> : <a href="../ICU/Collator.html">ICU::Collator</a>?
+
+        <a class="method-permalink" href="#collator:ICU::Collator?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L33" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="collator=(collator:Collator)-instance-method">
+      <div class="signature">
+        
+        def <strong>collator=</strong>(collator : <a href="../ICU/Collator.html">Collator</a>)
+
+        <a class="method-permalink" href="#collator=(collator:Collator)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the collator used for the language rules</p>
+
+<pre><code class="language-crystal">search <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span>.<span class="k">new</span>(<span class="s">&quot;aa&quot;</span>, <span class="s">&quot;ab&quot;</span>)
+search.collator <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.<span class="k">new</span>(<span class="s">&quot;&amp;b = a&quot;</span>.to_uchars)
+search.<span class="k">next</span> <span class="c"># =&gt; 0...2</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L139" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="first:Position?-instance-method">
+      <div class="signature">
+        
+        def <strong>first</strong> : <a href="../ICU/StringSearch/Position.html">Position</a>?
+
+        <a class="method-permalink" href="#first:Position?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the first index at which the string text matches the search pattern</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L226" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="following(position:Int):Position?-instance-method">
+      <div class="signature">
+        
+        def <strong>following</strong>(position : Int) : <a href="../ICU/StringSearch/Position.html">Position</a>?
+
+        <a class="method-permalink" href="#following(position:Int):Position?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the first index greater or equal than <em>position</em> at which
+the string text matches the search pattern</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L268" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="last:Position?-instance-method">
+      <div class="signature">
+        
+        def <strong>last</strong> : <a href="../ICU/StringSearch/Position.html">Position</a>?
+
+        <a class="method-permalink" href="#last:Position?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the last index in the target text at which it matches
+the search pattern</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L240" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="next-instance-method">
+      <div class="signature">
+        
+        def <strong>next</strong>
+
+        <a class="method-permalink" href="#next-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the index of the next point at which the string text matches the
+search pattern, starting from the current position.</p>
+
+<pre><code class="language-crystal">search <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span>.<span class="k">new</span>(<span class="s">&quot;abc&quot;</span>, <span class="s">&quot;...abc...abc...&quot;</span>)
+search.<span class="k">next</span> <span class="c"># =&gt; 3...6</span>
+search.<span class="k">next</span> <span class="c"># =&gt; 9...12</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L174" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="offset:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>offset</strong> : Int32
+
+        <a class="method-permalink" href="#offset:Int32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the last index in the text at which it matches the search pattern</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L114" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="offset=(offset:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>offset=</strong>(offset : Int32)
+
+        <a class="method-permalink" href="#offset=(offset:Int32)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the current position in the text string which the next search will start from</p>
+
+<pre><code class="language-crystal">search <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span>.<span class="k">new</span>(<span class="s">&quot;abc&quot;</span>, <span class="s">&quot;...abc...abc...&quot;</span>)
+search.offset <span class="o">=</span> <span class="n">6</span>
+search.<span class="k">next</span> <span class="c"># =&gt; 9...12</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L125" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pattern:String-instance-method">
+      <div class="signature">
+        
+        def <strong>pattern</strong> : <a href="../String.html">String</a>
+
+        <a class="method-permalink" href="#pattern:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the value of the search pattern</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L82" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pattern=(pattern:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>pattern=</strong>(pattern : <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#pattern=(pattern:String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the pattern used for matching</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L89" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="preceding(position:Int):Position?-instance-method">
+      <div class="signature">
+        
+        def <strong>preceding</strong>(position : Int) : <a href="../ICU/StringSearch/Position.html">Position</a>?
+
+        <a class="method-permalink" href="#preceding(position:Int):Position?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the first index less than <em>position</em> at which
+the string text matches the search pattern</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L254" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="previous-instance-method">
+      <div class="signature">
+        
+        def <strong>previous</strong>
+
+        <a class="method-permalink" href="#previous-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the index of the previous point at which the string text matches
+the search pattern, starting at the current position.</p>
+
+<pre><code class="language-crystal">search <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span>.<span class="k">new</span>(<span class="s">&quot;abc&quot;</span>, <span class="s">&quot;...abc...abc...&quot;</span>)
+search.offset <span class="o">=</span> <span class="n">14</span>
+search.previous <span class="c"># =&gt; 9...12</span>
+search.previous <span class="c"># =&gt; 3...6</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L195" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reset-instance-method">
+      <div class="signature">
+        
+        def <strong>reset</strong>
+
+        <a class="method-permalink" href="#reset-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Resets the position of the cursor</p>
+
+<pre><code class="language-crystal">search <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">StringSearch</span>.<span class="k">new</span>(<span class="s">&quot;abc&quot;</span>, <span class="s">&quot;...abc...abc...&quot;</span>)
+search.<span class="k">next</span> <span class="c"># =&gt; 3...6</span>
+search.reset
+search.<span class="k">next</span> <span class="c"># =&gt; 3...6</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L215" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="rewind-instance-method">
+      <div class="signature">
+        
+        def <strong>rewind</strong>
+
+        <a class="method-permalink" href="#rewind-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L220" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="text:String-instance-method">
+      <div class="signature">
+        
+        def <strong>text</strong> : <a href="../String.html">String</a>
+
+        <a class="method-permalink" href="#text:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Return the text to be searched</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L98" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="text=(text:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>text=</strong>(text : <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#text=(text:String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set the string text to be searched</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/string_search.cr#L105" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

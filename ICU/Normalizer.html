@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="HEAD">
+<meta name="crystal_docs.project_name" content="icu">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="icu">
+  <title>ICU::Normalizer - icu HEAD</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          icu
+        </a>
+      </h1>
+
+      <span class="project-version">
+        HEAD
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="icu/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/Char" data-name="char">
+      <a href="../Char.html">Char</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="icu/ICU" data-name="icu">
+      <a href="../ICU.html">ICU</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="icu/ICU/BreakIterator" data-name="icu::breakiterator">
+      <a href="../ICU/BreakIterator.html">BreakIterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/BreakIterator/Type" data-name="icu::breakiterator::type">
+      <a href="../ICU/BreakIterator/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/CharsetDetector" data-name="icu::charsetdetector">
+      <a href="../ICU/CharsetDetector.html">CharsetDetector</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/CharsetDetector/CharsetMatch" data-name="icu::charsetdetector::charsetmatch">
+      <a href="../ICU/CharsetDetector/CharsetMatch.html">CharsetMatch</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Collator" data-name="icu::collator">
+      <a href="../ICU/Collator.html">Collator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Collator/Attribute" data-name="icu::collator::attribute">
+      <a href="../ICU/Collator/Attribute.html">Attribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/AttributeValue" data-name="icu::collator::attributevalue">
+      <a href="../ICU/Collator/AttributeValue.html">AttributeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/BoundMode" data-name="icu::collator::boundmode">
+      <a href="../ICU/Collator/BoundMode.html">BoundMode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/ReorderCode" data-name="icu::collator::reordercode">
+      <a href="../ICU/Collator/ReorderCode.html">ReorderCode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/RuleOption" data-name="icu::collator::ruleoption">
+      <a href="../ICU/Collator/RuleOption.html">RuleOption</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/Strength" data-name="icu::collator::strength">
+      <a href="../ICU/Collator/Strength.html">Strength</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Currencies" data-name="icu::currencies">
+      <a href="../ICU/Currencies.html">Currencies</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Currencies/NameStyle" data-name="icu::currencies::namestyle">
+      <a href="../ICU/Currencies/NameStyle.html">NameStyle</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Currencies/Type" data-name="icu::currencies::type">
+      <a href="../ICU/Currencies/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Error" data-name="icu::error">
+      <a href="../ICU/Error.html">Error</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/IDNA" data-name="icu::idna">
+      <a href="../ICU/IDNA.html">IDNA</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/IDNA/Option" data-name="icu::idna::option">
+      <a href="../ICU/IDNA/Option.html">Option</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Locale" data-name="icu::locale">
+      <a href="../ICU/Locale.html">Locale</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Locale/Keyword" data-name="icu::locale::keyword">
+      <a href="../ICU/Locale/Keyword.html">Keyword</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFCNormalizer" data-name="icu::nfcnormalizer">
+      <a href="../ICU/NFCNormalizer.html">NFCNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFDNormalizer" data-name="icu::nfdnormalizer">
+      <a href="../ICU/NFDNormalizer.html">NFDNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFKCCFNormalizer" data-name="icu::nfkccfnormalizer">
+      <a href="../ICU/NFKCCFNormalizer.html">NFKCCFNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFKCNormalizer" data-name="icu::nfkcnormalizer">
+      <a href="../ICU/NFKCNormalizer.html">NFKCNormalizer</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NFKDNormalizer" data-name="icu::nfkdnormalizer">
+      <a href="../ICU/NFKDNormalizer.html">NFKDNormalizer</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="icu/ICU/Normalizer" data-name="icu::normalizer">
+      <a href="../ICU/Normalizer.html">Normalizer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/CheckResult" data-name="icu::normalizer::checkresult">
+      <a href="../ICU/Normalizer/CheckResult.html">CheckResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/Mode" data-name="icu::normalizer::mode">
+      <a href="../ICU/Normalizer/Mode.html">Mode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/Type" data-name="icu::normalizer::type">
+      <a href="../ICU/Normalizer/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Region" data-name="icu::region">
+      <a href="../ICU/Region.html">Region</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/StringSearch" data-name="icu::stringsearch">
+      <a href="../ICU/StringSearch.html">StringSearch</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/Attribute" data-name="icu::stringsearch::attribute">
+      <a href="../ICU/StringSearch/Attribute.html">Attribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/AttributeValue" data-name="icu::stringsearch::attributevalue">
+      <a href="../ICU/StringSearch/AttributeValue.html">AttributeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/Position" data-name="icu::stringsearch::position">
+      <a href="../ICU/StringSearch/Position.html">Position</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Transliterator" data-name="icu::transliterator">
+      <a href="../ICU/Transliterator.html">Transliterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Transliterator/ID" data-name="icu::transliterator::id">
+      <a href="../ICU/Transliterator/ID.html">ID</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UChar" data-name="icu::uchar">
+      <a href="../ICU/UChar.html">UChar</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UChars" data-name="icu::uchars">
+      <a href="../ICU/UChars.html">UChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UEnum" data-name="icu::uenum">
+      <a href="../ICU/UEnum.html">UEnum</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/UniversalTimeScale" data-name="icu::universaltimescale">
+      <a href="../ICU/UniversalTimeScale.html">UniversalTimeScale</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/DateTimeScale" data-name="icu::universaltimescale::datetimescale">
+      <a href="../ICU/UniversalTimeScale/DateTimeScale.html">DateTimeScale</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/TimeScaleValues" data-name="icu::universaltimescale::timescalevalues">
+      <a href="../ICU/UniversalTimeScale/TimeScaleValues.html">TimeScaleValues</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/UniversalTime" data-name="icu::universaltimescale::universaltime">
+      <a href="../ICU/UniversalTimeScale/UniversalTime.html">UniversalTime</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/String" data-name="string">
+      <a href="../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> ICU::Normalizer
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../ICU/Normalizer.html">ICU::Normalizer</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p><strong>Normalization</strong></p>
+
+<p>Unicode normalization functionality for standard Unicode normalization.</p>
+
+<p><strong>Usage</strong></p>
+
+<pre><code class="language-crystal">str <span class="o">=</span> <span class="s">&quot;À&quot;</span>
+str.bytes <span class="c"># =&gt; [65, 204, 128]</span>
+norm <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.<span class="k">new</span>
+norm.normalized?(str)       <span class="c"># =&gt; false</span>
+norm.normalized_quick?(str) <span class="c"># =&gt; Maybe</span>
+norm.normalize(str).bytes   <span class="c"># =&gt; [195, 128]</span></code></pre>
+
+<p><strong>See also</strong></p>
+
+<ul><li><a href="http://icu-project.org/apiref/icu4c/unorm2_8h.html">reference implementation</a></li><li><a href="http://userguide.icu-project.org/transforms/normalization">user guide</a></li><li><a href="https://github.com/olbat/icu.cr/blob/master/spec/normalizer_spec.cr">unit tests</a></li></ul>
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct Known Subclasses
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../ICU/NFCNormalizer.html">ICU::NFCNormalizer</a></li>
+    
+      <li class="other-type"><a href="../ICU/NFDNormalizer.html">ICU::NFDNormalizer</a></li>
+    
+      <li class="other-type"><a href="../ICU/NFKCCFNormalizer.html">ICU::NFKCCFNormalizer</a></li>
+    
+      <li class="other-type"><a href="../ICU/NFKCNormalizer.html">ICU::NFKCNormalizer</a></li>
+    
+      <li class="other-type"><a href="../ICU/NFKDNormalizer.html">ICU::NFKDNormalizer</a></li>
+    
+  </ul>
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/normalizer.cr#L19" target="_blank">
+        icu/normalizer.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="TYPES">
+        <strong>TYPES</strong> = <code>{<span class="t">NFC</span>: {name: <span class="s">&quot;nfc&quot;</span>, mode: <span class="t">Mode</span><span class="t">::</span><span class="t">Compose</span>}, <span class="t">NFD</span>: {name: <span class="s">&quot;nfc&quot;</span>, mode: <span class="t">Mode</span><span class="t">::</span><span class="t">Decompose</span>}, <span class="t">NFKC</span>: {name: <span class="s">&quot;nfkc&quot;</span>, mode: <span class="t">Mode</span><span class="t">::</span><span class="t">Compose</span>}, <span class="t">NFKD</span>: {name: <span class="s">&quot;nfkc&quot;</span>, mode: <span class="t">Mode</span><span class="t">::</span><span class="t">Decompose</span>}, <span class="t">NFKCCF</span>: {name: <span class="s">&quot;nfkc_cf&quot;</span>, mode: <span class="t">Mode</span><span class="t">::</span><span class="t">Compose</span>}}</code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(type:Symbol)-class-method" class="signature"><strong>.new</strong>(type : Symbol)</a>
+        
+          <div class="summary"><p>Create a new normalizer that will use the specified <a href="http://www.unicode.org/unicode/reports/tr15/">mode</a> (NFC, NFD, NFKC, NFKD, NFKCCF)</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#decomposition(chr:Char):String-instance-method" class="signature"><strong>#decomposition</strong>(chr : Char) : String</a>
+        
+          <div class="summary"><p>Gets the decomposition mapping of a character</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#finalize-instance-method" class="signature"><strong>#finalize</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#inert?(chr:Char):Bool-instance-method" class="signature"><strong>#inert?</strong>(chr : Char) : Bool</a>
+        
+          <div class="summary"><p>Tests if the character is normalization-inert</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#normalize(text:String):String-instance-method" class="signature"><strong>#normalize</strong>(text : String) : String</a>
+        
+          <div class="summary"><p>Normalize some text</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#normalized?(text:String):Bool-instance-method" class="signature"><strong>#normalized?</strong>(text : String) : Bool</a>
+        
+          <div class="summary"><p>Tests if the string is normalized</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#normalized_quick?(text:String):CheckResult-instance-method" class="signature"><strong>#normalized_quick?</strong>(text : String) : CheckResult</a>
+        
+          <div class="summary"><p>Tests if the string is normalized (faster but less accurate than <code><a href="../ICU/Normalizer.html#normalized?(text:String):Bool-instance-method">#normalized?</a></code></p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(type:Symbol)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(type : Symbol)
+
+        <a class="method-permalink" href="#new(type:Symbol)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Create a new normalizer that will use the specified <a href="http://www.unicode.org/unicode/reports/tr15/">mode</a> (NFC, NFD, NFKC, NFKD, NFKCCF)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/normalizer.cr#L36" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="decomposition(chr:Char):String-instance-method">
+      <div class="signature">
+        
+        def <strong>decomposition</strong>(chr : <a href="../Char.html">Char</a>) : <a href="../String.html">String</a>
+
+        <a class="method-permalink" href="#decomposition(chr:Char):String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Gets the decomposition mapping of a character</p>
+
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.<span class="k">new</span>.decomposition(<span class="s">&quot;À&quot;</span>) <span class="c"># =&gt; [65, 204, 128]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/normalizer.cr#L114" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="finalize-instance-method">
+      <div class="signature">
+        
+        def <strong>finalize</strong>
+
+        <a class="method-permalink" href="#finalize-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/normalizer.cr#L48" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="inert?(chr:Char):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>inert?</strong>(chr : <a href="../Char.html">Char</a>) : Bool
+
+        <a class="method-permalink" href="#inert?(chr:Char):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Tests if the character is normalization-inert</p>
+
+<pre><code class="language-crystal">norm <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.<span class="k">new</span>
+norm.inert?(<span class="s">&quot;À&quot;</span>) <span class="c"># =&gt; false</span>
+norm.inert?(<span class="s">&quot;A&quot;</span>) <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/normalizer.cr#L105" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="normalize(text:String):String-instance-method">
+      <div class="signature">
+        
+        def <strong>normalize</strong>(text : <a href="../String.html">String</a>) : <a href="../String.html">String</a>
+
+        <a class="method-permalink" href="#normalize(text:String):String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Normalize some text</p>
+
+<pre><code class="language-crystal">str <span class="o">=</span> <span class="s">&quot;À&quot;</span>
+str.bytes                                   <span class="c"># =&gt; [65, 204, 128]</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.<span class="k">new</span>.normalize(str).bytes <span class="c"># =&gt; [195, 128]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/normalizer.cr#L59" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="normalized?(text:String):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>normalized?</strong>(text : <a href="../String.html">String</a>) : Bool
+
+        <a class="method-permalink" href="#normalized?(text:String):Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Tests if the string is normalized</p>
+
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.<span class="k">new</span>.normalized?(<span class="s">&quot;À&quot;</span>) <span class="c"># =&gt; false</span></code></pre>
+
+<p>(see also: <code><a href="../ICU/Normalizer.html#normalized_quick?(text:String):CheckResult-instance-method">#normalized_quick?</a></code>)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/normalizer.cr#L79" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="normalized_quick?(text:String):CheckResult-instance-method">
+      <div class="signature">
+        
+        def <strong>normalized_quick?</strong>(text : <a href="../String.html">String</a>) : <a href="../ICU/Normalizer/CheckResult.html">CheckResult</a>
+
+        <a class="method-permalink" href="#normalized_quick?(text:String):CheckResult-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Tests if the string is normalized (faster but less accurate than <code><a href="../ICU/Normalizer.html#normalized?(text:String):Bool-instance-method">#normalized?</a></code></p>
+
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.<span class="k">new</span>.normalized_quick?(<span class="s">&quot;À&quot;</span>) <span class="c"># =&gt; Maybe</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/normalizer.cr#L91" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
