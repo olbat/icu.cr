@@ -4,16 +4,19 @@ sudo: required
 
 matrix:
   include:
-  # Linux
-  - os: linux
-    dist: xenial
+  # FIXME: disabled because Travis CI doesn't provide a working Crystal image anymore
+  #        (see https://github.com/travis-ci/travis-build/pull/1987)
+  #
+  ## Linux
+  #- os: linux
+  #  dist: xenial
+  #- os: linux
+  #  dist: bionic
   - os: linux
     dist: bionic
-
-  - os: linux
-    dist: bionic
-    install:
-    before_script:
+    language: minimal
+    install: ~
+    before_script: ~
     env: GENERATE_LIB=1 # regenerate the binding
     script:
     - docker-compose build devel
@@ -36,28 +39,22 @@ matrix:
   #  osx_image: xcode11.2
   #  env: GENERATE_LIB=1 # regenerate the binding
 
-  # publish the documentation on GitHub pages
-  - os: linux
-    stage: deploy
-    install:
-    script: crystal docs
-    deploy:
-      provider: pages
-      local_dir: docs/
-      target_branch: gh-pages
-      github_token: $GITHUB_TOKEN
-      skip_cleanup: true
-      on:
-        branch: master
-
-  # triggers an image build (used with travis' cron jobs to build periodically)
-  - stage: deploy
-    os: linux
-    before_install:
-    script: >
-      [ $TRAVIS_EVENT_TYPE != "cron" ] ||
-      curl -H "Content-Type: application/json" --data '{"build": true}'
-      -X POST https://registry.hub.docker.com/u/olbat/libgen/trigger/${DOCKER_TOKEN}/
+  # FIXME: disabled because Travis CI doesn't provide a working Crystal image anymore
+  #        (see https://github.com/travis-ci/travis-build/pull/1987)
+  #
+  ## publish the documentation on GitHub pages
+  #- os: linux
+  #  stage: deploy
+  #  install:
+  #  script: crystal docs
+  #  deploy:
+  #    provider: pages
+  #    local_dir: docs/
+  #    target_branch: gh-pages
+  #    github_token: $GITHUB_TOKEN
+  #    skip_cleanup: true
+  #    on:
+  #      branch: master
 
 install: |
   set -e
