@@ -1,5 +1,4 @@
-# Crystal ICU [![Build Status](https://secure.travis-ci.org/olbat/icu.cr.png?branch=master)](https://travis-ci.org/olbat/icu.cr)
-
+# Crystal ICU
 Crystal binding/wrapper to the [ICU](http://site.icu-project.org/) library
 
 
