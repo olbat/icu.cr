@@ -30,7 +30,9 @@ lib LibICU
     FormatFailIfMoreThanMaxDigits = 4096
     ParseNoExponent               = 4097
     ParseDecimalMarkRequired      = 4098
-    LimitBooleanAttribute         = 4099
+    ParseCaseSensitive            = 4099
+    SignAlwaysShown               = 4100
+    LimitBooleanAttribute         = 4101
   end
   enum UNumberFormatStyle
     PatternDecimal      =  0
@@ -83,7 +85,8 @@ lib LibICU
     EightDigitSymbol                = 25
     NineDigitSymbol                 = 26
     ExponentMultiplicationSymbol    = 27
-    FormatSymbolCount               = 28
+    ApproximatelySignSymbol         = 28
+    FormatSymbolCount               = 29
   end
   enum UNumberFormatTextAttribute
     PositivePrefix   = 0
@@ -103,6 +106,7 @@ lib LibICU
   fun unum_format_decimal = unum_formatDecimal{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, number : LibC::Char*, length : Int32T, result : UChar*, result_length : Int32T, pos : UFieldPosition*, status : UErrorCode*) : Int32T
   fun unum_format_double = unum_formatDouble{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, number : LibC::Double, result : UChar*, result_length : Int32T, pos : UFieldPosition*, status : UErrorCode*) : Int32T
   fun unum_format_double_currency = unum_formatDoubleCurrency{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, number : LibC::Double, currency : UChar*, result : UChar*, result_length : Int32T, pos : UFieldPosition*, status : UErrorCode*) : Int32T
+  fun unum_format_double_for_fields = unum_formatDoubleForFields{{SYMS_SUFFIX.id}}(format : UNumberFormat*, number : LibC::Double, result : UChar*, result_length : Int32T, fpositer : UFieldPositionIterator, status : UErrorCode*) : Int32T
   fun unum_format_int64 = unum_formatInt64{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, number : Int64T, result : UChar*, result_length : Int32T, pos : UFieldPosition*, status : UErrorCode*) : Int32T
   fun unum_format_u_formattable = unum_formatUFormattable{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, number : UFormattable*, result : UChar*, result_length : Int32T, pos : UFieldPosition*, status : UErrorCode*) : Int32T
   fun unum_get_attribute = unum_getAttribute{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, attr : UNumberFormatAttribute) : Int32T
@@ -112,6 +116,7 @@ lib LibICU
   fun unum_get_locale_by_type = unum_getLocaleByType{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, type : ULocDataLocaleType, status : UErrorCode*) : LibC::Char*
   fun unum_get_symbol = unum_getSymbol{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, symbol : UNumberFormatSymbol, buffer : UChar*, size : Int32T, status : UErrorCode*) : Int32T
   fun unum_get_text_attribute = unum_getTextAttribute{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, tag : UNumberFormatTextAttribute, result : UChar*, result_length : Int32T, status : UErrorCode*) : Int32T
+  fun unum_has_attribute = unum_hasAttribute{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, attr : UNumberFormatAttribute) : LibC::Int
   fun unum_open = unum_open{{SYMS_SUFFIX.id}}(style : UNumberFormatStyle, pattern : UChar*, pattern_length : Int32T, locale : LibC::Char*, parse_err : UParseError*, status : UErrorCode*) : UNumberFormat*
   fun unum_parse = unum_parse{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, text : UChar*, text_length : Int32T, parse_pos : Int32T*, status : UErrorCode*) : Int32T
   fun unum_parse_decimal = unum_parseDecimal{{SYMS_SUFFIX.id}}(fmt : UNumberFormat*, text : UChar*, text_length : Int32T, parse_pos : Int32T*, out_buf : LibC::Char*, out_buf_length : Int32T, status : UErrorCode*) : Int32T

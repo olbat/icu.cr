@@ -47,6 +47,14 @@ lib LibICU
     ZoneTypeCanonical         = 1
     ZoneTypeCanonicalLocation = 2
   end
+  enum UTimeZoneLocalOption
+    TzLocalFormer         =  4
+    TzLocalLatter         = 12
+    TzLocalStandardFormer =  5
+    TzLocalStandardLatter = 13
+    TzLocalDaylightFormer =  7
+    TzLocalDaylightLatter = 15
+  end
   enum UTimeZoneTransitionType
     TzTransitionNext              = 0
     TzTransitionNextInclusive     = 1
@@ -69,6 +77,8 @@ lib LibICU
   fun ucal_get_dst_savings = ucal_getDSTSavings{{SYMS_SUFFIX.id}}(zone_id : UChar*, ec : UErrorCode*) : Int32T
   fun ucal_get_field_difference = ucal_getFieldDifference{{SYMS_SUFFIX.id}}(cal : UCalendar*, target : UDate, field : UCalendarDateFields, status : UErrorCode*) : Int32T
   fun ucal_get_gregorian_change = ucal_getGregorianChange{{SYMS_SUFFIX.id}}(cal : UCalendar*, p_error_code : UErrorCode*) : UDate
+  fun ucal_get_host_time_zone = ucal_getHostTimeZone{{SYMS_SUFFIX.id}}(result : UChar*, result_capacity : Int32T, ec : UErrorCode*) : Int32T
+  fun ucal_get_iana_time_zone_id = ucal_getIanaTimeZoneID{{SYMS_SUFFIX.id}}(id : UChar*, len : Int32T, result : UChar*, result_capacity : Int32T, status : UErrorCode*) : Int32T
   fun ucal_get_keyword_values_for_locale = ucal_getKeywordValuesForLocale{{SYMS_SUFFIX.id}}(key : LibC::Char*, locale : LibC::Char*, commonly_used : UBool, status : UErrorCode*) : UEnumeration
   fun ucal_get_limit = ucal_getLimit{{SYMS_SUFFIX.id}}(cal : UCalendar*, field : UCalendarDateFields, type : UCalendarLimitType, status : UErrorCode*) : Int32T
   fun ucal_get_locale_by_type = ucal_getLocaleByType{{SYMS_SUFFIX.id}}(cal : UCalendar*, type : ULocDataLocaleType, status : UErrorCode*) : LibC::Char*
@@ -77,6 +87,7 @@ lib LibICU
   fun ucal_get_time_zone_display_name = ucal_getTimeZoneDisplayName{{SYMS_SUFFIX.id}}(cal : UCalendar*, type : UCalendarDisplayNameType, locale : LibC::Char*, result : UChar*, result_length : Int32T, status : UErrorCode*) : Int32T
   fun ucal_get_time_zone_id = ucal_getTimeZoneID{{SYMS_SUFFIX.id}}(cal : UCalendar*, result : UChar*, result_length : Int32T, status : UErrorCode*) : Int32T
   fun ucal_get_time_zone_id_for_windows_id = ucal_getTimeZoneIDForWindowsID{{SYMS_SUFFIX.id}}(winid : UChar*, len : Int32T, region : LibC::Char*, id : UChar*, id_capacity : Int32T, status : UErrorCode*) : Int32T
+  fun ucal_get_time_zone_offset_from_local = ucal_getTimeZoneOffsetFromLocal{{SYMS_SUFFIX.id}}(cal : UCalendar*, non_existing_time_opt : UTimeZoneLocalOption, duplicated_time_opt : UTimeZoneLocalOption, raw_offset : Int32T*, dst_offset : Int32T*, status : UErrorCode*)
   fun ucal_get_time_zone_transition_date = ucal_getTimeZoneTransitionDate{{SYMS_SUFFIX.id}}(cal : UCalendar*, type : UTimeZoneTransitionType, transition : UDate*, status : UErrorCode*) : UBool
   fun ucal_get_type = ucal_getType{{SYMS_SUFFIX.id}}(cal : UCalendar*, status : UErrorCode*) : LibC::Char*
   fun ucal_get_tz_data_version = ucal_getTZDataVersion{{SYMS_SUFFIX.id}}(status : UErrorCode*) : LibC::Char*

@@ -52,6 +52,12 @@ lib LibICU
     TimeSeparatorField              = 37
     FieldCount                      = 38
   end
+  enum UDateFormatHourCycle
+    HourCycle11 = 0
+    HourCycle12 = 1
+    HourCycle23 = 2
+    HourCycle24 = 3
+  end
   enum UDateFormatStyle
     Full           =   0
     Long           =   1
@@ -96,6 +102,8 @@ lib LibICU
     ZodiacNamesWide           = 25
     ZodiacNamesAbbreviated    = 26
     ZodiacNamesNarrow         = 27
+    NarrowQuarters            = 28
+    StandaloneNarrowQuarters  = 29
   end
   enum UDateTimePatternConflict
     NoConflict    = 0
@@ -128,6 +136,11 @@ lib LibICU
     MatchMinuteFieldLength =  4096
     MatchSecondFieldLength =  8192
     MatchAllFieldsLength   = 65535
+  end
+  enum UDateTimePgDisplayWidth
+    Wide        = 0
+    Abbreviated = 1
+    Narrow      = 2
   end
   fun udat_adopt_number_format = udat_adoptNumberFormat{{SYMS_SUFFIX.id}}(fmt : UDateFormat*, number_format_to_adopt : UNumberFormat*)
   fun udat_adopt_number_format_for_fields = udat_adoptNumberFormatForFields{{SYMS_SUFFIX.id}}(fmt : UDateFormat*, fields : UChar*, number_format_to_set : UNumberFormat*, status : UErrorCode*)
@@ -176,7 +189,10 @@ lib LibICU
   fun udatpg_get_best_pattern = udatpg_getBestPattern{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, skeleton : UChar*, length : Int32T, best_pattern : UChar*, capacity : Int32T, p_error_code : UErrorCode*) : Int32T
   fun udatpg_get_best_pattern_with_options = udatpg_getBestPatternWithOptions{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, skeleton : UChar*, length : Int32T, options : UDateTimePatternMatchOptions, best_pattern : UChar*, capacity : Int32T, p_error_code : UErrorCode*) : Int32T
   fun udatpg_get_date_time_format = udatpg_getDateTimeFormat{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, p_length : Int32T*) : UChar*
+  fun udatpg_get_date_time_format_for_style = udatpg_getDateTimeFormatForStyle{{SYMS_SUFFIX.id}}(udtpg : UDateTimePatternGenerator*, style : UDateFormatStyle, p_length : Int32T*, p_error_code : UErrorCode*) : UChar*
   fun udatpg_get_decimal = udatpg_getDecimal{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, p_length : Int32T*) : UChar*
+  fun udatpg_get_default_hour_cycle = udatpg_getDefaultHourCycle{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, p_error_code : UErrorCode*) : UDateFormatHourCycle
+  fun udatpg_get_field_display_name = udatpg_getFieldDisplayName{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, field : UDateTimePatternField, width : UDateTimePgDisplayWidth, field_name : UChar*, capacity : Int32T, p_error_code : UErrorCode*) : Int32T
   fun udatpg_get_pattern_for_skeleton = udatpg_getPatternForSkeleton{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, skeleton : UChar*, skeleton_length : Int32T, p_length : Int32T*) : UChar*
   fun udatpg_get_skeleton = udatpg_getSkeleton{{SYMS_SUFFIX.id}}(unused_dtpg : UDateTimePatternGenerator*, pattern : UChar*, length : Int32T, skeleton : UChar*, capacity : Int32T, p_error_code : UErrorCode*) : Int32T
   fun udatpg_open = udatpg_open{{SYMS_SUFFIX.id}}(locale : LibC::Char*, p_error_code : UErrorCode*) : UDateTimePatternGenerator*
@@ -188,11 +204,20 @@ lib LibICU
   fun udatpg_set_append_item_format = udatpg_setAppendItemFormat{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, field : UDateTimePatternField, value : UChar*, length : Int32T)
   fun udatpg_set_append_item_name = udatpg_setAppendItemName{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, field : UDateTimePatternField, value : UChar*, length : Int32T)
   fun udatpg_set_date_time_format = udatpg_setDateTimeFormat{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, dt_format : UChar*, length : Int32T)
+  fun udatpg_set_date_time_format_for_style = udatpg_setDateTimeFormatForStyle{{SYMS_SUFFIX.id}}(udtpg : UDateTimePatternGenerator*, style : UDateFormatStyle, date_time_format : UChar*, length : Int32T, p_error_code : UErrorCode*)
   fun udatpg_set_decimal = udatpg_setDecimal{{SYMS_SUFFIX.id}}(dtpg : UDateTimePatternGenerator*, decimal : UChar*, length : Int32T)
   fun udtitvfmt_close = udtitvfmt_close{{SYMS_SUFFIX.id}}(formatter : UDateIntervalFormat)
+  fun udtitvfmt_close_result = udtitvfmt_closeResult{{SYMS_SUFFIX.id}}(uresult : UFormattedDateInterval)
   fun udtitvfmt_format = udtitvfmt_format{{SYMS_SUFFIX.id}}(formatter : UDateIntervalFormat, from_date : UDate, to_date : UDate, result : UChar*, result_capacity : Int32T, position : UFieldPosition*, status : UErrorCode*) : Int32T
+  fun udtitvfmt_format_calendar_to_result = udtitvfmt_formatCalendarToResult{{SYMS_SUFFIX.id}}(formatter : UDateIntervalFormat, from_calendar : UCalendar*, to_calendar : UCalendar*, result : UFormattedDateInterval, status : UErrorCode*)
+  fun udtitvfmt_format_to_result = udtitvfmt_formatToResult{{SYMS_SUFFIX.id}}(formatter : UDateIntervalFormat, from_date : UDate, to_date : UDate, result : UFormattedDateInterval, status : UErrorCode*)
+  fun udtitvfmt_get_context = udtitvfmt_getContext{{SYMS_SUFFIX.id}}(formatter : UDateIntervalFormat, type : UDisplayContextType, status : UErrorCode*) : UDisplayContext
   fun udtitvfmt_open = udtitvfmt_open{{SYMS_SUFFIX.id}}(locale : LibC::Char*, skeleton : UChar*, skeleton_length : Int32T, tz_id : UChar*, tz_id_length : Int32T, status : UErrorCode*) : UDateIntervalFormat
+  fun udtitvfmt_open_result = udtitvfmt_openResult{{SYMS_SUFFIX.id}}(ec : UErrorCode*) : UFormattedDateInterval
+  fun udtitvfmt_result_as_value = udtitvfmt_resultAsValue{{SYMS_SUFFIX.id}}(uresult : UFormattedDateInterval, ec : UErrorCode*) : UFormattedValue
+  fun udtitvfmt_set_context = udtitvfmt_setContext{{SYMS_SUFFIX.id}}(formatter : UDateIntervalFormat, value : UDisplayContext, status : UErrorCode*)
   type UDateIntervalFormat = Void*
-  type UFieldPositionIterator = Void*
+  type UFormattedDateInterval = Void*
+  type UFormattedValue = Void*
   {% end %}
 end

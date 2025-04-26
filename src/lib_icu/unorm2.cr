@@ -22,6 +22,7 @@ lib LibICU
   fun unorm2_get_nfd_instance = unorm2_getNFDInstance{{SYMS_SUFFIX.id}}(p_error_code : UErrorCode*) : UNormalizer2
   fun unorm2_get_nfkc_casefold_instance = unorm2_getNFKCCasefoldInstance{{SYMS_SUFFIX.id}}(p_error_code : UErrorCode*) : UNormalizer2
   fun unorm2_get_nfkc_instance = unorm2_getNFKCInstance{{SYMS_SUFFIX.id}}(p_error_code : UErrorCode*) : UNormalizer2
+  fun unorm2_get_nfkc_simple_casefold_instance = unorm2_getNFKCSimpleCasefoldInstance{{SYMS_SUFFIX.id}}(p_error_code : UErrorCode*) : UNormalizer2
   fun unorm2_get_nfkd_instance = unorm2_getNFKDInstance{{SYMS_SUFFIX.id}}(p_error_code : UErrorCode*) : UNormalizer2
   fun unorm2_get_raw_decomposition = unorm2_getRawDecomposition{{SYMS_SUFFIX.id}}(norm2 : UNormalizer2, c : UChar32, decomposition : UChar*, capacity : Int32T, p_error_code : UErrorCode*) : Int32T
   fun unorm2_has_boundary_after = unorm2_hasBoundaryAfter{{SYMS_SUFFIX.id}}(norm2 : UNormalizer2, c : UChar32) : UBool

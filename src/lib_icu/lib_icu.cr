@@ -6,20 +6,32 @@ lib LibICU
   {% end %}
 
   {% begin %}
-  alias Int32T = LibC::Int
-  alias Int64T = LibC::Long
-  alias Int8T = LibC::Char
+  alias Int32T = X__Int32T
+  alias Int64T = X__Int64T
+  alias Int8T = X__Int8T
   alias UBool = Int8T
   alias UCalendar = Void*
-  alias UChar = LibC::UShort
+  alias UChar = Uint16T
   alias UChar32 = Int32T
   alias UDate = LibC::Double
   alias UFormattable = Void*
   alias UNumberFormat = Void*
   alias UVersionInfo = Uint8T[4]
-  alias Uint16T = LibC::UShort
-  alias Uint32T = LibC::UInt
-  alias Uint8T = UInt8
+  alias Uint16T = X__Uint16T
+  alias Uint32T = X__Uint32T
+  alias Uint8T = X__Uint8T
+  alias X__Int32T = LibC::Int
+  alias X__Int64T = LibC::Long
+  alias X__Int8T = LibC::Char
+  alias X__Uint16T = LibC::UShort
+  alias X__Uint32T = LibC::UInt
+  alias X__Uint8T = UInt8
+  enum UBiDiDirection
+    Ltr     = 0
+    Rtl     = 1
+    Mixed   = 2
+    Neutral = 3
+  end
   enum UCalendarDateFields
     Era               =  0
     Year              =  1
@@ -44,7 +56,8 @@ lib LibICU
     JulianDay         = 20
     MillisecondsInDay = 21
     IsLeapMonth       = 22
-    FieldCount        = 23
+    OrdinalMonth      = 23
+    FieldCount        = 24
     DayOfMonth        =  5
   end
   enum UCharCategory
@@ -131,11 +144,14 @@ lib LibICU
     CapitalizationForStandalone          = 260
     LengthFull                           = 512
     LengthShort                          = 513
+    Substitute                           = 768
+    NoSubstitute                         = 769
   end
   enum UDisplayContextType
-    TypeDialectHandling = 0
-    TypeCapitalization  = 1
-    TypeDisplayLength   = 2
+    TypeDialectHandling    = 0
+    TypeCapitalization     = 1
+    TypeDisplayLength      = 2
+    TypeSubstituteHandling = 3
   end
   enum UErrorCode
     UUsingFallbackWarning         =  -128
@@ -180,7 +196,8 @@ lib LibICU
     UCollatorVersionMismatch      =    28
     UUselessCollatorError         =    29
     UNoWritePermission            =    30
-    UStandardErrorLimit           =    31
+    UInputTooLongError            =    31
+    UStandardErrorLimit           =    32
     UBadVariableDefinition        = 65536
     UParseErrorStart              = 65536
     UMalformedRule                = 65537
@@ -238,7 +255,9 @@ lib LibICU
     UDefaultKeywordMissing        = 65807
     UDecimalNumberSyntaxError     = 65808
     UFormatInexactError           = 65809
-    UFmtParseErrorLimit           = 65810
+    UNumberArgOutofboundsError    = 65810
+    UNumberSkeletonSyntaxError    = 65811
+    UFmtParseErrorLimit           = 65812
     UBrkInternalError             = 66048
     UBrkErrorStart                = 66048
     UBrkHexDigitsExpected         = 66049
@@ -378,7 +397,21 @@ lib LibICU
     EmojiPresentation            =    58
     EmojiModifier                =    59
     EmojiModifierBase            =    60
-    BinaryLimit                  =    61
+    EmojiComponent               =    61
+    RegionalIndicator            =    62
+    PrependedConcatenationMark   =    63
+    ExtendedPictographic         =    64
+    BasicEmoji                   =    65
+    EmojiKeycapSequence          =    66
+    RgiEmojiModifierSequence     =    67
+    RgiEmojiFlagSequence         =    68
+    RgiEmojiTagSequence          =    69
+    RgiEmojiZwjSequence          =    70
+    RgiEmoji                     =    71
+    IdsUnaryOperator             =    72
+    IdCompatMathStart            =    73
+    IdCompatMathContinue         =    74
+    BinaryLimit                  =    75
     BidiClass                    =  4096
     IntStart                     =  4096
     Block                        =  4097
@@ -402,7 +435,10 @@ lib LibICU
     SentenceBreak                =  4115
     WordBreak                    =  4116
     BidiPairedBracketType        =  4117
-    IntLimit                     =  4118
+    IndicPositionalCategory      =  4118
+    IndicSyllabicCategory        =  4119
+    VerticalOrientation          =  4120
+    IntLimit                     =  4121
     GeneralCategoryMask          =  8192
     MaskStart                    =  8192
     MaskLimit                    =  8193
@@ -450,9 +486,11 @@ lib LibICU
   fun fold_case = u_foldCase{{SYMS_SUFFIX.id}}(c : UChar32, options : Uint32T) : UChar32
   fun for_digit = u_forDigit{{SYMS_SUFFIX.id}}(digit : Int32T, radix : Int8T) : UChar32
   fun get_bidi_paired_bracket = u_getBidiPairedBracket{{SYMS_SUFFIX.id}}(c : UChar32) : UChar32
+  fun get_binary_property_set = u_getBinaryPropertySet{{SYMS_SUFFIX.id}}(property : UProperty, p_error_code : UErrorCode*) : USet
   fun get_combining_class = u_getCombiningClass{{SYMS_SUFFIX.id}}(c : UChar32) : Uint8T
   fun get_data_directory = u_getDataDirectory{{SYMS_SUFFIX.id}} : LibC::Char*
   fun get_fc_nfkc_closure = u_getFC_NFKC_Closure{{SYMS_SUFFIX.id}}(c : UChar32, dest : UChar*, dest_capacity : Int32T, p_error_code : UErrorCode*) : Int32T
+  fun get_int_property_map = u_getIntPropertyMap{{SYMS_SUFFIX.id}}(property : UProperty, p_error_code : UErrorCode*) : UcpMap
   fun get_int_property_max_value = u_getIntPropertyMaxValue{{SYMS_SUFFIX.id}}(which : UProperty) : Int32T
   fun get_int_property_min_value = u_getIntPropertyMinValue{{SYMS_SUFFIX.id}}(which : UProperty) : Int32T
   fun get_int_property_value = u_getIntPropertyValue{{SYMS_SUFFIX.id}}(c : UChar32, which : UProperty) : Int32T
@@ -496,6 +534,7 @@ lib LibICU
   fun isxdigit = u_isxdigit{{SYMS_SUFFIX.id}}(c : UChar32) : UBool
   fun set_data_directory = u_setDataDirectory{{SYMS_SUFFIX.id}}(directory : LibC::Char*)
   fun set_time_zone_files_directory = u_setTimeZoneFilesDirectory{{SYMS_SUFFIX.id}}(path : LibC::Char*, status : UErrorCode*)
+  fun string_has_binary_property = u_stringHasBinaryProperty{{SYMS_SUFFIX.id}}(s : UChar*, length : Int32T, which : UProperty) : UBool
   fun tolower = u_tolower{{SYMS_SUFFIX.id}}(c : UChar32) : UChar32
   fun totitle = u_totitle{{SYMS_SUFFIX.id}}(c : UChar32) : UChar32
   fun toupper = u_toupper{{SYMS_SUFFIX.id}}(c : UChar32) : UChar32
@@ -598,7 +637,9 @@ lib LibICU
   type UBreakIterator = Void*
   type UCollator = Void*
   type UEnumeration = Void*
+  type UFieldPositionIterator = Void*
   type USet = Void*
+  type UcpMap = Void*
   {% end %}
 end
 

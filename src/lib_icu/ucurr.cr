@@ -3,8 +3,11 @@ lib LibICU
   {% begin %}
   alias UCurrRegistryKey = Void*
   enum UCurrNameStyle
-    SymbolName = 0
-    LongName   = 1
+    SymbolName        = 0
+    LongName          = 1
+    NarrowSymbolName  = 2
+    FormalSymbolName  = 3
+    VariantSymbolName = 4
   end
   enum UCurrencyUsage
     UsageStandard = 0
