@@ -41,9 +41,9 @@ require "icu"
 - [x] [Currencies](https://olbat.github.io/icu.cr/ICU/Currencies.html), Encapsulates information about a currency _(ucurr.h)_
 - [x] [Region](https://olbat.github.io/icu.cr/ICU/Region.html), Territory containment and mapping _(uregion.h)_
 - [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
+- [x] [NumberFormatter](https://olbat.github.io/icu.cr/ICU/NumberFormat.html), Number Formatting/Spellout _(unum.h)_
 - [ ] `uregex`, Regular Expressions _(uregex.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
-- [ ] `unum`, Number Formatting/Spellout _(unum.h)_
 - [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
 - [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
 - [ ] `ucal`, Calendars _(ucal.h)_
