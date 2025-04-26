@@ -59,6 +59,7 @@ lib LibICU
     Greater =  1
     Less    = -1
   end
+  fun ucol_clone = ucol_clone{{SYMS_SUFFIX.id}}(coll : UCollator, status : UErrorCode*) : UCollator
   fun ucol_clone_binary = ucol_cloneBinary{{SYMS_SUFFIX.id}}(coll : UCollator, buffer : Uint8T*, capacity : Int32T, status : UErrorCode*) : Int32T
   fun ucol_close = ucol_close{{SYMS_SUFFIX.id}}(coll : UCollator)
   fun ucol_count_available = ucol_countAvailable{{SYMS_SUFFIX.id}} : Int32T

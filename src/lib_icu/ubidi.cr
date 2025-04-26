@@ -2,12 +2,6 @@
 lib LibICU
   {% begin %}
   alias UBiDiLevel = Uint8T
-  enum UBiDiDirection
-    Ltr     = 0
-    Rtl     = 1
-    Mixed   = 2
-    Neutral = 3
-  end
   enum UBiDiReorderingMode
     ReorderDefault                  = 0
     ReorderNumbersSpecial           = 1

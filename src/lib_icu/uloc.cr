@@ -13,6 +13,12 @@ lib LibICU
     LayoutBtt     = 3
     LayoutUnknown = 4
   end
+  enum ULocAvailableType
+    AvailableDefault           = 0
+    AvailableOnlyLegacyAliases = 1
+    AvailableWithLegacyAliases = 2
+    AvailableCount             = 3
+  end
   enum ULocaleDataDelimiterType
     QuotationStart    = 0
     QuotationEnd      = 1
@@ -66,6 +72,7 @@ lib LibICU
   fun uloc_get_variant = uloc_getVariant{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, variant : LibC::Char*, variant_capacity : Int32T, err : UErrorCode*) : Int32T
   fun uloc_is_right_to_left = uloc_isRightToLeft{{SYMS_SUFFIX.id}}(locale : LibC::Char*) : UBool
   fun uloc_minimize_subtags = uloc_minimizeSubtags{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, minimized_locale_id : LibC::Char*, minimized_locale_id_capacity : Int32T, err : UErrorCode*) : Int32T
+  fun uloc_open_available_by_type = uloc_openAvailableByType{{SYMS_SUFFIX.id}}(type : ULocAvailableType, status : UErrorCode*) : UEnumeration
   fun uloc_open_keywords = uloc_openKeywords{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, status : UErrorCode*) : UEnumeration
   fun uloc_set_default = uloc_setDefault{{SYMS_SUFFIX.id}}(locale_id : LibC::Char*, status : UErrorCode*)
   fun uloc_set_keyword_value = uloc_setKeywordValue{{SYMS_SUFFIX.id}}(keyword_name : LibC::Char*, keyword_value : LibC::Char*, buffer : LibC::Char*, buffer_capacity : Int32T, status : UErrorCode*) : Int32T

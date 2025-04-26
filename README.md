@@ -66,7 +66,7 @@ __Internals__
 
 ### ICU version compatibility
 This binding is compatible with the ICU library starting from version `4.8`.
-It has been [generated](lib.yml) using ICU version `57.1` so every additions in the API from this version will not be present in this binding.
+It has been [generated](lib.yml) using ICU version `74.2` so every additions in the API from this version will not be present in this binding.
 
 The Crystal wrapper's (the `ICU` class) class and methods are enabled dynamically at compile-time depending on the version of the ICU library that's installed.
 

@@ -1,7 +1,8 @@
 @[Link(ldflags: "`command -v pkg-config > /dev/null && pkg-config --libs icu-uc icu-i18n icu-io 2> /dev/null|| printf %s '-licuio -licui18n -licuuc -licudata'`")]
 lib LibICU
   {% begin %}
-  alias Int16T = LibC::Short
+  alias Int16T = X__Int16T
+  alias X__Int16T = LibC::Short
   fun uidna_close = uidna_close{{SYMS_SUFFIX.id}}(idna : Uidna)
   fun uidna_compare = uidna_compare{{SYMS_SUFFIX.id}}(s1 : UChar*, length1 : Int32T, s2 : UChar*, length2 : Int32T, options : Int32T, status : UErrorCode*) : Int32T
   fun uidna_idn_to_ascii = uidna_IDNToASCII{{SYMS_SUFFIX.id}}(src : UChar*, src_length : Int32T, dest : UChar*, dest_capacity : Int32T, options : Int32T, parse_error : UParseError*, status : UErrorCode*) : Int32T

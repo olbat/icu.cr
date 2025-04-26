@@ -59,6 +59,7 @@ lib LibICU
     RoundtripAndFallbackSet = 1
     SetCount                = 2
   end
+  fun ucnv_clone = ucnv_clone{{SYMS_SUFFIX.id}}(cnv : UConverter, status : UErrorCode*) : UConverter
   fun ucnv_close = ucnv_close{{SYMS_SUFFIX.id}}(converter : UConverter)
   fun ucnv_compare_names = ucnv_compareNames{{SYMS_SUFFIX.id}}(name1 : LibC::Char*, name2 : LibC::Char*) : LibC::Int
   fun ucnv_convert = ucnv_convert{{SYMS_SUFFIX.id}}(to_converter_name : LibC::Char*, from_converter_name : LibC::Char*, target : LibC::Char*, target_capacity : Int32T, source : LibC::Char*, source_length : Int32T, p_error_code : UErrorCode*) : Int32T
