@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="icu">
-  <title>ICU::UniversalTimeScale::DateTimeScale - icu master</title>
+  <title>ICU::NumberFormatter::MonetaryAmount - icu master</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -247,7 +247,7 @@
       
     </li>
   
-  <li class="parent " data-id="icu/ICU/NumberFormatter" data-name="icu::numberformatter">
+  <li class="parent open current" data-id="icu/ICU/NumberFormatter" data-name="icu::numberformatter">
       <a href="../../ICU/NumberFormatter.html">NumberFormatter</a>
       
         <ul>
@@ -262,7 +262,7 @@
       
     </li>
   
-  <li class=" " data-id="icu/ICU/NumberFormatter/MonetaryAmount" data-name="icu::numberformatter::monetaryamount">
+  <li class=" current" data-id="icu/ICU/NumberFormatter/MonetaryAmount" data-name="icu::numberformatter::monetaryamount">
       <a href="../../ICU/NumberFormatter/MonetaryAmount.html">MonetaryAmount</a>
       
     </li>
@@ -332,12 +332,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="icu/ICU/UniversalTimeScale" data-name="icu::universaltimescale">
+  <li class="parent " data-id="icu/ICU/UniversalTimeScale" data-name="icu::universaltimescale">
       <a href="../../ICU/UniversalTimeScale.html">UniversalTimeScale</a>
       
         <ul>
   
-  <li class=" current" data-id="icu/ICU/UniversalTimeScale/DateTimeScale" data-name="icu::universaltimescale::datetimescale">
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/DateTimeScale" data-name="icu::universaltimescale::datetimescale">
       <a href="../../ICU/UniversalTimeScale/DateTimeScale.html">DateTimeScale</a>
       
     </li>
@@ -376,25 +376,17 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">alias</span> ICU::<wbr>UniversalTimeScale::<wbr>DateTimeScale
+  <span class="kind">struct</span> ICU::<wbr>NumberFormatter::<wbr>MonetaryAmount
 
 </h1>
 
 
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../ICU/NumberFormatter/MonetaryAmount.html">ICU::NumberFormatter::MonetaryAmount</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
 
 
-  <h2>
-    <a id="alias-definition" class="anchor" href="#alias-definition">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Alias Definition
-  </h2>
-  <code>LibICU::UDateTimeScale</code>
 
 
 
@@ -417,8 +409,8 @@
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/universal_time_scale.cr#L16" target="_blank">
-        icu/universal_time_scale.cr
+      <a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L17" target="_blank">
+        icu/number_formatter.cr
       </a>
     
     <br/>
@@ -426,74 +418,24 @@
 
 
 
-  
-    <h2>
-      <a id="constant-summary" class="anchor" href="#constant-summary">
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-      Constant Summary
-    </h2>
-  
-  <dl>
+    Constructors
+  </h2>
+  <ul class="list-summary">
     
-      <dt class="entry-const" id="Db2Time">
-        <strong>Db2Time</strong> = <code><span class="n">8</span></code>
-      </dt>
-      
+      <li class="entry-summary">
+        <a href="#new%28amount%3AFloat64%2Ccurrency_code%3AString%29-class-method" class="signature"><strong>.new</strong>(amount : Float64, currency_code : String)</a>
+        
+      </li>
     
-      <dt class="entry-const" id="DotnetDateTime">
-        <strong>DotnetDateTime</strong> = <code><span class="n">4</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="ExcelTime">
-        <strong>ExcelTime</strong> = <code><span class="n">7</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="Icu4CTime">
-        <strong>Icu4CTime</strong> = <code><span class="n">2</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="JavaTime">
-        <strong>JavaTime</strong> = <code><span class="n">0</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="MacOldTime">
-        <strong>MacOldTime</strong> = <code><span class="n">5</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="MacTime">
-        <strong>MacTime</strong> = <code><span class="n">6</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="MaxScale">
-        <strong>MaxScale</strong> = <code><span class="n">10</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="UnixMicrosecondsTime">
-        <strong>UnixMicrosecondsTime</strong> = <code><span class="n">9</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="UnixTime">
-        <strong>UnixTime</strong> = <code><span class="n">1</span></code>
-      </dt>
-      
-    
-      <dt class="entry-const" id="WindowsFileTime">
-        <strong>WindowsFileTime</strong> = <code><span class="n">3</span></code>
-      </dt>
-      
-    
-  </dl>
+  </ul>
 
 
 
@@ -501,20 +443,185 @@
 
 
 
-
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#amount%3AFloat64-instance-method" class="signature"><strong>#amount</strong> : Float64</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clone-instance-method" class="signature"><strong>#clone</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#copy_with%28amount_amount%3D%40amount%2Ccurrency_code_currency_code%3D%40currency_code%29-instance-method" class="signature"><strong>#copy_with</strong>(amount _amount = @amount, currency_code _currency_code = @currency_code)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#currency_code%3AString-instance-method" class="signature"><strong>#currency_code</strong> : String</a>
+        
+      </li>
+    
+  </ul>
 
 
 
 <div class="methods-inherited">
   
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
 
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(amount:Float64,currency_code:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(amount : Float64, currency_code : <a href="../../String.html">String</a>)
+
+        <a class="method-permalink" href="#new%28amount%3AFloat64%2Ccurrency_code%3AString%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
 
 
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="amount:Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>amount</strong> : Float64
+
+        <a class="method-permalink" href="#amount%3AFloat64-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clone-instance-method">
+      <div class="signature">
+        
+        def <strong>clone</strong>
+
+        <a class="method-permalink" href="#clone-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="copy_with(amount_amount=@amount,currency_code_currency_code=@currency_code)-instance-method">
+      <div class="signature">
+        
+        def <strong>copy_with</strong>(amount _amount = @amount, currency_code _currency_code = @currency_code)
+
+        <a class="method-permalink" href="#copy_with%28amount_amount%3D%40amount%2Ccurrency_code_currency_code%3D%40currency_code%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="currency_code:String-instance-method">
+      <div class="signature">
+        
+        def <strong>currency_code</strong> : <a href="../../String.html">String</a>
+
+        <a class="method-permalink" href="#currency_code%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 </div>

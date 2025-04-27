@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="HEAD">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="crystal_docs.project_version" content="master">
 <meta name="crystal_docs.project_name" content="icu">
 
 
@@ -13,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="icu">
-  <title>ICU::Transliterator - icu HEAD</title>
+  <title>ICU::Transliterator - icu master</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -22,9 +23,14 @@
 
 <svg class="hidden">
   <symbol id="octicon-link" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
   </symbol>
 </svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
@@ -39,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        HEAD
+        master
       </span>
     </div>
   </div>
@@ -241,6 +247,31 @@
       
     </li>
   
+  <li class="parent " data-id="icu/ICU/NumberFormatter" data-name="icu::numberformatter">
+      <a href="../ICU/NumberFormatter.html">NumberFormatter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/FormatAttribute" data-name="icu::numberformatter::formatattribute">
+      <a href="../ICU/NumberFormatter/FormatAttribute.html">FormatAttribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/FormatStyle" data-name="icu::numberformatter::formatstyle">
+      <a href="../ICU/NumberFormatter/FormatStyle.html">FormatStyle</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/MonetaryAmount" data-name="icu::numberformatter::monetaryamount">
+      <a href="../ICU/NumberFormatter/MonetaryAmount.html">MonetaryAmount</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class=" " data-id="icu/ICU/Region" data-name="icu::region">
       <a href="../ICU/Region.html">Region</a>
       
@@ -345,7 +376,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> ICU::Transliterator
+  <span class="kind">class</span> ICU::<wbr>Transliterator
 
 </h1>
 
@@ -366,18 +397,18 @@
 
   <p><strong>Text Transformation</strong>
 Transliteration</p>
-
 <p><strong>Usage</strong></p>
-
-<pre><code class="language-crystal">trans <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Transliterator</span>.<span class="k">new</span>({from: <span class="s">&quot;Greek&quot;</span>, to: <span class="s">&quot;Latin&quot;</span>})
+<pre><code class="language-crystal">trans <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Transliterator</span>.new({from: <span class="s">&quot;Greek&quot;</span>, to: <span class="s">&quot;Latin&quot;</span>})
 trans.transliterate(<span class="s">&quot;Αλφαβητικός Κατάλογος&quot;</span>) <span class="c"># =&gt; &quot;Alphabētikós Katálogos&quot;</span>
 
-trans <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Transliterator</span>.<span class="k">new</span>(<span class="s">&quot;Katakana-Hiragana&quot;</span>)
+trans <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Transliterator</span>.new(<span class="s">&quot;Katakana-Hiragana&quot;</span>)
 trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <span class="c"># =&gt; &quot;みやもと むさし&quot;</span></code></pre>
-
 <p><strong>See also</strong></p>
-
-<ul><li><a href="http://icu-project.org/apiref/icu4c/utrans_8h.html">reference implementation</a></li><li><a href="http://userguide.icu-project.org/transforms/general#TOC-ICU-Transliterators">user guide</a></li><li><a href="https://github.com/olbat/icu.cr/blob/master/spec/transliterator_spec.cr">unit tests</a></li></ul>
+<ul>
+<li><a href="http://icu-project.org/apiref/icu4c/utrans_8h.html">reference implementation</a></li>
+<li><a href="http://userguide.icu-project.org/transforms/general#TOC-ICU-Transliterators">user guide</a></li>
+<li><a href="https://github.com/olbat/icu.cr/blob/master/spec/transliterator_spec.cr">unit tests</a></li>
+</ul>
 
 
 
@@ -402,7 +433,7 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L17" target="_blank">
+      <a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L17" target="_blank">
         icu/transliterator.cr
       </a>
     
@@ -426,11 +457,11 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
       <dt class="entry-const" id="IDS">
         <strong>IDS</strong> = <code><span class="k">begin</span>
   ids <span class="o">=</span> (<span class="n">0</span>...<span class="t">LibICU</span>.utrans_count_available_i_ds).map <span class="k">do</span> <span class="o">|</span>i<span class="o">|</span>
-    buf <span class="o">=</span> <span class="t">Bytes</span>.<span class="k">new</span>(<span class="n">50</span>)
+    buf <span class="o">=</span> <span class="t">Bytes</span>.new(<span class="n">50</span>)
     size <span class="o">=</span> <span class="t">LibICU</span>.utrans_get_available_id(i, buf, buf.size)
-    str2id(<span class="t">String</span>.<span class="k">new</span>(buf[<span class="n">0</span>, size]))
+    str2id(<span class="t">String</span>.new(buf[<span class="n">0</span>, size]))
   <span class="k">end</span>
-  <span class="t">Set</span>(<span class="t">ID</span>).<span class="k">new</span>(ids)
+  <span class="t">Set</span>(<span class="t">ID</span>).new(ids)
 <span class="k">end</span></code>
       </dt>
       
@@ -454,22 +485,22 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(id:ID,rules:String)-class-method" class="signature"><strong>.new</strong>(id : ID, rules : String)</a>
+        <a href="#new%28id%3AID%2Crules%3AString%29-class-method" class="signature"><strong>.new</strong>(id : ID, rules : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(id:String,rules:String)-class-method" class="signature"><strong>.new</strong>(id : String, rules : String)</a>
+        <a href="#new%28id%3AString%2Crules%3AString%29-class-method" class="signature"><strong>.new</strong>(id : String, rules : String)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(id:ID)-class-method" class="signature"><strong>.new</strong>(id : ID)</a>
+        <a href="#new%28id%3AID%29-class-method" class="signature"><strong>.new</strong>(id : ID)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(id:String)-class-method" class="signature"><strong>.new</strong>(id : String)</a>
+        <a href="#new%28id%3AString%29-class-method" class="signature"><strong>.new</strong>(id : String)</a>
         
       </li>
     
@@ -488,16 +519,18 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#id2str(id:ID):String-class-method" class="signature"><strong>.id2str</strong>(id : ID) : String</a>
+        <a href="#id2str%28id%3AID%29%3AString-class-method" class="signature"><strong>.id2str</strong>(id : ID) : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#str2id(idstr:String):ID-class-method" class="signature"><strong>.str2id</strong>(idstr : String) : ID</a>
+        <a href="#str2id%28idstr%3AString%29%3AID-class-method" class="signature"><strong>.str2id</strong>(idstr : String) : ID</a>
         
       </li>
     
   </ul>
+
+
 
 
 
@@ -517,25 +550,23 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
       </li>
     
       <li class="entry-summary">
-        <a href="#reverse!-instance-method" class="signature"><strong>#reverse!</strong></a>
+        <a href="#reverse%21-instance-method" class="signature"><strong>#reverse!</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#to_unsafe:Pointer(Pointer(Void))-instance-method" class="signature"><strong>#to_unsafe</strong> : Pointer(Pointer(Void))</a>
+        <a href="#to_unsafe%3APointer%28Pointer%28Void%29%29-instance-method" class="signature"><strong>#to_unsafe</strong> : Pointer(Pointer(Void))</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#transliterate(text:String):String-instance-method" class="signature"><strong>#transliterate</strong>(text : String) : String</a>
+        <a href="#transliterate%28text%3AString%29%3AString-instance-method" class="signature"><strong>#transliterate</strong>(text : String) : String</a>
         
           <div class="summary"><p>Transliterates <em>text</em></p></div>
         
       </li>
     
   </ul>
-
-
 
 
 
@@ -550,7 +581,13 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
     
 
 
+    
+
+
   
+    
+
+
     
 
 
@@ -578,13 +615,13 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
         
         def self.<strong>new</strong>(id : <a href="../ICU/Transliterator/ID.html">ID</a>, rules : <a href="../String.html">String</a>)
 
-        <a class="method-permalink" href="#new(id:ID,rules:String)-class-method">#</a>
+        <a class="method-permalink" href="#new%28id%3AID%2Crules%3AString%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L53" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -594,13 +631,13 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
         
         def self.<strong>new</strong>(id : <a href="../String.html">String</a>, rules : <a href="../String.html">String</a>)
 
-        <a class="method-permalink" href="#new(id:String,rules:String)-class-method">#</a>
+        <a class="method-permalink" href="#new%28id%3AString%2Crules%3AString%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L61" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L61" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -610,13 +647,13 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
         
         def self.<strong>new</strong>(id : <a href="../ICU/Transliterator/ID.html">ID</a>)
 
-        <a class="method-permalink" href="#new(id:ID)-class-method">#</a>
+        <a class="method-permalink" href="#new%28id%3AID%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L41" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L41" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -626,13 +663,13 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
         
         def self.<strong>new</strong>(id : <a href="../String.html">String</a>)
 
-        <a class="method-permalink" href="#new(id:String)-class-method">#</a>
+        <a class="method-permalink" href="#new%28id%3AString%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L49" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L49" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -654,13 +691,13 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
         
         def self.<strong>id2str</strong>(id : <a href="../ICU/Transliterator/ID.html">ID</a>) : <a href="../String.html">String</a>
 
-        <a class="method-permalink" href="#id2str(id:ID):String-class-method">#</a>
+        <a class="method-permalink" href="#id2str%28id%3AID%29%3AString-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L29" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -670,17 +707,19 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
         
         def self.<strong>str2id</strong>(idstr : <a href="../String.html">String</a>) : <a href="../ICU/Transliterator/ID.html">ID</a>
 
-        <a class="method-permalink" href="#str2id(idstr:String):ID-class-method">#</a>
+        <a class="method-permalink" href="#str2id%28idstr%3AString%29%3AID-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L33" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L33" target="_blank">View source</a>]
         
       </div>
     </div>
   
+
+
 
 
 
@@ -704,7 +743,7 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L65" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L65" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -714,13 +753,13 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
         
         def <strong>reverse!</strong>
 
-        <a class="method-permalink" href="#reverse!-instance-method">#</a>
+        <a class="method-permalink" href="#reverse%21-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L73" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L73" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -730,13 +769,13 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
         
         def <strong>to_unsafe</strong> : Pointer(Pointer(Void))
 
-        <a class="method-permalink" href="#to_unsafe:Pointer(Pointer(Void))-instance-method">#</a>
+        <a class="method-permalink" href="#to_unsafe%3APointer%28Pointer%28Void%29%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L69" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L69" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -746,27 +785,24 @@ trans.transliterate(<span class="s">&quot;ミヤモト ムサシ&quot;</span>) <
         
         def <strong>transliterate</strong>(text : <a href="../String.html">String</a>) : <a href="../String.html">String</a>
 
-        <a class="method-permalink" href="#transliterate(text:String):String-instance-method">#</a>
+        <a class="method-permalink" href="#transliterate%28text%3AString%29%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Transliterates <em>text</em></p>
-
-<pre><code class="language-crystal">trans = ICU::Transliterator.new({from: "Greek", to: "Latin})
-trans.transliterate("Αλφαβητικός Κατάλογος") # => "Alphabētikós Katálogos"</code></pre>
+<pre><code class="language-crystal">trans = ICU::Transliterator.new({from: &quot;Greek&quot;, to: &quot;Latin})
+trans.transliterate(&quot;Αλφαβητικός Κατάλογος&quot;) # =&gt; &quot;Alphabētikós Katálogos&quot;</code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/transliterator.cr#L89" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/transliterator.cr#L89" target="_blank">View source</a>]
         
       </div>
     </div>
   
-
-
 
 
 </div>

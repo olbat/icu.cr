@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="icu">
-  <title>ICU::Normalizer - icu master</title>
+  <title>ICU::NumberFormatter - icu master</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -222,7 +222,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="icu/ICU/Normalizer" data-name="icu::normalizer">
+  <li class="parent " data-id="icu/ICU/Normalizer" data-name="icu::normalizer">
       <a href="../ICU/Normalizer.html">Normalizer</a>
       
         <ul>
@@ -247,7 +247,7 @@
       
     </li>
   
-  <li class="parent " data-id="icu/ICU/NumberFormatter" data-name="icu::numberformatter">
+  <li class="parent open current" data-id="icu/ICU/NumberFormatter" data-name="icu::numberformatter">
       <a href="../ICU/NumberFormatter.html">NumberFormatter</a>
       
         <ul>
@@ -376,12 +376,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> ICU::<wbr>Normalizer
+  <span class="kind">class</span> ICU::<wbr>NumberFormatter
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../ICU/Normalizer.html">ICU::Normalizer</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../ICU/NumberFormatter.html">ICU::NumberFormatter</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -395,20 +395,17 @@
     Overview
   </h2>
 
-  <p><strong>Normalization</strong></p>
-<p>Unicode normalization functionality for standard Unicode normalization.</p>
+  <p><strong>Number Formatter</strong></p>
+<p>This class provides a facility for formatting and parsing numbers.</p>
 <p><strong>Usage</strong></p>
-<pre><code class="language-crystal">str <span class="o">=</span> <span class="s">&quot;À&quot;</span>
-str.bytes <span class="c"># =&gt; [65, 204, 128]</span>
-norm <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.new
-norm.normalized?(str)       <span class="c"># =&gt; false</span>
-norm.normalized_quick?(str) <span class="c"># =&gt; Maybe</span>
-norm.normalize(str).bytes   <span class="c"># =&gt; [195, 128]</span></code></pre>
+<pre><code class="language-crystal">nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>)
+nf.format(<span class="n">1234.56</span>) <span class="c"># =&gt; &quot;1,234.56&quot;</span>
+nf.parse(<span class="s">&quot;1,234.56&quot;</span>) <span class="c"># =&gt; 1234.56</span></code></pre>
 <p><strong>See also</strong></p>
 <ul>
-<li><a href="http://icu-project.org/apiref/icu4c/unorm2_8h.html">reference implementation</a></li>
-<li><a href="http://userguide.icu-project.org/transforms/normalization">user guide</a></li>
-<li><a href="https://github.com/olbat/icu.cr/blob/master/spec/normalizer_spec.cr">unit tests</a></li>
+<li><a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/unum_8h.html">reference implementation</a></li>
+<li><a href="https://unicode-org.github.io/icu/userguide/format_parse/numbers/">user guide</a></li>
+<li><a href="https://github.com/olbat/icu.cr/blob/master/spec/number_formatter_spec.cr">unit tests</a></li>
 </ul>
 
 
@@ -418,28 +415,6 @@ norm.normalize(str).bytes   <span class="c"># =&gt; [195, 128]</span></code></pr
 
 
 
-
-  <h2>
-    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Direct Known Subclasses
-  </h2>
-  <ul class="other-types-list">
-    
-      <li class="other-type"><a href="../ICU/NFCNormalizer.html">ICU::NFCNormalizer</a></li>
-    
-      <li class="other-type"><a href="../ICU/NFDNormalizer.html">ICU::NFDNormalizer</a></li>
-    
-      <li class="other-type"><a href="../ICU/NFKCCFNormalizer.html">ICU::NFKCCFNormalizer</a></li>
-    
-      <li class="other-type"><a href="../ICU/NFKCNormalizer.html">ICU::NFKCNormalizer</a></li>
-    
-      <li class="other-type"><a href="../ICU/NFKDNormalizer.html">ICU::NFKDNormalizer</a></li>
-    
-  </ul>
 
 
 
@@ -456,33 +431,14 @@ norm.normalize(str).bytes   <span class="c"># =&gt; [195, 128]</span></code></pr
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/normalizer.cr#L19" target="_blank">
-        icu/normalizer.cr
+      <a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L16" target="_blank">
+        icu/number_formatter.cr
       </a>
     
     <br/>
   
 
 
-
-  
-    <h2>
-      <a id="constant-summary" class="anchor" href="#constant-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-      Constant Summary
-    </h2>
-  
-  <dl>
-    
-      <dt class="entry-const" id="TYPES">
-        <strong>TYPES</strong> = <code>{<span class="t">NFC</span>: {name: <span class="s">&quot;nfc&quot;</span>, mode: <span class="t">Mode</span><span class="t">::</span><span class="t">Compose</span>}, <span class="t">NFD</span>: {name: <span class="s">&quot;nfc&quot;</span>, mode: <span class="t">Mode</span><span class="t">::</span><span class="t">Decompose</span>}, <span class="t">NFKC</span>: {name: <span class="s">&quot;nfkc&quot;</span>, mode: <span class="t">Mode</span><span class="t">::</span><span class="t">Compose</span>}, <span class="t">NFKD</span>: {name: <span class="s">&quot;nfkc&quot;</span>, mode: <span class="t">Mode</span><span class="t">::</span><span class="t">Decompose</span>}, <span class="t">NFKCCF</span>: {name: <span class="s">&quot;nfkc_cf&quot;</span>, mode: <span class="t">Mode</span><span class="t">::</span><span class="t">Compose</span>}}</code>
-      </dt>
-      
-    
-  </dl>
 
 
 
@@ -497,9 +453,9 @@ norm.normalize(str).bytes   <span class="c"># =&gt; [195, 128]</span></code></pr
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28type%3ASymbol%29-class-method" class="signature"><strong>.new</strong>(type : Symbol)</a>
+        <a href="#new%28locale%3AString%3D%22en_US%22%2Cformat_style%3AFormatStyle%3DFormatStyle%3A%3ADefault%29-class-method" class="signature"><strong>.new</strong>(locale : String = <span class="s">&quot;en_US&quot;</span>, format_style : FormatStyle = <span class="t">FormatStyle</span><span class="t">::</span><span class="t">Default</span>)</a>
         
-          <div class="summary"><p>Create a new normalizer that will use the specified <a href="http://www.unicode.org/unicode/reports/tr15/">mode</a> (NFC, NFD, NFKC, NFKD, NFKCCF)</p></div>
+          <div class="summary"><p>Creates a new NumberFormatter.</p></div>
         
       </li>
     
@@ -522,42 +478,63 @@ norm.normalize(str).bytes   <span class="c"># =&gt; [195, 128]</span></code></pr
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#decomposition%28chr%3AChar%29%3AString-instance-method" class="signature"><strong>#decomposition</strong>(chr : Char) : String</a>
-        
-          <div class="summary"><p>Gets the decomposition mapping of a character</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
         <a href="#finalize-instance-method" class="signature"><strong>#finalize</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#inert%3F%28chr%3AChar%29%3ABool-instance-method" class="signature"><strong>#inert?</strong>(chr : Char) : Bool</a>
+        <a href="#format%28number%3AFloat64%2Ccurrency_code%3AString%29%3AString-instance-method" class="signature"><strong>#format</strong>(number : Float64, currency_code : String) : String</a>
         
-          <div class="summary"><p>Tests if the character is normalization-inert</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#normalize%28text%3AString%29%3AString-instance-method" class="signature"><strong>#normalize</strong>(text : String) : String</a>
-        
-          <div class="summary"><p>Normalize some text</p></div>
+          <div class="summary"><p>Formats a number with a currency code (3 letters code, see ISO 4217) into a string.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#normalized%3F%28text%3AString%29%3ABool-instance-method" class="signature"><strong>#normalized?</strong>(text : String) : Bool</a>
+        <a href="#format%28number%3AFloat64%29%3AString-instance-method" class="signature"><strong>#format</strong>(number : Float64) : String</a>
         
-          <div class="summary"><p>Tests if the string is normalized</p></div>
+          <div class="summary"><p><code>nf = ICU::NumberFormatter.new(&quot;en_US&quot;) nf.format(1234.56) # =&gt; &quot;1,234.56&quot;</code></p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#normalized_quick%3F%28text%3AString%29%3ACheckResult-instance-method" class="signature"><strong>#normalized_quick?</strong>(text : String) : CheckResult</a>
+        <a href="#format%28number%3AInt64%29%3AString-instance-method" class="signature"><strong>#format</strong>(number : Int64) : String</a>
         
-          <div class="summary"><p>Tests if the string is normalized (faster but less accurate than <code><a href="../ICU/Normalizer.html#normalized%3F%28text%3AString%29%3ABool-instance-method">#normalized?</a></code></p></div>
+          <div class="summary"><p>Formats a number into a string.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_attribute%28attribute%3AFormatAttribute%29%3AInt32-instance-method" class="signature"><strong>#get_attribute</strong>(attribute : FormatAttribute) : Int32</a>
+        
+          <div class="summary"><p>Gets an attribute of the number formatter.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parse_float%28text%3AString%29%3AFloat64-instance-method" class="signature"><strong>#parse_float</strong>(text : String) : Float64</a>
+        
+          <div class="summary"><p>Parses a string into a floating point number.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parse_float_with_currency%28text%3AString%29%3AMonetaryAmount-instance-method" class="signature"><strong>#parse_float_with_currency</strong>(text : String) : MonetaryAmount</a>
+        
+          <div class="summary"><p>Parses a string into a monetary amount.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parse_int%28text%3AString%29%3AInt64-instance-method" class="signature"><strong>#parse_int</strong>(text : String) : Int64</a>
+        
+          <div class="summary"><p>Parses a string into an integer number.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set_attribute%28attribute%3AFormatAttribute%2Cvalue%3AInt32%29-instance-method" class="signature"><strong>#set_attribute</strong>(attribute : FormatAttribute, value : Int32)</a>
+        
+          <div class="summary"><p>Sets an attribute of the number formatter.</p></div>
         
       </li>
     
@@ -605,23 +582,30 @@ norm.normalize(str).bytes   <span class="c"># =&gt; [195, 128]</span></code></pr
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(type:Symbol)-class-method">
+    <div class="entry-detail" id="new(locale:String=&quot;en_US&quot;,format_style:FormatStyle=FormatStyle::Default)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(type : Symbol)
+        def self.<strong>new</strong>(locale : <a href="../String.html">String</a> = <span class="s">&quot;en_US&quot;</span>, format_style : <a href="../ICU/NumberFormatter/FormatStyle.html">FormatStyle</a> = <span class="t">FormatStyle</span><span class="t">::</span><span class="t">Default</span>)
 
-        <a class="method-permalink" href="#new%28type%3ASymbol%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28locale%3AString%3D%22en_US%22%2Cformat_style%3AFormatStyle%3DFormatStyle%3A%3ADefault%29-class-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Create a new normalizer that will use the specified <a href="http://www.unicode.org/unicode/reports/tr15/">mode</a> (NFC, NFD, NFKC, NFKD, NFKCCF)</p>
+          <p>Creates a new NumberFormatter.</p>
+<p>Args:</p>
+<ul>
+<li><code>locale</code>: The locale to use for formatting and parsing. Defaults to &quot;en_US&quot;.</li>
+<li><code>format_style</code>: The format style to use. Defaults to <code><a href="../LibICU/UNumberFormatStyle.html#Default">FormatStyle::Default</a></code>.</li>
+</ul>
+<pre><code class="language-crystal">nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>)
+nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span>.new(<span class="s">&quot;fr_FR&quot;</span>, <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span><span class="t">::</span><span class="t">FormatStyle</span><span class="t">::</span><span class="t">Currency</span>)</code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/normalizer.cr#L36" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -642,28 +626,6 @@ norm.normalize(str).bytes   <span class="c"># =&gt; [195, 128]</span></code></pr
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="decomposition(chr:Char):String-instance-method">
-      <div class="signature">
-        
-        def <strong>decomposition</strong>(chr : <a href="../Char.html">Char</a>) : <a href="../String.html">String</a>
-
-        <a class="method-permalink" href="#decomposition%28chr%3AChar%29%3AString-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Gets the decomposition mapping of a character</p>
-<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.new.decomposition(<span class="s">&quot;À&quot;</span>) <span class="c"># =&gt; [65, 204, 128]</span></code></pre>
-        </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/normalizer.cr#L114" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
     <div class="entry-detail" id="finalize-instance-method">
       <div class="signature">
         
@@ -675,100 +637,187 @@ norm.normalize(str).bytes   <span class="c"># =&gt; [195, 128]</span></code></pr
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/normalizer.cr#L48" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L43" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="inert?(chr:Char):Bool-instance-method">
+    <div class="entry-detail" id="format(number:Float64,currency_code:String):String-instance-method">
       <div class="signature">
         
-        def <strong>inert?</strong>(chr : <a href="../Char.html">Char</a>) : Bool
+        def <strong>format</strong>(number : Float64, currency_code : <a href="../String.html">String</a>) : <a href="../String.html">String</a>
 
-        <a class="method-permalink" href="#inert%3F%28chr%3AChar%29%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#format%28number%3AFloat64%2Ccurrency_code%3AString%29%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Tests if the character is normalization-inert</p>
-<pre><code class="language-crystal">norm <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.new
-norm.inert?(<span class="s">&quot;À&quot;</span>) <span class="c"># =&gt; false</span>
-norm.inert?(<span class="s">&quot;A&quot;</span>) <span class="c"># =&gt; true</span></code></pre>
+          <p>Formats a number with a currency code (3 letters code, see ISO 4217) into a string.</p>
+<pre><code class="language-crystal">nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>, <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span><span class="t">::</span><span class="t">FormatStyle</span><span class="t">::</span><span class="t">Currency</span>)
+nf.format(<span class="n">1234.56</span>, <span class="s">&quot;USD&quot;</span>) <span class="c"># =&gt; &quot;$1,234.56&quot;</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/normalizer.cr#L105" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L67" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="normalize(text:String):String-instance-method">
+    <div class="entry-detail" id="format(number:Float64):String-instance-method">
       <div class="signature">
         
-        def <strong>normalize</strong>(text : <a href="../String.html">String</a>) : <a href="../String.html">String</a>
+        def <strong>format</strong>(number : Float64) : <a href="../String.html">String</a>
 
-        <a class="method-permalink" href="#normalize%28text%3AString%29%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#format%28number%3AFloat64%29%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Normalize some text</p>
-<pre><code class="language-crystal">str <span class="o">=</span> <span class="s">&quot;À&quot;</span>
-str.bytes                                   <span class="c"># =&gt; [65, 204, 128]</span>
-<span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.new.normalize(str).bytes <span class="c"># =&gt; [195, 128]</span></code></pre>
+          <pre><code class="language-crystal">nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>)
+nf.format(<span class="n">1234.56</span>) <span class="c"># =&gt; &quot;1,234.56&quot;</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/normalizer.cr#L59" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L53" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="normalized?(text:String):Bool-instance-method">
+    <div class="entry-detail" id="format(number:Int64):String-instance-method">
       <div class="signature">
         
-        def <strong>normalized?</strong>(text : <a href="../String.html">String</a>) : Bool
+        def <strong>format</strong>(number : Int64) : <a href="../String.html">String</a>
 
-        <a class="method-permalink" href="#normalized%3F%28text%3AString%29%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#format%28number%3AInt64%29%3AString-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Tests if the string is normalized</p>
-<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.new.normalized?(<span class="s">&quot;À&quot;</span>) <span class="c"># =&gt; false</span></code></pre>
-<p>(see also: <code><a href="../ICU/Normalizer.html#normalized_quick%3F%28text%3AString%29%3ACheckResult-instance-method">#normalized_quick?</a></code>)</p>
+          <p>Formats a number into a string.</p>
+<pre><code class="language-crystal">nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>)
+nf.format(<span class="n">1234</span>) <span class="c"># =&gt; &quot;1,234&quot;</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/normalizer.cr#L79" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L82" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="normalized_quick?(text:String):CheckResult-instance-method">
+    <div class="entry-detail" id="get_attribute(attribute:FormatAttribute):Int32-instance-method">
       <div class="signature">
         
-        def <strong>normalized_quick?</strong>(text : <a href="../String.html">String</a>) : <a href="../ICU/Normalizer/CheckResult.html">CheckResult</a>
+        def <strong>get_attribute</strong>(attribute : <a href="../ICU/NumberFormatter/FormatAttribute.html">FormatAttribute</a>) : Int32
 
-        <a class="method-permalink" href="#normalized_quick%3F%28text%3AString%29%3ACheckResult-instance-method">#</a>
+        <a class="method-permalink" href="#get_attribute%28attribute%3AFormatAttribute%29%3AInt32-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Tests if the string is normalized (faster but less accurate than <code><a href="../ICU/Normalizer.html#normalized%3F%28text%3AString%29%3ABool-instance-method">#normalized?</a></code></p>
-<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">NFCNormalizer</span>.new.normalized_quick?(<span class="s">&quot;À&quot;</span>) <span class="c"># =&gt; Maybe</span></code></pre>
+          <p>Gets an attribute of the number formatter.</p>
+<pre><code class="language-crystal">nf.get_attribute(<span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span><span class="t">::</span><span class="t">FormatAttribute</span><span class="t">::</span><span class="t">GroupingUsed</span>) <span class="c"># =&gt; 0</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/normalizer.cr#L91" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L132" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parse_float(text:String):Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>parse_float</strong>(text : <a href="../String.html">String</a>) : Float64
+
+        <a class="method-permalink" href="#parse_float%28text%3AString%29%3AFloat64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Parses a string into a floating point number.</p>
+<pre><code class="language-crystal">nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>)
+nf.parse(<span class="s">&quot;1,234.56&quot;</span>) <span class="c"># =&gt; 1234.56</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L110" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parse_float_with_currency(text:String):MonetaryAmount-instance-method">
+      <div class="signature">
+        
+        def <strong>parse_float_with_currency</strong>(text : <a href="../String.html">String</a>) : <a href="../ICU/NumberFormatter/MonetaryAmount.html">MonetaryAmount</a>
+
+        <a class="method-permalink" href="#parse_float_with_currency%28text%3AString%29%3AMonetaryAmount-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Parses a string into a monetary amount.</p>
+<pre><code class="language-crystal">nf.parse_float_with_currency(<span class="s">&quot;$1,234.56&quot;</span>) <span class="c"># =&gt; ICU::NumberFormatter::MonetaryAmount.new(1234.56, &quot;USD&quot;)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L141" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parse_int(text:String):Int64-instance-method">
+      <div class="signature">
+        
+        def <strong>parse_int</strong>(text : <a href="../String.html">String</a>) : Int64
+
+        <a class="method-permalink" href="#parse_int%28text%3AString%29%3AInt64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Parses a string into an integer number.</p>
+<pre><code class="language-crystal">nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>)
+nf.parse(<span class="s">&quot;1,234.56&quot;</span>) <span class="c"># =&gt; 1234</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L96" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set_attribute(attribute:FormatAttribute,value:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>set_attribute</strong>(attribute : <a href="../ICU/NumberFormatter/FormatAttribute.html">FormatAttribute</a>, value : Int32)
+
+        <a class="method-permalink" href="#set_attribute%28attribute%3AFormatAttribute%2Cvalue%3AInt32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets an attribute of the number formatter.</p>
+<pre><code class="language-crystal">nf.set_attribute(<span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span><span class="t">::</span><span class="t">FormatAttribute</span><span class="t">::</span><span class="t">GroupingUsed</span>, <span class="n">0</span>)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L123" target="_blank">View source</a>]
         
       </div>
     </div>

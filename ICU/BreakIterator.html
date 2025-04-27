@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="HEAD">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="crystal_docs.project_version" content="master">
 <meta name="crystal_docs.project_name" content="icu">
 
 
@@ -13,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="icu">
-  <title>ICU::BreakIterator - icu HEAD</title>
+  <title>ICU::BreakIterator - icu master</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -22,9 +23,14 @@
 
 <svg class="hidden">
   <symbol id="octicon-link" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
   </symbol>
 </svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
@@ -39,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        HEAD
+        master
       </span>
     </div>
   </div>
@@ -241,6 +247,31 @@
       
     </li>
   
+  <li class="parent " data-id="icu/ICU/NumberFormatter" data-name="icu::numberformatter">
+      <a href="../ICU/NumberFormatter.html">NumberFormatter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/FormatAttribute" data-name="icu::numberformatter::formatattribute">
+      <a href="../ICU/NumberFormatter/FormatAttribute.html">FormatAttribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/FormatStyle" data-name="icu::numberformatter::formatstyle">
+      <a href="../ICU/NumberFormatter/FormatStyle.html">FormatStyle</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/MonetaryAmount" data-name="icu::numberformatter::monetaryamount">
+      <a href="../ICU/NumberFormatter/MonetaryAmount.html">MonetaryAmount</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class=" " data-id="icu/ICU/Region" data-name="icu::region">
       <a href="../ICU/Region.html">Region</a>
       
@@ -345,7 +376,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> ICU::BreakIterator
+  <span class="kind">class</span> ICU::<wbr>BreakIterator
 
 </h1>
 
@@ -366,19 +397,19 @@
 
   <p>This class defines methods for finding the location
 of -line, sentense and word- boundaries in text.</p>
-
 <p><strong>Usage</strong></p>
-
 <pre><code class="language-crystal">str <span class="o">=</span> <span class="s">&quot;หน้าแรก&quot;</span>
-bi <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.<span class="k">new</span>(str, <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Word</span>)
+bi <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.new(str, <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Word</span>)
 bi.each { <span class="o">|</span>s<span class="o">|</span> p s }
 <span class="c"># =&gt; &quot;หน้า&quot;</span>
 <span class="c"># =&gt; &quot;แรก&quot;</span>
 bi.to_a <span class="c"># =&gt; [&quot;หน้า&quot;, &quot;แรก&quot;]</span></code></pre>
-
 <p><strong>See also</strong></p>
-
-<ul><li><a href="http://icu-project.org/apiref/icu4c/ubrk_8h.html">reference implementation</a></li><li><a href="http://userguide.icu-project.org/boundaryanalysis">user guide</a></li><li><a href="https://github.com/olbat/icu.cr/blob/master/spec/break_iterator_spec.cr">unit tests</a></li></ul>
+<ul>
+<li><a href="http://icu-project.org/apiref/icu4c/ubrk_8h.html">reference implementation</a></li>
+<li><a href="http://userguide.icu-project.org/boundaryanalysis">user guide</a></li>
+<li><a href="https://github.com/olbat/icu.cr/blob/master/spec/break_iterator_spec.cr">unit tests</a></li>
+</ul>
 
 
 
@@ -417,7 +448,7 @@ bi.to_a <span class="c"># =&gt; [&quot;หน้า&quot;, &quot;แรก&quot;
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/break_iterator.cr#L20" target="_blank">
+      <a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/break_iterator.cr#L20" target="_blank">
         icu/break_iterator.cr
       </a>
     
@@ -446,9 +477,9 @@ bi.to_a <span class="c"># =&gt; [&quot;หน้า&quot;, &quot;แรก&quot;
       <dt class="entry-const" id="LOCALES">
         <strong>LOCALES</strong> = <code><span class="k">begin</span>
   locales <span class="o">=</span> (<span class="n">0</span>...<span class="t">LibICU</span>.ubrk_count_available).map <span class="k">do</span> <span class="o">|</span>i<span class="o">|</span>
-    <span class="t">String</span>.<span class="k">new</span>(<span class="t">LibICU</span>.ubrk_get_available(i))
+    <span class="t">String</span>.new(<span class="t">LibICU</span>.ubrk_get_available(i))
   <span class="k">end</span>
-  <span class="t">Set</span>(<span class="t">String</span>).<span class="k">new</span>(locales)
+  <span class="t">Set</span>(<span class="t">String</span>).new(locales)
 <span class="k">end</span></code>
       </dt>
       
@@ -468,20 +499,22 @@ bi.to_a <span class="c"># =&gt; [&quot;หน้า&quot;, &quot;แรก&quot;
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new(break_type:Type,locale:String?=nil)-class-method" class="signature"><strong>.new</strong>(break_type : Type, locale : String? = <span class="n">nil</span>)</a>
+        <a href="#new%28break_type%3AType%2Clocale%3AString%7CNil%3Dnil%29-class-method" class="signature"><strong>.new</strong>(break_type : Type, locale : String | Nil = <span class="n">nil</span>)</a>
         
           <div class="summary"><p>Create a new BreakIterator</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new(text:String,break_type:Type,locale:String?=nil)-class-method" class="signature"><strong>.new</strong>(text : String, break_type : Type, locale : String? = <span class="n">nil</span>)</a>
+        <a href="#new%28text%3AString%2Cbreak_type%3AType%2Clocale%3AString%7CNil%3Dnil%29-class-method" class="signature"><strong>.new</strong>(text : String, break_type : Type, locale : String | Nil = <span class="n">nil</span>)</a>
         
           <div class="summary"><p>Creates a new BreakIterator specifying some text</p></div>
         
       </li>
     
   </ul>
+
+
 
 
 
@@ -498,14 +531,14 @@ bi.to_a <span class="c"># =&gt; [&quot;หน้า&quot;, &quot;แรก&quot;
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#each(&)-instance-method" class="signature"><strong>#each</strong>(&)</a>
+        <a href="#each%28%26%29-instance-method" class="signature"><strong>#each</strong>(&)</a>
         
           <div class="summary"><p>Iterate on text boundaries</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#each_bound(&)-instance-method" class="signature"><strong>#each_bound</strong>(&)</a>
+        <a href="#each_bound%28%26%29-instance-method" class="signature"><strong>#each_bound</strong>(&)</a>
         
           <div class="summary"><p>Iterate on text boundaries indices</p></div>
         
@@ -517,25 +550,23 @@ bi.to_a <span class="c"># =&gt; [&quot;หน้า&quot;, &quot;แรก&quot;
       </li>
     
       <li class="entry-summary">
-        <a href="#text:ICU::UChars?-instance-method" class="signature"><strong>#text</strong> : ICU::UChars?</a>
+        <a href="#text%3AICU%3A%3AUChars%3F-instance-method" class="signature"><strong>#text</strong> : ICU::UChars?</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#text=(text:String)-instance-method" class="signature"><strong>#text=</strong>(text : String)</a>
+        <a href="#text%3D%28text%3AString%29-instance-method" class="signature"><strong>#text=</strong>(text : String)</a>
         
           <div class="summary"><p>Change the text that's being iterated on</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#to_unsafe:LibICU::UBreakIterator-instance-method" class="signature"><strong>#to_unsafe</strong> : LibICU::UBreakIterator</a>
+        <a href="#to_unsafe%3ALibICU%3A%3AUBreakIterator-instance-method" class="signature"><strong>#to_unsafe</strong> : LibICU::UBreakIterator</a>
         
       </li>
     
   </ul>
-
-
 
 
 
@@ -550,17 +581,26 @@ bi.to_a <span class="c"># =&gt; [&quot;หน้า&quot;, &quot;แรก&quot;
     
 
 
-  
-    
-
-
-    
-
-
     
 
 
   
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
     
 
 
@@ -583,19 +623,18 @@ bi.to_a <span class="c"># =&gt; [&quot;หน้า&quot;, &quot;แรก&quot;
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(break_type:Type,locale:String?=nil)-class-method">
+    <div class="entry-detail" id="new(break_type:Type,locale:String|Nil=nil)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(break_type : <a href="../ICU/BreakIterator/Type.html">Type</a>, locale : <a href="../String.html">String</a>? = <span class="n">nil</span>)
+        def self.<strong>new</strong>(break_type : <a href="../ICU/BreakIterator/Type.html">Type</a>, locale : <a href="../String.html">String</a> | Nil = <span class="n">nil</span>)
 
-        <a class="method-permalink" href="#new(break_type:Type,locale:String?=nil)-class-method">#</a>
+        <a class="method-permalink" href="#new%28break_type%3AType%2Clocale%3AString%7CNil%3Dnil%29-class-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Create a new BreakIterator</p>
-
-<pre><code class="language-crystal">bi <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.<span class="k">new</span>(<span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Word</span>)
+<pre><code class="language-crystal">bi <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.new(<span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Word</span>)
 bi.text <span class="o">=</span> <span class="s">&quot;abc def ghi&quot;</span>
 bi.to_a <span class="c"># =&gt; [&quot;abc&quot;, &quot; &quot;, &quot;def&quot;, &quot; &quot;, &quot;ghi&quot;]</span></code></pre>
         </div>
@@ -603,36 +642,37 @@ bi.to_a <span class="c"># =&gt; [&quot;abc&quot;, &quot; &quot;, &quot;def&quot;
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/break_iterator.cr#L45" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/break_iterator.cr#L45" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="new(text:String,break_type:Type,locale:String?=nil)-class-method">
+    <div class="entry-detail" id="new(text:String,break_type:Type,locale:String|Nil=nil)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(text : <a href="../String.html">String</a>, break_type : <a href="../ICU/BreakIterator/Type.html">Type</a>, locale : <a href="../String.html">String</a>? = <span class="n">nil</span>)
+        def self.<strong>new</strong>(text : <a href="../String.html">String</a>, break_type : <a href="../ICU/BreakIterator/Type.html">Type</a>, locale : <a href="../String.html">String</a> | Nil = <span class="n">nil</span>)
 
-        <a class="method-permalink" href="#new(text:String,break_type:Type,locale:String?=nil)-class-method">#</a>
+        <a class="method-permalink" href="#new%28text%3AString%2Cbreak_type%3AType%2Clocale%3AString%7CNil%3Dnil%29-class-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Creates a new BreakIterator specifying some text</p>
-
 <pre><code class="language-crystal">str <span class="o">=</span> <span class="s">&quot;Some text. More text.&quot;</span>
-bi <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.<span class="k">new</span>(str, <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Sentence</span>)
+bi <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.new(str, <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Sentence</span>)
 bi.to_a <span class="c"># =&gt; [&quot;Some text. &quot;, &quot;More text.&quot;]</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/break_iterator.cr#L62" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/break_iterator.cr#L62" target="_blank">View source</a>]
         
       </div>
     </div>
   
+
+
 
 
 
@@ -647,20 +687,19 @@ bi.to_a <span class="c"># =&gt; [&quot;Some text. &quot;, &quot;More text.&quot;
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="each(&)-instance-method">
+    <div class="entry-detail" id="each(&amp;)-instance-method">
       <div class="signature">
         
         def <strong>each</strong>(&)
 
-        <a class="method-permalink" href="#each(&)-instance-method">#</a>
+        <a class="method-permalink" href="#each%28%26%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Iterate on text boundaries</p>
-
 <pre><code class="language-crystal">str <span class="o">=</span> <span class="s">&quot;abc def ghi&quot;</span>
-bi <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.<span class="k">new</span>(str, <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Word</span>)
+bi <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.new(str, <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Word</span>)
 bi.to_a <span class="c"># =&gt; [&quot;abc&quot;, &quot; &quot;, &quot;def&quot;, &quot; &quot;, &quot;ghi&quot;]</span>
 bi.each { <span class="o">|</span>s<span class="o">|</span> p s }
 <span class="c"># =&gt; &quot;abc&quot;</span>
@@ -673,25 +712,24 @@ bi.each { <span class="o">|</span>s<span class="o">|</span> p s }
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/break_iterator.cr#L122" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/break_iterator.cr#L122" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="each_bound(&)-instance-method">
+    <div class="entry-detail" id="each_bound(&amp;)-instance-method">
       <div class="signature">
         
         def <strong>each_bound</strong>(&)
 
-        <a class="method-permalink" href="#each_bound(&)-instance-method">#</a>
+        <a class="method-permalink" href="#each_bound%28%26%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Iterate on text boundaries indices</p>
-
 <pre><code class="language-crystal">str <span class="o">=</span> <span class="s">&quot;abc def&quot;</span>
-bi <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.<span class="k">new</span>(str, <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Word</span>)
+bi <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span>.new(str, <span class="t">ICU</span><span class="t">::</span><span class="t">BreakIterator</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">Word</span>)
 bi.each_bound { <span class="o">|</span>i<span class="o">|</span> p i }
 <span class="c"># =&gt; 0</span>
 <span class="c"># =&gt; 3</span>
@@ -702,7 +740,7 @@ bi.each_bound { <span class="o">|</span>i<span class="o">|</span> p i }
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/break_iterator.cr#L100" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/break_iterator.cr#L100" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -718,7 +756,7 @@ bi.each_bound { <span class="o">|</span>i<span class="o">|</span> p i }
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/break_iterator.cr#L67" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/break_iterator.cr#L67" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -728,13 +766,13 @@ bi.each_bound { <span class="o">|</span>i<span class="o">|</span> p i }
         
         def <strong>text</strong> : <a href="../ICU/UChars.html">ICU::UChars</a>?
 
-        <a class="method-permalink" href="#text:ICU::UChars?-instance-method">#</a>
+        <a class="method-permalink" href="#text%3AICU%3A%3AUChars%3F-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/break_iterator.cr#L29" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/break_iterator.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -744,7 +782,7 @@ bi.each_bound { <span class="o">|</span>i<span class="o">|</span> p i }
         
         def <strong>text=</strong>(text : <a href="../String.html">String</a>)
 
-        <a class="method-permalink" href="#text=(text:String)-instance-method">#</a>
+        <a class="method-permalink" href="#text%3D%28text%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
@@ -755,7 +793,7 @@ bi.each_bound { <span class="o">|</span>i<span class="o">|</span> p i }
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/break_iterator.cr#L85" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/break_iterator.cr#L85" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -765,19 +803,17 @@ bi.each_bound { <span class="o">|</span>i<span class="o">|</span> p i }
         
         def <strong>to_unsafe</strong> : LibICU::UBreakIterator
 
-        <a class="method-permalink" href="#to_unsafe:LibICU::UBreakIterator-instance-method">#</a>
+        <a class="method-permalink" href="#to_unsafe%3ALibICU%3A%3AUBreakIterator-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/break_iterator.cr#L71" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/break_iterator.cr#L71" target="_blank">View source</a>]
         
       </div>
     </div>
   
-
-
 
 
 </div>

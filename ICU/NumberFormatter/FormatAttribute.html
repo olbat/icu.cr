@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="icu">
-  <title>ICU::UniversalTimeScale::DateTimeScale - icu master</title>
+  <title>ICU::NumberFormatter::FormatAttribute - icu master</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -247,12 +247,12 @@
       
     </li>
   
-  <li class="parent " data-id="icu/ICU/NumberFormatter" data-name="icu::numberformatter">
+  <li class="parent open current" data-id="icu/ICU/NumberFormatter" data-name="icu::numberformatter">
       <a href="../../ICU/NumberFormatter.html">NumberFormatter</a>
       
         <ul>
   
-  <li class=" " data-id="icu/ICU/NumberFormatter/FormatAttribute" data-name="icu::numberformatter::formatattribute">
+  <li class=" current" data-id="icu/ICU/NumberFormatter/FormatAttribute" data-name="icu::numberformatter::formatattribute">
       <a href="../../ICU/NumberFormatter/FormatAttribute.html">FormatAttribute</a>
       
     </li>
@@ -332,12 +332,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="icu/ICU/UniversalTimeScale" data-name="icu::universaltimescale">
+  <li class="parent " data-id="icu/ICU/UniversalTimeScale" data-name="icu::universaltimescale">
       <a href="../../ICU/UniversalTimeScale.html">UniversalTimeScale</a>
       
         <ul>
   
-  <li class=" current" data-id="icu/ICU/UniversalTimeScale/DateTimeScale" data-name="icu::universaltimescale::datetimescale">
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/DateTimeScale" data-name="icu::universaltimescale::datetimescale">
       <a href="../../ICU/UniversalTimeScale/DateTimeScale.html">DateTimeScale</a>
       
     </li>
@@ -376,7 +376,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">alias</span> ICU::<wbr>UniversalTimeScale::<wbr>DateTimeScale
+  <span class="kind">alias</span> ICU::<wbr>NumberFormatter::<wbr>FormatAttribute
 
 </h1>
 
@@ -394,7 +394,7 @@
 </a>
     Alias Definition
   </h2>
-  <code>LibICU::UDateTimeScale</code>
+  <code>LibICU::UNumberFormatAttribute</code>
 
 
 
@@ -417,8 +417,8 @@
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/universal_time_scale.cr#L16" target="_blank">
-        icu/universal_time_scale.cr
+      <a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/number_formatter.cr#L20" target="_blank">
+        icu/number_formatter.cr
       </a>
     
     <br/>
@@ -438,58 +438,158 @@
   
   <dl>
     
-      <dt class="entry-const" id="Db2Time">
-        <strong>Db2Time</strong> = <code><span class="n">8</span></code>
+      <dt class="entry-const" id="CurrencyUsage">
+        <strong>CurrencyUsage</strong> = <code><span class="n">23</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="DotnetDateTime">
-        <strong>DotnetDateTime</strong> = <code><span class="n">4</span></code>
+      <dt class="entry-const" id="DecimalAlwaysShown">
+        <strong>DecimalAlwaysShown</strong> = <code><span class="n">2</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="ExcelTime">
-        <strong>ExcelTime</strong> = <code><span class="n">7</span></code>
+      <dt class="entry-const" id="FormatFailIfMoreThanMaxDigits">
+        <strong>FormatFailIfMoreThanMaxDigits</strong> = <code><span class="n">4096</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="Icu4CTime">
-        <strong>Icu4CTime</strong> = <code><span class="n">2</span></code>
+      <dt class="entry-const" id="FormatWidth">
+        <strong>FormatWidth</strong> = <code><span class="n">13</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="JavaTime">
-        <strong>JavaTime</strong> = <code><span class="n">0</span></code>
+      <dt class="entry-const" id="FractionDigits">
+        <strong>FractionDigits</strong> = <code><span class="n">8</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="MacOldTime">
-        <strong>MacOldTime</strong> = <code><span class="n">5</span></code>
+      <dt class="entry-const" id="GroupingSize">
+        <strong>GroupingSize</strong> = <code><span class="n">10</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="MacTime">
-        <strong>MacTime</strong> = <code><span class="n">6</span></code>
+      <dt class="entry-const" id="GroupingUsed">
+        <strong>GroupingUsed</strong> = <code><span class="n">1</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="MaxScale">
-        <strong>MaxScale</strong> = <code><span class="n">10</span></code>
+      <dt class="entry-const" id="IntegerDigits">
+        <strong>IntegerDigits</strong> = <code><span class="n">5</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="UnixMicrosecondsTime">
-        <strong>UnixMicrosecondsTime</strong> = <code><span class="n">9</span></code>
+      <dt class="entry-const" id="LenientParse">
+        <strong>LenientParse</strong> = <code><span class="n">19</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="UnixTime">
-        <strong>UnixTime</strong> = <code><span class="n">1</span></code>
+      <dt class="entry-const" id="LimitBooleanAttribute">
+        <strong>LimitBooleanAttribute</strong> = <code><span class="n">4101</span></code>
       </dt>
       
     
-      <dt class="entry-const" id="WindowsFileTime">
-        <strong>WindowsFileTime</strong> = <code><span class="n">3</span></code>
+      <dt class="entry-const" id="MaxFractionDigits">
+        <strong>MaxFractionDigits</strong> = <code><span class="n">6</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MaxIntegerDigits">
+        <strong>MaxIntegerDigits</strong> = <code><span class="n">3</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MaxNonbooleanAttribute">
+        <strong>MaxNonbooleanAttribute</strong> = <code><span class="n">4095</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MaxSignificantDigits">
+        <strong>MaxSignificantDigits</strong> = <code><span class="n">18</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MinFractionDigits">
+        <strong>MinFractionDigits</strong> = <code><span class="n">7</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MinimumGroupingDigits">
+        <strong>MinimumGroupingDigits</strong> = <code><span class="n">22</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MinIntegerDigits">
+        <strong>MinIntegerDigits</strong> = <code><span class="n">4</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="MinSignificantDigits">
+        <strong>MinSignificantDigits</strong> = <code><span class="n">17</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Multiplier">
+        <strong>Multiplier</strong> = <code><span class="n">9</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="PaddingPosition">
+        <strong>PaddingPosition</strong> = <code><span class="n">14</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ParseAllInput">
+        <strong>ParseAllInput</strong> = <code><span class="n">20</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ParseCaseSensitive">
+        <strong>ParseCaseSensitive</strong> = <code><span class="n">4099</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ParseDecimalMarkRequired">
+        <strong>ParseDecimalMarkRequired</strong> = <code><span class="n">4098</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ParseIntOnly">
+        <strong>ParseIntOnly</strong> = <code><span class="n">0</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ParseNoExponent">
+        <strong>ParseNoExponent</strong> = <code><span class="n">4097</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="RoundingIncrement">
+        <strong>RoundingIncrement</strong> = <code><span class="n">12</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="RoundingMode">
+        <strong>RoundingMode</strong> = <code><span class="n">11</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Scale">
+        <strong>Scale</strong> = <code><span class="n">21</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="SecondaryGroupingSize">
+        <strong>SecondaryGroupingSize</strong> = <code><span class="n">15</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="SignAlwaysShown">
+        <strong>SignAlwaysShown</strong> = <code><span class="n">4100</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="SignificantDigitsUsed">
+        <strong>SignificantDigitsUsed</strong> = <code><span class="n">16</span></code>
       </dt>
       
     

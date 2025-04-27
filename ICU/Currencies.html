@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.36.1">
-<meta name="crystal_docs.project_version" content="HEAD">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="crystal_docs.project_version" content="master">
 <meta name="crystal_docs.project_name" content="icu">
 
 
@@ -13,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="icu">
-  <title>ICU::Currencies - icu HEAD</title>
+  <title>ICU::Currencies - icu master</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -22,9 +23,14 @@
 
 <svg class="hidden">
   <symbol id="octicon-link" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
   </symbol>
 </svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
@@ -39,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        HEAD
+        master
       </span>
     </div>
   </div>
@@ -241,6 +247,31 @@
       
     </li>
   
+  <li class="parent " data-id="icu/ICU/NumberFormatter" data-name="icu::numberformatter">
+      <a href="../ICU/NumberFormatter.html">NumberFormatter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/FormatAttribute" data-name="icu::numberformatter::formatattribute">
+      <a href="../ICU/NumberFormatter/FormatAttribute.html">FormatAttribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/FormatStyle" data-name="icu::numberformatter::formatstyle">
+      <a href="../ICU/NumberFormatter/FormatStyle.html">FormatStyle</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/MonetaryAmount" data-name="icu::numberformatter::monetaryamount">
+      <a href="../ICU/NumberFormatter/MonetaryAmount.html">MonetaryAmount</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class=" " data-id="icu/ICU/Region" data-name="icu::region">
       <a href="../ICU/Region.html">Region</a>
       
@@ -345,7 +376,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> ICU::Currencies
+  <span class="kind">class</span> ICU::<wbr>Currencies
 
 </h1>
 
@@ -365,19 +396,16 @@
   </h2>
 
   <p><strong>Currencies</strong></p>
-
 <p>Encapsulates information about a currency</p>
-
 <p><strong>Usage</strong></p>
-
 <pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">Currencies</span>.currency(<span class="s">&quot;fr_FR&quot;</span>)   <span class="c"># =&gt; &quot;EUR&quot;</span>
 <span class="t">ICU</span><span class="t">::</span><span class="t">Currencies</span>.numeric_code(<span class="s">&quot;EUR&quot;</span>) <span class="c"># =&gt; 978</span></code></pre>
-
-<p><span class="flag purple">NOTE</span>  the <code><a href="../ICU/Currencies.html#numeric_code(currency:String):Int32-class-method">.numeric_code</a></code> method requires ICU >= 49</p>
-
+<p><span class="flag purple">NOTE</span>  the <code><a href="../ICU/Currencies.html#numeric_code%28currency%3AString%29%3AInt32-class-method">.numeric_code</a></code> method requires ICU &gt;= 49</p>
 <p><strong>See also</strong></p>
-
-<ul><li><a href="http://icu-project.org/apiref/icu4c/ucurr_8h.html">reference implementation</a></li><li><a href="https://github.com/olbat/icu.cr/blob/master/spec/currencies_spec.cr">unit tests</a></li></ul>
+<ul>
+<li><a href="http://icu-project.org/apiref/icu4c/ucurr_8h.html">reference implementation</a></li>
+<li><a href="https://github.com/olbat/icu.cr/blob/master/spec/currencies_spec.cr">unit tests</a></li>
+</ul>
 
 
 
@@ -402,7 +430,7 @@
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/currencies.cr#L16" target="_blank">
+      <a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/currencies.cr#L16" target="_blank">
         icu/currencies.cr
       </a>
     
@@ -426,14 +454,14 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#currency(locale:String):String-class-method" class="signature"><strong>.currency</strong>(locale : String) : String</a>
+        <a href="#currency%28locale%3AString%29%3AString-class-method" class="signature"><strong>.currency</strong>(locale : String) : String</a>
         
           <div class="summary"><p>Returns the currency for a specified locale</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#numeric_code(currency:String):Int32-class-method" class="signature"><strong>.numeric_code</strong>(currency : String) : Int32</a>
+        <a href="#numeric_code%28currency%3AString%29%3AInt32-class-method" class="signature"><strong>.numeric_code</strong>(currency : String) : Int32</a>
         
           <div class="summary"><p>Returns the code associated to a currency</p></div>
         
@@ -458,7 +486,13 @@
     
 
 
+    
+
+
   
+    
+
+
     
 
 
@@ -488,22 +522,20 @@
         
         def self.<strong>currency</strong>(locale : <a href="../String.html">String</a>) : <a href="../String.html">String</a>
 
-        <a class="method-permalink" href="#currency(locale:String):String-class-method">#</a>
+        <a class="method-permalink" href="#currency%28locale%3AString%29%3AString-class-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns the currency for a specified locale</p>
-
 <pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">Currencies</span>.currency(<span class="s">&quot;fr_FR&quot;</span>) <span class="c"># =&gt; &quot;EUR&quot;</span></code></pre>
-
 <p><span class="flag yellow">FIXME</span>  not thread-safe</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/currencies.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/currencies.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -513,20 +545,19 @@
         
         def self.<strong>numeric_code</strong>(currency : <a href="../String.html">String</a>) : Int32
 
-        <a class="method-permalink" href="#numeric_code(currency:String):Int32-class-method">#</a>
+        <a class="method-permalink" href="#numeric_code%28currency%3AString%29%3AInt32-class-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Returns the code associated to a currency</p>
-
 <pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">Currencies</span>.numeric_code(<span class="s">&quot;EUR&quot;</span>) <span class="c"># =&gt; 978</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/7975bc59100c5fa77cd0fb6206f7969ee9c5a19d/src/icu/currencies.cr#L42" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/dbd78ac78855898f66e8ac78aa1e87158675278f/src/icu/currencies.cr#L42" target="_blank">View source</a>]
         
       </div>
     </div>
