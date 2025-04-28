@@ -42,13 +42,13 @@ require "icu"
 - [x] [Region](https://olbat.github.io/icu.cr/ICU/Region.html), Territory containment and mapping _(uregion.h)_
 - [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
 - [x] [NumberFormatter](https://olbat.github.io/icu.cr/ICU/NumberFormatter.html), Number Formatting/Spellout _(unum.h)_
+- [x] [PluralRules](https://olbat.github.io/icu.cr/ICU/PluralRules.html), Plural rules _(upluralrules.h)_
 - [ ] `uregex`, Regular Expressions _(uregex.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
 - [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
 - [ ] `ucal`, Calendars _(ucal.h)_
 - [ ] `udat`, Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
-- [ ] `upluralrules`, Plural rules _(upluralrules.h)_
 
 __Internals__
 - [x] [UChars](https://olbat.github.io/icu.cr/ICU/UChars.html), UChar conversion routines
