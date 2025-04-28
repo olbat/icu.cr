@@ -272,6 +272,21 @@
       
     </li>
   
+  <li class="parent " data-id="icu/ICU/PluralRules" data-name="icu::pluralrules">
+      <a href="../ICU/PluralRules.html">PluralRules</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/PluralRules/Type" data-name="icu::pluralrules::type">
+      <a href="../ICU/PluralRules/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class=" " data-id="icu/ICU/Region" data-name="icu::region">
       <a href="../ICU/Region.html">Region</a>
       
@@ -431,7 +446,7 @@ nf.parse(<span class="s">&quot;1,234.56&quot;</span>) <span class="c"># =&gt; 12
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L16" target="_blank">
+      <a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L16" target="_blank">
         icu/number_formatter.cr
       </a>
     
@@ -593,11 +608,6 @@ nf.parse(<span class="s">&quot;1,234.56&quot;</span>) <span class="c"># =&gt; 12
         <div class="doc">
           
           <p>Creates a new NumberFormatter.</p>
-<p>Args:</p>
-<ul>
-<li><code>locale</code>: The locale to use for formatting and parsing. Defaults to &quot;en_US&quot;.</li>
-<li><code>format_style</code>: The format style to use. Defaults to <code><a href="../LibICU/UNumberFormatStyle.html#Default">FormatStyle::Default</a></code>.</li>
-</ul>
 <pre><code class="language-crystal">nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>)
 nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span>.new(<span class="s">&quot;fr_FR&quot;</span>, <span class="t">ICU</span><span class="t">::</span><span class="t">NumberFormatter</span><span class="t">::</span><span class="t">FormatStyle</span><span class="t">::</span><span class="t">Currency</span>)</code></pre>
         </div>
@@ -605,7 +615,7 @@ nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L30" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -637,7 +647,7 @@ nf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L43" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L39" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -660,7 +670,7 @@ nf.format(<span class="n">1234.56</span>, <span class="s">&quot;USD&quot;</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L67" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L63" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -682,7 +692,7 @@ nf.format(<span class="n">1234.56</span>) <span class="c"># =&gt; &quot;1,234.56
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L53" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L49" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -705,7 +715,7 @@ nf.format(<span class="n">1234</span>) <span class="c"># =&gt; &quot;1,234&quot;
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L82" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L78" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -727,7 +737,7 @@ nf.format(<span class="n">1234</span>) <span class="c"># =&gt; &quot;1,234&quot;
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L132" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L128" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -750,7 +760,7 @@ nf.parse(<span class="s">&quot;1,234.56&quot;</span>) <span class="c"># =&gt; 12
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L110" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L106" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -772,7 +782,7 @@ nf.parse(<span class="s">&quot;1,234.56&quot;</span>) <span class="c"># =&gt; 12
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L141" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L137" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -795,7 +805,7 @@ nf.parse(<span class="s">&quot;1,234.56&quot;</span>) <span class="c"># =&gt; 12
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L96" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L92" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -817,7 +827,7 @@ nf.parse(<span class="s">&quot;1,234.56&quot;</span>) <span class="c"># =&gt; 12
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/81246d13e112431d84384bd475679d1be046dfe6/src/icu/number_formatter.cr#L123" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/number_formatter.cr#L119" target="_blank">View source</a>]
         
       </div>
     </div>

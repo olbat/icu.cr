@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="icu">
-  <title>ICU::NFKDNormalizer - icu master</title>
+  <title>ICU::PluralRules - icu master</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -217,7 +217,7 @@
       
     </li>
   
-  <li class=" current" data-id="icu/ICU/NFKDNormalizer" data-name="icu::nfkdnormalizer">
+  <li class=" " data-id="icu/ICU/NFKDNormalizer" data-name="icu::nfkdnormalizer">
       <a href="../ICU/NFKDNormalizer.html">NFKDNormalizer</a>
       
     </li>
@@ -272,7 +272,7 @@
       
     </li>
   
-  <li class="parent " data-id="icu/ICU/PluralRules" data-name="icu::pluralrules">
+  <li class="parent open current" data-id="icu/ICU/PluralRules" data-name="icu::pluralrules">
       <a href="../ICU/PluralRules.html">PluralRules</a>
       
         <ul>
@@ -391,12 +391,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> ICU::<wbr>NFKDNormalizer
+  <span class="kind">class</span> ICU::<wbr>PluralRules
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../ICU/NFKDNormalizer.html">ICU::NFKDNormalizer</a></li><li class="superclass"><a href="../ICU/Normalizer.html">ICU::Normalizer</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../ICU/PluralRules.html">ICU::PluralRules</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -410,7 +410,18 @@
     Overview
   </h2>
 
-  <p>NFKD Normalizer (see <code><a href="../ICU/Normalizer.html">ICU::Normalizer</a></code>)</p>
+  <p><strong>Plural Rules</strong></p>
+<p>Provides access to ICU's plural rules functionality.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="language-crystal">plural_rules <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">PluralRules</span>.new(<span class="s">&quot;pl&quot;</span>)
+plural_rules.<span class="k">select</span>(<span class="n">0</span>) <span class="c"># =&gt; &quot;many&quot;</span>
+plural_rules.<span class="k">select</span>(<span class="n">1</span>) <span class="c"># =&gt; &quot;one&quot;</span>
+plural_rules.<span class="k">select</span>(<span class="n">2</span>) <span class="c"># =&gt; &quot;few&quot;</span></code></pre>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/upluralrules_8h.html">reference implementation</a></li>
+<li><a href="https://github.com/olbat/icu.cr/blob/master/spec/plural_rules_spec.cr">unit tests</a></li>
+</ul>
 
 
 
@@ -435,8 +446,8 @@
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/normalizer.cr#L147" target="_blank">
-        icu/normalizer.cr
+      <a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/plural_rules.cr#L16" target="_blank">
+        icu/plural_rules.cr
       </a>
     
     <br/>
@@ -457,7 +468,16 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        <a href="#new%28locale%3AString%2Ctype%3AType%29-class-method" class="signature"><strong>.new</strong>(locale : String, type : Type)</a>
+        
+          <div class="summary"><p>Creates a new PluralRules object for the given locale and plural type.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28locale%3AString%29-class-method" class="signature"><strong>.new</strong>(locale : String)</a>
+        
+          <div class="summary"><p>Creates a new PluralRules object for the given locale.</p></div>
         
       </li>
     
@@ -469,65 +489,42 @@
 
 
 
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#finalize-instance-method" class="signature"><strong>#finalize</strong></a>
+        
+          <div class="summary"><p>Closes the PluralRules object and releases resources.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#keywords%3AArray%28String%29-instance-method" class="signature"><strong>#keywords</strong> : Array(String)</a>
+        
+          <div class="summary"><p>Returns keywords associated to this plural rules.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select%28number%3AFloat64%29%3AString-instance-method" class="signature"><strong>#select</strong>(number : Float64) : String</a>
+        
+          <div class="summary"><p>Selects the plural form for the given number.</p></div>
+        
+      </li>
+    
+  </ul>
+
 
 
 <div class="methods-inherited">
-  
-    
-
-  <h3>Instance methods inherited from class <code><a href="../ICU/Normalizer.html">ICU::Normalizer</a></code></h3>
-  
-  
-    <a href="../ICU/Normalizer.html#decomposition%28chr%3AChar%29%3AString-instance-method" class="tooltip">
-      <span>decomposition(chr : Char) : String</span>
-    decomposition</a>, 
-    
-  
-    <a href="../ICU/Normalizer.html#finalize-instance-method" class="tooltip">
-      <span>finalize</span>
-    finalize</a>, 
-    
-  
-    <a href="../ICU/Normalizer.html#inert%3F%28chr%3AChar%29%3ABool-instance-method" class="tooltip">
-      <span>inert?(chr : Char) : Bool</span>
-    inert?</a>, 
-    
-  
-    <a href="../ICU/Normalizer.html#normalize%28text%3AString%29%3AString-instance-method" class="tooltip">
-      <span>normalize(text : String) : String</span>
-    normalize</a>, 
-    
-  
-    <a href="../ICU/Normalizer.html#normalized%3F%28text%3AString%29%3ABool-instance-method" class="tooltip">
-      <span>normalized?(text : String) : Bool</span>
-    normalized?</a>, 
-    
-  
-    <a href="../ICU/Normalizer.html#normalized_quick%3F%28text%3AString%29%3ACheckResult-instance-method" class="tooltip">
-      <span>normalized_quick?(text : String) : CheckResult</span>
-    normalized_quick?</a>
-    
-  
-
-
-    
-
-  <h3>Constructor methods inherited from class <code><a href="../ICU/Normalizer.html">ICU::Normalizer</a></code></h3>
-  
-  
-    <a href="../ICU/Normalizer.html#new%28type%3ASymbol%29-class-method" class="tooltip">
-      <span>new(type : Symbol)</span>
-    new</a>
-    
-  
-
-
-    
-
-
-    
-
-
   
     
 
@@ -567,18 +564,46 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new-class-method">
+    <div class="entry-detail" id="new(locale:String,type:Type)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>
+        def self.<strong>new</strong>(locale : <a href="../String.html">String</a>, type : <a href="../ICU/PluralRules/Type.html">Type</a>)
 
-        <a class="method-permalink" href="#new-class-method">#</a>
+        <a class="method-permalink" href="#new%28locale%3AString%2Ctype%3AType%29-class-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new PluralRules object for the given locale and plural type.</p>
+<pre><code class="language-crystal">plural_rules <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">PluralRules</span>.new(<span class="s">&quot;de&quot;</span>, <span class="t">ICU</span><span class="t">::</span><span class="t">PluralRules</span><span class="t">::</span><span class="t">Type</span><span class="t">::</span><span class="t">TypeOrdinal</span>)</code></pre>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/normalizer.cr#L148" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/plural_rules.cr#L37" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(locale:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(locale : <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#new%28locale%3AString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new PluralRules object for the given locale.</p>
+<pre><code class="language-crystal">plural_rules <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">PluralRules</span>.new(<span class="s">&quot;en&quot;</span>)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/plural_rules.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -589,6 +614,83 @@
 
 
 
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="finalize-instance-method">
+      <div class="signature">
+        
+        def <strong>finalize</strong>
+
+        <a class="method-permalink" href="#finalize-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Closes the PluralRules object and releases resources.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/plural_rules.cr#L44" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="keywords:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>keywords</strong> : Array(<a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#keywords%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns keywords associated to this plural rules.</p>
+<pre><code class="language-crystal">plural_rules <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">PluralRules</span>.new(<span class="s">&quot;pl&quot;</span>)
+plural_rules.keywords <span class="c"># =&gt; [&quot;few&quot;, &quot;many&quot;, &quot;one&quot;, &quot;other&quot;]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/plural_rules.cr#L68" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select(number:Float64):String-instance-method">
+      <div class="signature">
+        
+        def <strong>select</strong>(number : Float64) : <a href="../String.html">String</a>
+
+        <a class="method-permalink" href="#select%28number%3AFloat64%29%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Selects the plural form for the given number.</p>
+<pre><code class="language-crystal">plural_rules <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">PluralRules</span>.new(<span class="s">&quot;fr&quot;</span>)
+plural_rules.<span class="k">select</span>(<span class="n">1</span>) <span class="c"># =&gt; &quot;one&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/790d5c23a4c3f47ae8c6198a2fa3e406b339bdbc/src/icu/plural_rules.cr#L54" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 </div>
