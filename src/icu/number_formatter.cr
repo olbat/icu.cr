@@ -23,10 +23,6 @@ class ICU::NumberFormatter
 
   # Creates a new NumberFormatter.
   #
-  # Args:
-  # - `locale`: The locale to use for formatting and parsing. Defaults to "en_US".
-  # - `format_style`: The format style to use. Defaults to `FormatStyle::Default`.
-  #
   # ```
   # nf = ICU::NumberFormatter.new("en_US")
   # nf = ICU::NumberFormatter.new("fr_FR", ICU::NumberFormatter::FormatStyle::Currency)
