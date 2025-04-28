@@ -27,15 +27,14 @@ class ICU::UEnum
     LibICU.uenum_reset(@uenum, pointerof(ustatus))
     ICU.check_error!(ustatus)
 
-    ustatus = LibICU::UErrorCode::UZeroError
-    count = LibICU.uenum_count(@uenum, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-
-    count.times do
+    loop do
       ustatus = LibICU::UErrorCode::UZeroError
-      elem = LibICU.uenum_next(@uenum, out size, pointerof(ustatus))
+      item = LibICU.uenum_next(@uenum, out size, pointerof(ustatus))
       ICU.check_error!(ustatus)
-      yield String.new(elem, size)
+
+      break unless item
+
+      yield String.new(item, size)
     end
   end
 end
