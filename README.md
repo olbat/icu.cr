@@ -44,9 +44,9 @@ require "icu"
 - [x] [NumberFormatter](https://olbat.github.io/icu.cr/ICU/NumberFormatter.html), Number Formatting/Spellout _(unum.h)_
 - [x] [PluralRules](https://olbat.github.io/icu.cr/ICU/PluralRules.html), Plural rules _(upluralrules.h)_
 - [x] [Calendar](https://olbat.github.io/icu.cr/ICU/Calendar.html), Calendars _(ucal.h)_
+- [x] [Bidirectional Algorithm](https://olbat.github.io/icu.cr/ICU/BiDi.html),  _(ubidi.h)_
 - [ ] `uregex`, Regular Expressions _(uregex.h)_
 - [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
-- [ ] `ubidi`, Bidirectional Algorithm _(ubidi.h)_
 - [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
 - [ ] `udat`, Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
 
