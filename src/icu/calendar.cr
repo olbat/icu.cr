@@ -352,6 +352,10 @@ class ICU::Calendar
     diff_sign < 0
   end
 
+  def to_unsafe
+    return @ucal
+  end
+
     # Helper method to get the first non-zero field difference sign between
   # the calendar's current time and the target time, using fields from largest
   # down to seconds.
