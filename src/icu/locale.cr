@@ -50,11 +50,9 @@ class ICU::Locale
   # ICU::Locale.new("en_US").language # => "en"
   # ```
   def language : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff = Bytes.new(Capacity::LANG_MAX_SIZE)
-    len = LibICU.uloc_get_language(@id, buff, buff.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    String.new(buff.to_slice[0, len])
+    get_string_component(Capacity::LANG_MAX_SIZE) do |buff, size, status_ptr|
+      LibICU.uloc_get_language(@id, buff, size, status_ptr)
+    end
   end
 
   # Returns the country code for this locale.
@@ -63,11 +61,9 @@ class ICU::Locale
   # ICU::Locale.new("en_US").country # => "US"
   # ```
   def country : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff = Bytes.new(Capacity::COUNTRY_MAX_SIZE)
-    len = LibICU.uloc_get_country(@id, buff, buff.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    String.new(buff.to_slice[0, len])
+    get_string_component(Capacity::COUNTRY_MAX_SIZE) do |buff, size, status_ptr|
+      LibICU.uloc_get_country(@id, buff, size, status_ptr)
+    end
   end
 
   # Returns the script code for this locale.
@@ -76,11 +72,9 @@ class ICU::Locale
   # ICU::Locale.new("zh-Hans-CN").script # => "Hans"
   # ```
   def script : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff = Bytes.new(Capacity::SCRIPT_MAX_SIZE)
-    len = LibICU.uloc_get_script(@id, buff, buff.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    String.new(buff.to_slice[0, len])
+    get_string_component(Capacity::SCRIPT_MAX_SIZE) do |buff, size, status_ptr|
+      LibICU.uloc_get_script(@id, buff, size, status_ptr)
+    end
   end
 
   # Returns the variant code for this locale.
@@ -89,11 +83,9 @@ class ICU::Locale
   # ICU::Locale.new("en_US_POSIX").variant # => "POSIX"
   # ```
   def variant : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff = Bytes.new(Capacity::FULLNAME_MAX_SIZE)
-    len = LibICU.uloc_get_variant(@id, buff, buff.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    String.new(buff.to_slice[0, len])
+    get_string_component(Capacity::FULLNAME_MAX_SIZE) do |buff, size, status_ptr|
+      LibICU.uloc_get_variant(@id, buff, size, status_ptr)
+    end
   end
 
   # Returns the base name (language, script, country, variant) for this locale.
@@ -102,11 +94,9 @@ class ICU::Locale
   # ICU::Locale.new("en_US@collation=phonebook").base_name # => "en_US"
   # ```
   def base_name : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff = Bytes.new(Capacity::FULLNAME_MAX_SIZE)
-    len = LibICU.uloc_get_base_name(@id, buff, buff.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    String.new(buff.to_slice[0, len])
+    get_string_component(Capacity::FULLNAME_MAX_SIZE) do |buff, size, status_ptr|
+      LibICU.uloc_get_base_name(@id, buff, size, status_ptr)
+    end
   end
 
   # Returns the full name (identifier) for this locale.
@@ -116,11 +106,9 @@ class ICU::Locale
   # ICU::Locale.new("en_US").name # => "en_US"
   # ```
   def name : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff = Bytes.new(Capacity::FULLNAME_MAX_SIZE)
-    len = LibICU.uloc_get_name(@id, buff, buff.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    String.new(buff.to_slice[0, len])
+    get_string_component(Capacity::FULLNAME_MAX_SIZE) do |buff, size, status_ptr|
+      LibICU.uloc_get_name(@id, buff, size, status_ptr)
+    end
   end
 
   # Returns the display name for this locale in the specified display locale.
@@ -130,18 +118,8 @@ class ICU::Locale
   # ICU::Locale.new("en_US").display_name("fr_FR") # => "anglais (États-Unis)"
   # ```
   def display_name(display_locale : String) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    # Estimate buff size, ICU functions return required size if buff is too small
-    loop do
-      buff = UChars.new(64)
-      len = LibICU.uloc_get_display_name(@id, display_locale, buff, buff.size, pointerof(ustatus))
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1 # Add 1 for null terminator if needed, though to_s handles length
-        ustatus = LibICU::UErrorCode::UZeroError # Reset status
-        next # Retry with larger buff
-      end
-      ICU.check_error!(ustatus)
-      return buff.to_s(len)
+    ICU.with_auto_resizing_buffer(64, UChars) do |buff, status_ptr|
+      LibICU.uloc_get_display_name(@id, display_locale, buff.as(UChars), buff.size, status_ptr)
     end
   end
 
@@ -151,17 +129,8 @@ class ICU::Locale
   # ICU::Locale.new("fr_FR").display_language("en_US") # => "French"
   # ```
   def display_language(display_locale : String) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    loop do
-      buff = UChars.new(32)
-      len = LibICU.uloc_get_display_language(@id, display_locale, buff, buff.size, pointerof(ustatus))
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return buff.to_s(len)
+    ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+      LibICU.uloc_get_display_language(@id, display_locale, buff.as(UChars), buff.size, status_ptr)
     end
   end
 
@@ -171,17 +140,8 @@ class ICU::Locale
   # ICU::Locale.new("fr_FR").display_country("en_US") # => "France"
   # ```
   def display_country(display_locale : String) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    loop do
-      buff = UChars.new(32)
-      len = LibICU.uloc_get_display_country(@id, display_locale, buff, buff.size, pointerof(ustatus))
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return buff.to_s(len)
+    ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+      LibICU.uloc_get_display_country(@id, display_locale, buff.as(UChars), buff.size, status_ptr)
     end
   end
 
@@ -191,17 +151,8 @@ class ICU::Locale
   # ICU::Locale.new("zh-Hans-CN").display_script("en_US") # => "Simplified Han"
   # ```
   def display_script(display_locale : String) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    loop do
-      buff = UChars.new(32)
-      len = LibICU.uloc_get_display_script(@id, display_locale, buff, buff.size, pointerof(ustatus))
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return buff.to_s(len)
+    ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+      LibICU.uloc_get_display_script(@id, display_locale, buff.as(UChars), buff.size, status_ptr)
     end
   end
 
@@ -211,37 +162,8 @@ class ICU::Locale
   # ICU::Locale.new("en_US_POSIX").display_variant("en_US") # => "POSIX"
   # ```
   def display_variant(display_locale : String) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    loop do
-      buff = UChars.new(32)
-      len = LibICU.uloc_get_display_variant(@id, display_locale, buff, buff.size, pointerof(ustatus))
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return buff.to_s(len)
-    end
-  end
-
-  # Returns the display name for a keyword in the specified display locale.
-  #
-  # ```
-  # ICU::Locale.display_keyword("collation", "en_US") # => "Collation"
-  # ```
-  def self.display_keyword(keyword : String, display_locale : String) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    loop do
-      buff = UChars.new(32)
-      len = LibICU.uloc_get_display_keyword(keyword, display_locale, buff, buff.size, pointerof(ustatus))
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return buff.to_s(len)
+    ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+      LibICU.uloc_get_display_variant(@id, display_locale, buff.as(UChars), buff.size, status_ptr)
     end
   end
 
@@ -251,17 +173,8 @@ class ICU::Locale
   # ICU::Locale.new("fr_FR@collation=phonebook").display_keyword_value("collation", "en_US") # => "Phonebook Collation"
   # ```
   def display_keyword_value(keyword : String, display_locale : String) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    loop do
-      buff = UChars.new(32)
-      len = LibICU.uloc_get_display_keyword_value(@id, keyword, display_locale, buff, buff.size, pointerof(ustatus))
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return buff.to_s(len)
+    ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+      LibICU.uloc_get_display_keyword_value(@id, keyword, display_locale, buff.as(UChars), buff.size, status_ptr)
     end
   end
 
@@ -271,11 +184,10 @@ class ICU::Locale
   # ICU::Locale.new("en-us").canonicalize # => ICU::Locale.new("en_US")
   # ```
   def canonicalize : Locale
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff = Bytes.new(Capacity::FULLNAME_MAX_SIZE)
-    len = LibICU.uloc_canonicalize(@id, buff, buff.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    Locale.new(String.new(buff.to_slice[0, len]))
+    # Canonicalization shouldn't increase length significantly, but use retry just in case.
+    get_locale_with_retry(Capacity::FULLNAME_MAX_SIZE) do |buff, status_ptr|
+      LibICU.uloc_canonicalize(@id, buff, buff.size, status_ptr)
+    end
   end
 
   # Adds likely subtags to the locale ID.
@@ -284,18 +196,8 @@ class ICU::Locale
   # ICU::Locale.new("en").add_likely_subtags # => ICU::Locale.new("en_Latn_US")
   # ```
   def add_likely_subtags : Locale
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff_size = Capacity::FULLNAME_MAX_SIZE
-    loop do
-      buff = Bytes.new(buff_size)
-      len = LibICU.uloc_add_likely_subtags(@id, buff, buff.size, pointerof(ustatus))
-        if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return Locale.new(String.new(buff.to_slice[0, len]))
+    get_locale_with_retry(Capacity::FULLNAME_MAX_SIZE) do |buff, status_ptr|
+      LibICU.uloc_add_likely_subtags(@id, buff, buff.size, status_ptr)
     end
   end
 
@@ -305,62 +207,28 @@ class ICU::Locale
   # ICU::Locale.new("en_Latn_US").minimize_subtags # => ICU::Locale.new("en")
   # ```
   def minimize_subtags : Locale
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff_size = Capacity::FULLNAME_MAX_SIZE
-    loop do
-      buff = Bytes.new(buff_size)
-      len = LibICU.uloc_minimize_subtags(@id, buff, buff.size, pointerof(ustatus))
-        if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return Locale.new(String.new(buff.to_slice[0, len]))
+    get_locale_with_retry(Capacity::FULLNAME_MAX_SIZE) do |buff, status_ptr|
+      LibICU.uloc_minimize_subtags(@id, buff, buff.size, status_ptr)
     end
   end
 
-  # Converts the locale ID to a BCP 47 language tag.
+  # Sets the value for a keyword in this locale, returning a new Locale instance.
   #
   # ```
-  # ICU::Locale.new("en_US").to_language_tag # => "en-US"
-  # ICU::Locale.new("en_US_POSIX").to_language_tag(strict: true) # => "en-US-posix"
+  # ICU::Locale.new("fr_FR").set_keyword_value("collation", "phonebook") # => ICU::Locale.new("fr_FR@collation=phonebook")
   # ```
-  def to_language_tag(strict : Bool = false) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    loop do
-      buff = Bytes.new(Capacity::FULLNAME_MAX_SIZE)
-      # Convert Bool to UInt8 (UBool)
-      len = LibICU.uloc_to_language_tag(@id, buff, buff.size, strict ? 1_u8 : 0_u8, pointerof(ustatus))
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return String.new(buff.to_slice[0, len])
-    end
-  end
+  def add_keyword_value(keyword_name : String, keyword_value : String) : Locale
+    # Estimate initial buff size: original ID + '@' + keyword + '=' + value + ';' + null
+    initial_buff_size = @id.bytesize + 1 + keyword_name.bytesize + 1 + keyword_value.bytesize + 1 + 1
+    # Ensure minimum size, fallback to retry logic if needed
+    initial_buff_size = Math.max(initial_buff_size, Capacity::FULLNAME_MAX_SIZE)
 
-  # Creates a Locale from a BCP 47 language tag.
-  #
-  # ```
-  # ICU::Locale.from_language_tag("en-US") # => ICU::Locale.new("en_US")
-  # ```
-  def self.from_language_tag(langtag : String) : Locale
-    ustatus = LibICU::UErrorCode::UZeroError
-    loop do
-      buff = Bytes.new(Capacity::FULLNAME_MAX_SIZE)
-      parsed_length = 0 # Not used in this high-level wrapper
-      len = LibICU.uloc_for_language_tag(langtag, buff, buff.size, pointerof(parsed_length), pointerof(ustatus))
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return Locale.new(String.new(buff.to_slice[0, len]))
+    id = ICU.with_auto_resizing_buffer(Capacity::KEYWORDS_AND_VALUES_MAX_SIZE, Bytes) do |buff, status_ptr|
+      @id.to_slice.copy_to(buff.as(Bytes).to_slice)
+      len = LibICU.uloc_set_keyword_value(keyword_name, keyword_value, buff.as(Bytes), buff.size, status_ptr)
     end
+
+    Locale.new(id)
   end
 
   # Returns the value for a keyword in this locale.
@@ -371,48 +239,10 @@ class ICU::Locale
   # ICU::Locale.new("en_US").keyword_value("collation") # => ""
   # ```
   def keyword_value(keyword_name : String) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    loop do
-      buff = Bytes.new(Capacity::KEYWORDS_AND_VALUES_MAX_SIZE)
-      len = LibICU.uloc_get_keyword_value(@id, keyword_name, buff, buff.size, pointerof(ustatus))
-      # U_BUFFER_OVERFLOW_ERROR is possible, but U_ZERO_ERROR with len=0 means keyword not found.
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      # If len is 0 and status is U_ZERO_ERROR, the keyword was not found.
-      return String.new(buff.to_slice[0, len])
-    end
-  end
-
-  # Sets the value for a keyword in this locale, returning a new Locale instance.
-  #
-  # ```
-  # ICU::Locale.new("fr_FR").set_keyword_value("collation", "phonebook") # => ICU::Locale.new("fr_FR@collation=phonebook")
-  # ```
-  def set_keyword_value(keyword_name : String, keyword_value : String) : Locale
-    ustatus = LibICU::UErrorCode::UZeroError
-    # Estimate buff size: original ID + '@' + keyword + '=' + value + ';' + null
-    # The C function modifies the buffer in place, so the buffer must contain the original ID.
-    buff_size = @id.bytesize + 1 + keyword_name.bytesize + 1 + keyword_value.bytesize + 1 + 1
-    # Ensure minimum size
-    buff_size = Math.max(buff_size, Capacity::FULLNAME_MAX_SIZE)
-
-    loop do
-      buff = Bytes.new(buff_size)
-      # Copy the current locale ID into the buffer before calling the C function
-      @id.to_slice.copy_to(buff.to_slice)
-
-      len = LibICU.uloc_set_keyword_value(keyword_name, keyword_value, buff, buff.size, pointerof(ustatus))
-      if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1
-        ustatus = LibICU::UErrorCode::UZeroError
-        next
-      end
-      ICU.check_error!(ustatus)
-      return Locale.new(String.new(buff.to_slice[0, len]))
+    # Returns empty string if keyword not found (status U_ZERO_ERROR, len 0)
+    # which is handled correctly by ICU.with_auto_resizing_buffer.
+    ICU.with_auto_resizing_buffer(Capacity::KEYWORDS_AND_VALUES_MAX_SIZE, Bytes) do |buff, status_ptr|
+      LibICU.uloc_get_keyword_value(@id, keyword_name, buff.as(Bytes), buff.size, status_ptr)
     end
   end
 
@@ -427,6 +257,18 @@ class ICU::Locale
     ICU.check_error!(ustatus)
     # Use the correct class name ICU::UEnum
     ICU::UEnum.new(uenum)
+  end
+
+  # Converts the locale ID to a BCP 47 language tag.
+  #
+  # ```
+  # ICU::Locale.new("en_US").to_language_tag # => "en-US"
+  # ICU::Locale.new("en_US_POSIX").to_language_tag(strict: true) # => "en-US-posix"
+  # ```
+  def to_language_tag(strict : Bool = false) : String
+    ICU.with_auto_resizing_buffer(Capacity::FULLNAME_MAX_SIZE, Bytes) do |buff, status_ptr|
+      LibICU.uloc_to_language_tag(@id, buff.as(Bytes), buff.size, strict ? 1_u8 : 0_u8, status_ptr)
+    end
   end
 
   # Returns the character orientation for this locale (Left-to-Right or Right-to-Left).
@@ -474,19 +316,6 @@ class ICU::Locale
     system
   end
 
-  # --- Locale Data Access (requires ULocaleData object) ---
-  # Helper to open and close ULocaleData
-  private def with_locale_data(&block : LibICU::ULocaleData -> T) : T forall T
-    ustatus = LibICU::UErrorCode::UZeroError
-    uld = LibICU.ulocdata_open(@id, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    begin
-      yield uld
-    ensure
-      LibICU.ulocdata_close(uld)
-    end
-  end
-
   # Returns the delimiter string for the specified type.
   #
   # ```
@@ -494,18 +323,8 @@ class ICU::Locale
   # ```
   def delimiter(type : DelimiterType) : String
     with_locale_data do |uld|
-      ustatus = LibICU::UErrorCode::UZeroError
-      buff_size = 16 # Delimiters are usually short
-      loop do
-        buff = UChars.new(buff_size)
-        len = LibICU.ulocdata_get_delimiter(uld, type, buff, buff.size, pointerof(ustatus))
-        if ustatus == LibICU::UErrorCode::UBufferOverflowError
-          buff_size = len + 1
-          ustatus = LibICU::UErrorCode::UZeroError
-          next
-        end
-        ICU.check_error!(ustatus)
-        return buff.to_s(len)
+      ICU.with_auto_resizing_buffer(16, UChars) do |buff, status_ptr|
+        LibICU.ulocdata_get_delimiter(uld, type, buff.as(UChars), buff.size, status_ptr)
       end
     end
   end
@@ -517,18 +336,8 @@ class ICU::Locale
   # ```
   def locale_display_pattern : String
     with_locale_data do |uld|
-      ustatus = LibICU::UErrorCode::UZeroError
-      buff_size = 32 # Pattern is usually short
-      loop do
-        buff = UChars.new(buff_size)
-        len = LibICU.ulocdata_get_locale_display_pattern(uld, buff, buff.size, pointerof(ustatus))
-        if ustatus == LibICU::UErrorCode::UBufferOverflowError
-          buff_size = len + 1
-          ustatus = LibICU::UErrorCode::UZeroError
-          next
-        end
-        ICU.check_error!(ustatus)
-        return buff.to_s(len)
+      ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+        LibICU.ulocdata_get_locale_display_pattern(uld, buff.as(UChars), buff.size, status_ptr)
       end
     end
   end
@@ -540,18 +349,8 @@ class ICU::Locale
   # ```
   def locale_separator : String
     with_locale_data do |uld|
-      ustatus = LibICU::UErrorCode::UZeroError
-      buff_size = 16 # Separator is usually short
-      loop do
-        buff = UChars.new(buff_size)
-        len = LibICU.ulocdata_get_locale_separator(uld, buff, buff.size, pointerof(ustatus))
-        if ustatus == LibICU::UErrorCode::UBufferOverflowError
-          buff_size = len + 1
-          ustatus = LibICU::UErrorCode::UZeroError
-          next
-        end
-        ICU.check_error!(ustatus)
-        return buff.to_s(len)
+      ICU.with_auto_resizing_buffer(16, UChars) do |buff, status_ptr|
+        LibICU.ulocdata_get_locale_separator(uld, buff.as(UChars), buff.size, status_ptr)
       end
     end
   end
@@ -563,6 +362,30 @@ class ICU::Locale
   # ```
   def self.default : Locale
     Locale.new(String.new(LibICU.uloc_get_default))
+  end
+
+  # Creates a Locale from a BCP 47 language tag.
+  #
+  # ```
+  # ICU::Locale.from_language_tag("en-US") # => ICU::Locale.new("en_US")
+  # ```
+  def self.from_language_tag(langtag : String) : Locale
+    # Use the class-level helper which now calls the Utils method
+    get_locale_with_retry(Capacity::FULLNAME_MAX_SIZE) do |buff, status_ptr|
+      parsed_length = 0_i32 # Needs to be Int32*
+      LibICU.uloc_for_language_tag(langtag, buff, buff.size, pointerof(parsed_length), status_ptr)
+    end
+  end
+
+  # Returns the display name for a keyword in the specified display locale.
+  #
+  # ```
+  # ICU::Locale.display_keyword("collation", "en_US") # => "Collation"
+  # ```
+  def self.display_keyword(keyword : String, display_locale : String) : String
+    ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+      LibICU.uloc_get_display_keyword(keyword, display_locale, buff.as(UChars), buff.size, status_ptr)
+    end
   end
 
   # Returns an enumerator for all available locale IDs.
@@ -578,6 +401,59 @@ class ICU::Locale
     locales = UEnum.new(uenum).to_a
     LibICU.uenum_close(uenum)
     locales.map { |r| new(r) }
+  end
+
+
+  # ---------------
+  # Private Helpers
+  # ---------------
+
+  # --- Locale Data Access (requires ULocaleData object) ---
+  # Helper to open and close ULocaleData
+  private def with_locale_data(&block : LibICU::ULocaleData -> T) : T forall T
+    ustatus = LibICU::UErrorCode::UZeroError
+    uld = LibICU.ulocdata_open(@id, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+    begin
+      yield uld
+    ensure
+      LibICU.ulocdata_close(uld)
+    end
+  end
+
+  # Helper for simple ICU calls filling a fixed-size Bytes buffer.
+  private def get_string_component(max_size : Int) : String
+    ustatus = LibICU::UErrorCode::UZeroError
+    buff = Bytes.new(max_size)
+    len = yield buff, buff.size, pointerof(ustatus)
+    ICU.check_error!(ustatus)
+    String.new(buff.to_slice[0, len])
+  end
+
+  # Helper for ICU calls creating a new locale string, with retry on overflow.
+  # Uses the shared utility function.
+  # The block passed here (&block) is the one that actually calls the ICU C function.
+  # The block now only receives the buffer and status pointer.
+  private def get_locale_with_retry(initial_size : Int, &block : (Bytes, LibICU::UErrorCode* -> Int32)) : Locale
+    string_id = ICU.with_auto_resizing_buffer(initial_size, Bytes) do |buff, status_ptr|
+      # Call the original block passed to get_locale_with_retry
+      # Use .as(Bytes) because the utility block yields Bytes | UChars
+      block.call(buff.as(Bytes), status_ptr)
+    end
+    Locale.new(string_id)
+  end
+
+  # Helper for class methods creating a new locale string, with retry on overflow.
+  # Uses the shared utility function.
+  # The block passed here (&block) is the one that actually calls the ICU C function.
+  # The block now only receives the buffer and status pointer.
+  private def self.get_locale_with_retry(initial_size : Int, &block : (Bytes, LibICU::UErrorCode* -> Int32)) : Locale
+    string_id = ICU.with_auto_resizing_buffer(initial_size, Bytes) do |buff, status_ptr|
+      # Call the original block passed to self.get_locale_with_retry
+      # Use .as(Bytes) because the utility block yields Bytes | UChars
+      block.call(buff.as(Bytes), status_ptr)
+    end
+    Locale.new(string_id)
   end
 
   # Notably missing bindings:

@@ -1,5 +1,3 @@
-require "../icu" # Require the main ICU module setup
-
 # __DateTime Formatter__
 #
 # This class provides a facility for formatting and parsing dates and times
@@ -102,8 +100,8 @@ class ICU::DateTimeFormatter
   # ```
   def format(datetime : Time) : String
     udate = ICU::Date.from(datetime)
-    retry_with_buffer do |buff, status_ptr|
-      LibICU.udat_format(@udatf, udate, buff, buff.size, nil, status_ptr)
+    ICU.with_auto_resizing_buffer(64, UChars) do |buff, status_ptr|
+      LibICU.udat_format(@udatf, udate, buff.as(UChars), buff.size, nil, status_ptr)
     end
   end
 
@@ -119,8 +117,8 @@ class ICU::DateTimeFormatter
   # dtf.format(cal) # => "2023-10-27 15:30:45" (example)
   # ```
   def format(calendar : ICU::Calendar) : String
-    retry_with_buffer do |buff, status_ptr|
-      LibICU.udat_format_calendar(@udatf, calendar.to_unsafe, buff, buff.size, nil, status_ptr)
+    ICU.with_auto_resizing_buffer(64, UChars) do |buff, status_ptr|
+      LibICU.udat_format_calendar(@udatf, calendar.to_unsafe, buff.as(UChars), buff.size, nil, status_ptr)
     end
   end
 
@@ -167,8 +165,8 @@ class ICU::DateTimeFormatter
   # dtf.pattern # => "M/d/yy, h:mm a" (example)
   # ```
   def pattern(localized : Bool = false) : String
-    retry_with_buffer do |buff, status_ptr|
-      LibICU.udat_to_pattern(@udatf, (localized ? 1 : 0), buff, buff.size, status_ptr)
+    ICU.with_auto_resizing_buffer(64, UChars) do |buff, status_ptr|
+      LibICU.udat_to_pattern(@udatf, (localized ? 1 : 0), buff.as(UChars), buff.size, status_ptr)
     end
   end
 
@@ -262,35 +260,6 @@ class ICU::DateTimeFormatter
   end
 
   # Private helper for formatting methods that use a resizable buffer.
-  # Takes a block that performs the actual ICU formatting call.
-  # The block receives the buffer pointer, buffer capacity, and status pointer,
-  # and should return the required length.
-  private def retry_with_buffer(&block : UChars, LibICU::UErrorCode* -> Int32) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    # Start with a reasonable initial buffer size. 64 seems common in examples.
-    buff = UChars.new(64)
-
-    loop do
-      # Yield to the block to perform the ICU call
-      len = yield buff, pointerof(ustatus)
-
-      begin
-        ICU.check_error!(ustatus)
-        # Success: Convert the used part of the buffer to a String
-        return buff.to_s(len)
-      rescue ex
-        if ustatus == LibICU::UErrorCode::UBufferOverflowError
-          # Buffer was too small, resize and retry
-          ustatus = LibICU::UErrorCode::UZeroError # Reset error code for the next attempt
-          buff = UChars.new(len + 1)               # Allocate required size + null terminator
-        else
-          # Different error occurred
-          raise ex
-        end
-      end
-    end
-  end
-
   # Private helper for parsing methods.
   # Takes the input text and a block that performs the actual ICU parsing call.
   # The block receives text UChars, text length, parse position pointer, and status pointer.
