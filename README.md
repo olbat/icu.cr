@@ -30,24 +30,24 @@ require "icu"
 ```
 
 
-## Wrapped components (WIP)
+## Wrapped components
 - [x] [CharsetDetector](https://olbat.github.io/icu.cr/ICU/CharsetDetector.html), Charset detection _(ucsdet.h)_
 - [x] [BreakIterator](https://olbat.github.io/icu.cr/ICU/BreakIterator.html), Text Boundary Analysis (Break Iteration) _(ubrk.h)_
 - [x] [Transliterator](https://olbat.github.io/icu.cr/ICU/Transliterator.html), Text Transformation (Transliteration) _(utrans.h)_
 - [x] [Normalizer](https://olbat.github.io/icu.cr/ICU/Normalizer.html), Normalization _(unorm2.h)_
 - [x] [Collator](https://olbat.github.io/icu.cr/ICU/Collator.html), Collation _(ucol.h)_
 - [x] [StringSearch](https://olbat.github.io/icu.cr/ICU/StringSearch.html), String Searching _(usearch.h)_
+- [x] [Locale](https://olbat.github.io/icu.cr/ICU/Locale.html), Locales _(uloc.h, ulocdata.h)_
 - [x] [IDNA](https://olbat.github.io/icu.cr/ICU/IDNA.html), International Domain Names in Applications _(uidna.h)_
 - [x] [Currencies](https://olbat.github.io/icu.cr/ICU/Currencies.html), Encapsulates information about a currency _(ucurr.h)_
 - [x] [Region](https://olbat.github.io/icu.cr/ICU/Region.html), Territory containment and mapping _(uregion.h)_
-- [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
 - [x] [NumberFormatter](https://olbat.github.io/icu.cr/ICU/NumberFormatter.html), Number Formatting/Spellout _(unum.h)_
 - [x] [DateTimeFormatter](https://olbat.github.io/icu.cr/ICU/DateTimeFormatter.html) Date and Time Formatting _(udat.h, udatpg.h, udateintervalformat.h)_
-- [x] [PluralRules](https://olbat.github.io/icu.cr/ICU/PluralRules.html), Plural rules _(upluralrules.h)_
 - [x] [Calendar](https://olbat.github.io/icu.cr/ICU/Calendar.html), Calendars _(ucal.h)_
-- [x] [Bidirectional Algorithm](https://olbat.github.io/icu.cr/ICU/BiDi.html),  _(ubidi.h)_
+- [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
+- [x] [PluralRules](https://olbat.github.io/icu.cr/ICU/PluralRules.html), Plural rules _(upluralrules.h)_
+- [x] [Bidirectional Algorithm](https://olbat.github.io/icu.cr/ICU/BiDi.html), Bidirectional text handling _(ubidi.h)_
 - [ ] `uregex`, Regular Expressions _(uregex.h)_
-- [ ] `uloc`, Locales _(uloc.h, ulocdata.h)_
 - [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
 
 __Internals__

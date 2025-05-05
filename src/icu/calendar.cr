@@ -40,6 +40,8 @@ class ICU::Calendar
   # Type alias for ICU's `UCalendarType` enum. Specifies the type of calendar (e.g., Gregorian, Default).
   alias Type = LibICU::UCalendarType
 
+  DEFAULT_LOCALE = ""
+
   @ucal : LibICU::UCalendar*
 
   # Fields to check for difference, from largest to smallest, when comparing times.
@@ -62,7 +64,7 @@ class ICU::Calendar
   # - `type`: The type of calendar to open (e.g., `UCalendarType::Gregorian`).
   def initialize(
     zone_id : String? = nil,
-    locale : String = ICU::Locale::DEFAULT_LOCALE,
+    locale : String = DEFAULT_LOCALE,
     type : Type = Type::Default
   )
     status = LibICU::UErrorCode::UZeroError
@@ -78,7 +80,7 @@ class ICU::Calendar
   # - `type`: The type of calendar to open (e.g., `UCalendarType::Gregorian`).
   def initialize(
     timezone : Time::Location,
-    locale : String = ICU::Locale::DEFAULT_LOCALE,
+    locale : String = DEFAULT_LOCALE,
     type : Type = Type::Default
   )
     status = LibICU::UErrorCode::UZeroError
@@ -95,7 +97,7 @@ class ICU::Calendar
   # - `type`: The type of calendar (e.g., `UCalendarType::Gregorian`). Defaults to the locale's default (`UCalendarType::Default`).
   def initialize(
     time : Time,
-    locale : String = ICU::Locale::DEFAULT_LOCALE,
+    locale : String = DEFAULT_LOCALE,
     type : Type = Type::Default
   )
     zone_id =
@@ -104,7 +106,7 @@ class ICU::Calendar
         "UTC"
       when Time::Location
         location.name
-      end || ICU::Locale::DEFAULT_LOCALE
+      end || DEFAULT_LOCALE
 
     status = LibICU::UErrorCode::UZeroError
     zone_id = zone_id.to_uchars
