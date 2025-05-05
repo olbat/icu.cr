@@ -100,7 +100,7 @@ describe ICU::Locale do
 
   it "sets keyword value" do
     locale = ICU::Locale.new("fr_FR")
-    new_locale = locale.set_keyword_value("collation", "phonebook")
+    new_locale = locale.add_keyword_value("collation", "phonebook")
     # Check the resulting locale's components and keywords instead of the full ID string
     new_locale.language.should eq("fr")
     new_locale.country.should eq("FR")
@@ -108,7 +108,7 @@ describe ICU::Locale do
     new_locale.keywords.to_a.should eq(["collation"]) # Only one keyword set
 
     # Setting another keyword
-    another_locale = new_locale.set_keyword_value("calendar", "gregorian")
+    another_locale = new_locale.add_keyword_value("calendar", "gregorian")
     another_locale.language.should eq("fr")
     another_locale.country.should eq("FR")
     another_locale.keyword_value("collation").should eq("phonebook")
@@ -116,7 +116,7 @@ describe ICU::Locale do
     another_locale.keywords.to_a.sort.should eq(["calendar", "collation"])
 
     # Overwriting a keyword
-    overwrite_locale = another_locale.set_keyword_value("collation", "standard")
+    overwrite_locale = another_locale.add_keyword_value("collation", "standard")
     overwrite_locale.language.should eq("fr")
     overwrite_locale.country.should eq("FR")
     overwrite_locale.keyword_value("collation").should eq("standard")
