@@ -35,7 +35,7 @@ class ICU::StringSearch
   # Creates a search iterator specifying a locale language rule set
   #
   # See also: `#break_iterator=`
-  def initialize(pattern : String, @text : String, locale : String = Locale::DEFAULT_LOCALE, break_iterator : BreakIterator? = nil)
+  def initialize(pattern : String, @text : String, locale : String = "", break_iterator : BreakIterator? = nil)
     pattern = pattern.to_uchars
     text = text.to_uchars
 

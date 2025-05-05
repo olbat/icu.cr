@@ -193,7 +193,7 @@ class ICU::Collator
   def self.functional_equivalent(locale : String, keyword : String = KEYWORDS.keys.first)
     ustatus = LibICU::UErrorCode::UZeroError
     available = Bytes.new(1)
-    res = Bytes.new(ICU::Locale::FULLNAME_MAX_SIZE)
+    res = Bytes.new(ICU::Locale::Capacity::FULLNAME_MAX_SIZE)
     size = LibICU.ucol_get_functional_equivalent(res, res.size, keyword, locale, available, pointerof(ustatus))
     ICU.check_error!(ustatus)
 
