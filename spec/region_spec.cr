@@ -37,6 +37,7 @@ require "./spec_helper"
     describe "contains?" do
       it "returns true when a region contains another" do
         ICU::Region.new("001").contains?(ICU::Region.new("AS")).should be_true
+        ICU::Region.new("EU").contains?(ICU::Region.new("FR")).should be_true
       end
 
       it "returns false when a region doesn't contain another" do

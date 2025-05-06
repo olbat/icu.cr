@@ -1,6 +1,6 @@
 # __String Searching__
 #
-# Provides language-sensitive text searching.
+# Language-sensitive text searching
 #
 # __Usage__
 # ```

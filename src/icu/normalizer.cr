@@ -1,6 +1,6 @@
 # __Normalization__
 #
-#  Unicode normalization functionality for standard Unicode normalization.
+# Unicode normalization functionality for standard Unicode normalization.
 #
 # __Usage__
 # ```

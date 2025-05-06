@@ -1,7 +1,17 @@
 {% if compare_versions(LibICU::VERSION, "52.0.0") >= 0 %}
-  # Territory containment and mapping
+  # __Region__
   #
-  # See also:
+  # Territory containment and mapping.
+  #
+  # __Usage__
+  # ```
+  # ICU::Region.new(250) # => "FR"
+  # ICU::Region.new("DE") # => 276
+  # ICU::Region.new("EU").contains?(ICU::Region.new("IT")) # => true
+  # ICU::Region.new(21).contained_regions.map(&.code) # => ["BM", "CA", "GL", "PM", "US"]
+  # ```
+  #
+  # __See also__
   # - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/uregion_8h.html)
   # - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/region_spec.cr)
   class ICU::Region

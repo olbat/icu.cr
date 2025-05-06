@@ -1,6 +1,6 @@
 # __Currencies__
 #
-# Encapsulates information about a currency
+# Encapsulates information about a currency.
 #
 # __Usage__
 # ```

@@ -5,7 +5,7 @@
 # locale identifiers, and accessing locale-specific data like measurement
 # systems and paper sizes.
 #
-# See also:
+# __See also__
 # - [ICU User Guide](https://unicode-org.github.io/icu/userguide/locale/)
 # - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/uloc_8h.html)
 # - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/locale_spec.cr)

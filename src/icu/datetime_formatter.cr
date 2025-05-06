@@ -19,8 +19,8 @@
 # ```
 #
 # __See also__
-# - [ICU User Guide: Formatting Dates and Times](https://unicode-org.github.io/icu/userguide/format_parse/datetime/)
-# - [ICU C API: udat.h](https://unicode-org.github.io/icu-docs/apidoc/dev/icu4c/udat_8h.html)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/format_parse/datetime/)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/dev/icu4c/udat_8h.html)
 # - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/datetime_formatter_spec.cr)
 class ICU::DateTimeFormatter
   alias FormatStyle = LibICU::UDateFormatStyle

@@ -1,5 +1,6 @@
 # __Universal Time Scale__
-# Convert dates between binary datetime conventions
+#
+# Convert dates between binary datetime conventions.
 #
 # __Usage__
 # ```
