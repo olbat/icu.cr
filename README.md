@@ -2,7 +2,7 @@
 A binding & wrapper to the [ICU](https://unicode-org.github.io/icu/userguide/icu/) library for the [Crystal language](https://crystal-lang.org/).
 
 ## About
-This library provides high-level [Crystal APIs](https://olbat.github.io/icu.cr/index.html) to access the core features of the ICU library's lower-level [C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/).
+This library provides high-level [Crystal APIs](https://olbat.github.io/icu.cr/index.html#wrapped-components) to access the core features of the ICU library's lower-level [C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/).
 
 ## Installation
 __Debian/Ubuntu__
