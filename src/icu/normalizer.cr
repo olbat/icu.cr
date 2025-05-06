@@ -6,7 +6,7 @@
 # ```
 # str = "À"
 # str.bytes # => [65, 204, 128]
-# norm = ICU::NFCNormalizer.new
+# norm = ICU::Normalizer::NFC.new
 # norm.normalized?(str)       # => false
 # norm.normalized_quick?(str) # => Maybe
 # norm.normalize(str).bytes   # => [195, 128]
@@ -54,7 +54,7 @@ class ICU::Normalizer
   # ```
   # str = "À"
   # str.bytes                                   # => [65, 204, 128]
-  # ICU::NFCNormalizer.new.normalize(str).bytes # => [195, 128]
+  # ICU::Normalizer::NFC.new.normalize(str).bytes # => [195, 128]
   # ```
   def normalize(text : String) : String
     # allocate twice the size of the source string to be sure
@@ -72,7 +72,7 @@ class ICU::Normalizer
   # Tests if the string is normalized
   #
   # ```
-  # ICU::NFCNormalizer.new.normalized?("À") # => false
+  # ICU::Normalizer::NFC.new.normalized?("À") # => false
   # ```
   #
   # (see also: `#normalized_quick?`)
@@ -86,7 +86,7 @@ class ICU::Normalizer
   # Tests if the string is normalized (faster but less accurate than `#normalized?`
   #
   # ```
-  # ICU::NFCNormalizer.new.normalized_quick?("À") # => Maybe
+  # ICU::Normalizer::NFC.new.normalized_quick?("À") # => Maybe
   # ```
   def normalized_quick?(text : String) : CheckResult
     ustatus = LibICU::UErrorCode::UZeroError
@@ -98,7 +98,7 @@ class ICU::Normalizer
   # Tests if the character is normalization-inert
   #
   # ```
-  # norm = ICU::NFCNormalizer.new
+  # norm = ICU::Normalizer::NFC.new
   # norm.inert?("À") # => false
   # norm.inert?("A") # => true
   # ```
@@ -109,7 +109,7 @@ class ICU::Normalizer
   # Gets the decomposition mapping of a character
   #
   # ```
-  # ICU::NFCNormalizer.new.decomposition("À") # => [65, 204, 128]
+  # ICU::Normalizer::NFC.new.decomposition("À") # => [65, 204, 128]
   # ```
   def decomposition(chr : Char) : String
     dec = ICU::UChars.new(8)
@@ -123,35 +123,35 @@ class ICU::Normalizer
 end
 
 # NFC Normalizer (see `ICU::Normalizer`)
-class ICU::NFCNormalizer < ICU::Normalizer
+class ICU::Normalizer::NFC < ICU::Normalizer
   def initialize
     super(:NFC)
   end
 end
 
 # NFD Normalizer (see `ICU::Normalizer`)
-class ICU::NFDNormalizer < ICU::Normalizer
+class ICU::Normalizer::NFD < ICU::Normalizer
   def initialize
     super(:NFD)
   end
 end
 
 # NFKC Normalizer (see `ICU::Normalizer`)
-class ICU::NFKCNormalizer < ICU::Normalizer
+class ICU::Normalizer::NFKC < ICU::Normalizer
   def initialize
     super(:NFKC)
   end
 end
 
 # NFKD Normalizer (see `ICU::Normalizer`)
-class ICU::NFKDNormalizer < ICU::Normalizer
+class ICU::Normalizer::NFKD < ICU::Normalizer
   def initialize
     super(:NFKD)
   end
 end
 
 # NFKCC Normalizer (see `ICU::Normalizer`)
-class ICU::NFKCCFNormalizer < ICU::Normalizer
+class ICU::Normalizer::NFKCCF < ICU::Normalizer
   def initialize
     super(:NFKCCF)
   end
