@@ -1,5 +1,5 @@
 # Crystal ICU
-Crystal binding/wrapper to the [ICU](http://site.icu-project.org/) library
+Crystal binding/wrapper to the [ICU](https://unicode-org.github.io/icu/userguide/icu/) library
 
 
 ## Installation
@@ -70,7 +70,7 @@ It has been [generated](lib.yml) using ICU version `74.2` so every additions in 
 
 The Crystal wrapper's (the `ICU` class) class and methods are enabled dynamically at compile-time depending on the version of the ICU library that's installed.
 
-Please make sure that the class/feature you want to use is supported by your version ICU by checking the [API documentation](http://icu-project.org/apiref/icu4c/).
+Please make sure that the class/feature you want to use is supported by your version ICU by checking the [API documentation](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/).
 
 ### Regenerate the binding
 To be sure that the `LibICU` binding fits with the version of the lib that's installed, it's possible to regenerate the binding by:
