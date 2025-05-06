@@ -12,9 +12,9 @@
 # ```
 #
 # __See also__
-# - [reference implementation](http://icu-project.org/apiref/icu4c/ucsdet_8h.html)
-# - [user guide](http://userguide.icu-project.org/conversion/detection)
-# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/charset_detector_spec.cr)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/conversion/detection.html)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/ucsdet_8h.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/charset_detector_spec.cr)
 class ICU::CharsetDetector
   class CharsetMatch
     getter name : String

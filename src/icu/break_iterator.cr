@@ -14,9 +14,9 @@
 # ```
 #
 # __See also__
-# - [reference implementation](http://icu-project.org/apiref/icu4c/ubrk_8h.html)
-# - [user guide](http://userguide.icu-project.org/boundaryanalysis)
-# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/break_iterator_spec.cr)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/boundaryanalysis/)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/ubrk_8h.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/break_iterator_spec.cr)
 class ICU::BreakIterator
   include Enumerable(String)
 

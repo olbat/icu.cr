@@ -2,8 +2,8 @@
   # Territory containment and mapping
   #
   # See also:
-  # - [reference implementation](http://icu-project.org/apiref/icu4c/uregion_8h.html)
-  # - [design doc](http://site.icu-project.org/design/t/territory-region-apis)
+  # - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/uregion_8h.html)
+  # - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/region_spec.cr)
   class ICU::Region
     @uregion : LibICU::URegion
     @code : String?

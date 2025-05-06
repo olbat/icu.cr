@@ -13,8 +13,8 @@
 # ```
 #
 # __See also__
-# - [reference implementation](http://icu-project.org/apiref/icu4c/unorm2_8h.html)
-# - [user guide](http://userguide.icu-project.org/transforms/normalization)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/transforms/normalization/n)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/unorm2_8h.html)
 # - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/normalizer_spec.cr)
 class ICU::Normalizer
   alias Mode = LibICU::UNormalization2Mode

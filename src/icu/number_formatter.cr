@@ -10,8 +10,8 @@
 # ```
 #
 # __See also__
-# - [reference implementation](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/unum_8h.html)
-# - [user guide](https://unicode-org.github.io/icu/userguide/format_parse/numbers/)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/format_parse/numbers/)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/unum_8h.html)
 # - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/number_formatter_spec.cr)
 class ICU::NumberFormatter
   record MonetaryAmount, amount : Float64, currency_code : String

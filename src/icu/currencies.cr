@@ -11,8 +11,8 @@
 # NOTE: the `numeric_code` method requires ICU >= 49
 #
 # __See also__
-# - [reference implementation](http://icu-project.org/apiref/icu4c/ucurr_8h.html)
-# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/currencies_spec.cr)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/ucurr_8h.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/currencies_spec.cr)
 class ICU::Currencies
   # FIXME: should be present in LibICU (not parsed by Libgen)
   enum Type

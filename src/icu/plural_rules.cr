@@ -11,8 +11,8 @@
 # ```
 #
 # __See also__
-# - [reference implementation](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/upluralrules_8h.html)
-# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/plural_rules_spec.cr)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/upluralrules_8h.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/plural_rules_spec.cr)
 class ICU::PluralRules
   alias Type = LibICU::UPluralType
 

@@ -19,9 +19,9 @@
 # NOTE: the `compare` method requires ICU >= 50
 #
 # __See also__
-# - [reference implementation](http://icu-project.org/apiref/icu4c/ucol_8h.html)
-# - [user guide](http://userguide.icu-project.org/collation)
-# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/collator_spec.cr)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/collation/)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/ucol_8h.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/collator_spec.cr)
 class ICU::Collator
   alias Attribute = LibICU::UColAttribute
   alias AttributeValue = LibICU::UColAttributeValue
