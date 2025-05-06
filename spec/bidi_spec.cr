@@ -19,7 +19,7 @@ describe ICU::BiDi do
     bidi.para_level.should eq(0) # Default LTR
 
     rtl_text = "\u0627\u0644\u0639\u0631\u0628\u064A\u0629" # العربية
-    bidi.set_text(rtl_text, 1.to_u8) # Explicit RTL paragraph level
+    bidi.set_text(rtl_text, 1.to_u8)                        # Explicit RTL paragraph level
 
     bidi.length.should eq(rtl_text.size)
     # processed_length was removed
@@ -61,7 +61,7 @@ describe ICU::BiDi do
 
     # Neutral text
     bidi.set_text("12345", ICU::BiDi::DEFAULT_LTR)
-    bidi.para_level.should eq(0) # No strong char, defaults to LTR
+    bidi.para_level.should eq(0)                        # No strong char, defaults to LTR
     bidi.direction.should eq(ICU::BiDi::Direction::Ltr) # Neutral text with LTR level resolves to LTR direction
 
     bidi.set_text("12345", ICU::BiDi::DEFAULT_RTL)
@@ -74,7 +74,7 @@ describe ICU::BiDi do
     # Example: LTR text with an explicit RTL embedding
     # "abc <RLE>DEF<PDF> ghi"
     text = "abc \u202bDEF\u202c ghi"
-    levels = [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0].map{|i| i.to_u8 } # 0 for LTR, 1 for RTL, 0 for controls
+    levels = [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0].map { |i| i.to_u8 } # 0 for LTR, 1 for RTL, 0 for controls
     bidi = ICU::BiDi.new
     bidi.set_text(text, 0.to_u8, levels)
 
@@ -88,7 +88,7 @@ describe ICU::BiDi do
     text = "abc def"
     # Levels: 0 0 0 0 0 0 0
     # Override 'b' (index 1) to RTL (level 1)
-    levels = [0, 1 | ICU::BiDi::LEVEL_OVERRIDE, 0, 0, 0, 0, 0].map{|i| i.to_u8 }
+    levels = [0, 1 | ICU::BiDi::LEVEL_OVERRIDE, 0, 0, 0, 0, 0].map { |i| i.to_u8 }
     bidi = ICU::BiDi.new
     bidi.set_text(text, 0.to_u8, levels)
 
@@ -167,10 +167,9 @@ describe ICU::BiDi do
     reordered_removed = bidi_controls.write_reordered(ICU::BiDi::WriteOption::RemoveBidiControls)
     # Expect the visually reordered string with controls removed
     # NOTE: Observed behavior indicates controls are removed *before* visual reordering of the segment.
-    reordered_removed.should eq("abcDEFghi") # Adjusted expectation based on observed behavior
+    reordered_removed.should eq("abcDEFghi")                      # Adjusted expectation based on observed behavior
     reordered_removed.size.should eq(text_with_controls.size - 3) # 3 controls removed
   end
-
 
   it "should correctly write reversed text (String)" do
     text = "hello world"
@@ -203,18 +202,16 @@ describe ICU::BiDi do
     reversed_removed.size.should eq(text_with_controls.size - 3)
   end
 
-
   it "should get the base direction of text (static)" do
     ICU::BiDi.base_direction("hello world").should eq(ICU::BiDi::Direction::Ltr)
     ICU::BiDi.base_direction("\u0627\u0644\u0639\u0631\u0628\u064A\u0629").should eq(ICU::BiDi::Direction::Rtl)
     # base_direction depends on the *first* strong character only
     ICU::BiDi.base_direction("hello \u0627\u0644\u0639\u0631\u0628\u064A\u0629 world").should eq(ICU::BiDi::Direction::Ltr)
     ICU::BiDi.base_direction("\u0627\u0644\u0639\u0631\u0628\u064A\u0629 hello world").should eq(ICU::BiDi::Direction::Rtl)
-    ICU::BiDi.base_direction("").should eq(ICU::BiDi::Direction::Neutral) # Empty string is neutral
+    ICU::BiDi.base_direction("").should eq(ICU::BiDi::Direction::Neutral)    # Empty string is neutral
     ICU::BiDi.base_direction("123").should eq(ICU::BiDi::Direction::Neutral) # Numbers are neutral
     ICU::BiDi.base_direction("   ").should eq(ICU::BiDi::Direction::Neutral) # Whitespace is neutral
   end
-
 
   it "should get the level at a logical index" do
     # Example: "hello العربية world"
@@ -244,19 +241,19 @@ describe ICU::BiDi do
     bidi.set_text(text)
 
     # Logical to Visual
-    bidi.visual_index(0).should eq(0)  # 'h'
-    bidi.visual_index(5).should eq(5)  # ' ' before Arabic
-    bidi.visual_index(6).should eq(12) # First Arabic char (\u0621) visually appears after the last one
-    bidi.visual_index(12).should eq(6) # Last Arabic char (\u0629) visually appears after the first one
-    bidi.visual_index(13).should eq(13) # ' ' after Arabic
+    bidi.visual_index(0).should eq(0)                         # 'h'
+    bidi.visual_index(5).should eq(5)                         # ' ' before Arabic
+    bidi.visual_index(6).should eq(12)                        # First Arabic char (\u0621) visually appears after the last one
+    bidi.visual_index(12).should eq(6)                        # Last Arabic char (\u0629) visually appears after the first one
+    bidi.visual_index(13).should eq(13)                       # ' ' after Arabic
     bidi.visual_index(text.size - 1).should eq(text.size - 1) # 'd'
 
     # Visual to Logical
-    bidi.logical_index(0).should eq(0)  # First char visually ('h') is logical 0
-    bidi.logical_index(5).should eq(5)  # ' ' visually is logical 5
-    bidi.logical_index(6).should eq(12) # The char at visual index 6 is the logical char at index 12 (\u0629)
-    bidi.logical_index(12).should eq(6) # The char at visual index 12 is the logical char at index 6 (\u0621)
-    bidi.logical_index(13).should eq(13) # ' ' visually is logical 13
+    bidi.logical_index(0).should eq(0)                         # First char visually ('h') is logical 0
+    bidi.logical_index(5).should eq(5)                         # ' ' visually is logical 5
+    bidi.logical_index(6).should eq(12)                        # The char at visual index 6 is the logical char at index 12 (\u0629)
+    bidi.logical_index(12).should eq(6)                        # The char at visual index 12 is the logical char at index 6 (\u0621)
+    bidi.logical_index(13).should eq(13)                       # ' ' visually is logical 13
     bidi.logical_index(text.size - 1).should eq(text.size - 1) # Last char visually ('d') is logical 18
   end
 
@@ -280,9 +277,9 @@ describe ICU::BiDi do
 
     # Test visual to logical mapping
     # Visual order: abcFEDghi (indices 0-8)
-    bidi.logical_index(0).should eq(0)  # visual a -> logical a (0)
-    bidi.logical_index(1).should eq(1)  # visual b -> logical b (1)
-    bidi.logical_index(2).should eq(2)  # visual c -> logical c (2)
+    bidi.logical_index(0).should eq(0) # visual a -> logical a (0)
+    bidi.logical_index(1).should eq(1) # visual b -> logical b (1)
+    bidi.logical_index(2).should eq(2) # visual c -> logical c (2)
     # NOTE: Observed behavior differs from expected trace for visual indices 3, 4, 5.
     # Adjusting expectation based on failure (visual F (3) mapped to logical D (5)).
     bidi.logical_index(3).should eq(5)  # visual F -> logical D (5) - Adjusted expectation
@@ -292,7 +289,6 @@ describe ICU::BiDi do
     bidi.logical_index(7).should eq(10) # visual h -> logical h (10)
     bidi.logical_index(8).should eq(11) # visual i -> logical i (11)
   end
-
 
   it "should get paragraph count and details" do
     text = "Paragraph 1.\u2029Paragraph 2." # \u2029 is Paragraph Separator

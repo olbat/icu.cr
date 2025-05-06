@@ -18,17 +18,17 @@ class ICU::Locale
 
   # Constants
   class Keyword
-    SEPARATOR = '@'
-    ASSIGN = '='
+    SEPARATOR      = '@'
+    ASSIGN         = '='
     ITEM_SEPARATOR = ';'
   end
 
   class Capacity
-    LANG_MAX_SIZE =  12
-    COUNTRY_MAX_SIZE =   4
-    FULLNAME_MAX_SIZE = 157
-    SCRIPT_MAX_SIZE =   6
-    KEYWORDS_MAX_SIZE =  96
+    LANG_MAX_SIZE                =  12
+    COUNTRY_MAX_SIZE             =   4
+    FULLNAME_MAX_SIZE            = 157
+    SCRIPT_MAX_SIZE              =   6
+    KEYWORDS_MAX_SIZE            =  96
     KEYWORDS_AND_VALUES_MAX_SIZE = 100
   end
 
@@ -237,7 +237,7 @@ class ICU::Locale
   #
   # ```
   # ICU::Locale.new("fr_FR@collation=phonebook;calendar=gregorian").keyword_value("collation") # => "phonebook"
-  # ICU::Locale.new("en_US").keyword_value("collation") # => ""
+  # ICU::Locale.new("en_US").keyword_value("collation")                                        # => ""
   # ```
   def keyword_value(keyword_name : String) : String
     # Returns empty string if keyword not found (status U_ZERO_ERROR, len 0)
@@ -263,7 +263,7 @@ class ICU::Locale
   # Converts the locale ID to a BCP 47 language tag.
   #
   # ```
-  # ICU::Locale.new("en_US").to_language_tag # => "en-US"
+  # ICU::Locale.new("en_US").to_language_tag                     # => "en-US"
   # ICU::Locale.new("en_US_POSIX").to_language_tag(strict: true) # => "en-US-posix"
   # ```
   def to_language_tag(strict : Bool = false) : String
@@ -403,7 +403,6 @@ class ICU::Locale
     LibICU.uenum_close(uenum)
     locales.map { |r| new(r) }
   end
-
 
   # ---------------
   # Private Helpers

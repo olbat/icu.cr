@@ -53,7 +53,7 @@ class ICU::Normalizer
   #
   # ```
   # str = "À"
-  # str.bytes                                   # => [65, 204, 128]
+  # str.bytes                                     # => [65, 204, 128]
   # ICU::Normalizer::NFC.new.normalize(str).bytes # => [195, 128]
   # ```
   def normalize(text : String) : String

@@ -39,18 +39,17 @@ describe ICU::DateTimeFormatter do
   end
 
   describe "#format" do
-    time_utc =  Time.utc(2023, 10, 27, 15, 30, 45, nanosecond: 123_456_789)
+    time_utc = Time.utc(2023, 10, 27, 15, 30, 45, nanosecond: 123_456_789)
     # Use locations available on most systems
-    tokyo_loc = Time::Location.load("Asia/Tokyo") # JST is UTC+9
-    paris_loc = Time::Location.load("Europe/Paris") # CEST is UTC+2 in Oct
-    london_loc = Time::Location.load("Europe/London") # BST is UTC+1 in Oct
+    tokyo_loc = Time::Location.load("Asia/Tokyo")       # JST is UTC+9
+    paris_loc = Time::Location.load("Europe/Paris")     # CEST is UTC+2 in Oct
+    london_loc = Time::Location.load("Europe/London")   # BST is UTC+1 in Oct
     la_loc = Time::Location.load("America/Los_Angeles") # PDT is UTC-7 in Oct
 
     time_tokyo = Time.local(2023, 10, 28, 0, 30, 45, location: tokyo_loc)
     time_paris = Time.local(2023, 10, 27, 17, 30, 45, location: paris_loc)
     time_london = Time.local(2023, 10, 27, 16, 30, 45, location: london_loc)
     time_la = Time.local(2023, 10, 27, 8, 30, 45, location: la_loc)
-
 
     it "formats Time with default locale (en_US)" do
       # Output depends heavily on ICU version/data, keep test general
@@ -69,9 +68,9 @@ describe ICU::DateTimeFormatter do
       ts = ICU::DateTimeFormatter::FormatStyle::Full
       dtf = ICU::DateTimeFormatter.new("fr_FR", date_style: ds, time_style: ts, timezone: "Europe/Paris")
       formatted = dtf.format(time_paris)
-      formatted.should contain("vendredi")       # Friday
+      formatted.should contain("vendredi")        # Friday
       formatted.should contain("27 octobre 2023") # Oct 27, 2023
-      formatted.should contain("17:30:45")       # 5:30:45 PM
+      formatted.should contain("17:30:45")        # 5:30:45 PM
       # Timezone name can vary greatly
       formatted.should match(/heure.*d’Europe centrale|Central European Summer Time/i)
     end
@@ -106,7 +105,7 @@ describe ICU::DateTimeFormatter do
       formatted = dtf.format(cal)
       # Check for Japanese era and year (Reiwa 5)
       formatted.should match(/(令和|Reiwa)5年10月28日/) # Reiwa 5, Oct 28 (adjust if era name differs)
-      formatted.should contain("0時30分45秒")   # 0h 30m 45s
+      formatted.should contain("0時30分45秒")         # 0h 30m 45s
     end
 
     it "handles buffer overflow by resizing" do
@@ -120,13 +119,13 @@ describe ICU::DateTimeFormatter do
       # Allow for different whitespace around AM/PM marker
       formatted.should match(/8:30:45\s*AM/)
       formatted.should contain("Pacific Daylight Time") # Example
-      formatted.size.should be >= 60 # Ensure it's reasonably long
+      formatted.size.should be >= 60                    # Ensure it's reasonably long
     end
   end
 
   describe "#parse" do
     berlin_loc = Time::Location.load("Europe/Berlin") # CEST is UTC+2 in Oct
-    ny_loc = Time::Location.load("America/New_York") # EDT is UTC-4 in Oct
+    ny_loc = Time::Location.load("America/New_York")  # EDT is UTC-4 in Oct
 
     it "parses string to Time with default locale (en_US)" do
       ds = ICU::DateTimeFormatter::FormatStyle::Medium
@@ -190,15 +189,15 @@ describe ICU::DateTimeFormatter do
     end
 
     it "parses partially with remaining whitespace when lenient whitespace is on (default)" do
-       # Default lenient=true, default ParseAllowWhitespace=true
-       dtf = ICU::DateTimeFormatter.new("en_US", pattern: "yyyy-MM-dd", timezone: "UTC")
-       parsed = dtf.parse("2023-10-27  ")
-       # Compare in UTC to avoid local timezone issues
-       parsed_utc = parsed.to_utc
-       parsed_utc.year.should eq 2023
-       parsed_utc.month.should eq 10
-       parsed_utc.day.should eq 27
-     end
+      # Default lenient=true, default ParseAllowWhitespace=true
+      dtf = ICU::DateTimeFormatter.new("en_US", pattern: "yyyy-MM-dd", timezone: "UTC")
+      parsed = dtf.parse("2023-10-27  ")
+      # Compare in UTC to avoid local timezone issues
+      parsed_utc = parsed.to_utc
+      parsed_utc.year.should eq 2023
+      parsed_utc.month.should eq 10
+      parsed_utc.day.should eq 27
+    end
 
     it "parses with leniency (example: wrong month name format)" do
       dtf = ICU::DateTimeFormatter.new("en_US", pattern: "MMM d, yyyy", timezone: "UTC")
@@ -217,28 +216,28 @@ describe ICU::DateTimeFormatter do
       end
     end
 
-     it "parses with leniency (example: extra digits)" do
-       dtf = ICU::DateTimeFormatter.new("en_US", pattern: "MM/dd/yy", timezone: "UTC")
-       dtf.lenient = true
-       # Parse "04/05/23" even with extra digits (should parse as 2023)
-       begin
-         parsed = dtf.parse("04/05/23")
-         parsed_utc = parsed.to_utc
-         parsed_utc.year.should eq 2023
-         parsed_utc.month.should eq 4
-         parsed_utc.day.should eq 5
+    it "parses with leniency (example: extra digits)" do
+      dtf = ICU::DateTimeFormatter.new("en_US", pattern: "MM/dd/yy", timezone: "UTC")
+      dtf.lenient = true
+      # Parse "04/05/23" even with extra digits (should parse as 2023)
+      begin
+        parsed = dtf.parse("04/05/23")
+        parsed_utc = parsed.to_utc
+        parsed_utc.year.should eq 2023
+        parsed_utc.month.should eq 4
+        parsed_utc.day.should eq 5
 
-         # Try parsing something clearly ambiguous if lenient
-         parsed_ambiguous = dtf.parse("10/270/23") # Day > 31
-         # Behavior here is highly dependent on ICU's leniency rules
-         # We just check it doesn't hard fail immediately and parses *something*
-         parsed_ambiguous.should be_a(Time)
-         # ICU might roll over the date, e.g., Oct 270 -> July next year
-         # parsed_ambiguous.month.should_not eq 10 # Example check
-       rescue ex : ICU::Error
-         puts "Skipping lenient extra digits test: #{ex.message}"
-       end
-     end
+        # Try parsing something clearly ambiguous if lenient
+        parsed_ambiguous = dtf.parse("10/270/23") # Day > 31
+        # Behavior here is highly dependent on ICU's leniency rules
+        # We just check it doesn't hard fail immediately and parses *something*
+        parsed_ambiguous.should be_a(Time)
+        # ICU might roll over the date, e.g., Oct 270 -> July next year
+        # parsed_ambiguous.month.should_not eq 10 # Example check
+      rescue ex : ICU::Error
+        puts "Skipping lenient extra digits test: #{ex.message}"
+      end
+    end
   end
 
   describe "#pattern" do

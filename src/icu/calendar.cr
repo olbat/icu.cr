@@ -68,7 +68,7 @@ class ICU::Calendar
     type : Type = Type::Default
   )
     status = LibICU::UErrorCode::UZeroError
-    zone_id = zone_id.try{|zid| zid.to_uchars }
+    zone_id = zone_id.try { |zid| zid.to_uchars }
     @ucal = LibICU.ucal_open(zone_id, (zone_id.nil? ? 0 : zone_id.size), locale, type, pointerof(status))
     ICU.check_error!(status)
   end
@@ -358,7 +358,7 @@ class ICU::Calendar
     return @ucal
   end
 
-    # Helper method to get the first non-zero field difference sign between
+  # Helper method to get the first non-zero field difference sign between
   # the calendar's current time and the target time, using fields from largest
   # down to seconds.
   # Returns:
@@ -391,7 +391,7 @@ class ICU::Calendar
         # If diff is 0, the cloned_ucal has been advanced by 0 units of this field.
         # Continue to the next smaller field to find the first non-zero difference.
       end
-    ensure  # Ensure the cloned calendar is closed
+    ensure # Ensure the cloned calendar is closed
       cloned_ucal.try { |cal| LibICU.ucal_close(cal) }
     end
 

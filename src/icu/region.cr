@@ -5,10 +5,10 @@
   #
   # __Usage__
   # ```
-  # ICU::Region.new(250) # => "FR"
-  # ICU::Region.new("DE") # => 276
+  # ICU::Region.new(250)                                   # => "FR"
+  # ICU::Region.new("DE")                                  # => 276
   # ICU::Region.new("EU").contains?(ICU::Region.new("IT")) # => true
-  # ICU::Region.new(21).contained_regions.map(&.code) # => ["BM", "CA", "GL", "PM", "US"]
+  # ICU::Region.new(21).contained_regions.map(&.code)      # => ["BM", "CA", "GL", "PM", "US"]
   # ```
   #
   # __See also__

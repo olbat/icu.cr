@@ -5,7 +5,7 @@
 # __Usage__
 # ```
 # nf = ICU::NumberFormatter.new("en_US")
-# nf.format(1234.56) # => "1,234.56"
+# nf.format(1234.56)   # => "1,234.56"
 # nf.parse("1,234.56") # => 1234.56
 # ```
 #

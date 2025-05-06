@@ -63,11 +63,11 @@ describe ICU::Locale do
     # Results can vary slightly based on ICU data version
     locale_en = ICU::Locale.new("en").add_likely_subtags
     locale_en.id.should start_with("en_Latn_") # Script is usually Latn for English
-    locale_en.id.should end_with("_US") # Country is usually US for English
+    locale_en.id.should end_with("_US")        # Country is usually US for English
 
     locale_zh = ICU::Locale.new("zh").add_likely_subtags
     locale_zh.id.should start_with("zh_Hans_") # Script is usually Hans for Chinese
-    locale_zh.id.should end_with("_CN") # Country is usually CN for Chinese
+    locale_zh.id.should end_with("_CN")        # Country is usually CN for Chinese
   end
 
   it "minimizes subtags" do

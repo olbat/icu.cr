@@ -131,7 +131,7 @@ class ICU::BiDi
 
   # Releases resources associated with the BiDi object.
   def finalize
-    @ubidi.try{|ubidi| LibICU.ubidi_close(ubidi) }
+    @ubidi.try { |ubidi| LibICU.ubidi_close(ubidi) }
   end
 
   # Sets the text to be processed by the BiDi algorithm.
@@ -333,14 +333,14 @@ class ICU::BiDi
     # If RemoveBidiControls is set, the destination size might be smaller.
     # We need to call writeReverse once with a null buffer to get the required size.
     if (options.value.to_i & WriteOption::RemoveBidiControls.value) != 0
-       required_size = LibICU.ubidi_write_reverse(src, src.size, Pointer(LibICU::UChar).null, 0, options.value, pointerof(ustatus))
-       # U_BUFFER_OVERFLOW_ERROR is expected when passing null buffer, clear it.
-       if ustatus == LibICU::UErrorCode::UBufferOverflowError
-         ustatus = LibICU::UErrorCode::UZeroError
-       end
-       ICU.check_error!(ustatus) # Check for other potential errors
-       dest_size = required_size
-       return "" if dest_size == 0 # Handle case where all chars are removed or src is empty
+      required_size = LibICU.ubidi_write_reverse(src, src.size, Pointer(LibICU::UChar).null, 0, options.value, pointerof(ustatus))
+      # U_BUFFER_OVERFLOW_ERROR is expected when passing null buffer, clear it.
+      if ustatus == LibICU::UErrorCode::UBufferOverflowError
+        ustatus = LibICU::UErrorCode::UZeroError
+      end
+      ICU.check_error!(ustatus) # Check for other potential errors
+      dest_size = required_size
+      return "" if dest_size == 0 # Handle case where all chars are removed or src is empty
     end
 
     dst = UChars.new(dest_size)

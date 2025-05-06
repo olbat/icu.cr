@@ -1,7 +1,6 @@
 require "./lib_icu/*"
 require "./icu/*"
 
-
 module ICU
   def self.check_error!(ustatus : LibICU::UErrorCode)
     if ustatus > LibICU::UErrorCode::UZeroError
@@ -49,7 +48,7 @@ module ICU
       len = block.call(buff, pointerof(ustatus))
 
       if ustatus == LibICU::UErrorCode::UBufferOverflowError
-        buff_size = len + 1 # Request size + 1 for potential null terminator space
+        buff_size = len + 1                      # Request size + 1 for potential null terminator space
         ustatus = LibICU::UErrorCode::UZeroError # Reset status for retry
         next
       end
@@ -59,13 +58,13 @@ module ICU
 
       # Success
       return case buff
-        when Bytes
-          String.new(buff.to_slice[0, len])
-        when UChars
-          buff.to_s(len)
-        else
-          # This should be unreachable due to the buffer_type restriction
-          raise "Internal error: Unexpected buffer type in with_auto_resizing_buffer"
+      when Bytes
+        String.new(buff.to_slice[0, len])
+      when UChars
+        buff.to_s(len)
+      else
+        # This should be unreachable due to the buffer_type restriction
+        raise "Internal error: Unexpected buffer type in with_auto_resizing_buffer"
       end
     end
   end

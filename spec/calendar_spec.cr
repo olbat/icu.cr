@@ -240,7 +240,7 @@ describe ICU::Calendar do
     calendar.in_daylight_time?.should be_false # Should not be in DST in January
   end
 
-    # Test ucal_is_weelkend
+  # Test ucal_is_weelkend
   it "should indicate if in weekend time" do
     calendar = ICU::Calendar.new("Europe/Paris", "en_US")
 
@@ -309,19 +309,19 @@ describe ICU::Calendar do
     cal_berlin = ICU::Calendar.new("Europe/Berlin", "en_US")
     cal_berlin.set(cal_utc_time) # Set Berlin calendar to UTC 10:00 (which is 12:00 Berlin time)
 
-    target_utc_09 = Time.utc(2025, 4, 29, 9, 0, 0) # UTC 09:00 (before cal_utc_time)
+    target_utc_09 = Time.utc(2025, 4, 29, 9, 0, 0)  # UTC 09:00 (before cal_utc_time)
     target_utc_11 = Time.utc(2025, 4, 29, 11, 0, 0) # UTC 11:00 (after cal_utc_time)
     target_utc_10 = Time.utc(2025, 4, 29, 10, 0, 0) # UTC 10:00 (equal to cal_utc_time)
 
     # Test Berlin calendar (set to UTC 10:00) against UTC targets
     # The comparison should be based on the absolute time instant (UTC 10:00)
     cal_berlin.before?(target_utc_09).should be_false # UTC 10:00 is not before UTC 09:00
-    cal_berlin.after?(target_utc_09).should be_true  # UTC 10:00 is after UTC 09:00
+    cal_berlin.after?(target_utc_09).should be_true   # UTC 10:00 is after UTC 09:00
 
-    cal_berlin.before?(target_utc_11).should be_true  # UTC 10:00 is before UTC 11:00
+    cal_berlin.before?(target_utc_11).should be_true # UTC 10:00 is before UTC 11:00
     cal_berlin.after?(target_utc_11).should be_false # UTC 10:00 is not after UTC 11:00
 
     cal_berlin.before?(target_utc_10).should be_false # UTC 10:00 is not before UTC 10:00
-    cal_berlin.after?(target_utc_10).should be_false # UTC 10:00 is not after UTC 10:00
+    cal_berlin.after?(target_utc_10).should be_false  # UTC 10:00 is not after UTC 10:00
   end
 end

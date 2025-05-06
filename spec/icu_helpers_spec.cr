@@ -89,11 +89,10 @@ describe ICU do
     end
 
     it "handles zero-length results correctly" do
-       result = ICU.with_auto_resizing_buffer(10, Bytes) do |buffer, status_ptr|
-         0 # Return zero length
-       end
-       result.should eq("")
+      result = ICU.with_auto_resizing_buffer(10, Bytes) do |buffer, status_ptr|
+        0 # Return zero length
+      end
+      result.should eq("")
     end
-
   end
 end

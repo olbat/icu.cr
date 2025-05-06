@@ -10,7 +10,7 @@
 # # Using styles
 # dtf = ICU::DateTimeFormatter.new("en_US", date_style: ICU::DateTimeFormatter::FormatStyle::Short, time_style: ICU::DateTimeFormatter::FormatStyle::Short)
 # time = Time.utc(2023, 10, 27, 15, 30, 45)
-# dtf.format(time) # => "10/27/23, 3:30 PM" (example, actual output depends on ICU data)
+# dtf.format(time)                             # => "10/27/23, 3:30 PM" (example, actual output depends on ICU data)
 # parsed_time = dtf.parse("10/27/23, 3:30 PM") # => Time object
 #
 # # Using a pattern
@@ -147,7 +147,7 @@ class ICU::DateTimeFormatter
   # cal = ICU::Calendar.new("en_US")
   # dtf = ICU::DateTimeFormatter.new("en_US", pattern: "yyyy-MM-dd")
   # dtf.parse("2024-01-15", cal)
-  # puts cal.get(ICU::Calendar::DateField::Year) # => 2024
+  # puts cal.get(ICU::Calendar::DateField::Year)  # => 2024
   # puts cal.get(ICU::Calendar::DateField::Month) # => 0 (January)
   # ```
   def parse(text : String, calendar : ICU::Calendar) : Nil
@@ -174,7 +174,7 @@ class ICU::DateTimeFormatter
   #
   # ```
   # dtf = ICU::DateTimeFormatter.new("en_US", date_style: ICU::DateTimeFormatter::FormatStyle::Short, time_style: ICU::DateTimeFormatter::FormatStyle::Short)
-  # dtf.pattern= "EEEE, MMMM d, yyyy 'at' h:mm:ss a zzzz"
+  # dtf.pattern = "EEEE, MMMM d, yyyy 'at' h:mm:ss a zzzz"
   # puts dtf.pattern # => "EEEE, MMMM d, yyyy 'at' h:mm:ss a zzzz"
   # ```
   def pattern=(pattern : String) : Nil
@@ -238,7 +238,7 @@ class ICU::DateTimeFormatter
   # ```
   def calendar=(calendar : ICU::Calendar) : Nil
     @ucal = calendar.to_unsafe
-    @ucal.try{|ucal| LibICU.udat_set_calendar(@udatf, ucal) }
+    @ucal.try { |ucal| LibICU.udat_set_calendar(@udatf, ucal) }
   end
 
   # Helper to check if parsing consumed the entire string, considering leniency settings.
