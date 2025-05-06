@@ -8,9 +8,9 @@
 # ```
 #
 # __See also__
-# - [reference implementation](http://icu-project.org/apiref/icu4c/utmscale_8h.html)
-# - [user guide](http://userguide.icu-project.org/datetime/universaltimescale)
-# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/universal_time_scale_spec.cr)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/datetime/universaltimescale.html)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/utmscale_8h.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/universal_time_scale_spec.cr)
 class ICU::UniversalTimeScale
   alias UniversalTime = Int64
   alias DateTimeScale = LibICU::UDateTimeScale

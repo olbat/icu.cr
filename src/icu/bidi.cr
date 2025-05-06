@@ -38,9 +38,9 @@
 # ```
 #
 # __See also__
-# - [ICU User Guide: BiDi Algorithm](https://unicode-org.github.io/icu/userguide/transforms/bidi.html)
-# - [ICU C API Reference: ubidi.h](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/ubidi_8h.html)
-# - [Unit Tests](https://github.com/olbat/icu.cr/blob/master/spec/bidi_spec.cr)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/ubidi_8h.html)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/transforms/bidi.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/bidi_spec.cr)
 class ICU::BiDi
   # Represents the directionality of text (LTR, RTL, Mixed, Neutral).
   # Corresponds to ICU's `UBiDiDirection`.

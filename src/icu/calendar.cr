@@ -30,9 +30,9 @@
 # ```
 #
 # __See also__
-# - [reference implementation](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/ucal_8h.html)
-# - [user guide](https://unicode-org.github.io/icu/userguide/datetime/calendar/)
-# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/calendar_spec.cr)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/datetime/calendar/)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/ucal_8h.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/calendar_spec.cr)
 class ICU::Calendar
   # Type alias for ICU's `UCalendarDateFields` enum. Represents calendar fields like year, month, day, etc.
   alias DateField = LibICU::UCalendarDateFields

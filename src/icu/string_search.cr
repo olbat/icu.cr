@@ -11,9 +11,9 @@
 # ```
 #
 # __See also__
-# - [reference implementation](http://icu-project.org/apiref/icu4c/usearch_8h.html)
-# - [user guide](http://userguide.icu-project.org/collation/icu-string-search-service)
-# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/string_search_spec.cr)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/collation/string-search.html)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/usearch_8h.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/string_search_spec.cr)
 class ICU::StringSearch
   alias Position = Range(Int32, Int32)
   alias Attribute = LibICU::USearchAttribute

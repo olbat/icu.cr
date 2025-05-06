@@ -10,9 +10,9 @@
 # ```
 #
 # __See also__
-# - [reference implementation](http://icu-project.org/apiref/icu4c/uidna_8h.html)
-# - [user guide](http://userguide.icu-project.org/strings/stringprep#TOC-IDNA-API-in-ICU)
-# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/idna_spec.cr)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/strings/stringprep.html#internationalizing-domain-names-in-applications-idna)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/uidna_8h.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/idna_spec.cr)
 class ICU::IDNA
   # FIXME: should be present in LibICU (not parsed by Libgen)
   @[Flags]

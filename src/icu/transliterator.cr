@@ -11,9 +11,9 @@
 # ```
 #
 # __See also__
-# - [reference implementation](http://icu-project.org/apiref/icu4c/utrans_8h.html)
-# - [user guide](http://userguide.icu-project.org/transforms/general#TOC-ICU-Transliterators)
-# - [unit tests](https://github.com/olbat/icu.cr/blob/master/spec/transliterator_spec.cr)
+# - [ICU User Guide](https://unicode-org.github.io/icu/userguide/transforms/general/#transliterator-identifiers)
+# - [Reference C API](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/utrans_8h.html)
+# - [Unit tests](https://github.com/olbat/icu.cr/blob/master/spec/transliterator_spec.cr)
 class ICU::Transliterator
   alias ID = NamedTuple(from: String, to: String?, variant: String?)
   # The list of available transliterators
