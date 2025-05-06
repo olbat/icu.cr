@@ -520,8 +520,14 @@
     Overview
   </h2>
 
-  <p>Territory containment and mapping</p>
-<p>See also:</p>
+  <p><strong>Region</strong></p>
+<p>Territory containment and mapping.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">Region</span>.new(<span class="n">250</span>)                                   <span class="c"># =&gt; &quot;FR&quot;</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">Region</span>.new(<span class="s">&quot;DE&quot;</span>)                                  <span class="c"># =&gt; 276</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">Region</span>.new(<span class="s">&quot;EU&quot;</span>).contains?(<span class="t">ICU</span><span class="t">::</span><span class="t">Region</span>.new(<span class="s">&quot;IT&quot;</span>)) <span class="c"># =&gt; true</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">Region</span>.new(<span class="n">21</span>).contained_regions.map(<span class="o">&amp;</span>.code)      <span class="c"># =&gt; [&quot;BM&quot;, &quot;CA&quot;, &quot;GL&quot;, &quot;PM&quot;, &quot;US&quot;]</span></code></pre>
+<p><strong>See also</strong></p>
 <ul>
 <li><a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/uregion_8h.html">Reference C API</a></li>
 <li><a href="https://github.com/olbat/icu.cr/blob/master/spec/region_spec.cr">Unit tests</a></li>
@@ -550,7 +556,7 @@
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">
+      <a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">
         icu/region.cr
       </a>
     
@@ -694,7 +700,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -710,7 +716,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -726,7 +732,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -758,7 +764,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -774,7 +780,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -790,7 +796,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -806,7 +812,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -822,7 +828,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -838,7 +844,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -854,7 +860,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/region.cr#L1" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/region.cr#L1" target="_blank">View source</a>]
         
       </div>
     </div>

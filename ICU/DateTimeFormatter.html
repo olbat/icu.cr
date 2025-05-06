@@ -528,7 +528,7 @@ according to locale-specific conventions or custom patterns.</p>
 <pre><code class="language-crystal"><span class="c"># Using styles</span>
 dtf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">DateTimeFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>, date_style: <span class="t">ICU</span><span class="t">::</span><span class="t">DateTimeFormatter</span><span class="t">::</span><span class="t">FormatStyle</span><span class="t">::</span><span class="t">Short</span>, time_style: <span class="t">ICU</span><span class="t">::</span><span class="t">DateTimeFormatter</span><span class="t">::</span><span class="t">FormatStyle</span><span class="t">::</span><span class="t">Short</span>)
 time <span class="o">=</span> <span class="t">Time</span>.utc(<span class="n">2023</span>, <span class="n">10</span>, <span class="n">27</span>, <span class="n">15</span>, <span class="n">30</span>, <span class="n">45</span>)
-dtf.format(time) <span class="c"># =&gt; &quot;10/27/23, 3:30 PM&quot; (example, actual output depends on ICU data)</span>
+dtf.format(time)                             <span class="c"># =&gt; &quot;10/27/23, 3:30 PM&quot; (example, actual output depends on ICU data)</span>
 parsed_time <span class="o">=</span> dtf.parse(<span class="s">&quot;10/27/23, 3:30 PM&quot;</span>) <span class="c"># =&gt; Time object</span>
 
 <span class="c"># Using a pattern</span>
@@ -536,8 +536,8 @@ dtf_pattern <span class="o">=</span> <span class="t">ICU</span><span class="t">:
 dtf_pattern.format(time) <span class="c"># =&gt; &quot;2023.10.27 at 15:30:45 UTC&quot; (example)</span></code></pre>
 <p><strong>See also</strong></p>
 <ul>
-<li><a href="https://unicode-org.github.io/icu/userguide/format_parse/datetime/">ICU User Guide: Formatting Dates and Times</a></li>
-<li><a href="https://unicode-org.github.io/icu-docs/apidoc/dev/icu4c/udat_8h.html">ICU C API: udat.h</a></li>
+<li><a href="https://unicode-org.github.io/icu/userguide/format_parse/datetime/">ICU User Guide</a></li>
+<li><a href="https://unicode-org.github.io/icu-docs/apidoc/dev/icu4c/udat_8h.html">Reference C API</a></li>
 <li><a href="https://github.com/olbat/icu.cr/blob/master/spec/datetime_formatter_spec.cr">Unit tests</a></li>
 </ul>
 
@@ -564,7 +564,7 @@ dtf_pattern.format(time) <span class="c"># =&gt; &quot;2023.10.27 at 15:30:45 UT
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L25" target="_blank">
+      <a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L25" target="_blank">
         icu/datetime_formatter.cr
       </a>
     
@@ -755,7 +755,7 @@ dtf_date_only <span class="o">=</span> <span class="t">ICU</span><span class="t"
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -783,7 +783,7 @@ dtf_tz <span class="o">=</span> <span class="t">ICU</span><span class="t">::</sp
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L70" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L70" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -823,7 +823,7 @@ dtf.calendar <span class="o">=</span> gregorian_cal</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L239" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L239" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -839,7 +839,7 @@ dtf.calendar <span class="o">=</span> gregorian_cal</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L90" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L90" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -863,7 +863,7 @@ dtf.format(time) <span class="c"># =&gt; &quot;Oct 27, 2023, 3:30 PM&quot; (exam
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L101" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L101" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -890,7 +890,7 @@ dtf.format(cal) <span class="c"># =&gt; &quot;2023-10-27 15:30:45&quot; (example
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L119" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L119" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -916,7 +916,7 @@ dtf.lenient <span class="o">=</span> <span class="n">false</span>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L228" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L228" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -943,7 +943,7 @@ dtf.lenient? <span class="c"># =&gt; false</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L215" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L215" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -964,14 +964,14 @@ Raises <code><a href="../ICU/Error.html">ICU::Error</a></code> if parsing fails 
 <pre><code class="language-crystal">cal <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Calendar</span>.new(<span class="s">&quot;en_US&quot;</span>)
 dtf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">DateTimeFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>, pattern: <span class="s">&quot;yyyy-MM-dd&quot;</span>)
 dtf.parse(<span class="s">&quot;2024-01-15&quot;</span>, cal)
-puts cal.get(<span class="t">ICU</span><span class="t">::</span><span class="t">Calendar</span><span class="t">::</span><span class="t">DateField</span><span class="t">::</span><span class="t">Year</span>) <span class="c"># =&gt; 2024</span>
+puts cal.get(<span class="t">ICU</span><span class="t">::</span><span class="t">Calendar</span><span class="t">::</span><span class="t">DateField</span><span class="t">::</span><span class="t">Year</span>)  <span class="c"># =&gt; 2024</span>
 puts cal.get(<span class="t">ICU</span><span class="t">::</span><span class="t">Calendar</span><span class="t">::</span><span class="t">DateField</span><span class="t">::</span><span class="t">Month</span>) <span class="c"># =&gt; 0 (January)</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L153" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L153" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -996,7 +996,7 @@ puts parsed_time.year <span class="c"># =&gt; 2023</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L134" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L134" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1020,7 +1020,7 @@ dtf.pattern <span class="c"># =&gt; &quot;M/d/yy, h:mm a&quot; (example)</span><
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L167" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L167" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1037,14 +1037,14 @@ dtf.pattern <span class="c"># =&gt; &quot;M/d/yy, h:mm a&quot; (example)</span><
           
           <p>Configures a new pattern for the formatter (not localized)</p>
 <pre><code class="language-crystal">dtf <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">DateTimeFormatter</span>.new(<span class="s">&quot;en_US&quot;</span>, date_style: <span class="t">ICU</span><span class="t">::</span><span class="t">DateTimeFormatter</span><span class="t">::</span><span class="t">FormatStyle</span><span class="t">::</span><span class="t">Short</span>, time_style: <span class="t">ICU</span><span class="t">::</span><span class="t">DateTimeFormatter</span><span class="t">::</span><span class="t">FormatStyle</span><span class="t">::</span><span class="t">Short</span>)
-dtf.pattern<span class="o">=</span> <span class="s">&quot;EEEE, MMMM d, yyyy &#39;at&#39; h:mm:ss a zzzz&quot;</span>
+dtf.pattern <span class="o">=</span> <span class="s">&quot;EEEE, MMMM d, yyyy &#39;at&#39; h:mm:ss a zzzz&quot;</span>
 puts dtf.pattern <span class="c"># =&gt; &quot;EEEE, MMMM d, yyyy &#39;at&#39; h:mm:ss a zzzz&quot;</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L180" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L180" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1071,7 +1071,7 @@ puts dtf.pattern <span class="c"># =&gt; &quot;EEEE, MMMM d, yyyy &#39;at&#39; h
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/v1.0.0/src/icu/datetime_formatter.cr#L195" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/6a53eb57131579db8168ede48b3d56dcc3cdb409/src/icu/datetime_formatter.cr#L195" target="_blank">View source</a>]
         
       </div>
     </div>
