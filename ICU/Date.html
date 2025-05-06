@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="crystal_docs.project_version" content="master">
+<meta name="crystal_docs.project_name" content="icu">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="icu">
+  <title>ICU::Date - icu master</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          icu
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="icu/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/Char" data-name="char">
+      <a href="../Char.html">Char</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="icu/ICU" data-name="icu">
+      <a href="../ICU.html">ICU</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="icu/ICU/BiDi" data-name="icu::bidi">
+      <a href="../ICU/BiDi.html">BiDi</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/BiDi/Direction" data-name="icu::bidi::direction">
+      <a href="../ICU/BiDi/Direction.html">Direction</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/BiDi/Level" data-name="icu::bidi::level">
+      <a href="../ICU/BiDi/Level.html">Level</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/BiDi/ParagraphInfo" data-name="icu::bidi::paragraphinfo">
+      <a href="../ICU/BiDi/ParagraphInfo.html">ParagraphInfo</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/BiDi/ReorderingMode" data-name="icu::bidi::reorderingmode">
+      <a href="../ICU/BiDi/ReorderingMode.html">ReorderingMode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/BiDi/ReorderingOption" data-name="icu::bidi::reorderingoption">
+      <a href="../ICU/BiDi/ReorderingOption.html">ReorderingOption</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/BiDi/VisualRunInfo" data-name="icu::bidi::visualruninfo">
+      <a href="../ICU/BiDi/VisualRunInfo.html">VisualRunInfo</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/BiDi/WriteOption" data-name="icu::bidi::writeoption">
+      <a href="../ICU/BiDi/WriteOption.html">WriteOption</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/BreakIterator" data-name="icu::breakiterator">
+      <a href="../ICU/BreakIterator.html">BreakIterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/BreakIterator/Type" data-name="icu::breakiterator::type">
+      <a href="../ICU/BreakIterator/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Calendar" data-name="icu::calendar">
+      <a href="../ICU/Calendar.html">Calendar</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Calendar/DateField" data-name="icu::calendar::datefield">
+      <a href="../ICU/Calendar/DateField.html">DateField</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Calendar/Type" data-name="icu::calendar::type">
+      <a href="../ICU/Calendar/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/CharsetDetector" data-name="icu::charsetdetector">
+      <a href="../ICU/CharsetDetector.html">CharsetDetector</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/CharsetDetector/CharsetMatch" data-name="icu::charsetdetector::charsetmatch">
+      <a href="../ICU/CharsetDetector/CharsetMatch.html">CharsetMatch</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Collator" data-name="icu::collator">
+      <a href="../ICU/Collator.html">Collator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Collator/Attribute" data-name="icu::collator::attribute">
+      <a href="../ICU/Collator/Attribute.html">Attribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/AttributeValue" data-name="icu::collator::attributevalue">
+      <a href="../ICU/Collator/AttributeValue.html">AttributeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/BoundMode" data-name="icu::collator::boundmode">
+      <a href="../ICU/Collator/BoundMode.html">BoundMode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/ReorderCode" data-name="icu::collator::reordercode">
+      <a href="../ICU/Collator/ReorderCode.html">ReorderCode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/RuleOption" data-name="icu::collator::ruleoption">
+      <a href="../ICU/Collator/RuleOption.html">RuleOption</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Collator/Strength" data-name="icu::collator::strength">
+      <a href="../ICU/Collator/Strength.html">Strength</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Currencies" data-name="icu::currencies">
+      <a href="../ICU/Currencies.html">Currencies</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Currencies/NameStyle" data-name="icu::currencies::namestyle">
+      <a href="../ICU/Currencies/NameStyle.html">NameStyle</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Currencies/Type" data-name="icu::currencies::type">
+      <a href="../ICU/Currencies/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" current" data-id="icu/ICU/Date" data-name="icu::date">
+      <a href="../ICU/Date.html">Date</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/DateTimeFormatter" data-name="icu::datetimeformatter">
+      <a href="../ICU/DateTimeFormatter.html">DateTimeFormatter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/DateTimeFormatter/FormatStyle" data-name="icu::datetimeformatter::formatstyle">
+      <a href="../ICU/DateTimeFormatter/FormatStyle.html">FormatStyle</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Error" data-name="icu::error">
+      <a href="../ICU/Error.html">Error</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/IDNA" data-name="icu::idna">
+      <a href="../ICU/IDNA.html">IDNA</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/IDNA/Option" data-name="icu::idna::option">
+      <a href="../ICU/IDNA/Option.html">Option</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Locale" data-name="icu::locale">
+      <a href="../ICU/Locale.html">Locale</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Locale/AcceptResult" data-name="icu::locale::acceptresult">
+      <a href="../ICU/Locale/AcceptResult.html">AcceptResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Locale/Capacity" data-name="icu::locale::capacity">
+      <a href="../ICU/Locale/Capacity.html">Capacity</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Locale/DelimiterType" data-name="icu::locale::delimitertype">
+      <a href="../ICU/Locale/DelimiterType.html">DelimiterType</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Locale/Keyword" data-name="icu::locale::keyword">
+      <a href="../ICU/Locale/Keyword.html">Keyword</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Locale/LayoutType" data-name="icu::locale::layouttype">
+      <a href="../ICU/Locale/LayoutType.html">LayoutType</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Locale/MeasurementSystem" data-name="icu::locale::measurementsystem">
+      <a href="../ICU/Locale/MeasurementSystem.html">MeasurementSystem</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Normalizer" data-name="icu::normalizer">
+      <a href="../ICU/Normalizer.html">Normalizer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/CheckResult" data-name="icu::normalizer::checkresult">
+      <a href="../ICU/Normalizer/CheckResult.html">CheckResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/Mode" data-name="icu::normalizer::mode">
+      <a href="../ICU/Normalizer/Mode.html">Mode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/NFC" data-name="icu::normalizer::nfc">
+      <a href="../ICU/Normalizer/NFC.html">NFC</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/NFD" data-name="icu::normalizer::nfd">
+      <a href="../ICU/Normalizer/NFD.html">NFD</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/NFKC" data-name="icu::normalizer::nfkc">
+      <a href="../ICU/Normalizer/NFKC.html">NFKC</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/NFKCCF" data-name="icu::normalizer::nfkccf">
+      <a href="../ICU/Normalizer/NFKCCF.html">NFKCCF</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/NFKD" data-name="icu::normalizer::nfkd">
+      <a href="../ICU/Normalizer/NFKD.html">NFKD</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Normalizer/Type" data-name="icu::normalizer::type">
+      <a href="../ICU/Normalizer/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/NumberFormatter" data-name="icu::numberformatter">
+      <a href="../ICU/NumberFormatter.html">NumberFormatter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/FormatAttribute" data-name="icu::numberformatter::formatattribute">
+      <a href="../ICU/NumberFormatter/FormatAttribute.html">FormatAttribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/FormatStyle" data-name="icu::numberformatter::formatstyle">
+      <a href="../ICU/NumberFormatter/FormatStyle.html">FormatStyle</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/NumberFormatter/MonetaryAmount" data-name="icu::numberformatter::monetaryamount">
+      <a href="../ICU/NumberFormatter/MonetaryAmount.html">MonetaryAmount</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/PluralRules" data-name="icu::pluralrules">
+      <a href="../ICU/PluralRules.html">PluralRules</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/PluralRules/Type" data-name="icu::pluralrules::type">
+      <a href="../ICU/PluralRules/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/Region" data-name="icu::region">
+      <a href="../ICU/Region.html">Region</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/StringSearch" data-name="icu::stringsearch">
+      <a href="../ICU/StringSearch.html">StringSearch</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/Attribute" data-name="icu::stringsearch::attribute">
+      <a href="../ICU/StringSearch/Attribute.html">Attribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/AttributeValue" data-name="icu::stringsearch::attributevalue">
+      <a href="../ICU/StringSearch/AttributeValue.html">AttributeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/StringSearch/Position" data-name="icu::stringsearch::position">
+      <a href="../ICU/StringSearch/Position.html">Position</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/Transliterator" data-name="icu::transliterator">
+      <a href="../ICU/Transliterator.html">Transliterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/Transliterator/ID" data-name="icu::transliterator::id">
+      <a href="../ICU/Transliterator/ID.html">ID</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UChar" data-name="icu::uchar">
+      <a href="../ICU/UChar.html">UChar</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UChars" data-name="icu::uchars">
+      <a href="../ICU/UChars.html">UChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UEnum" data-name="icu::uenum">
+      <a href="../ICU/UEnum.html">UEnum</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu/ICU/UniversalTimeScale" data-name="icu::universaltimescale">
+      <a href="../ICU/UniversalTimeScale.html">UniversalTimeScale</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/DateTimeScale" data-name="icu::universaltimescale::datetimescale">
+      <a href="../ICU/UniversalTimeScale/DateTimeScale.html">DateTimeScale</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/TimeScaleValues" data-name="icu::universaltimescale::timescalevalues">
+      <a href="../ICU/UniversalTimeScale/TimeScaleValues.html">TimeScaleValues</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu/ICU/UniversalTimeScale/UniversalTime" data-name="icu::universaltimescale::universaltime">
+      <a href="../ICU/UniversalTimeScale/UniversalTime.html">UniversalTime</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu/String" data-name="string">
+      <a href="../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> ICU::<wbr>Date
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../ICU/Date.html">ICU::Date</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/olbat/icu.cr/blob/5507f6bf6f65a82dff873fac722abe397111b8c7/src/icu/udate.cr#L2" target="_blank">
+        icu/udate.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#from%28year%3AInt32%2Cmonth%3AInt32%2Cday%3AInt32%29%3ALibICU%3A%3AUDate-class-method" class="signature"><strong>.from</strong>(year : Int32, month : Int32, day : Int32) : LibICU::UDate</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from%28date_time%3ATime%29%3ALibICU%3A%3AUDate-class-method" class="signature"><strong>.from</strong>(date_time : Time) : LibICU::UDate</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="from(year:Int32,month:Int32,day:Int32):LibICU::UDate-class-method">
+      <div class="signature">
+        
+        def self.<strong>from</strong>(year : Int32, month : Int32, day : Int32) : LibICU::UDate
+
+        <a class="method-permalink" href="#from%28year%3AInt32%2Cmonth%3AInt32%2Cday%3AInt32%29%3ALibICU%3A%3AUDate-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/5507f6bf6f65a82dff873fac722abe397111b8c7/src/icu/udate.cr#L7" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from(date_time:Time):LibICU::UDate-class-method">
+      <div class="signature">
+        
+        def self.<strong>from</strong>(date_time : Time) : LibICU::UDate
+
+        <a class="method-permalink" href="#from%28date_time%3ATime%29%3ALibICU%3A%3AUDate-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/5507f6bf6f65a82dff873fac722abe397111b8c7/src/icu/udate.cr#L3" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
