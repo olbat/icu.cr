@@ -357,7 +357,7 @@ class ICU::Calendar
   end
 
   def to_unsafe
-    return @ucal
+    @ucal
   end
 
   # Helper method to get the first non-zero field difference sign between
@@ -399,6 +399,6 @@ class ICU::Calendar
 
     # If we checked all fields down to seconds and the difference was always 0,
     # the times are equivalent up to the second.
-    return 0
+    0
   end
 end
