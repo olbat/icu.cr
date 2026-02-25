@@ -49,19 +49,19 @@ require "icu"
 - [x] [UniversalTimeScale](https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html), Universal Time Scale _(utmscale.h)_
 - [x] [PluralRules](https://olbat.github.io/icu.cr/ICU/PluralRules.html), Plural rules _(upluralrules.h)_
 - [x] [Bidirectional Algorithm](https://olbat.github.io/icu.cr/ICU/BiDi.html), Bidirectional text handling _(ubidi.h)_
-- [ ] `uregex`, Regular Expressions _(uregex.h)_
-- [ ] `ucnv`, Codepage Conversion _(ucnv.h, ucnvsel.h)_
+- [x] [Regex](https://olbat.github.io/icu.cr/ICU/Regex.html), Regular Expressions _(uregex.h)_
+- [x] [Converter](https://olbat.github.io/icu.cr/ICU/Converter.html), Codepage Conversion _(ucnv.h, ucnvsel.h)_
+- [x] [SpoofChecker](https://olbat.github.io/icu.cr/ICU/SpoofChecker.html), Identifier Spoofing & Confusability _(uspoof.h)_
 
 __Internals__
 - [x] [UChars](https://olbat.github.io/icu.cr/ICU/UChars.html), UChar conversion routines
 - [x] [UEnum](https://olbat.github.io/icu.cr/ICU/UEnum.html), String Enumeration _(uenum.h)_
 - [x] [USet](https://olbat.github.io/icu.cr/ICU/USet.html), Sets of Unicode Code Points and Strings _(uset.h)_
-- [ ] `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_
-- [ ] `utext`, Abstract Unicode Text API _(utext.h)_
-- [ ] `ures`, Resource Bundles _(ures.h)_
-- [ ] `usprep`, StringPrep _(usprep.h)_
-- [ ] `uspoof`, Identifier Spoofing & Confusability _(uspoof.h)_
-- [ ] `udata`, Data loading interface _(udata.h)_
+- `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_ — superseded by Crystal's `String`
+- `utext`, Abstract Unicode Text API _(utext.h)_ — abstract C iterator, no value over Crystal `String`
+- `usprep`, StringPrep _(usprep.h)_ — niche protocol use (XMPP), out of scope
+- `ures`, Resource Bundles _(ures.h)_ — internal ICU data format, out of scope
+- `udata`, Data loading interface _(udata.h)_ — internal ICU infrastructure, out of scope
 
 
 ## Development
