@@ -383,14 +383,14 @@ describe ICU::BiDi do
 
   it "should set and get reordering options" do
     bidi = ICU::BiDi.new
-    bidi.reordering_options.should eq(ICU::BiDi::ReorderingOption::Default.value) # Default options
+    bidi.reordering_options.should eq(ICU::BiDi::ReorderingOption::None.value) # Default options
 
     options = ICU::BiDi::ReorderingOption::InsertMarks | ICU::BiDi::ReorderingOption::Streaming
     bidi.reordering_options = options
     bidi.reordering_options.should eq(options.value)
 
-    bidi.reordering_options = ICU::BiDi::ReorderingOption::Default
-    bidi.reordering_options.should eq(ICU::BiDi::ReorderingOption::Default.value)
+    bidi.reordering_options = ICU::BiDi::ReorderingOption::None
+    bidi.reordering_options.should eq(ICU::BiDi::ReorderingOption::None.value)
   end
 
   it "should set context and affect paragraph level resolution" do
@@ -433,7 +433,7 @@ describe ICU::BiDi do
     ICU::BiDi::ReorderingMode::ReorderInverseForNumbersSpecial.value.should eq(6)
     ICU::BiDi::ReorderingMode::ReorderCount.value.should eq(7)
 
-    ICU::BiDi::ReorderingOption::Default.value.should eq(0)
+    ICU::BiDi::ReorderingOption::None.value.should eq(0)
     ICU::BiDi::ReorderingOption::InsertMarks.value.should eq(1)
     ICU::BiDi::ReorderingOption::RemoveControls.value.should eq(2)
     ICU::BiDi::ReorderingOption::Streaming.value.should eq(4)

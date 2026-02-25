@@ -73,8 +73,8 @@ class ICU::BiDi
   # Options for `reordering_options=`. Affects how the BiDi algorithm operates.
   @[Flags]
   enum ReorderingOption : UInt32
-    # Disable all options.
-    Default = 0 # LibICU::UBIDI_OPTION_DEFAULT
+    # No options (corresponds to ICU's UBIDI_OPTION_DEFAULT = 0).
+    None = 0
     # Insert Bidi marks (LRM or RLM) when needed to ensure correct result of a reordering to a Logical order.
     InsertMarks = 1 # LibICU::UBIDI_OPTION_INSERT_MARKS
     # Remove Bidi control characters.
