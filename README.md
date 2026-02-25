@@ -55,8 +55,8 @@ require "icu"
 __Internals__
 - [x] [UChars](https://olbat.github.io/icu.cr/ICU/UChars.html), UChar conversion routines
 - [x] [UEnum](https://olbat.github.io/icu.cr/ICU/UEnum.html), String Enumeration _(uenum.h)_
-- [ ] `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_
 - [x] [USet](https://olbat.github.io/icu.cr/ICU/USet.html), Sets of Unicode Code Points and Strings _(uset.h)_
+- [ ] `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_
 - [ ] `utext`, Abstract Unicode Text API _(utext.h)_
 - [ ] `ures`, Resource Bundles _(ures.h)_
 - [ ] `usprep`, StringPrep _(usprep.h)_
@@ -68,7 +68,7 @@ __Internals__
 
 ### ICU version compatibility
 This binding is compatible with the ICU library starting from version `4.8`.
-It has been [generated](lib.yml) using ICU version `74.2` so every additions in the API from this version will not be present in this binding.
+It has been [generated](lib.yml) using ICU version `74.2` so every additions in the API following this version will not be present in this binding.
 
 The Crystal wrapper's (the `ICU` class) class and methods are enabled dynamically at compile-time depending on the version of the ICU library that's installed.
 
@@ -91,16 +91,3 @@ __Note__: for some reasons, using LLVM versions >= 16 generate broken bindings. 
 ### About the binding's generation
 
 For implementation and technical details about the binding's generation, see [#1](https://github.com/olbat/icu.cr/issues/1) & [#3](https://github.com/olbat/icu.cr/issues/3).
-
-
-## Contributing
-
-1. Fork it ( https://github.com/olbat/icu.cr/fork )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create a new Pull Request
-
-## Contributors
-
-- [olbat](https://github.com/olbat) Luc Sarzyniec - creator, maintainer
