@@ -69,6 +69,6 @@ class ICU::PluralRules
     ustatus = LibICU::UErrorCode::UZeroError
     keywords = LibICU.uplrules_get_keywords(@uplrules, pointerof(ustatus))
     ICU.check_error!(ustatus)
-    ICU::UEnum.new(keywords).to_a
+    ICU::UEnum.new(keywords, owns: true).to_a
   end
 end

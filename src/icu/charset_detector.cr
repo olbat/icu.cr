@@ -124,8 +124,7 @@ class ICU::CharsetDetector
       ustatus = LibICU::UErrorCode::UZeroError
       uenum = LibICU.ucsdet_get_all_detectable_charsets(@csdet, pointerof(ustatus))
       ICU.check_error!(ustatus)
-      @@detectable_charsets = UEnum.new(uenum).to_a
-      LibICU.uenum_close(uenum)
+      @@detectable_charsets = UEnum.new(uenum, owns: true).to_a
     end
     @@detectable_charsets.not_nil!
   end

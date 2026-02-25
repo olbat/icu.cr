@@ -62,8 +62,7 @@
       ustatus = LibICU::UErrorCode::UZeroError
       uenum = LibICU.uregion_get_contained_regions(@uregion, pointerof(ustatus))
       ICU.check_error!(ustatus)
-      regions = UEnum.new(uenum).to_a
-      LibICU.uenum_close(uenum)
+      regions = UEnum.new(uenum, owns: true).to_a
       regions.map { |r| self.class.new(r) }
     end
   end

@@ -256,8 +256,7 @@ class ICU::Locale
     ustatus = LibICU::UErrorCode::UZeroError
     uenum = LibICU.uloc_open_keywords(@id, pointerof(ustatus))
     ICU.check_error!(ustatus)
-    # Use the correct class name ICU::UEnum
-    ICU::UEnum.new(uenum)
+    ICU::UEnum.new(uenum, owns: true)
   end
 
   # Converts the locale ID to a BCP 47 language tag.
@@ -398,9 +397,7 @@ class ICU::Locale
     ustatus = LibICU::UErrorCode::UZeroError
     uenum = LibICU.uloc_open_available_by_type(LibICU::ULocAvailableType::AvailableDefault, pointerof(ustatus))
     ICU.check_error!(ustatus)
-    # Use the correct class name ICU::UEnum
-    locales = UEnum.new(uenum).to_a
-    LibICU.uenum_close(uenum)
+    locales = UEnum.new(uenum, owns: true).to_a
     locales.map { |r| new(r) }
   end
 

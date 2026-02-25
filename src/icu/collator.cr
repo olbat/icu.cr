@@ -38,9 +38,7 @@ class ICU::Collator
     ustatus = LibICU::UErrorCode::UZeroError
     uenum = LibICU.ucol_open_available_locales(pointerof(ustatus))
     ICU.check_error!(ustatus)
-    locales = UEnum.new(uenum).to_a
-    LibICU.uenum_close(uenum)
-    Set(String).new(locales)
+    Set(String).new(UEnum.new(uenum, owns: true).to_a)
   end
 
   KEYWORDS = begin
@@ -48,13 +46,12 @@ class ICU::Collator
     ustatus = LibICU::UErrorCode::UZeroError
     kenum = LibICU.ucol_get_keywords(pointerof(ustatus))
     ICU.check_error!(ustatus)
-    UEnum.new(kenum).each do |keyword|
+    UEnum.new(kenum, owns: true).each do |keyword|
       ustatus = LibICU::UErrorCode::UZeroError
       venum = LibICU.ucol_get_keyword_values(keyword, pointerof(ustatus))
       ICU.check_error!(ustatus)
-      keywords[keyword] = Set(String).new(UEnum.new(venum).to_a)
+      keywords[keyword] = Set(String).new(UEnum.new(venum, owns: true).to_a)
     end
-    LibICU.uenum_close(kenum)
     keywords
   end
 
