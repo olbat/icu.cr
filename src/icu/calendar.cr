@@ -136,7 +136,7 @@ class ICU::Calendar
   # - `field`: The `DateField` to set (e.g., `DateField::Year`, `DateField::Month`).
   # - `value`: The integer value to set for the field. Note that `DateField::Month` is 0-indexed.
   #
-  # Raises `ValueError` if the value is outside the valid range for the field.
+  # Raises `ArgumentError` if the value is outside the valid range for the field.
   def set(field : DateField, value : Int32) : Nil
     status = LibICU::UErrorCode::UZeroError
 
