@@ -98,4 +98,28 @@ class ICU::Transliterator
 
     uchars.to_s(size)
   end
+
+  # Returns the set of characters that this transliterator may modify.
+  #
+  # This is the *source set*: any character not in this set will pass through
+  # the transliterator unchanged.
+  #
+  # ```
+  # trans = ICU::Transliterator.new("Latin-ASCII")
+  # trans.source_set.includes?('é') # => true
+  # trans.source_set.includes?('a') # => false
+  # ```
+  def source_set : Set(Char)
+    fill_in = USet.new
+    ustatus = LibICU::UErrorCode::UZeroError
+    raw = LibICU.utrans_get_source_set(@utrans, 0, fill_in.to_unsafe, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+    # utrans_getSourceSet returns (and may replace) fill_in; if it returned a
+    # different pointer we wrap it with ownership, otherwise reuse fill_in.
+    if raw == fill_in.to_unsafe
+      fill_in.to_set
+    else
+      USet.new(raw, owns: true).to_set
+    end
+  end
 end

@@ -161,4 +161,48 @@ describe "ICU::Collator" do
       col.reorder_codes.should eq(rc)
     end
   end
+
+  describe "tailored_set" do
+    it "returns a Set(Char) containing the re-ordered character" do
+      # "&b < a" moves 'a' to sort after 'b'; only 'a' is tailored
+      col = ICU::Collator.new(rules: "&b < a")
+      ts = col.tailored_set
+      ts.should be_a(Set(Char))
+      ts.includes?('a').should be_true
+    end
+
+    it "returns a non-nil Set(Char) for the default collator" do
+      ICU::Collator.new.tailored_set.should be_a(Set(Char))
+    end
+  end
+
+  describe "contractions" do
+    it "returns a Set(Char)" do
+      ICU::Collator.new("cs").contractions.should be_a(Set(Char))
+    end
+
+    it "returns a Set(Char) for the default collator" do
+      ICU::Collator.new.contractions.should be_a(Set(Char))
+    end
+  end
+
+  describe "contractions_and_expansions" do
+    it "returns a tuple of two Set(Char) values" do
+      conts, exps = ICU::Collator.new("cs").contractions_and_expansions
+      conts.should be_a(Set(Char))
+      exps.should be_a(Set(Char))
+    end
+
+    it "returns a non-empty expansions set for Czech" do
+      # Czech has expansion mappings (characters mapping to multiple collation elements)
+      _, exps = ICU::Collator.new("cs").contractions_and_expansions
+      exps.should_not be_empty
+    end
+
+    it "accepts add_prefixes: true" do
+      conts, exps = ICU::Collator.new("cs").contractions_and_expansions(add_prefixes: true)
+      conts.should be_a(Set(Char))
+      exps.should be_a(Set(Char))
+    end
+  end
 end

@@ -56,8 +56,8 @@ __Internals__
 - [x] [UChars](https://olbat.github.io/icu.cr/ICU/UChars.html), UChar conversion routines
 - [x] [UEnum](https://olbat.github.io/icu.cr/ICU/UEnum.html), String Enumeration _(uenum.h)_
 - [ ] `ustring`, Strings and Character Iteration _(ustring.h, uiter.h)_
+- [x] [USet](https://olbat.github.io/icu.cr/ICU/USet.html), Sets of Unicode Code Points and Strings _(uset.h)_
 - [ ] `utext`, Abstract Unicode Text API _(utext.h)_
-- [ ] `uset`, Sets of Unicode Code Points and Strings _(uset.h)_
 - [ ] `ures`, Resource Bundles _(ures.h)_
 - [ ] `usprep`, StringPrep _(usprep.h)_
 - [ ] `uspoof`, Identifier Spoofing & Confusability _(uspoof.h)_

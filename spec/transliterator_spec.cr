@@ -106,4 +106,21 @@ describe "ICU::Transliterator" do
       trans.reverse!.transliterate("tí phḗis").should eq("τί φῄς")
     end
   end
+
+  describe "source_set" do
+    it "returns a Set(Char)" do
+      ICU::Transliterator.new("Latin-ASCII").source_set.should be_a(Set(Char))
+    end
+
+    it "contains characters that the transliterator modifies" do
+      # Latin-ASCII operates on combining diacritical marks (U+0300 = combining grave accent)
+      src = ICU::Transliterator.new("Latin-ASCII").source_set
+      src.includes?('\u0300').should be_true
+    end
+
+    it "does not contain plain ASCII letters (they pass through unchanged)" do
+      src = ICU::Transliterator.new("Latin-ASCII").source_set
+      src.includes?('a').should be_false
+    end
+  end
 end
