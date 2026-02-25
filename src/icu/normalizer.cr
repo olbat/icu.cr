@@ -57,10 +57,9 @@ class ICU::Normalizer
   # ICU::Normalizer::NFC.new.normalize(str).bytes # => [195, 128]
   # ```
   def normalize(text : String) : String
-    # allocate twice the size of the source string to be sure
+    # Allocate twice the size of the source string as a conservative estimate.
     src = text.to_uchars
     dest = ICU::UChars.new(text.size * 2)
-    size = limit = text.size
 
     ustatus = LibICU::UErrorCode::UZeroError
     size = LibICU.unorm2_normalize(@unorm, src, text.size, dest, dest.size, pointerof(ustatus))
