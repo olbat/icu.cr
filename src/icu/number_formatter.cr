@@ -41,17 +41,15 @@ class ICU::NumberFormatter
   end
 
   # Formats a number into a string.
-
+  #
   # ```
   # nf = ICU::NumberFormatter.new("en_US")
   # nf.format(1234.56) # => "1,234.56"
   # ```
   def format(number : Float64) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff = UChars.new(32)
-    len = LibICU.unum_format_double(@unum, number, buff, buff.size, nil, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    buff.to_s(len)
+    ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+      LibICU.unum_format_double(@unum, number, buff.as(UChars), buff.size, nil, status_ptr)
+    end
   end
 
   # Formats a number with a currency code (3 letters code, see ISO 4217) into a string.
@@ -61,12 +59,10 @@ class ICU::NumberFormatter
   # nf.format(1234.56, "USD") # => "$1,234.56"
   # ```
   def format(number : Float64, currency_code : String) : String
-    ustatus = LibICU::UErrorCode::UZeroError
     currency_code = currency_code.to_uchars
-    buff = UChars.new(32)
-    len = LibICU.unum_format_double_currency(@unum, number, currency_code, buff, buff.size, nil, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    buff.to_s(len)
+    ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+      LibICU.unum_format_double_currency(@unum, number, currency_code, buff.as(UChars), buff.size, nil, status_ptr)
+    end
   end
 
   # Formats a number into a string.
@@ -76,11 +72,9 @@ class ICU::NumberFormatter
   # nf.format(1234) # => "1,234"
   # ```
   def format(number : Int64) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff = UChars.new(32)
-    len = LibICU.unum_format_int64(@unum, number, buff, buff.size, nil, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    buff.to_s(len)
+    ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+      LibICU.unum_format_int64(@unum, number, buff.as(UChars), buff.size, nil, status_ptr)
+    end
   end
 
   # Parses a string into an integer number.
