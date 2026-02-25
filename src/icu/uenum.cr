@@ -5,10 +5,13 @@
 class ICU::UEnum
   include Enumerable(String)
 
-  @free = true
-
-  def initialize(@uenum : LibICU::UEnumeration)
-    @free = false
+  # Wraps an existing `UEnumeration` handle.
+  #
+  # Pass `owns: true` to transfer ownership so that the handle is closed when
+  # this object is finalized. The default (`owns: false`) leaves lifetime
+  # management to the caller.
+  def initialize(@uenum : LibICU::UEnumeration, *, owns : Bool = false)
+    @free = owns
   end
 
   # FIXME: not thread-safe
@@ -16,6 +19,7 @@ class ICU::UEnum
     ustatus = LibICU::UErrorCode::UZeroError
     @uenum = LibICU.uenum_open_char_strings_enumeration(elements.map(&.to_unsafe), elements.size, pointerof(ustatus))
     ICU.check_error!(ustatus)
+    @free = true
   end
 
   def finalize
