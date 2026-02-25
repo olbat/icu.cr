@@ -182,6 +182,68 @@ class ICU::Collator
     self
   end
 
+  # Returns the set of characters that are tailored (customized) by this
+  # collator relative to the root collation order.
+  #
+  # The result is a plain `Set(Char)`. Multi-character contractions that do
+  # not resolve to a single code point are not included (use
+  # `#contractions_and_expansions` if you need them).
+  #
+  # ```
+  # col = ICU::Collator.new(rules: "&b < a")
+  # col.tailored_set.includes?('a') # => true
+  # col.tailored_set.includes?('b') # => true
+  # ```
+  def tailored_set : Set(Char)
+    ustatus = LibICU::UErrorCode::UZeroError
+    raw = LibICU.ucol_get_tailored_set(@ucol, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+    USet.new(raw, owns: true).to_set
+  end
+
+  # Returns the set of contraction characters defined by this collator.
+  #
+  # A contraction is a sequence of two or more characters treated as a single
+  # collation element (e.g. `"ch"` in traditional Spanish). Only single code
+  # points that are the *start* of a contraction are returned; for complete
+  # contraction strings use `#contractions_and_expansions`.
+  #
+  # ```
+  # col = ICU::Collator.new("cs")   # Czech has "ch" as a contraction
+  # col.contractions.includes?('c') # => true
+  # ```
+  def contractions : Set(Char)
+    conts = USet.new
+    ustatus = LibICU::UErrorCode::UZeroError
+    LibICU.ucol_get_contractions(@ucol, conts.to_unsafe, pointerof(ustatus))
+    ICU.check_error!(ustatus)
+    conts.to_set
+  end
+
+  # Returns the contraction and expansion character sets for this collator.
+  #
+  # - The first element is the set of characters that start a contraction.
+  # - The second element is the set of characters involved in expansions
+  #   (a single code point that maps to multiple collation elements).
+  #
+  # Pass `add_prefixes: true` to also include prefix characters.
+  #
+  # ```
+  # conts, exps = ICU::Collator.new("cs").contractions_and_expansions
+  # conts.includes?('c') # => true
+  # ```
+  def contractions_and_expansions(add_prefixes : Bool = false) : {Set(Char), Set(Char)}
+    conts = USet.new
+    exps = USet.new
+    ustatus = LibICU::UErrorCode::UZeroError
+    LibICU.ucol_get_contractions_and_expansions(
+      @ucol, conts.to_unsafe, exps.to_unsafe,
+      add_prefixes ? 1 : 0, pointerof(ustatus)
+    )
+    ICU.check_error!(ustatus)
+    {conts.to_set, exps.to_set}
+  end
+
   # Returns a functional equivalent to a given locale
   #
   # ```
