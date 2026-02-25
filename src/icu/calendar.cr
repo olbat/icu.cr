@@ -253,7 +253,7 @@ class ICU::Calendar
     actual_len = LibICU.ucal_get_time_zone_id(@ucal, buff, buff.size, pointerof(status))
     ICU.check_error!(status)
 
-    buff.to_s
+    buff.to_s(actual_len)
   end
 
   # Sets the time zone associated with this calendar.
