@@ -287,20 +287,22 @@ class ICU::Calendar
     )
   end
 
-  # Checks if the calendar's current date and time fall within a weekend
-  # for its associated locale.
+  # Checks if the given date falls within a weekend for the calendar's locale.
+  #
+  # - `year`: The year (1-indexed).
+  # - `month`: The month (1-indexed).
+  # - `day`: The day of the month (1-indexed).
   def weekend?(year : Int32, month : Int32, day : Int32) : Bool
     weekend?(ICU::Date.from(year, month, day))
   end
 
-  # Checks if the calendar's current date and time fall within a weekend
-  # for its associated locale.
+  # Checks if the given date falls within a weekend for the calendar's locale.
+  #
+  # - `date`: The `Time` object representing the date to check.
   def weekend?(date : Time) : Bool
     weekend?(ICU::Date.from(date))
   end
 
-  # Checks if the calendar's current date and time fall within a weekend
-  # for its associated locale.
   private def weekend?(udate : LibICU::UDate) : Bool
     status = LibICU::UErrorCode::UZeroError
     is_weekend = LibICU.ucal_is_weekend(@ucal, udate, pointerof(status))
