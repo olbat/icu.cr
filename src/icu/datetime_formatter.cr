@@ -84,6 +84,8 @@ class ICU::DateTimeFormatter
       pointerof(ustatus)
     )
 
+    @ucal = nil
+
     ICU.check_error!(ustatus)
   end
 
