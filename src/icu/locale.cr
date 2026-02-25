@@ -219,14 +219,16 @@ class ICU::Locale
   # ICU::Locale.new("fr_FR").set_keyword_value("collation", "phonebook") # => ICU::Locale.new("fr_FR@collation=phonebook")
   # ```
   def add_keyword_value(keyword_name : String, keyword_value : String) : Locale
-    # Estimate initial buff size: original ID + '@' + keyword + '=' + value + ';' + null
-    initial_buff_size = @id.bytesize + 1 + keyword_name.bytesize + 1 + keyword_value.bytesize + 1 + 1
-    # Ensure minimum size, fallback to retry logic if needed
-    initial_buff_size = Math.max(initial_buff_size, Capacity::FULLNAME_MAX_SIZE)
+    # Estimate initial buffer size: original ID + '@' + keyword + '=' + value + ';' + null terminator.
+    # Use FULLNAME_MAX_SIZE as a lower bound.
+    initial_buff_size = Math.max(
+      @id.bytesize + 1 + keyword_name.bytesize + 1 + keyword_value.bytesize + 2,
+      Capacity::FULLNAME_MAX_SIZE
+    )
 
-    id = ICU.with_auto_resizing_buffer(Capacity::KEYWORDS_AND_VALUES_MAX_SIZE, Bytes) do |buff, status_ptr|
+    id = ICU.with_auto_resizing_buffer(initial_buff_size, Bytes) do |buff, status_ptr|
       @id.to_slice.copy_to(buff.as(Bytes).to_slice)
-      len = LibICU.uloc_set_keyword_value(keyword_name, keyword_value, buff.as(Bytes), buff.size, status_ptr)
+      LibICU.uloc_set_keyword_value(keyword_name, keyword_value, buff.as(Bytes), buff.size, status_ptr)
     end
 
     Locale.new(id)
