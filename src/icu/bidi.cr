@@ -318,7 +318,6 @@ class ICU::BiDi
   # Use `write_reordered` with `WriteOption::OutputReverse` for BiDi-aware reversal.
   #
   # - `src`: The source string to reverse.
-  # - `src`: The source string to reverse.
   # - `options`: `WriteOption` flags (e.g., `DoMirroring`, `RemoveBidiControls`). Defaults to `WriteOption::None`.
   # - Returns the reversed string.
   def self.write_reverse(src : String, options : WriteOption = WriteOption::None) : String
@@ -332,7 +331,7 @@ class ICU::BiDi
 
     # If RemoveBidiControls is set, the destination size might be smaller.
     # We need to call writeReverse once with a null buffer to get the required size.
-    if (options.value.to_i & WriteOption::RemoveBidiControls.value) != 0
+    if options.includes?(WriteOption::RemoveBidiControls)
       required_size = LibICU.ubidi_write_reverse(src, src.size, Pointer(LibICU::UChar).null, 0, options.value, pointerof(ustatus))
       # U_BUFFER_OVERFLOW_ERROR is expected when passing null buffer, clear it.
       if ustatus == LibICU::UErrorCode::UBufferOverflowError
