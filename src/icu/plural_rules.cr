@@ -49,14 +49,21 @@ class ICU::PluralRules
   #
   # ```
   # plural_rules = ICU::PluralRules.new("fr")
-  # plural_rules.select(1) # => "one"
+  # plural_rules.select(1)   # => "one"
+  # plural_rules.select(1.5) # => "one"
+  # plural_rules.select(2)   # => "other"
   # ```
   def select(number : Float64) : String
-    ustatus = LibICU::UErrorCode::UZeroError
-    buff = UChars.new(32)
-    len = LibICU.uplrules_select(@uplrules, number, buff, buff.size, pointerof(ustatus))
-    ICU.check_error!(ustatus)
-    buff.to_s(len)
+    ICU.with_auto_resizing_buffer(32, UChars) do |buff, status_ptr|
+      LibICU.uplrules_select(@uplrules, number, buff.as(UChars), buff.size, status_ptr)
+    end
+  end
+
+  # Selects the plural form for the given integer number.
+  #
+  # Delegates to `#select(Float64)` after converting the integer.
+  def select(number : Int) : String
+    self.select(number.to_f64)
   end
 
   # Returns keywords associated to this plural rules.

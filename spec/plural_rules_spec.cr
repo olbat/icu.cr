@@ -13,11 +13,18 @@ describe ICU::PluralRules do
     plural_rules.should be_a ICU::PluralRules
   end
 
-  it "selects the correct plural form" do
+  it "selects the correct plural form for integers" do
     plural_rules = ICU::PluralRules.new("fr")
     plural_rules.select(0).should eq "one"
     plural_rules.select(1).should eq "one"
     plural_rules.select(2).should eq "other"
+  end
+
+  it "selects the correct plural form for floats" do
+    plural_rules = ICU::PluralRules.new("fr")
+    plural_rules.select(0.0).should eq "one"
+    plural_rules.select(1.5).should eq "one"
+    plural_rules.select(2.0).should eq "other"
   end
 
   it "returns the keywords for a given locale" do
