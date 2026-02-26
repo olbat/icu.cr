@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="1.0.0">
+<meta name="crystal_docs.project_version" content="1.2.0">
 <meta name="crystal_docs.project_name" content="icu.cr">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="icu.cr">
-  <title>icu.cr 1.0.0</title>
+  <title>icu.cr 1.2.0</title>
   <script type="text/javascript">
   CrystalDocs.base_path = "";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        1.0.0
+        1.2.0
       </span>
     </div>
   </div>
@@ -204,6 +204,31 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Converter" data-name="icu::converter">
+      <a href="ICU/Converter.html">Converter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Converter/Platform" data-name="icu::converter::platform">
+      <a href="ICU/Converter/Platform.html">Platform</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Converter/Type" data-name="icu::converter::type">
+      <a href="ICU/Converter/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/ConverterSelector" data-name="icu::converterselector">
+      <a href="ICU/ConverterSelector.html">ConverterSelector</a>
       
     </li>
   
@@ -397,8 +422,58 @@
       
     </li>
   
+  <li class="parent " data-id="icu.cr/ICU/Regex" data-name="icu::regex">
+      <a href="ICU/Regex.html">Regex</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Regex/Flag" data-name="icu::regex::flag">
+      <a href="ICU/Regex/Flag.html">Flag</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Regex/Match" data-name="icu::regex::match">
+      <a href="ICU/Regex/Match.html">Match</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class=" " data-id="icu.cr/ICU/Region" data-name="icu::region">
       <a href="ICU/Region.html">Region</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/SpoofChecker" data-name="icu::spoofchecker">
+      <a href="ICU/SpoofChecker.html">SpoofChecker</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/Check" data-name="icu::spoofchecker::check">
+      <a href="ICU/SpoofChecker/Check.html">Check</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/CheckResult" data-name="icu::spoofchecker::checkresult">
+      <a href="ICU/SpoofChecker/CheckResult.html">CheckResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/Direction" data-name="icu::spoofchecker::direction">
+      <a href="ICU/SpoofChecker/Direction.html">Direction</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/RestrictionLevel" data-name="icu::spoofchecker::restrictionlevel">
+      <a href="ICU/SpoofChecker/RestrictionLevel.html">RestrictionLevel</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -482,6 +557,11 @@
       
     </li>
   
+  <li class=" " data-id="icu.cr/ICU/USet" data-name="icu::uset">
+      <a href="ICU/USet.html">USet</a>
+      
+    </li>
+  
 </ul>
 
       
@@ -509,7 +589,7 @@
     <use href="#octicon-link"/>
   </svg>
 </a>About</h2>
-<p>This library provides high-level <a href="https://olbat.github.io/icu.cr/ICU.html">Crystal APIs</a> to access the core features of the ICU library's lower-level <a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/">C API</a>.</p>
+<p>This library provides high-level <a href="https://olbat.github.io/icu.cr/index.html#wrapped-components">Crystal APIs</a> to access the core features of the ICU library's lower-level <a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/">C API</a>.</p>
 <h2><a id="installation" class="anchor" href="#installation">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
@@ -553,20 +633,20 @@ brew link --force icu4c</code></pre>
 <li>[x] <a href="https://olbat.github.io/icu.cr/ICU/UniversalTimeScale.html">UniversalTimeScale</a>, Universal Time Scale <em>(utmscale.h)</em></li>
 <li>[x] <a href="https://olbat.github.io/icu.cr/ICU/PluralRules.html">PluralRules</a>, Plural rules <em>(upluralrules.h)</em></li>
 <li>[x] <a href="https://olbat.github.io/icu.cr/ICU/BiDi.html">Bidirectional Algorithm</a>, Bidirectional text handling <em>(ubidi.h)</em></li>
-<li>[ ] <code>uregex</code>, Regular Expressions <em>(uregex.h)</em></li>
-<li>[ ] <code>ucnv</code>, Codepage Conversion <em>(ucnv.h, ucnvsel.h)</em></li>
+<li>[x] <a href="https://olbat.github.io/icu.cr/ICU/Regex.html">Regex</a>, Regular Expressions <em>(uregex.h)</em></li>
+<li>[x] <a href="https://olbat.github.io/icu.cr/ICU/Converter.html">Converter</a>, Codepage Conversion <em>(ucnv.h, ucnvsel.h)</em></li>
+<li>[x] <a href="https://olbat.github.io/icu.cr/ICU/SpoofChecker.html">SpoofChecker</a>, Identifier Spoofing &amp; Confusability <em>(uspoof.h)</em></li>
 </ul>
 <p><strong>Internals</strong></p>
 <ul>
 <li>[x] <a href="https://olbat.github.io/icu.cr/ICU/UChars.html">UChars</a>, UChar conversion routines</li>
 <li>[x] <a href="https://olbat.github.io/icu.cr/ICU/UEnum.html">UEnum</a>, String Enumeration <em>(uenum.h)</em></li>
-<li>[ ] <code>ustring</code>, Strings and Character Iteration <em>(ustring.h, uiter.h)</em></li>
-<li>[ ] <code>utext</code>, Abstract Unicode Text API <em>(utext.h)</em></li>
-<li>[ ] <code>uset</code>, Sets of Unicode Code Points and Strings <em>(uset.h)</em></li>
-<li>[ ] <code>ures</code>, Resource Bundles <em>(ures.h)</em></li>
-<li>[ ] <code>usprep</code>, StringPrep <em>(usprep.h)</em></li>
-<li>[ ] <code>uspoof</code>, Identifier Spoofing &amp; Confusability <em>(uspoof.h)</em></li>
-<li>[ ] <code>udata</code>, Data loading interface <em>(udata.h)</em></li>
+<li>[x] <a href="https://olbat.github.io/icu.cr/ICU/USet.html">USet</a>, Sets of Unicode Code Points and Strings <em>(uset.h)</em></li>
+<li><code>ustring</code>, Strings and Character Iteration <em>(ustring.h, uiter.h)</em> — superseded by Crystal's <code><a href="String.html">String</a></code></li>
+<li><code>utext</code>, Abstract Unicode Text API <em>(utext.h)</em> — abstract C iterator, no value over Crystal <code><a href="String.html">String</a></code></li>
+<li><code>usprep</code>, StringPrep <em>(usprep.h)</em> — niche protocol use (XMPP), out of scope</li>
+<li><code>ures</code>, Resource Bundles <em>(ures.h)</em> — internal ICU data format, out of scope</li>
+<li><code>udata</code>, Data loading interface <em>(udata.h)</em> — internal ICU infrastructure, out of scope</li>
 </ul>
 <h2><a id="development" class="anchor" href="#development">
   <svg class="octicon-link" aria-hidden="true">
@@ -579,7 +659,7 @@ brew link --force icu4c</code></pre>
   </svg>
 </a>ICU version compatibility</h3>
 <p>This binding is compatible with the ICU library starting from version <code>4.8</code>.
-It has been <a href="lib.yml">generated</a> using ICU version <code>74.2</code> so every additions in the API from this version will not be present in this binding.</p>
+It has been <a href="lib.yml">generated</a> using ICU version <code>74.2</code> so every additions in the API following this version will not be present in this binding.</p>
 <p>The Crystal wrapper's (the <code><a href="ICU.html">ICU</a></code> class) class and methods are enabled dynamically at compile-time depending on the version of the ICU library that's installed.</p>
 <p>Please make sure that the class/feature you want to use is supported by your version ICU by checking the <a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/">API documentation</a>.</p>
 <h3><a id="regenerate-the-binding" class="anchor" href="#regenerate-the-binding">
@@ -610,26 +690,6 @@ It has been <a href="lib.yml">generated</a> using ICU version <code>74.2</code> 
   </svg>
 </a>About the binding's generation</h3>
 <p>For implementation and technical details about the binding's generation, see <a href="https://github.com/olbat/icu.cr/issues/1">#1</a> &amp; <a href="https://github.com/olbat/icu.cr/issues/3">#3</a>.</p>
-<h2><a id="contributing" class="anchor" href="#contributing">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>Contributing</h2>
-<ol>
-<li>Fork it ( https://github.com/olbat/icu.cr/fork )</li>
-<li>Create your feature branch (git checkout -b my-new-feature)</li>
-<li>Commit your changes (git commit -am 'Add some feature')</li>
-<li>Push to the branch (git push origin my-new-feature)</li>
-<li>Create a new Pull Request</li>
-</ol>
-<h2><a id="contributors" class="anchor" href="#contributors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>Contributors</h2>
-<ul>
-<li><a href="https://github.com/olbat">olbat</a> Luc Sarzyniec - creator, maintainer</li>
-</ul>
 </div>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="1.0.0">
+<meta name="crystal_docs.project_version" content="1.2.0">
 <meta name="crystal_docs.project_name" content="icu.cr">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="icu.cr">
-  <title>ICU::Collator - icu.cr 1.0.0</title>
+  <title>ICU::Collator - icu.cr 1.2.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        1.0.0
+        1.2.0
       </span>
     </div>
   </div>
@@ -204,6 +204,31 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Converter" data-name="icu::converter">
+      <a href="../ICU/Converter.html">Converter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Converter/Platform" data-name="icu::converter::platform">
+      <a href="../ICU/Converter/Platform.html">Platform</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Converter/Type" data-name="icu::converter::type">
+      <a href="../ICU/Converter/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/ConverterSelector" data-name="icu::converterselector">
+      <a href="../ICU/ConverterSelector.html">ConverterSelector</a>
       
     </li>
   
@@ -397,8 +422,58 @@
       
     </li>
   
+  <li class="parent " data-id="icu.cr/ICU/Regex" data-name="icu::regex">
+      <a href="../ICU/Regex.html">Regex</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Regex/Flag" data-name="icu::regex::flag">
+      <a href="../ICU/Regex/Flag.html">Flag</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Regex/Match" data-name="icu::regex::match">
+      <a href="../ICU/Regex/Match.html">Match</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class=" " data-id="icu.cr/ICU/Region" data-name="icu::region">
       <a href="../ICU/Region.html">Region</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/SpoofChecker" data-name="icu::spoofchecker">
+      <a href="../ICU/SpoofChecker.html">SpoofChecker</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/Check" data-name="icu::spoofchecker::check">
+      <a href="../ICU/SpoofChecker/Check.html">Check</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/CheckResult" data-name="icu::spoofchecker::checkresult">
+      <a href="../ICU/SpoofChecker/CheckResult.html">CheckResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/Direction" data-name="icu::spoofchecker::direction">
+      <a href="../ICU/SpoofChecker/Direction.html">Direction</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/RestrictionLevel" data-name="icu::spoofchecker::restrictionlevel">
+      <a href="../ICU/SpoofChecker/RestrictionLevel.html">RestrictionLevel</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -479,6 +554,11 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/USet" data-name="icu::uset">
+      <a href="../ICU/USet.html">USet</a>
       
     </li>
   
@@ -563,7 +643,7 @@ col.compare(<span class="s">&quot;d&quot;</span>, <span class="s">&quot;e&quot;<
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L25" target="_blank">
+      <a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L25" target="_blank">
         icu/collator.cr
       </a>
     
@@ -595,13 +675,12 @@ col.compare(<span class="s">&quot;d&quot;</span>, <span class="s">&quot;e&quot;<
   ustatus <span class="o">=</span> <span class="t">LibICU</span><span class="t">::</span><span class="t">UErrorCode</span><span class="t">::</span><span class="t">UZeroError</span>
   kenum <span class="o">=</span> <span class="t">LibICU</span>.ucol_get_keywords(<span class="k">pointerof</span>(ustatus))
   <span class="t">ICU</span>.check_error!(ustatus)
-  (<span class="t">UEnum</span>.new(kenum)).each <span class="k">do</span> <span class="o">|</span>keyword<span class="o">|</span>
+  (<span class="t">UEnum</span>.new(kenum, owns: <span class="n">true</span>)).each <span class="k">do</span> <span class="o">|</span>keyword<span class="o">|</span>
     ustatus <span class="o">=</span> <span class="t">LibICU</span><span class="t">::</span><span class="t">UErrorCode</span><span class="t">::</span><span class="t">UZeroError</span>
     venum <span class="o">=</span> <span class="t">LibICU</span>.ucol_get_keyword_values(keyword, <span class="k">pointerof</span>(ustatus))
     <span class="t">ICU</span>.check_error!(ustatus)
-    keywords[keyword] <span class="o">=</span> <span class="t">Set</span>(<span class="t">String</span>).new((<span class="t">UEnum</span>.new(venum)).to_a)
+    keywords[keyword] <span class="o">=</span> <span class="t">Set</span>(<span class="t">String</span>).new((<span class="t">UEnum</span>.new(venum, owns: <span class="n">true</span>)).to_a)
   <span class="k">end</span>
-  <span class="t">LibICU</span>.uenum_close(kenum)
   keywords
 <span class="k">end</span></code>
       </dt>
@@ -612,9 +691,7 @@ col.compare(<span class="s">&quot;d&quot;</span>, <span class="s">&quot;e&quot;<
   ustatus <span class="o">=</span> <span class="t">LibICU</span><span class="t">::</span><span class="t">UErrorCode</span><span class="t">::</span><span class="t">UZeroError</span>
   uenum <span class="o">=</span> <span class="t">LibICU</span>.ucol_open_available_locales(<span class="k">pointerof</span>(ustatus))
   <span class="t">ICU</span>.check_error!(ustatus)
-  locales <span class="o">=</span> (<span class="t">UEnum</span>.new(uenum)).to_a
-  <span class="t">LibICU</span>.uenum_close(uenum)
-  <span class="t">Set</span>(<span class="t">String</span>).new(locales)
+  <span class="t">Set</span>(<span class="t">String</span>).new((<span class="t">UEnum</span>.new(uenum, owns: <span class="n">true</span>)).to_a)
 <span class="k">end</span></code>
       </dt>
       
@@ -709,6 +786,20 @@ col.compare(<span class="s">&quot;d&quot;</span>, <span class="s">&quot;e&quot;<
       </li>
     
       <li class="entry-summary">
+        <a href="#contractions%3ASet%28Char%29-instance-method" class="signature"><strong>#contractions</strong> : Set(Char)</a>
+        
+          <div class="summary"><p>Returns the set of contraction characters defined by this collator.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#contractions_and_expansions%28add_prefixes%3ABool%3Dfalse%29%3ATuple%28Set%28Char%29%2CSet%28Char%29%29-instance-method" class="signature"><strong>#contractions_and_expansions</strong>(add_prefixes : Bool = <span class="n">false</span>) : Tuple(Set(Char), Set(Char))</a>
+        
+          <div class="summary"><p>Returns the contraction and expansion character sets for this collator.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#equals%3F%28s1%3AString%2Cs2%3AString%29%3ABool-instance-method" class="signature"><strong>#equals?</strong>(s1 : String, s2 : String) : Bool</a>
         
           <div class="summary"><p>Returns <code>true</code> if the two strings are equivalent</p></div>
@@ -747,6 +838,13 @@ col.compare(<span class="s">&quot;d&quot;</span>, <span class="s">&quot;e&quot;<
     
       <li class="entry-summary">
         <a href="#strength%3D%28value%3AStrength%29-instance-method" class="signature"><strong>#strength=</strong>(value : Strength)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tailored_set%3ASet%28Char%29-instance-method" class="signature"><strong>#tailored_set</strong> : Set(Char)</a>
+        
+          <div class="summary"><p>Returns the set of characters that are tailored (customized) by this collator relative to the root collation order.</p></div>
         
       </li>
     
@@ -820,7 +918,7 @@ If none of them is specified it will be initialized with the default locale.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L81" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L78" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -854,7 +952,7 @@ If none of them is specified it will be initialized with the default locale.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L193" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L252" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -889,7 +987,7 @@ If none of them is specified it will be initialized with the default locale.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L143" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L140" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -910,7 +1008,7 @@ If none of them is specified it will be initialized with the default locale.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L151" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L148" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -935,7 +1033,63 @@ If none of them is specified it will be initialized with the default locale.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L112" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L109" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="contractions:Set(Char)-instance-method">
+      <div class="signature">
+        
+        def <strong>contractions</strong> : Set(<a href="../Char.html">Char</a>)
+
+        <a class="method-permalink" href="#contractions%3ASet%28Char%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the set of contraction characters defined by this collator.</p>
+<p>A contraction is a sequence of two or more characters treated as a single
+collation element (e.g. <code>&quot;ch&quot;</code> in traditional Spanish). Only single code
+points that are the <em>start</em> of a contraction are returned; for complete
+contraction strings use <code><a href="../ICU/Collator.html#contractions_and_expansions%28add_prefixes%3ABool%3Dfalse%29%3ATuple%28Set%28Char%29%2CSet%28Char%29%29-instance-method">#contractions_and_expansions</a></code>.</p>
+<pre><code class="language-crystal">col <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.new(<span class="s">&quot;cs&quot;</span>)   <span class="c"># Czech has &quot;ch&quot; as a contraction</span>
+col.contractions.includes?(<span class="s">&#39;c&#39;</span>) <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L215" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="contractions_and_expansions(add_prefixes:Bool=false):Tuple(Set(Char),Set(Char))-instance-method">
+      <div class="signature">
+        
+        def <strong>contractions_and_expansions</strong>(add_prefixes : Bool = <span class="n">false</span>) : Tuple(Set(<a href="../Char.html">Char</a>), Set(<a href="../Char.html">Char</a>))
+
+        <a class="method-permalink" href="#contractions_and_expansions%28add_prefixes%3ABool%3Dfalse%29%3ATuple%28Set%28Char%29%2CSet%28Char%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the contraction and expansion character sets for this collator.</p>
+<ul>
+<li>The first element is the set of characters that start a contraction.</li>
+<li>The second element is the set of characters involved in expansions
+(a single code point that maps to multiple collation elements).</li>
+</ul>
+<p>Pass <code>add_prefixes: true</code> to also include prefix characters.</p>
+<pre><code class="language-crystal">conts, exps <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.new(<span class="s">&quot;cs&quot;</span>).contractions_and_expansions
+conts.includes?(<span class="s">&#39;c&#39;</span>) <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L235" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -958,7 +1112,7 @@ col.equals?(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L136" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L133" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -974,7 +1128,7 @@ col.equals?(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L104" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L101" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -990,7 +1144,7 @@ col.equals?(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L64" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L61" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1006,7 +1160,7 @@ col.equals?(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L167" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L164" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1022,7 +1176,7 @@ col.equals?(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L180" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L177" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1038,7 +1192,7 @@ col.equals?(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L64" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L61" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1054,7 +1208,7 @@ col.equals?(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L158" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L155" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1070,7 +1224,35 @@ col.equals?(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L162" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L159" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tailored_set:Set(Char)-instance-method">
+      <div class="signature">
+        
+        def <strong>tailored_set</strong> : Set(<a href="../Char.html">Char</a>)
+
+        <a class="method-permalink" href="#tailored_set%3ASet%28Char%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the set of characters that are tailored (customized) by this
+collator relative to the root collation order.</p>
+<p>The result is a plain <code>Set(<a href="../Char.html">Char</a>)</code>. Multi-character contractions that do
+not resolve to a single code point are not included (use
+<code><a href="../ICU/Collator.html#contractions_and_expansions%28add_prefixes%3ABool%3Dfalse%29%3ATuple%28Set%28Char%29%2CSet%28Char%29%29-instance-method">#contractions_and_expansions</a></code> if you need them).</p>
+<pre><code class="language-crystal">col <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">Collator</span>.new(rules: <span class="s">&quot;&amp;b &lt; a&quot;</span>)
+col.tailored_set.includes?(<span class="s">&#39;a&#39;</span>) <span class="c"># =&gt; true</span>
+col.tailored_set.includes?(<span class="s">&#39;b&#39;</span>) <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L197" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1086,7 +1268,7 @@ col.equals?(<span class="s">&quot;a&quot;</span>, <span class="s">&quot;b&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/collator.cr#L108" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/collator.cr#L105" target="_blank">View source</a>]
         
       </div>
     </div>

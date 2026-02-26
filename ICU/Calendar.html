@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Crystal Docs 1.9.2">
-<meta name="crystal_docs.project_version" content="1.0.0">
+<meta name="crystal_docs.project_version" content="1.2.0">
 <meta name="crystal_docs.project_name" content="icu.cr">
 
 
@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="icu.cr">
-  <title>ICU::Calendar - icu.cr 1.0.0</title>
+  <title>ICU::Calendar - icu.cr 1.2.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -45,7 +45,7 @@
       </h1>
 
       <span class="project-version">
-        1.0.0
+        1.2.0
       </span>
     </div>
   </div>
@@ -204,6 +204,31 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Converter" data-name="icu::converter">
+      <a href="../ICU/Converter.html">Converter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Converter/Platform" data-name="icu::converter::platform">
+      <a href="../ICU/Converter/Platform.html">Platform</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Converter/Type" data-name="icu::converter::type">
+      <a href="../ICU/Converter/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/ConverterSelector" data-name="icu::converterselector">
+      <a href="../ICU/ConverterSelector.html">ConverterSelector</a>
       
     </li>
   
@@ -397,8 +422,58 @@
       
     </li>
   
+  <li class="parent " data-id="icu.cr/ICU/Regex" data-name="icu::regex">
+      <a href="../ICU/Regex.html">Regex</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Regex/Flag" data-name="icu::regex::flag">
+      <a href="../ICU/Regex/Flag.html">Flag</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Regex/Match" data-name="icu::regex::match">
+      <a href="../ICU/Regex/Match.html">Match</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class=" " data-id="icu.cr/ICU/Region" data-name="icu::region">
       <a href="../ICU/Region.html">Region</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/SpoofChecker" data-name="icu::spoofchecker">
+      <a href="../ICU/SpoofChecker.html">SpoofChecker</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/Check" data-name="icu::spoofchecker::check">
+      <a href="../ICU/SpoofChecker/Check.html">Check</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/CheckResult" data-name="icu::spoofchecker::checkresult">
+      <a href="../ICU/SpoofChecker/CheckResult.html">CheckResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/Direction" data-name="icu::spoofchecker::direction">
+      <a href="../ICU/SpoofChecker/Direction.html">Direction</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/RestrictionLevel" data-name="icu::spoofchecker::restrictionlevel">
+      <a href="../ICU/SpoofChecker/RestrictionLevel.html">RestrictionLevel</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -479,6 +554,11 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/USet" data-name="icu::uset">
+      <a href="../ICU/USet.html">USet</a>
       
     </li>
   
@@ -576,7 +656,7 @@ puts calendar.in_daylight_time?</code></pre>
   </h2>
   
     
-      <a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L36" target="_blank">
+      <a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L36" target="_blank">
         icu/calendar.cr
       </a>
     
@@ -764,21 +844,21 @@ puts calendar.in_daylight_time?</code></pre>
       </li>
     
       <li class="entry-summary">
-        <a href="#to_unsafe-instance-method" class="signature"><strong>#to_unsafe</strong></a>
+        <a href="#to_unsafe%3APointer%28Pointer%28Void%29%29-instance-method" class="signature"><strong>#to_unsafe</strong> : Pointer(Pointer(Void))</a>
         
       </li>
     
       <li class="entry-summary">
         <a href="#weekend%3F%28year%3AInt32%2Cmonth%3AInt32%2Cday%3AInt32%29%3ABool-instance-method" class="signature"><strong>#weekend?</strong>(year : Int32, month : Int32, day : Int32) : Bool</a>
         
-          <div class="summary"><p>Checks if the calendar's current date and time fall within a weekend for its associated locale.</p></div>
+          <div class="summary"><p>Checks if the given date falls within a weekend for the calendar's locale.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#weekend%3F%28date%3ATime%29%3ABool-instance-method" class="signature"><strong>#weekend?</strong>(date : Time) : Bool</a>
         
-          <div class="summary"><p>Checks if the calendar's current date and time fall within a weekend for its associated locale.</p></div>
+          <div class="summary"><p>Checks if the given date falls within a weekend for the calendar's locale.</p></div>
         
       </li>
     
@@ -854,7 +934,7 @@ puts calendar.in_daylight_time?</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L65" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L65" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -880,7 +960,7 @@ puts calendar.in_daylight_time?</code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L81" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L81" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -907,7 +987,7 @@ The calendar's time zone is derived from the Time object's location.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L98" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L98" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -949,7 +1029,7 @@ as necessary (e.g., adding 1 day to January 31st results in February 1st).</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L214" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L214" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -979,7 +1059,7 @@ down to seconds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L349" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L351" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1009,7 +1089,7 @@ down to seconds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L332" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L334" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1038,7 +1118,7 @@ for equivalence by this method.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L319" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L321" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1054,7 +1134,7 @@ for equivalence by this method.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L119" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L119" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1079,7 +1159,7 @@ for equivalence by this method.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L127" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L127" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1103,7 +1183,7 @@ for equivalence by this method.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L180" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L180" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1124,7 +1204,7 @@ for equivalence by this method.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L197" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L197" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1148,7 +1228,7 @@ for equivalence by this method.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L235" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L235" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1170,7 +1250,7 @@ for its associated time zone.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L271" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L271" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1197,7 +1277,7 @@ up from 31 might result in 1, without changing the <code>Month</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L226" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L226" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1213,7 +1293,7 @@ up from 31 might result in 1, without changing the <code>Month</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L159" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L159" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1233,13 +1313,13 @@ up from 31 might result in 1, without changing the <code>Month</code>.</p>
 <li><code>field</code>: The <code><a href="../ICU/Calendar/DateField.html">DateField</a></code> to set (e.g., <code><a href="../LibICU/UCalendarDateFields.html#Year">DateField::Year</a></code>, <code><a href="../LibICU/UCalendarDateFields.html#Month">DateField::Month</a></code>).</li>
 <li><code>value</code>: The integer value to set for the field. Note that <code><a href="../LibICU/UCalendarDateFields.html#Month">DateField::Month</a></code> is 0-indexed.</li>
 </ul>
-<p>Raises <code>ValueError</code> if the value is outside the valid range for the field.</p>
+<p>Raises <code>ArgumentError</code> if the value is outside the valid range for the field.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L140" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L140" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1261,7 +1341,7 @@ up from 31 might result in 1, without changing the <code>Month</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L172" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L172" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1285,7 +1365,7 @@ up from 31 might result in 1, without changing the <code>Month</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L190" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L190" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1309,23 +1389,23 @@ up from 31 might result in 1, without changing the <code>Month</code>.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L262" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L262" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="to_unsafe-instance-method">
+    <div class="entry-detail" id="to_unsafe:Pointer(Pointer(Void))-instance-method">
       <div class="signature">
         
-        def <strong>to_unsafe</strong>
+        def <strong>to_unsafe</strong> : Pointer(Pointer(Void))
 
-        <a class="method-permalink" href="#to_unsafe-instance-method">#</a>
+        <a class="method-permalink" href="#to_unsafe%3APointer%28Pointer%28Void%29%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L357" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L359" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1340,14 +1420,18 @@ up from 31 might result in 1, without changing the <code>Month</code>.</p>
       
         <div class="doc">
           
-          <p>Checks if the calendar's current date and time fall within a weekend
-for its associated locale.</p>
+          <p>Checks if the given date falls within a weekend for the calendar's locale.</p>
+<ul>
+<li><code>year</code>: The year (1-indexed).</li>
+<li><code>month</code>: The month (1-indexed).</li>
+<li><code>day</code>: The day of the month (1-indexed).</li>
+</ul>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L292" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L295" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1362,14 +1446,16 @@ for its associated locale.</p>
       
         <div class="doc">
           
-          <p>Checks if the calendar's current date and time fall within a weekend
-for its associated locale.</p>
+          <p>Checks if the given date falls within a weekend for the calendar's locale.</p>
+<ul>
+<li><code>date</code>: The <code>Time</code> object representing the date to check.</li>
+</ul>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L298" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L302" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1391,7 +1477,7 @@ for its associated locale.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/olbat/icu.cr/blob/8d3ae21f923d1d5fb721147c27f281570f4ba190/src/icu/calendar.cr#L280" target="_blank">View source</a>]
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/calendar.cr#L280" target="_blank">View source</a>]
         
       </div>
     </div>

@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="crystal_docs.project_version" content="1.2.0">
+<meta name="crystal_docs.project_name" content="icu.cr">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="icu.cr">
+  <title>ICU::USet - icu.cr 1.2.0</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          icu.cr
+        </a>
+      </h1>
+
+      <span class="project-version">
+        1.2.0
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="icu.cr/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/Char" data-name="char">
+      <a href="../Char.html">Char</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="icu.cr/ICU" data-name="icu">
+      <a href="../ICU.html">ICU</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="icu.cr/ICU/BiDi" data-name="icu::bidi">
+      <a href="../ICU/BiDi.html">BiDi</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/BiDi/Direction" data-name="icu::bidi::direction">
+      <a href="../ICU/BiDi/Direction.html">Direction</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/BiDi/Level" data-name="icu::bidi::level">
+      <a href="../ICU/BiDi/Level.html">Level</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/BiDi/ParagraphInfo" data-name="icu::bidi::paragraphinfo">
+      <a href="../ICU/BiDi/ParagraphInfo.html">ParagraphInfo</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/BiDi/ReorderingMode" data-name="icu::bidi::reorderingmode">
+      <a href="../ICU/BiDi/ReorderingMode.html">ReorderingMode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/BiDi/ReorderingOption" data-name="icu::bidi::reorderingoption">
+      <a href="../ICU/BiDi/ReorderingOption.html">ReorderingOption</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/BiDi/VisualRunInfo" data-name="icu::bidi::visualruninfo">
+      <a href="../ICU/BiDi/VisualRunInfo.html">VisualRunInfo</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/BiDi/WriteOption" data-name="icu::bidi::writeoption">
+      <a href="../ICU/BiDi/WriteOption.html">WriteOption</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/BreakIterator" data-name="icu::breakiterator">
+      <a href="../ICU/BreakIterator.html">BreakIterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/BreakIterator/Type" data-name="icu::breakiterator::type">
+      <a href="../ICU/BreakIterator/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Calendar" data-name="icu::calendar">
+      <a href="../ICU/Calendar.html">Calendar</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Calendar/DateField" data-name="icu::calendar::datefield">
+      <a href="../ICU/Calendar/DateField.html">DateField</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Calendar/Type" data-name="icu::calendar::type">
+      <a href="../ICU/Calendar/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/CharsetDetector" data-name="icu::charsetdetector">
+      <a href="../ICU/CharsetDetector.html">CharsetDetector</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/CharsetDetector/CharsetMatch" data-name="icu::charsetdetector::charsetmatch">
+      <a href="../ICU/CharsetDetector/CharsetMatch.html">CharsetMatch</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Collator" data-name="icu::collator">
+      <a href="../ICU/Collator.html">Collator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Collator/Attribute" data-name="icu::collator::attribute">
+      <a href="../ICU/Collator/Attribute.html">Attribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Collator/AttributeValue" data-name="icu::collator::attributevalue">
+      <a href="../ICU/Collator/AttributeValue.html">AttributeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Collator/BoundMode" data-name="icu::collator::boundmode">
+      <a href="../ICU/Collator/BoundMode.html">BoundMode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Collator/ReorderCode" data-name="icu::collator::reordercode">
+      <a href="../ICU/Collator/ReorderCode.html">ReorderCode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Collator/RuleOption" data-name="icu::collator::ruleoption">
+      <a href="../ICU/Collator/RuleOption.html">RuleOption</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Collator/Strength" data-name="icu::collator::strength">
+      <a href="../ICU/Collator/Strength.html">Strength</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Converter" data-name="icu::converter">
+      <a href="../ICU/Converter.html">Converter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Converter/Platform" data-name="icu::converter::platform">
+      <a href="../ICU/Converter/Platform.html">Platform</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Converter/Type" data-name="icu::converter::type">
+      <a href="../ICU/Converter/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/ConverterSelector" data-name="icu::converterselector">
+      <a href="../ICU/ConverterSelector.html">ConverterSelector</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Currencies" data-name="icu::currencies">
+      <a href="../ICU/Currencies.html">Currencies</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Currencies/NameStyle" data-name="icu::currencies::namestyle">
+      <a href="../ICU/Currencies/NameStyle.html">NameStyle</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Currencies/Type" data-name="icu::currencies::type">
+      <a href="../ICU/Currencies/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Date" data-name="icu::date">
+      <a href="../ICU/Date.html">Date</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/DateTimeFormatter" data-name="icu::datetimeformatter">
+      <a href="../ICU/DateTimeFormatter.html">DateTimeFormatter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/DateTimeFormatter/FormatStyle" data-name="icu::datetimeformatter::formatstyle">
+      <a href="../ICU/DateTimeFormatter/FormatStyle.html">FormatStyle</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Error" data-name="icu::error">
+      <a href="../ICU/Error.html">Error</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/IDNA" data-name="icu::idna">
+      <a href="../ICU/IDNA.html">IDNA</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/IDNA/Option" data-name="icu::idna::option">
+      <a href="../ICU/IDNA/Option.html">Option</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Locale" data-name="icu::locale">
+      <a href="../ICU/Locale.html">Locale</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Locale/AcceptResult" data-name="icu::locale::acceptresult">
+      <a href="../ICU/Locale/AcceptResult.html">AcceptResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Locale/Capacity" data-name="icu::locale::capacity">
+      <a href="../ICU/Locale/Capacity.html">Capacity</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Locale/DelimiterType" data-name="icu::locale::delimitertype">
+      <a href="../ICU/Locale/DelimiterType.html">DelimiterType</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Locale/Keyword" data-name="icu::locale::keyword">
+      <a href="../ICU/Locale/Keyword.html">Keyword</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Locale/LayoutType" data-name="icu::locale::layouttype">
+      <a href="../ICU/Locale/LayoutType.html">LayoutType</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Locale/MeasurementSystem" data-name="icu::locale::measurementsystem">
+      <a href="../ICU/Locale/MeasurementSystem.html">MeasurementSystem</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Normalizer" data-name="icu::normalizer">
+      <a href="../ICU/Normalizer.html">Normalizer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Normalizer/CheckResult" data-name="icu::normalizer::checkresult">
+      <a href="../ICU/Normalizer/CheckResult.html">CheckResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Normalizer/Mode" data-name="icu::normalizer::mode">
+      <a href="../ICU/Normalizer/Mode.html">Mode</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Normalizer/NFC" data-name="icu::normalizer::nfc">
+      <a href="../ICU/Normalizer/NFC.html">NFC</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Normalizer/NFD" data-name="icu::normalizer::nfd">
+      <a href="../ICU/Normalizer/NFD.html">NFD</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Normalizer/NFKC" data-name="icu::normalizer::nfkc">
+      <a href="../ICU/Normalizer/NFKC.html">NFKC</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Normalizer/NFKCCF" data-name="icu::normalizer::nfkccf">
+      <a href="../ICU/Normalizer/NFKCCF.html">NFKCCF</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Normalizer/NFKD" data-name="icu::normalizer::nfkd">
+      <a href="../ICU/Normalizer/NFKD.html">NFKD</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Normalizer/Type" data-name="icu::normalizer::type">
+      <a href="../ICU/Normalizer/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/NumberFormatter" data-name="icu::numberformatter">
+      <a href="../ICU/NumberFormatter.html">NumberFormatter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/NumberFormatter/FormatAttribute" data-name="icu::numberformatter::formatattribute">
+      <a href="../ICU/NumberFormatter/FormatAttribute.html">FormatAttribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/NumberFormatter/FormatStyle" data-name="icu::numberformatter::formatstyle">
+      <a href="../ICU/NumberFormatter/FormatStyle.html">FormatStyle</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/NumberFormatter/MonetaryAmount" data-name="icu::numberformatter::monetaryamount">
+      <a href="../ICU/NumberFormatter/MonetaryAmount.html">MonetaryAmount</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/PluralRules" data-name="icu::pluralrules">
+      <a href="../ICU/PluralRules.html">PluralRules</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/PluralRules/Type" data-name="icu::pluralrules::type">
+      <a href="../ICU/PluralRules/Type.html">Type</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Regex" data-name="icu::regex">
+      <a href="../ICU/Regex.html">Regex</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Regex/Flag" data-name="icu::regex::flag">
+      <a href="../ICU/Regex/Flag.html">Flag</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Regex/Match" data-name="icu::regex::match">
+      <a href="../ICU/Regex/Match.html">Match</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/Region" data-name="icu::region">
+      <a href="../ICU/Region.html">Region</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/SpoofChecker" data-name="icu::spoofchecker">
+      <a href="../ICU/SpoofChecker.html">SpoofChecker</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/Check" data-name="icu::spoofchecker::check">
+      <a href="../ICU/SpoofChecker/Check.html">Check</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/CheckResult" data-name="icu::spoofchecker::checkresult">
+      <a href="../ICU/SpoofChecker/CheckResult.html">CheckResult</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/Direction" data-name="icu::spoofchecker::direction">
+      <a href="../ICU/SpoofChecker/Direction.html">Direction</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/SpoofChecker/RestrictionLevel" data-name="icu::spoofchecker::restrictionlevel">
+      <a href="../ICU/SpoofChecker/RestrictionLevel.html">RestrictionLevel</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/StringSearch" data-name="icu::stringsearch">
+      <a href="../ICU/StringSearch.html">StringSearch</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/StringSearch/Attribute" data-name="icu::stringsearch::attribute">
+      <a href="../ICU/StringSearch/Attribute.html">Attribute</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/StringSearch/AttributeValue" data-name="icu::stringsearch::attributevalue">
+      <a href="../ICU/StringSearch/AttributeValue.html">AttributeValue</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/StringSearch/Position" data-name="icu::stringsearch::position">
+      <a href="../ICU/StringSearch/Position.html">Position</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/Transliterator" data-name="icu::transliterator">
+      <a href="../ICU/Transliterator.html">Transliterator</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/Transliterator/ID" data-name="icu::transliterator::id">
+      <a href="../ICU/Transliterator/ID.html">ID</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/UChar" data-name="icu::uchar">
+      <a href="../ICU/UChar.html">UChar</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/UChars" data-name="icu::uchars">
+      <a href="../ICU/UChars.html">UChars</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/UEnum" data-name="icu::uenum">
+      <a href="../ICU/UEnum.html">UEnum</a>
+      
+    </li>
+  
+  <li class="parent " data-id="icu.cr/ICU/UniversalTimeScale" data-name="icu::universaltimescale">
+      <a href="../ICU/UniversalTimeScale.html">UniversalTimeScale</a>
+      
+        <ul>
+  
+  <li class=" " data-id="icu.cr/ICU/UniversalTimeScale/DateTimeScale" data-name="icu::universaltimescale::datetimescale">
+      <a href="../ICU/UniversalTimeScale/DateTimeScale.html">DateTimeScale</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/UniversalTimeScale/TimeScaleValues" data-name="icu::universaltimescale::timescalevalues">
+      <a href="../ICU/UniversalTimeScale/TimeScaleValues.html">TimeScaleValues</a>
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/ICU/UniversalTimeScale/UniversalTime" data-name="icu::universaltimescale::universaltime">
+      <a href="../ICU/UniversalTimeScale/UniversalTime.html">UniversalTime</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" current" data-id="icu.cr/ICU/USet" data-name="icu::uset">
+      <a href="../ICU/USet.html">USet</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="icu.cr/String" data-name="string">
+      <a href="../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> ICU::<wbr>USet
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../ICU/USet.html">ICU::USet</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p><strong>Sets of Unicode Code Points and Strings</strong></p>
+<p><code><a href="../ICU/USet.html">ICU::USet</a></code> is a mutable set of Unicode code points (characters) and
+multi-character strings. It is used internally by ICU APIs such as
+<code><a href="../ICU/Collator.html">ICU::Collator</a></code> and <code><a href="../ICU/Transliterator.html">ICU::Transliterator</a></code>, and is exposed here as an
+<code>Enumerable(<a href="../Char.html">Char</a>)</code> so that callers can work with ordinary Crystal types.</p>
+<p>Sets can be constructed from a character range, from a UnicodeSet pattern
+string (e.g. <code>&quot;[\\p{L}]&quot;</code>, <code>&quot;[a-zA-Z0-9]&quot;</code>), or built up programmatically
+via <code><a href="../ICU/USet.html#add%28char%3AChar%29%3Aself-instance-method">#add</a></code> / <code><a href="../ICU/USet.html#add_range%28from%3AChar%2Cto%3AChar%29%3Aself-instance-method">#add_range</a></code>.</p>
+<p>For simple inspection you can call <code><a href="../ICU/USet.html#to_set%3ASet%28Char%29-instance-method">#to_set</a></code> to obtain a plain <code>Set(<a href="../Char.html">Char</a>)</code>,
+or iterate directly with <code><a href="../ICU/USet.html#each%28%26%3AChar-%3E%29%3ANil-instance-method">#each</a></code>.</p>
+<p><strong>Usage</strong></p>
+<pre><code class="language-crystal">s <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;z&#39;</span>) <span class="c"># characters a–z</span>
+s.includes?(<span class="s">&#39;m&#39;</span>)            <span class="c"># =&gt; true</span>
+s.size                      <span class="c"># =&gt; 26</span>
+s.to_set                    <span class="c"># =&gt; Set{&#39;a&#39;, &#39;b&#39;, ..., &#39;z&#39;}</span>
+
+vowels <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&quot;[aeiouAEIOU]&quot;</span>)
+vowels.includes?(<span class="s">&#39;e&#39;</span>) <span class="c"># =&gt; true</span></code></pre>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="https://unicode-org.github.io/icu/userguide/strings/unicodeset.html">ICU User Guide</a></li>
+<li><a href="https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/uset_8h.html">Reference C API</a></li>
+<li><a href="https://github.com/olbat/icu.cr/blob/master/spec/uset_spec.cr">Unit tests</a></li>
+</ul>
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">Enumerable(<a href="../Char.html">Char</a>)</li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L30" target="_blank">
+        icu/uset.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28from%3AChar%2Cto%3AChar%29-class-method" class="signature"><strong>.new</strong>(from : Char, to : Char)</a>
+        
+          <div class="summary"><p>Creates a set containing all characters in the range <em>from</em>..<em>to</em> (inclusive).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28pattern%3AString%29-class-method" class="signature"><strong>.new</strong>(pattern : String)</a>
+        
+          <div class="summary"><p>Creates a set from a <a href="https://unicode-org.github.io/icu/userguide/strings/unicodeset.html">UnicodeSet pattern</a>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+          <div class="summary"><p>Creates an empty set.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#add%28char%3AChar%29%3Aself-instance-method" class="signature"><strong>#add</strong>(char : Char) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Adds <em>char</em> to this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add%28string%3AString%29%3Aself-instance-method" class="signature"><strong>#add</strong>(string : String) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Adds a multi-character string element to this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add_all%28other%3AUSet%29%3Aself-instance-method" class="signature"><strong>#add_all</strong>(other : USet) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Adds all members of <em>other</em> to this set (union in place).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add_range%28from%3AChar%2Cto%3AChar%29%3Aself-instance-method" class="signature"><strong>#add_range</strong>(from : Char, to : Char) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Adds all characters in the range <em>from</em>..<em>to</em> (inclusive) to this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear%3Aself-instance-method" class="signature"><strong>#clear</strong> : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Removes all members, leaving an empty set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#complement%3Aself-instance-method" class="signature"><strong>#complement</strong> : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Complements this set: every character previously absent is added, and every character previously present is removed.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#disjoint%3F%28other%3AUSet%29%3ABool-instance-method" class="signature"><strong>#disjoint?</strong>(other : USet) : Bool</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if this set and <em>other</em> have no characters in common.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#each%28%26%3AChar-%3E%29%3ANil-instance-method" class="signature"><strong>#each</strong>(& : Char -> ) : Nil</a>
+        
+          <div class="summary"><p>Yields each character in this set (string elements are skipped).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#empty%3F%3ABool-instance-method" class="signature"><strong>#empty?</strong> : Bool</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if the set contains no characters or strings.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#finalize-instance-method" class="signature"><strong>#finalize</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#includes%3F%28char%3AChar%29%3ABool-instance-method" class="signature"><strong>#includes?</strong>(char : Char) : Bool</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if <em>char</em> is a member of this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#includes%3F%28string%3AString%29%3ABool-instance-method" class="signature"><strong>#includes?</strong>(string : String) : Bool</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if <em>string</em> (as a multi-character string element) is in this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#includes_all_of%3F%28string%3AString%29%3ABool-instance-method" class="signature"><strong>#includes_all_of?</strong>(string : String) : Bool</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if every character of <em>string</em> is individually in this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#intersects%3F%28other%3AUSet%29%3ABool-instance-method" class="signature"><strong>#intersects?</strong>(other : USet) : Bool</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if this set and <em>other</em> have at least one character in common.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove%28char%3AChar%29%3Aself-instance-method" class="signature"><strong>#remove</strong>(char : Char) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Removes <em>char</em> from this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_all%28other%3AUSet%29%3Aself-instance-method" class="signature"><strong>#remove_all</strong>(other : USet) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Removes all members of <em>other</em> from this set (set difference in place).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#remove_range%28from%3AChar%2Cto%3AChar%29%3Aself-instance-method" class="signature"><strong>#remove_range</strong>(from : Char, to : Char) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Removes all characters in the range <em>from</em>..<em>to</em> from this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#retain_all%28other%3AUSet%29%3Aself-instance-method" class="signature"><strong>#retain_all</strong>(other : USet) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Retains only the members of <em>other</em> (intersection in place).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size%3AInt32-instance-method" class="signature"><strong>#size</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the number of characters (and strings) in this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#superset%3F%28other%3AUSet%29%3ABool-instance-method" class="signature"><strong>#superset?</strong>(other : USet) : Bool</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if every member of <em>other</em> is also in this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_pattern%28escape_unprintable%3ABool%3Dfalse%29%3AString-instance-method" class="signature"><strong>#to_pattern</strong>(escape_unprintable : Bool = <span class="n">false</span>) : String</a>
+        
+          <div class="summary"><p>Returns the UnicodeSet pattern string representing this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_set%3ASet%28Char%29-instance-method" class="signature"><strong>#to_set</strong> : Set(Char)</a>
+        
+          <div class="summary"><p>Returns a Crystal <code>Set(<a href="../Char.html">Char</a>)</code> with all characters from this set.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_unsafe%3ALibICU%3A%3AUSet-instance-method" class="signature"><strong>#to_unsafe</strong> : LibICU::USet</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(from:Char,to:Char)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(from : <a href="../Char.html">Char</a>, to : <a href="../Char.html">Char</a>)
+
+        <a class="method-permalink" href="#new%28from%3AChar%2Cto%3AChar%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a set containing all characters in the range <em>from</em>..<em>to</em> (inclusive).</p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;z&#39;</span>).size <span class="c"># =&gt; 26</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L51" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(pattern:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pattern : <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#new%28pattern%3AString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a set from a <a href="https://unicode-org.github.io/icu/userguide/strings/unicodeset.html">UnicodeSet pattern</a>.</p>
+<p>Raises <code><a href="../ICU/Error.html">ICU::Error</a></code> if the pattern is invalid.</p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&quot;[\\p{Lu}]&quot;</span>) <span class="c"># all uppercase letters</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&quot;[aeiou]&quot;</span>)   <span class="c"># vowels</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L64" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates an empty set.</p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L41" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="add(char:Char):self-instance-method">
+      <div class="signature">
+        
+        def <strong>add</strong>(char : <a href="../Char.html">Char</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#add%28char%3AChar%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Adds <em>char</em> to this set.</p>
+<pre><code class="language-crystal">s <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new
+s.add(<span class="s">&#39;x&#39;</span>)
+s.includes?(<span class="s">&#39;x&#39;</span>) <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L140" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add(string:String):self-instance-method">
+      <div class="signature">
+        
+        def <strong>add</strong>(string : <a href="../String.html">String</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#add%28string%3AString%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Adds a multi-character string element to this set.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L158" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add_all(other:USet):self-instance-method">
+      <div class="signature">
+        
+        def <strong>add_all</strong>(other : <a href="../ICU/USet.html">USet</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#add_all%28other%3AUSet%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Adds all members of <em>other</em> to this set (union in place).</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;c&#39;</span>)
+b <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;d&#39;</span>, <span class="s">&#39;f&#39;</span>)
+a.add_all(b).size <span class="c"># =&gt; 6</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L171" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add_range(from:Char,to:Char):self-instance-method">
+      <div class="signature">
+        
+        def <strong>add_range</strong>(from : <a href="../Char.html">Char</a>, to : <a href="../Char.html">Char</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#add_range%28from%3AChar%2Cto%3AChar%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Adds all characters in the range <em>from</em>..<em>to</em> (inclusive) to this set.</p>
+<pre><code class="language-crystal">s <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new
+s.add_range(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;f&#39;</span>)
+s.size <span class="c"># =&gt; 6</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L152" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear:self-instance-method">
+      <div class="signature">
+        
+        def <strong>clear</strong> : <span class="k">self</span>
+
+        <a class="method-permalink" href="#clear%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Removes all members, leaving an empty set.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L207" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="complement:self-instance-method">
+      <div class="signature">
+        
+        def <strong>complement</strong> : <span class="k">self</span>
+
+        <a class="method-permalink" href="#complement%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Complements this set: every character previously absent is added, and
+every character previously present is removed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L214" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="disjoint?(other:USet):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>disjoint?</strong>(other : <a href="../ICU/USet.html">USet</a>) : Bool
+
+        <a class="method-permalink" href="#disjoint%3F%28other%3AUSet%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if this set and <em>other</em> have no characters in common.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L220" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="each(&amp;:Char-&gt;):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>each</strong>(& : <a href="../Char.html">Char</a> -> ) : Nil
+
+        <a class="method-permalink" href="#each%28%26%3AChar-%3E%29%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields each character in this set (string elements are skipped).</p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;c&#39;</span>).each { <span class="o">|</span>c<span class="o">|</span> print c } <span class="c"># =&gt; abc</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L251" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="empty?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>empty?</strong> : Bool
+
+        <a class="method-permalink" href="#empty%3F%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if the set contains no characters or strings.</p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new.empty? <span class="c"># =&gt; true</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L101" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="finalize-instance-method">
+      <div class="signature">
+        
+        def <strong>finalize</strong>
+
+        <a class="method-permalink" href="#finalize-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L79" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="includes?(char:Char):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>includes?</strong>(char : <a href="../Char.html">Char</a>) : Bool
+
+        <a class="method-permalink" href="#includes%3F%28char%3AChar%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if <em>char</em> is a member of this set.</p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;z&#39;</span>).includes?(<span class="s">&#39;m&#39;</span>) <span class="c"># =&gt; true</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;z&#39;</span>).includes?(<span class="s">&#39;M&#39;</span>) <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L111" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="includes?(string:String):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>includes?</strong>(string : <a href="../String.html">String</a>) : Bool
+
+        <a class="method-permalink" href="#includes%3F%28string%3AString%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if <em>string</em> (as a multi-character string element) is in
+this set.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L117" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="includes_all_of?(string:String):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>includes_all_of?</strong>(string : <a href="../String.html">String</a>) : Bool
+
+        <a class="method-permalink" href="#includes_all_of%3F%28string%3AString%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if every character of <em>string</em> is individually in this set.</p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;z&#39;</span>).includes_all_of?(<span class="s">&quot;hello&quot;</span>) <span class="c"># =&gt; true</span>
+<span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;z&#39;</span>).includes_all_of?(<span class="s">&quot;Hello&quot;</span>) <span class="c"># =&gt; false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L128" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="intersects?(other:USet):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>intersects?</strong>(other : <a href="../ICU/USet.html">USet</a>) : Bool
+
+        <a class="method-permalink" href="#intersects%3F%28other%3AUSet%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if this set and <em>other</em> have at least one character in common.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L225" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove(char:Char):self-instance-method">
+      <div class="signature">
+        
+        def <strong>remove</strong>(char : <a href="../Char.html">Char</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#remove%28char%3AChar%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Removes <em>char</em> from this set.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L177" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_all(other:USet):self-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_all</strong>(other : <a href="../ICU/USet.html">USet</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#remove_all%28other%3AUSet%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Removes all members of <em>other</em> from this set (set difference in place).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L189" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="remove_range(from:Char,to:Char):self-instance-method">
+      <div class="signature">
+        
+        def <strong>remove_range</strong>(from : <a href="../Char.html">Char</a>, to : <a href="../Char.html">Char</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#remove_range%28from%3AChar%2Cto%3AChar%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Removes all characters in the range <em>from</em>..<em>to</em> from this set.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L183" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="retain_all(other:USet):self-instance-method">
+      <div class="signature">
+        
+        def <strong>retain_all</strong>(other : <a href="../ICU/USet.html">USet</a>) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#retain_all%28other%3AUSet%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Retains only the members of <em>other</em> (intersection in place).</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;f&#39;</span>)
+b <span class="o">=</span> <span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;d&#39;</span>, <span class="s">&#39;z&#39;</span>)
+a.retain_all(b).to_set <span class="c"># =&gt; Set{&#39;d&#39;, &#39;e&#39;, &#39;f&#39;}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L201" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>size</strong> : Int32
+
+        <a class="method-permalink" href="#size%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of characters (and strings) in this set.</p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;z&#39;</span>).size <span class="c"># =&gt; 26</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L92" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="superset?(other:USet):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>superset?</strong>(other : <a href="../ICU/USet.html">USet</a>) : Bool
+
+        <a class="method-permalink" href="#superset%3F%28other%3AUSet%29%3ABool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>true</code> if every member of <em>other</em> is also in this set.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L230" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_pattern(escape_unprintable:Bool=false):String-instance-method">
+      <div class="signature">
+        
+        def <strong>to_pattern</strong>(escape_unprintable : Bool = <span class="n">false</span>) : <a href="../String.html">String</a>
+
+        <a class="method-permalink" href="#to_pattern%28escape_unprintable%3ABool%3Dfalse%29%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the UnicodeSet pattern string representing this set.</p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;c&#39;</span>).to_pattern <span class="c"># =&gt; &quot;[a-c]&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L239" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_set:Set(Char)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_set</strong> : Set(<a href="../Char.html">Char</a>)
+
+        <a class="method-permalink" href="#to_set%3ASet%28Char%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a Crystal <code>Set(<a href="../Char.html">Char</a>)</code> with all characters from this set.
+Multi-character string elements are omitted.</p>
+<pre><code class="language-crystal"><span class="t">ICU</span><span class="t">::</span><span class="t">USet</span>.new(<span class="s">&#39;a&#39;</span>, <span class="s">&#39;c&#39;</span>).to_set <span class="c"># =&gt; Set{&#39;a&#39;, &#39;b&#39;, &#39;c&#39;}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L278" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_unsafe:LibICU::USet-instance-method">
+      <div class="signature">
+        
+        def <strong>to_unsafe</strong> : LibICU::USet
+
+        <a class="method-permalink" href="#to_unsafe%3ALibICU%3A%3AUSet-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/olbat/icu.cr/blob/95b17c9e5274b007ac9485c1a6e63a138a10cdde/src/icu/uset.cr#L83" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>
